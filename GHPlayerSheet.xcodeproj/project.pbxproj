@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
-		1ECF00D32007106400C2E11D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D22007106400C2E11D /* ViewController.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
 		1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D72007106400C2E11D /* Assets.xcassets */; };
 		1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */; };
+		1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E42007130B00C2E11D /* CharacterModel.swift */; };
+		1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E620072A5600C2E11D /* HubViewController.swift */; };
+		1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00D02007106400C2E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1ECF00D22007106400C2E11D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1ECF00D52007106400C2E11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ECF00D72007106400C2E11D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ECF00DA2007106400C2E11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ECF00DC2007106400C2E11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ECF00E42007130B00C2E11D /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		1ECF00E620072A5600C2E11D /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
+		1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
-				1ECF00D22007106400C2E11D /* ViewController.swift */,
 				1ECF00D42007106400C2E11D /* Main.storyboard */,
 				1ECF00D72007106400C2E11D /* Assets.xcassets */,
 				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
 				1ECF00DC2007106400C2E11D /* Info.plist */,
+				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
+				1ECF00E620072A5600C2E11D /* HubViewController.swift */,
+				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
 			);
 			path = GHPlayerSheet;
 			sourceTree = "<group>";
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ECF00D32007106400C2E11D /* ViewController.swift in Sources */,
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
+				1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */,
+				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
+				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
