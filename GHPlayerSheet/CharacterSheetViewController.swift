@@ -7,7 +7,7 @@ class CharacterSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        className.text = characterModel?.classType.rawValue
+        className.text = characterModel?.characterClass.rawValue
         characterName.text = characterModel?.name
         level.text = String(describing: characterModel!.level)
     }

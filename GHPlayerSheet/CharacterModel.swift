@@ -1,6 +1,7 @@
 import Foundation
 
-enum ClassType: String {
+enum CharacterClass: String {
+    case none = ""
     case cragheart = "Savvas Cragheart"
     case scoundrel = "Human Scoundrel"
     case tinkerer = "Quatryl Tinkerer"
@@ -15,7 +16,7 @@ enum ItemType {
 
 class CharacterModel {
     
-    let classType : ClassType
+    let characterClass : CharacterClass
     var name : String
     var level : Int
     var xp = 0
@@ -25,8 +26,8 @@ class CharacterModel {
     var activePerks = [String]()
     var notes = ""
     
-    init(classType: ClassType, name: String, level: Int) {
-        self.classType = classType
+    init(characterClass: CharacterClass, name: String, level: Int) {
+        self.characterClass = characterClass
         self.name = name
         self.level = level
     }
