@@ -8,7 +8,7 @@ class HubViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var characterClassLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var levelButtons: [UIButton]!
-    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var createCharacterButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -16,7 +16,7 @@ class HubViewController: UIViewController, UITextFieldDelegate {
         
         nameTextField.delegate = self
         setDefaultLevelButtonsBackgrounds()
-        createButton.titleLabel?.textColor = .lightGray
+        setCreateCharacterButton()
     }
     
     
@@ -27,18 +27,17 @@ class HubViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("done pressed")
         nameTextField.resignFirstResponder()
         return false
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         toggleCreateButton()
-        print("textField did end editing")
     }
     
     
     //MARK: - Set character level buttons handling
+    
     func setDefaultLevelButtonsBackgrounds(){
         for button in levelButtons {
             button.backgroundColor = .blue
@@ -52,24 +51,25 @@ class HubViewController: UIViewController, UITextFieldDelegate {
             level = Int(buttonNumber)!
         }
         toggleCreateButton()
-        print(level)
     }
     
     
-    //MARK: - Create character button handling
-    @IBAction func createCharacter(_ sender: Any) {
+    //MARK: - Create button handling
+    
+    @IBAction func createCharacterTapped(_ sender: Any) {
     }
     
     func toggleCreateButton(){
         if nameTextField.text != "" && level != 0 {
-            print(nameTextField.text!)
-            createButton.isEnabled = true
-            createButton.titleLabel?.textColor = .blue
+            createCharacterButton.isEnabled = true
         } else {
-            print("text field is empty")
-            createButton.isEnabled = false
-            createButton.titleLabel?.textColor = .lightGray
+            createCharacterButton.isEnabled = false
         }
+    }
+    
+    func setCreateCharacterButton(){
+        createCharacterButton.setTitleColor(UIColor.gray, for: .disabled)
+        toggleCreateButton()
     }
     
     // MARK: - Navigation

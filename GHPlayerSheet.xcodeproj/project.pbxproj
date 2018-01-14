@@ -39,6 +39,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E0FFCEB200B6719001525F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
+				1ECF00D72007106400C2E11D /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E0FFCEC200B6734001525F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ECF00D42007106400C2E11D /* Main.storyboard */,
+				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1E0FFCED200B6746001525F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E0FFCEE200B6752001525F7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1ECF00E620072A5600C2E11D /* HubViewController.swift */,
+				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		1ECF00C42007106400C2E11D = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +93,11 @@
 		1ECF00CF2007106400C2E11D /* GHPlayerSheet */ = {
 			isa = PBXGroup;
 			children = (
-				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
-				1ECF00D42007106400C2E11D /* Main.storyboard */,
-				1ECF00D72007106400C2E11D /* Assets.xcassets */,
-				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
+				1E0FFCEE200B6752001525F7 /* Controllers */,
+				1E0FFCED200B6746001525F7 /* Models */,
+				1E0FFCEC200B6734001525F7 /* Views */,
+				1E0FFCEB200B6719001525F7 /* Supporting Files */,
 				1ECF00DC2007106400C2E11D /* Info.plist */,
-				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
-				1ECF00E620072A5600C2E11D /* HubViewController.swift */,
-				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
 			);
 			path = GHPlayerSheet;
 			sourceTree = "<group>";
