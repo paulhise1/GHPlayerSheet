@@ -64,6 +64,7 @@ class HubViewController: UIViewController, UITextFieldDelegate {
             createCharacterButton.isEnabled = true
         } else {
             createCharacterButton.isEnabled = false
+            
         }
     }
     
@@ -73,7 +74,7 @@ class HubViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let characterModel = CharacterModel(characterClass: characterClass, name: nameTextField.text!, level: level)
         let characterSheetVC = segue.destination as! CharacterSheetViewController

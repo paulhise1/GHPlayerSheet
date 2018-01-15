@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FFCEF200C409B001525F7 /* StatModifierView.swift */; };
+		1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
 		1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D72007106400C2E11D /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E0FFCEF200C409B001525F7 /* StatModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatModifierView.swift; sourceTree = "<group>"; };
+		1E0FFCF2200C40D0001525F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatModifierView.xib; sourceTree = "<group>"; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00D02007106400C2E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECF00D52007106400C2E11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +46,7 @@
 		1E0FFCEB200B6719001525F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
 				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
 				1ECF00D72007106400C2E11D /* Assets.xcassets */,
 			);
@@ -52,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				1ECF00D42007106400C2E11D /* Main.storyboard */,
-				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
+				1E0FFCEF200C409B001525F7 /* StatModifierView.swift */,
+				1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
 				1ECF00D62007106400C2E11D /* Main.storyboard in Resources */,
+				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +184,7 @@
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
 				1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */,
 				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
+				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +192,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E0FFCF2200C40D0001525F7 /* Base */,
+			);
+			name = StatModifierView.xib;
+			sourceTree = "<group>";
+		};
 		1ECF00D42007106400C2E11D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
