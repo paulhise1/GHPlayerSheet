@@ -216,7 +216,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-rz-1xo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1j-wf-51q" userLabel="Entering Name Protector View">
+                                <rect key="frame" x="0.0" y="-9" width="812" height="372"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="372" id="Bcf-N2-Fa4"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Inox-Brute1" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-rz-1xo">
                                 <rect key="frame" x="43.999999999999986" y="10" width="243.66666666666663" height="225"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPb-nA-wOC" userLabel="Items View">
@@ -259,15 +266,9 @@
                                 <rect key="frame" x="48" y="20" width="47" height="30"/>
                                 <state key="normal" title="Level 1"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0U-PA-eoN" userLabel="Stats Modifier Container View">
-                                <rect key="frame" x="287.66666666666663" y="20" width="262.66666666666663" height="262.66666666666669"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="v0U-PA-eoN" secondAttribute="height" id="Vt2-Zp-UMZ"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-4R-ziz">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-4R-ziz">
                                 <rect key="frame" x="43.999999999999986" y="195" width="243.66666666666663" height="40"/>
-                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0nO-UA-WoZ"/>
                                 </constraints>
@@ -276,22 +277,30 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIN-0R-WSj">
-                                <rect key="frame" x="55.666666666666657" y="195.66666666666666" width="218.99999999999997" height="40"/>
+                                <rect key="frame" x="56" y="195" width="219" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0U-PA-eoN" userLabel="Stats Modifier Container View">
+                                <rect key="frame" x="287.66666666666663" y="20" width="262.66666666666663" height="262.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="v0U-PA-eoN" secondAttribute="height" id="Vt2-Zp-UMZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vde-uP-Cbn" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="leading" constant="4" id="4y6-3R-Uoi"/>
                             <constraint firstItem="Vde-uP-Cbn" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" constant="10" id="5g4-Yr-Mda"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="width" secondItem="5Y0-BI-FYY" secondAttribute="width" multiplier="0.3" id="AoB-b2-qx6"/>
+                            <constraint firstItem="c1j-wf-51q" firstAttribute="centerX" secondItem="5Y0-BI-FYY" secondAttribute="centerX" id="BEK-2v-Jb9"/>
                             <constraint firstItem="JIN-0R-WSj" firstAttribute="centerY" secondItem="XPD-4R-ziz" secondAttribute="centerY" id="CkV-qb-k5d"/>
                             <constraint firstItem="aRr-rz-1xo" firstAttribute="width" secondItem="5Y0-BI-FYY" secondAttribute="width" multiplier="0.3" id="Dsd-Od-zd3"/>
                             <constraint firstItem="aRr-rz-1xo" firstAttribute="leading" secondItem="9dw-uQ-tc1" secondAttribute="leading" id="G41-7w-zWM"/>
                             <constraint firstItem="JIN-0R-WSj" firstAttribute="centerX" secondItem="XPD-4R-ziz" secondAttribute="centerX" id="HLq-oV-x2Y"/>
                             <constraint firstItem="XPD-4R-ziz" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="Iyf-bt-Fpk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Vde-uP-Cbn" secondAttribute="trailing" constant="20" symbolic="YES" id="NVf-ym-yo7"/>
                             <constraint firstItem="XPD-4R-ziz" firstAttribute="width" secondItem="aRr-rz-1xo" secondAttribute="width" id="NzS-3e-d3C"/>
                             <constraint firstItem="JIN-0R-WSj" firstAttribute="height" secondItem="XPD-4R-ziz" secondAttribute="height" id="PJb-Bf-X7P"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="Slf-fP-j9S"/>
@@ -300,6 +309,7 @@
                             <constraint firstItem="aRr-rz-1xo" firstAttribute="height" secondItem="5Y0-BI-FYY" secondAttribute="height" multiplier="0.6" id="bSq-KT-bkh"/>
                             <constraint firstItem="JIN-0R-WSj" firstAttribute="width" secondItem="XPD-4R-ziz" secondAttribute="width" multiplier="0.9" id="bvZ-aV-aGp"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="trailing" constant="3.3333333333333712" id="cql-8O-oS2"/>
+                            <constraint firstItem="c1j-wf-51q" firstAttribute="width" secondItem="5Y0-BI-FYY" secondAttribute="width" id="dpd-A4-iqo"/>
                             <constraint firstItem="nPb-nA-wOC" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="leading" id="gOi-NH-UHp"/>
                             <constraint firstItem="v9p-So-dSo" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="gsd-W9-avb"/>
                             <constraint firstItem="v0U-PA-eoN" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="trailing" id="hmY-ad-b2D"/>
@@ -311,6 +321,7 @@
                             <constraint firstItem="9dw-uQ-tc1" firstAttribute="trailing" secondItem="v9p-So-dSo" secondAttribute="trailing" id="pGm-jE-5lN"/>
                             <constraint firstItem="v0U-PA-eoN" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" constant="10" id="pr7-iM-XNB"/>
                             <constraint firstItem="9dw-uQ-tc1" firstAttribute="bottom" secondItem="nPb-nA-wOC" secondAttribute="bottom" id="q7Z-2w-kDb"/>
+                            <constraint firstItem="c1j-wf-51q" firstAttribute="centerY" secondItem="5Y0-BI-FYY" secondAttribute="centerY" constant="-10.5" id="rFP-Bg-EJU"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" id="s3K-ct-yBB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9dw-uQ-tc1"/>
@@ -318,6 +329,7 @@
                     <connections>
                         <outlet property="characterImage" destination="aRr-rz-1xo" id="ByD-Df-42Z"/>
                         <outlet property="enterNameButton" destination="XPD-4R-ziz" id="vz1-Gk-SfS"/>
+                        <outlet property="enteringNameProtectorView" destination="c1j-wf-51q" id="SOu-iV-jNh"/>
                         <outlet property="levelButton" destination="Vde-uP-Cbn" id="bpl-vl-Y72"/>
                         <outlet property="nameLabel" destination="JIN-0R-WSj" id="myP-je-vTq"/>
                         <outlet property="notesLabel" destination="0mF-BZ-pZA" id="JMP-pg-zMd"/>
@@ -331,4 +343,7 @@
             <point key="canvasLocation" x="204.67980295566502" y="768.79999999999995"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Inox-Brute1" width="750" height="640"/>
+    </resources>
 </document>

@@ -17,7 +17,6 @@ class StatModifierView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-        print("did load")
     }
     
     func commonInit(){
@@ -25,7 +24,9 @@ class StatModifierView: UIView {
     
     
     @IBOutlet weak var goldButton: UIButton!
+    @IBOutlet weak var goldButtonLabel: UILabel!
     @IBOutlet weak var experienceButton: UIButton!
+    @IBOutlet weak var experienceButtonLabel: UILabel!
     
     @IBOutlet weak var amountLabel: UILabel!
     
@@ -43,17 +44,45 @@ class StatModifierView: UIView {
     
 
     @IBAction func goldButtonTapped(_ sender: Any) {
+        if numpadContainerView.isHidden {
+            modifyGold()
+        } else {
+            switch currentStatType {
+            case .gold?:
+                numpadContainerView.isHidden = true
+            default:
+                modifyGold()
+            }
+        }
+    }
+    
+    func modifyGold() {
         currentStatType = StatType.gold
         numpadContainerView.isHidden = false
         bringSubview(toFront: numpadContainerView)
         bringSubview(toFront: goldButton)
+        bringSubview(toFront: goldButtonLabel)
     }
     
     @IBAction func experienceButtonTapped(_ sender: Any) {
+        if numpadContainerView.isHidden {
+            modifyExperience()
+        } else {
+            switch currentStatType {
+            case .experience?:
+                numpadContainerView.isHidden = true
+            default:
+                modifyExperience()
+            }
+        }
+    }
+    
+    func modifyExperience() {
         currentStatType = StatType.experience
         numpadContainerView.isHidden = false
         bringSubview(toFront: numpadContainerView)
         bringSubview(toFront: experienceButton)
+        bringSubview(toFront: experienceButtonLabel)
     }
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
@@ -64,7 +93,6 @@ class StatModifierView: UIView {
         }
         
         amount = amount + sender.titleLabel!.text!
-        
         amountLabel.text = amount
     }
     
@@ -83,14 +111,14 @@ class StatModifierView: UIView {
         if let inputAmount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                if let previousAmount = Int((goldButton.titleLabel?.text)!) {
+                if let previousAmount = Int((goldButtonLabel.text)!) {
                     let amount = String(previousAmount + inputAmount)
-                    goldButton.setTitle(amount, for: .normal)
+                    goldButtonLabel.text = amount
                 }
             case .experience?:
-                if let previousAmount = Int((experienceButton.titleLabel?.text)!) {
+                if let previousAmount = Int((experienceButtonLabel.text)!) {
                     let amount = String(previousAmount + inputAmount)
-                    experienceButton.setTitle(amount, for: .normal)
+                    experienceButtonLabel.text = amount
                 }
             default:
                 return
@@ -103,14 +131,14 @@ class StatModifierView: UIView {
         if let inputAmount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                if let previousAmount = Int((goldButton.titleLabel?.text)!) {
+                if let previousAmount = Int((goldButtonLabel.text)!) {
                     let amount = String(previousAmount - inputAmount)
-                    goldButton.setTitle(amount, for: .normal)
+                    goldButtonLabel.text = amount
                 }
             case .experience?:
-                if let previousAmount = Int((experienceButton.titleLabel?.text)!) {
+                if let previousAmount = Int((experienceButtonLabel.text)!) {
                     let amount = String(previousAmount - inputAmount)
-                    experienceButton.setTitle(amount, for: .normal)
+                    experienceButtonLabel.text = amount
                 }
             default:
                 return
