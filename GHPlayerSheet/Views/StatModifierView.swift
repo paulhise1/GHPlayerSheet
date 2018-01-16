@@ -21,8 +21,8 @@ class StatModifierView: UIView {
     }
     
     func commonInit(){
-        
     }
+    
     
     @IBOutlet weak var goldButton: UIButton!
     @IBOutlet weak var experienceButton: UIButton!
@@ -34,15 +34,26 @@ class StatModifierView: UIView {
     @IBOutlet weak var acceptSubtractionButton: UIButton!
     @IBOutlet weak var acceptAdditionButton: UIButton!
     
+    @IBOutlet weak var numpadContainerView: UIView! {
+        didSet {
+            numpadContainerView.isHidden = true
+        }
+    }
     @IBOutlet var numberButtons: [UIButton]!
     
-    
+
     @IBAction func goldButtonTapped(_ sender: Any) {
         currentStatType = StatType.gold
+        numpadContainerView.isHidden = false
+        bringSubview(toFront: numpadContainerView)
+        bringSubview(toFront: goldButton)
     }
     
     @IBAction func experienceButtonTapped(_ sender: Any) {
         currentStatType = StatType.experience
+        numpadContainerView.isHidden = false
+        bringSubview(toFront: numpadContainerView)
+        bringSubview(toFront: experienceButton)
     }
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
@@ -85,6 +96,7 @@ class StatModifierView: UIView {
                 return
             }
         }
+        resetNumPad()
     }
     
     @IBAction func acceptSubtractionButtonTapped(_ sender: Any) {
@@ -104,6 +116,16 @@ class StatModifierView: UIView {
                 return
             }
         }
+        resetNumPad()
+    }
+    
+    func widthForAlignment() -> CGFloat {
+        return goldButton.frame.size.width
     }
 
+    //MARK: - Helper
+    func resetNumPad() {
+        amountLabel.text = "0"
+        numpadContainerView.isHidden = true
+    }
 }
