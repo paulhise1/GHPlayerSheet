@@ -219,26 +219,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-rz-1xo">
                                 <rect key="frame" x="43.999999999999986" y="10" width="243.66666666666663" height="225"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Av-DT-y8h">
-                                <rect key="frame" x="43.999999999999986" y="191" width="243.66666666666663" height="44"/>
-                                <subviews>
-                                    <textField opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhf-FX-RJB">
-                                        <rect key="frame" x="0.0" y="0.0" width="243.66666666666666" height="44"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="hhf-FX-RJB" firstAttribute="centerY" secondItem="2Av-DT-y8h" secondAttribute="centerY" id="6FV-5d-FMM"/>
-                                    <constraint firstAttribute="width" secondItem="hhf-FX-RJB" secondAttribute="width" id="7oJ-nj-hse"/>
-                                    <constraint firstAttribute="height" constant="44" id="Ii5-c4-fxc"/>
-                                    <constraint firstItem="hhf-FX-RJB" firstAttribute="centerX" secondItem="2Av-DT-y8h" secondAttribute="centerX" id="Tbo-2w-fYx"/>
-                                    <constraint firstAttribute="height" secondItem="hhf-FX-RJB" secondAttribute="height" id="dap-FG-rcr"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPb-nA-wOC" userLabel="Items View">
                                 <rect key="frame" x="44" y="239" width="724" height="115"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -285,21 +265,42 @@
                                     <constraint firstAttribute="width" secondItem="v0U-PA-eoN" secondAttribute="height" id="Vt2-Zp-UMZ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-4R-ziz">
+                                <rect key="frame" x="43.999999999999986" y="195" width="243.66666666666663" height="40"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0nO-UA-WoZ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="enterNameButtonTapped:" destination="YSa-nI-ikU" eventType="touchUpInside" id="8nu-Zv-z2u"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIN-0R-WSj">
+                                <rect key="frame" x="55.666666666666657" y="195.66666666666666" width="218.99999999999997" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vde-uP-Cbn" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="leading" constant="4" id="4y6-3R-Uoi"/>
                             <constraint firstItem="Vde-uP-Cbn" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" constant="10" id="5g4-Yr-Mda"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="width" secondItem="5Y0-BI-FYY" secondAttribute="width" multiplier="0.3" id="AoB-b2-qx6"/>
+                            <constraint firstItem="JIN-0R-WSj" firstAttribute="centerY" secondItem="XPD-4R-ziz" secondAttribute="centerY" id="CkV-qb-k5d"/>
                             <constraint firstItem="aRr-rz-1xo" firstAttribute="width" secondItem="5Y0-BI-FYY" secondAttribute="width" multiplier="0.3" id="Dsd-Od-zd3"/>
-                            <constraint firstItem="2Av-DT-y8h" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="leading" id="EF4-zE-s4N"/>
                             <constraint firstItem="aRr-rz-1xo" firstAttribute="leading" secondItem="9dw-uQ-tc1" secondAttribute="leading" id="G41-7w-zWM"/>
+                            <constraint firstItem="JIN-0R-WSj" firstAttribute="centerX" secondItem="XPD-4R-ziz" secondAttribute="centerX" id="HLq-oV-x2Y"/>
+                            <constraint firstItem="XPD-4R-ziz" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="Iyf-bt-Fpk"/>
+                            <constraint firstItem="XPD-4R-ziz" firstAttribute="width" secondItem="aRr-rz-1xo" secondAttribute="width" id="NzS-3e-d3C"/>
+                            <constraint firstItem="JIN-0R-WSj" firstAttribute="height" secondItem="XPD-4R-ziz" secondAttribute="height" id="PJb-Bf-X7P"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="Slf-fP-j9S"/>
+                            <constraint firstItem="XPD-4R-ziz" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="leading" id="T0e-X5-5Jy"/>
                             <constraint firstItem="nPb-nA-wOC" firstAttribute="trailing" secondItem="9dw-uQ-tc1" secondAttribute="trailing" id="W48-Nt-y10"/>
                             <constraint firstItem="aRr-rz-1xo" firstAttribute="height" secondItem="5Y0-BI-FYY" secondAttribute="height" multiplier="0.6" id="bSq-KT-bkh"/>
+                            <constraint firstItem="JIN-0R-WSj" firstAttribute="width" secondItem="XPD-4R-ziz" secondAttribute="width" multiplier="0.9" id="bvZ-aV-aGp"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="trailing" constant="3.3333333333333712" id="cql-8O-oS2"/>
                             <constraint firstItem="nPb-nA-wOC" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="leading" id="gOi-NH-UHp"/>
-                            <constraint firstItem="2Av-DT-y8h" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="gU2-P3-Ata"/>
                             <constraint firstItem="v9p-So-dSo" firstAttribute="bottom" secondItem="aRr-rz-1xo" secondAttribute="bottom" id="gsd-W9-avb"/>
                             <constraint firstItem="v0U-PA-eoN" firstAttribute="leading" secondItem="aRr-rz-1xo" secondAttribute="trailing" id="hmY-ad-b2D"/>
                             <constraint firstItem="v9p-So-dSo" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" id="hzM-6Z-QUA"/>
@@ -311,15 +312,14 @@
                             <constraint firstItem="v0U-PA-eoN" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" constant="10" id="pr7-iM-XNB"/>
                             <constraint firstItem="9dw-uQ-tc1" firstAttribute="bottom" secondItem="nPb-nA-wOC" secondAttribute="bottom" id="q7Z-2w-kDb"/>
                             <constraint firstItem="yR8-7c-X7o" firstAttribute="top" secondItem="aRr-rz-1xo" secondAttribute="top" id="s3K-ct-yBB"/>
-                            <constraint firstItem="2Av-DT-y8h" firstAttribute="width" secondItem="aRr-rz-1xo" secondAttribute="width" id="uvw-Lm-xWG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9dw-uQ-tc1"/>
                     </view>
                     <connections>
                         <outlet property="characterImage" destination="aRr-rz-1xo" id="ByD-Df-42Z"/>
+                        <outlet property="enterNameButton" destination="XPD-4R-ziz" id="vz1-Gk-SfS"/>
                         <outlet property="levelButton" destination="Vde-uP-Cbn" id="bpl-vl-Y72"/>
-                        <outlet property="nameContainer" destination="2Av-DT-y8h" id="jUi-dD-kcK"/>
-                        <outlet property="nameTextField" destination="hhf-FX-RJB" id="aps-ag-G3M"/>
+                        <outlet property="nameLabel" destination="JIN-0R-WSj" id="myP-je-vTq"/>
                         <outlet property="notesLabel" destination="0mF-BZ-pZA" id="JMP-pg-zMd"/>
                         <outlet property="perksLabel" destination="ZJa-bs-1FT" id="CFl-xr-hCg"/>
                         <outlet property="statModifierContainerLeadingConstraint" destination="hmY-ad-b2D" id="Cwi-kN-VtI"/>
@@ -328,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA7-KQ-hes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="205" y="770"/>
+            <point key="canvasLocation" x="204.67980295566502" y="768.79999999999995"/>
         </scene>
     </scenes>
 </document>
