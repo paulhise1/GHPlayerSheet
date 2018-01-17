@@ -78,7 +78,7 @@ class HubViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let characterModel = CharacterModel(characterClass: characterClass, name: nameTextField.text!, level: level)
         let characterSheetVC = segue.destination as! CharacterSheetViewController
-        characterSheetVC.characterModel = characterModel
+        characterSheetVC.character = characterModel
     }
     
 

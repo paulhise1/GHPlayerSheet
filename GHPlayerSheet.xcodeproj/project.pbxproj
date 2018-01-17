@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FFCEF200C409B001525F7 /* StatModifierView.swift */; };
 		1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */; };
+		1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E2200F080C002D6E01 /* goldBag.png */; };
+		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
+		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
 		1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D72007106400C2E11D /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		1E0FFCEF200C409B001525F7 /* StatModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatModifierView.swift; sourceTree = "<group>"; };
 		1E0FFCF2200C40D0001525F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatModifierView.xib; sourceTree = "<group>"; };
+		1E1B82E2200F080C002D6E01 /* goldBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldBag.png; sourceTree = "<group>"; };
+		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
+		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00D02007106400C2E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECF00D52007106400C2E11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,8 +52,8 @@
 		1E0FFCEB200B6719001525F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E1B82E1200F07CA002D6E01 /* Images */,
 				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
-				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
 				1ECF00D72007106400C2E11D /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -80,6 +86,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		1E1B82E1200F07CA002D6E01 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1E1B82E7200F0947002D6E01 /* experienceStar.png */,
+				1E1B82E4200F0917002D6E01 /* goldbag3.png */,
+				1E1B82E2200F080C002D6E01 /* goldBag.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		1ECF00C42007106400C2E11D = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +115,7 @@
 		1ECF00CF2007106400C2E11D /* GHPlayerSheet */ = {
 			isa = PBXGroup;
 			children = (
+				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
 				1E0FFCEE200B6752001525F7 /* Controllers */,
 				1E0FFCED200B6746001525F7 /* Models */,
 				1E0FFCEC200B6734001525F7 /* Views */,
@@ -167,10 +184,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */,
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
 				1ECF00D62007106400C2E11D /* Main.storyboard in Resources */,
 				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,
+				1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */,
+				1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

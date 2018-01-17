@@ -5,9 +5,22 @@ enum StatType {
     case experience
 }
 
+protocol StatModifierViewDelegate: class {
+    func statModifierViewDidBeginModifying(sender: StatModifierView)
+    func statModifierViewDidEndModifying(sender: StatModifierView)
+    func updateGold(updateGoldAmount: Int)
+    func updateExperience(updateExperienceAmount: Int)
+}
+
+
 class StatModifierView: UIView {
 
+    weak var delegate: StatModifierViewDelegate?
+    
     var currentStatType: StatType?
+    var goldAmount = Int()
+    var experienceAmount = Int()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,18 +33,15 @@ class StatModifierView: UIView {
     }
     
     func commonInit(){
+        
     }
     
     
-    @IBOutlet weak var goldButton: UIButton!
-    @IBOutlet weak var goldButtonLabel: UILabel!
+    @IBOutlet weak var  goldButton: UIButton!
     @IBOutlet weak var experienceButton: UIButton!
-    @IBOutlet weak var experienceButtonLabel: UILabel!
     
     @IBOutlet weak var amountLabel: UILabel!
-    
     @IBOutlet weak var deleteButton: UIButton!
-    
     @IBOutlet weak var acceptSubtractionButton: UIButton!
     @IBOutlet weak var acceptAdditionButton: UIButton!
     
@@ -43,55 +53,49 @@ class StatModifierView: UIView {
     @IBOutlet var numberButtons: [UIButton]!
     
 
+    //MARK: - Gold and Experience Button Methods
     @IBAction func goldButtonTapped(_ sender: Any) {
         if numpadContainerView.isHidden {
-            modifyGold()
+            currentStatType = StatType.gold
+            modifyStat()
         } else {
-            switch currentStatType {
-            case .gold?:
-                numpadContainerView.isHidden = true
-            default:
-                modifyGold()
-            }
+            dismissNumpad()
         }
-    }
-    
-    func modifyGold() {
-        currentStatType = StatType.gold
-        numpadContainerView.isHidden = false
-        bringSubview(toFront: numpadContainerView)
-        bringSubview(toFront: goldButton)
-        bringSubview(toFront: goldButtonLabel)
     }
     
     @IBAction func experienceButtonTapped(_ sender: Any) {
         if numpadContainerView.isHidden {
-            modifyExperience()
+            currentStatType = StatType.experience
+            modifyStat()
         } else {
-            switch currentStatType {
-            case .experience?:
-                numpadContainerView.isHidden = true
-            default:
-                modifyExperience()
-            }
+            dismissNumpad()
         }
     }
     
-    func modifyExperience() {
-        currentStatType = StatType.experience
+    func modifyStat() {
+        delegate?.statModifierViewDidBeginModifying(sender: self)
+        var buttonToShow = UIButton()
+        var buttonToHide = UIButton()
+        if currentStatType == .gold {
+            buttonToShow = goldButton
+            buttonToHide = experienceButton
+        } else if currentStatType == .experience {
+            buttonToShow = experienceButton
+            buttonToHide = goldButton
+        }
         numpadContainerView.isHidden = false
         bringSubview(toFront: numpadContainerView)
-        bringSubview(toFront: experienceButton)
-        bringSubview(toFront: experienceButtonLabel)
+        bringSubview(toFront: buttonToShow)
+        buttonToHide.isHidden = true
     }
     
+    
+    //MARK: - Number Pad Methods
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         var amount = amountLabel.text!
-        
         if amount == "0" {
             amount = ""
         }
-        
         amount = amount + sender.titleLabel!.text!
         amountLabel.text = amount
     }
@@ -99,11 +103,9 @@ class StatModifierView: UIView {
     @IBAction func deleteButtonTapped(_ sender: Any) {
         var amount = amountLabel.text!
         amount = String(amount.dropLast())
-        
         if amount == "" {
             amount = "0"
         }
-        
         amountLabel.text = amount
     }
     
@@ -111,49 +113,56 @@ class StatModifierView: UIView {
         if let inputAmount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                if let previousAmount = Int((goldButtonLabel.text)!) {
-                    let amount = String(previousAmount + inputAmount)
-                    goldButtonLabel.text = amount
-                }
+                goldAmount = goldAmount + inputAmount
+                delegate?.updateGold(updateGoldAmount: goldAmount)
             case .experience?:
-                if let previousAmount = Int((experienceButtonLabel.text)!) {
-                    let amount = String(previousAmount + inputAmount)
-                    experienceButtonLabel.text = amount
-                }
+                experienceAmount = experienceAmount + inputAmount
+                delegate?.updateExperience(updateExperienceAmount: experienceAmount)
             default:
                 return
             }
         }
-        resetNumPad()
+        dismissNumpad()
     }
     
     @IBAction func acceptSubtractionButtonTapped(_ sender: Any) {
         if let inputAmount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                if let previousAmount = Int((goldButtonLabel.text)!) {
-                    let amount = String(previousAmount - inputAmount)
-                    goldButtonLabel.text = amount
-                }
+                goldAmount = goldAmount - inputAmount
+                delegate?.updateGold(updateGoldAmount: goldAmount)
             case .experience?:
-                if let previousAmount = Int((experienceButtonLabel.text)!) {
-                    let amount = String(previousAmount - inputAmount)
-                    experienceButtonLabel.text = amount
-                }
+                experienceAmount = experienceAmount - inputAmount
+                delegate?.updateExperience(updateExperienceAmount: experienceAmount)
             default:
                 return
             }
         }
-        resetNumPad()
+        dismissNumpad()
+    }
+
+    
+    //MARK: - Helper Methods
+    func dismissNumpad() {
+        amountLabel.text = "0"
+        numpadContainerView.isHidden = true
+        goldButton.isHidden = false
+        experienceButton.isHidden = false
+        goldButton.setTitle(String(goldAmount), for: .normal)
+        experienceButton.setTitle(String(experienceAmount), for: .normal)
+        delegate?.statModifierViewDidEndModifying(sender: self)
+        
     }
     
     func widthForAlignment() -> CGFloat {
         return goldButton.frame.size.width
     }
-
-    //MARK: - Helper
-    func resetNumPad() {
-        amountLabel.text = "0"
-        numpadContainerView.isHidden = true
-    }
+    
+    
+    
 }
+
+
+
+
+

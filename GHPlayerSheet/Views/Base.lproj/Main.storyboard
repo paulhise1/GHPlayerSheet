@@ -223,7 +223,7 @@
                                     <constraint firstAttribute="height" constant="372" id="Bcf-N2-Fa4"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Inox-Brute1" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-rz-1xo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Inox-Brute1" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-rz-1xo">
                                 <rect key="frame" x="43.999999999999986" y="10" width="243.66666666666663" height="225"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPb-nA-wOC" userLabel="Items View">

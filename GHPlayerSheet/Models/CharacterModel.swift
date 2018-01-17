@@ -19,7 +19,7 @@ class CharacterModel {
     let characterClass : CharacterClass
     var name : String
     var level : Int
-    var xp = 0
+    var experience = 0
     var gold = 0
     var items = [ItemType]()
     var battleMarks = 0
@@ -31,6 +31,7 @@ class CharacterModel {
         self.name = name
         self.level = level
     }
+    
     
 
 
