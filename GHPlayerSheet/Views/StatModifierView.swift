@@ -1,4 +1,5 @@
 import UIKit
+import DynamicBlurView
 
 enum StatType {
     case gold
@@ -83,19 +84,20 @@ class StatModifierView: UIView {
     
     func modifyStat() {
         delegate?.statModifierViewDidBeginModifying(sender: self)
-        var buttonToShow: UIButton
-        var buttonToHide: UIButton
+        var buttonToFront: UIButton
+        var buttonToDisable: UIButton
         if currentStatType == .gold {
-            buttonToShow = goldButton
-            buttonToHide = experienceButton
+            buttonToFront = goldButton
+            buttonToDisable = experienceButton
         } else {
-            buttonToShow = experienceButton
-            buttonToHide = goldButton
+            buttonToFront = experienceButton
+            buttonToDisable = goldButton
         }
         numpadContainerView.isHidden = false
         bringSubview(toFront: numpadContainerView)
-        bringSubview(toFront: buttonToShow)
-        buttonToHide.isHidden = true
+        bringSubview(toFront: buttonToFront)
+        buttonToDisable.isEnabled = false
+        //sendSubview(toBack: buttonToDisable)
     }
     
     
@@ -151,10 +153,10 @@ class StatModifierView: UIView {
     func dismissNumpad() {
         amountLabel.text = "0"
         numpadContainerView.isHidden = true
-        goldButton.isHidden = false
-        experienceButton.isHidden = false
-//        goldButton.setTitle(String(goldAmount), for: .normal)
-//        experienceButton.setTitle(String(experienceAmount), for: .normal)
+        bringSubview(toFront: goldButton)
+        bringSubview(toFront: experienceButton)
+        goldButton.isEnabled = true
+        experienceButton.isEnabled = true
         delegate?.statModifierViewDidEndModifying(sender: self)
         
     }

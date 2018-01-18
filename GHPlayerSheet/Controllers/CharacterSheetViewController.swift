@@ -1,4 +1,6 @@
 import UIKit
+import DynamicBlurView
+
 
 class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatModifierViewDelegate {
     
@@ -9,18 +11,18 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
 
     //MARK: - Class Properties
     var characterModel : CharacterModel?
-    var blurEffectView = UIVisualEffectView()
+    var blurView: DynamicBlurView?
     
     @IBOutlet weak var levelButton: UIButton!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var enterNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var enteringNameProtectorView: UIView!
     @IBOutlet weak var perksLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var stateModifierContainerView: UIView!
     var statModifierView: StatModifierView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var notesContainerView: UIView!
     
     
     //MARK: - View Did Load
@@ -34,6 +36,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
         
         
         setupStatModifierView()
+        setupNotesView()
         setupDefaultNameLabelAppearance()
         
     }
@@ -43,7 +46,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     @IBAction func enterNameButtonTapped(_ sender: Any) {
         let textField = UITextField()
         createNameEditingTextField(textField: textField)
-        view.bringSubview(toFront: enteringNameProtectorView)
+        addBlurEffect()
         view.addSubview(textField)
         
     }
@@ -77,13 +80,13 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
             setupDefaultNameLabelAppearance()
         }
         textField.removeFromSuperview()
-        view.sendSubview(toBack: enteringNameProtectorView)
-        
+        removeBlurEffect()
     }
     
     
     //MARK: - statModifierView Delegate Methods
     func statModifierViewDidBeginModifying(sender: StatModifierView) {
+        
         addBlurEffect()
         view.bringSubview(toFront: stateModifierContainerView)
     }
@@ -117,6 +120,16 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
         statModifierView.delegate = self
     }
 
+    func setupNotesView() {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "Notes View Controller") {
+            addChildViewController(controller)
+            controller.view.frame = notesContainerView.bounds
+            controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            notesContainerView.addSubview(controller.view)
+            controller.didMove(toParentViewController: self)
+        }
+    }
+    
     //MARK: - Helper Methods
     func setupDefaultNameLabelAppearance() {
         nameLabel.text = Constants.nameDefaultText
@@ -124,15 +137,17 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     }
     
     func addBlurEffect(){
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(blurEffectView)
+        //FIXME: - Would like to animate, animation was stuttered
+        blurView = DynamicBlurView(frame: view.bounds)
+        blurView?.isUserInteractionEnabled = true
+        blurView?.blurRadius = 2
+        view.addSubview(blurView!)
+        
     }
 
     func removeBlurEffect(){
-        blurEffectView.removeFromSuperview()
+        blurView?.blurRadius = 0
+        blurView?.removeFromSuperview()
     }
     
     

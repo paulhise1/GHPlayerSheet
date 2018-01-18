@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0A39C22010A02E007924D9 /* DisplayNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */; };
 		1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FFCEF200C409B001525F7 /* StatModifierView.swift */; };
 		1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */; };
 		1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E2200F080C002D6E01 /* goldBag.png */; };
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
 		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
+		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
+		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
 		1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D72007106400C2E11D /* Assets.xcassets */; };
@@ -19,14 +22,19 @@
 		1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E42007130B00C2E11D /* CharacterModel.swift */; };
 		1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E620072A5600C2E11D /* HubViewController.swift */; };
 		1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */; };
+		85648DCFFAF6C7B3CA14B3C3 /* Pods_GHPlayerSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNoteViewController.swift; sourceTree = "<group>"; };
 		1E0FFCEF200C409B001525F7 /* StatModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatModifierView.swift; sourceTree = "<group>"; };
 		1E0FFCF2200C40D0001525F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatModifierView.xib; sourceTree = "<group>"; };
 		1E1B82E2200F080C002D6E01 /* goldBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldBag.png; sourceTree = "<group>"; };
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
 		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
+		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00D02007106400C2E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECF00D52007106400C2E11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +44,9 @@
 		1ECF00E42007130B00C2E11D /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		1ECF00E620072A5600C2E11D /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
 		1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewController.swift; sourceTree = "<group>"; };
+		64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHPlayerSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99432B21D9551D4B46AA8284 /* Pods-GHPlayerSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHPlayerSheet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet.debug.xcconfig"; sourceTree = "<group>"; };
+		9A88795E3811A24185155A4E /* Pods-GHPlayerSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHPlayerSheet.release.xcconfig"; path = "Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,12 +54,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85648DCFFAF6C7B3CA14B3C3 /* Pods_GHPlayerSheet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084816276E906BD8B99D7485 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99432B21D9551D4B46AA8284 /* Pods-GHPlayerSheet.debug.xcconfig */,
+				9A88795E3811A24185155A4E /* Pods-GHPlayerSheet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1E0FFCEB200B6719001525F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +86,7 @@
 				1ECF00D42007106400C2E11D /* Main.storyboard */,
 				1E0FFCEF200C409B001525F7 /* StatModifierView.swift */,
 				1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */,
+				1E2CF3272010B946002335DF /* NoteTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -82,6 +104,8 @@
 			children = (
 				1ECF00E620072A5600C2E11D /* HubViewController.swift */,
 				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
+				1E83F7192010661C000AAECD /* NotesViewController.swift */,
+				1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +125,8 @@
 			children = (
 				1ECF00CF2007106400C2E11D /* GHPlayerSheet */,
 				1ECF00CE2007106400C2E11D /* Products */,
+				084816276E906BD8B99D7485 /* Pods */,
+				36CC4EEB778A92DC72C8DD5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +151,15 @@
 			path = GHPlayerSheet;
 			sourceTree = "<group>";
 		};
+		36CC4EEB778A92DC72C8DD5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */,
+				64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ECF00DF2007106400C2E11D /* Build configuration list for PBXNativeTarget "GHPlayerSheet" */;
 			buildPhases = (
+				F8F10333208F5BCABED98195 /* [CP] Check Pods Manifest.lock */,
 				1ECF00C92007106400C2E11D /* Sources */,
 				1ECF00CA2007106400C2E11D /* Frameworks */,
 				1ECF00CB2007106400C2E11D /* Resources */,
+				4A200AF054FFC530FCA8894B /* [CP] Embed Pods Frameworks */,
+				AAFF4183553AC460444DD27A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +234,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A200AF054FFC530FCA8894B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAFF4183553AC460444DD27A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8F10333208F5BCABED98195 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GHPlayerSheet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1ECF00C92007106400C2E11D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -204,6 +296,9 @@
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
 				1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */,
 				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
+				1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */,
+				1E0A39C22010A02E007924D9 /* DisplayNoteViewController.swift in Sources */,
+				1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */,
 				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,
 			);
@@ -348,6 +443,7 @@
 		};
 		1ECF00E02007106400C2E11D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99432B21D9551D4B46AA8284 /* Pods-GHPlayerSheet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -363,6 +459,7 @@
 		};
 		1ECF00E12007106400C2E11D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A88795E3811A24185155A4E /* Pods-GHPlayerSheet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
