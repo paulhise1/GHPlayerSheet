@@ -8,8 +8,8 @@ enum StatType {
 protocol StatModifierViewDelegate: class {
     func statModifierViewDidBeginModifying(sender: StatModifierView)
     func statModifierViewDidEndModifying(sender: StatModifierView)
-    func updateGold(updateGoldAmount: Int)
-    func updateExperience(updateExperienceAmount: Int)
+    func updateGold(amount: Int)
+    func updateExperience(amount: Int)
 }
 
 
@@ -18,9 +18,18 @@ class StatModifierView: UIView {
     weak var delegate: StatModifierViewDelegate?
     
     var currentStatType: StatType?
-    var goldAmount = Int()
-    var experienceAmount = Int()
     
+    var goldAmount: Int? {
+        didSet {
+            goldButton.setTitle("\(goldAmount!)", for: .normal)
+        }
+    }
+    
+    var experienceAmount: Int? {
+        didSet {
+            experienceButton.setTitle("\(experienceAmount!)", for: .normal)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +45,8 @@ class StatModifierView: UIView {
         
     }
     
-    
-    @IBOutlet weak var  goldButton: UIButton!
+    // create did sets for labels
+    @IBOutlet weak var goldButton: UIButton!
     @IBOutlet weak var experienceButton: UIButton!
     
     @IBOutlet weak var amountLabel: UILabel!
@@ -74,12 +83,12 @@ class StatModifierView: UIView {
     
     func modifyStat() {
         delegate?.statModifierViewDidBeginModifying(sender: self)
-        var buttonToShow = UIButton()
-        var buttonToHide = UIButton()
+        var buttonToShow: UIButton
+        var buttonToHide: UIButton
         if currentStatType == .gold {
             buttonToShow = goldButton
             buttonToHide = experienceButton
-        } else if currentStatType == .experience {
+        } else {
             buttonToShow = experienceButton
             buttonToHide = goldButton
         }
@@ -110,14 +119,12 @@ class StatModifierView: UIView {
     }
     
     @IBAction func acceptAdditionButtonTapped(_ sender: Any) {
-        if let inputAmount = Int(amountLabel.text!) {
+        if let amount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                goldAmount = goldAmount + inputAmount
-                delegate?.updateGold(updateGoldAmount: goldAmount)
+                delegate?.updateGold(amount: amount)
             case .experience?:
-                experienceAmount = experienceAmount + inputAmount
-                delegate?.updateExperience(updateExperienceAmount: experienceAmount)
+                delegate?.updateExperience(amount: amount)
             default:
                 return
             }
@@ -126,14 +133,12 @@ class StatModifierView: UIView {
     }
     
     @IBAction func acceptSubtractionButtonTapped(_ sender: Any) {
-        if let inputAmount = Int(amountLabel.text!) {
+        if let enteredAmount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                goldAmount = goldAmount - inputAmount
-                delegate?.updateGold(updateGoldAmount: goldAmount)
+                delegate?.updateGold(amount: -(enteredAmount))
             case .experience?:
-                experienceAmount = experienceAmount - inputAmount
-                delegate?.updateExperience(updateExperienceAmount: experienceAmount)
+                delegate?.updateExperience(amount: -(enteredAmount))
             default:
                 return
             }
@@ -148,8 +153,8 @@ class StatModifierView: UIView {
         numpadContainerView.isHidden = true
         goldButton.isHidden = false
         experienceButton.isHidden = false
-        goldButton.setTitle(String(goldAmount), for: .normal)
-        experienceButton.setTitle(String(experienceAmount), for: .normal)
+//        goldButton.setTitle(String(goldAmount), for: .normal)
+//        experienceButton.setTitle(String(experienceAmount), for: .normal)
         delegate?.statModifierViewDidEndModifying(sender: self)
         
     }

@@ -8,7 +8,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     }
 
     //MARK: - Class Properties
-    var character : CharacterModel?
+    var characterModel : CharacterModel?
     var blurEffectView = UIVisualEffectView()
     
     @IBOutlet weak var levelButton: UIButton!
@@ -19,6 +19,7 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     @IBOutlet weak var perksLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var stateModifierContainerView: UIView!
+    var statModifierView: StatModifierView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
     
     
@@ -26,10 +27,10 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //FIXME: - Create Character for testing
-        character = CharacterModel.init(characterClass: .brute, name: "fred", level: 3)
-        character?.gold = 15
-        character?.experience = 124
+        //FIXME: - Stubbed Character for testing
+        characterModel = CharacterModel(characterClass: .brute, name: "fred", level: 3)
+        characterModel?.gold = 15
+        characterModel?.experience = 124
         
         
         setupStatModifierView()
@@ -91,31 +92,31 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
         removeBlurEffect()
     }
     
-    func updateGold(updateGoldAmount: Int) {
-        character?.gold = updateGoldAmount
+    func updateGold(amount: Int) {
+        if let goldAmount = characterModel?.updateGold(amount: amount) {
+            statModifierView.goldAmount = goldAmount
+        }
     }
     
-    func updateExperience(updateExperienceAmount: Int) {
-        character?.experience = updateExperienceAmount
+    func updateExperience(amount: Int) {
+        if let experienceAmount = characterModel?.updateExperience(amount: amount) {
+            statModifierView.experienceAmount = experienceAmount
+        }
     }
     
     
     //MARK: - Setup Child Views
     func setupStatModifierView() {
-        if let statModifierView = Bundle.main.loadNibNamed(String(describing: StatModifierView.self), owner: self, options: nil)?.first as? StatModifierView {
-            stateModifierContainerView.addSubview(statModifierView)
-            statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
-            statModifierView.frame = stateModifierContainerView.bounds
-            statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            statModifierView.goldAmount = (character?.gold)!
-            statModifierView.experienceAmount = (character?.experience)!
-            statModifierView.goldButton.setTitle(String(statModifierView.goldAmount), for: .normal)
-            statModifierView.experienceButton.setTitle(String(statModifierView.experienceAmount), for: .normal)
-            statModifierView.delegate = self
-        }
+        statModifierView = Bundle.main.loadNibNamed(String(describing: StatModifierView.self), owner: self, options: nil)?.first as? StatModifierView
+        stateModifierContainerView.addSubview(statModifierView)
+        statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
+        statModifierView.frame = stateModifierContainerView.bounds
+        statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        statModifierView.goldAmount = (characterModel?.gold)!
+        statModifierView.experienceAmount = (characterModel?.experience)!
+        statModifierView.delegate = self
     }
-    
-    
+
     //MARK: - Helper Methods
     func setupDefaultNameLabelAppearance() {
         nameLabel.text = Constants.nameDefaultText

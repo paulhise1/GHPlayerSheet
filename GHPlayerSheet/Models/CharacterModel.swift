@@ -31,10 +31,16 @@ class CharacterModel {
         self.name = name
         self.level = level
     }
+
+    func updateGold(amount: Int) -> Int {
+        gold = gold + amount
+        return gold
+    }
+    
+    func updateExperience(amount: Int) -> Int {
+        experience = experience + amount
+        return experience
+    }
     
     
-
-
-
-
 }
