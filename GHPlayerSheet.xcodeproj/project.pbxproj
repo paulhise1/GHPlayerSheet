@@ -15,7 +15,6 @@
 		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
 		1E2CF32A201162AA002335DF /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* NoteModel.swift */; };
-		1E2CF32C20116524002335DF /* NotesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF32B20116524002335DF /* NotesListModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
@@ -24,6 +23,7 @@
 		1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E42007130B00C2E11D /* CharacterModel.swift */; };
 		1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E620072A5600C2E11D /* HubViewController.swift */; };
 		1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */; };
+		1EF640DA2011AC3F00696393 /* NotesDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF640D92011AC3F00696393 /* NotesDatasource.swift */; };
 		85648DCFFAF6C7B3CA14B3C3 /* Pods_GHPlayerSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,6 @@
 		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		1E2CF329201162AA002335DF /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
-		1E2CF32B20116524002335DF /* NotesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +47,7 @@
 		1ECF00E42007130B00C2E11D /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		1ECF00E620072A5600C2E11D /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
 		1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewController.swift; sourceTree = "<group>"; };
+		1EF640D92011AC3F00696393 /* NotesDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesDatasource.swift; sourceTree = "<group>"; };
 		64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHPlayerSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99432B21D9551D4B46AA8284 /* Pods-GHPlayerSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHPlayerSheet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet.debug.xcconfig"; sourceTree = "<group>"; };
 		9A88795E3811A24185155A4E /* Pods-GHPlayerSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHPlayerSheet.release.xcconfig"; path = "Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			children = (
 				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
 				1E2CF329201162AA002335DF /* NoteModel.swift */,
-				1E2CF32B20116524002335DF /* NotesListModel.swift */,
+				1EF640D92011AC3F00696393 /* NotesDatasource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,10 +301,10 @@
 			files = (
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
 				1ECF00E720072A5600C2E11D /* HubViewController.swift in Sources */,
+				1EF640DA2011AC3F00696393 /* NotesDatasource.swift in Sources */,
 				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
 				1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */,
 				1E0A39C22010A02E007924D9 /* DisplayNoteViewController.swift in Sources */,
-				1E2CF32C20116524002335DF /* NotesListModel.swift in Sources */,
 				1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */,
 				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,

@@ -328,7 +328,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WB8-Jw-VDh">
-                                <rect key="frame" x="44" y="32.333333333333343" width="212" height="247.00000000000003"/>
+                                <rect key="frame" x="44" y="32" width="212" height="247"/>
                                 <color key="backgroundColor" red="1" green="0.95189665010000002" blue="0.84578163920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" id="w8N-EO-cwJ" customClass="NoteTableViewCell" customModule="GHPlayerSheet" customModuleProvider="target">
@@ -339,19 +339,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwh-Yq-GDQ" userLabel="Note Cell Title Label">
-                                                    <rect key="frame" x="-36" y="0.0" width="276" height="19.333333333333332"/>
+                                                    <rect key="frame" x="-36" y="0.0" width="188" height="19.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXa-qq-Z87" userLabel="Body Text Label">
-                                                    <rect key="frame" x="54.666666666666671" y="23.333333333333332" width="201.33333333333331" height="16.999999999999996"/>
+                                                    <rect key="frame" x="30.333333333333329" y="23.333333333333332" width="137.66666666666669" height="16.999999999999996"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Peg-XJ-A40" userLabel="Date/Time Label">
-                                                    <rect key="frame" x="-36" y="23.333333333333332" width="82.666666666666671" height="16.999999999999996"/>
+                                                    <rect key="frame" x="-36" y="23.333333333333332" width="58.333333333333336" height="16.999999999999996"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -383,10 +383,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WB8-Jw-VDh" firstAttribute="width" secondItem="B8x-tq-5bh" secondAttribute="width" id="ZIp-14-AtN"/>
-                            <constraint firstItem="WB8-Jw-VDh" firstAttribute="centerY" secondItem="B8x-tq-5bh" secondAttribute="centerY" id="ba7-Zp-Vzl"/>
-                            <constraint firstItem="WB8-Jw-VDh" firstAttribute="height" secondItem="B8x-tq-5bh" secondAttribute="height" id="mUr-Vk-7bA"/>
-                            <constraint firstItem="WB8-Jw-VDh" firstAttribute="centerX" secondItem="B8x-tq-5bh" secondAttribute="centerX" id="rjI-yB-9hL"/>
+                            <constraint firstItem="WB8-Jw-VDh" firstAttribute="leading" secondItem="B8x-tq-5bh" secondAttribute="leading" id="1yx-hd-Wpf"/>
+                            <constraint firstItem="B8x-tq-5bh" firstAttribute="bottom" secondItem="WB8-Jw-VDh" secondAttribute="bottom" id="E90-dR-Gsl"/>
+                            <constraint firstItem="B8x-tq-5bh" firstAttribute="trailing" secondItem="WB8-Jw-VDh" secondAttribute="trailing" id="ZpL-Ue-Sbf"/>
+                            <constraint firstItem="WB8-Jw-VDh" firstAttribute="top" secondItem="B8x-tq-5bh" secondAttribute="top" id="qoZ-rv-0yS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B8x-tq-5bh"/>
                     </view>
@@ -394,18 +394,19 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1U5-WM-bNg">
                             <connections>
                                 <action selector="addNotePressed:" destination="Bf5-kQ-a47" id="8HV-M5-rek"/>
-                                <segue destination="Qnz-TX-EGY" kind="show" id="hOl-0d-LbH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="300" height="300"/>
                     <connections>
                         <outlet property="tableView" destination="WB8-Jw-VDh" id="BdO-z8-SY8"/>
+                        <segue destination="Qnz-TX-EGY" kind="show" identifier="toUpdateNote" id="Z8p-15-07c"/>
+                        <segue destination="Qnz-TX-EGY" kind="show" identifier="toNewNote" id="dxd-Ag-2nS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6t-co-Lhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="728"/>
+            <point key="canvasLocation" x="638" y="798"/>
         </scene>
         <!--Display Note View Controller-->
         <scene sceneID="UfJ-bM-9ua">
@@ -416,28 +417,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JMV-q5-LKn">
-                                <rect key="frame" x="44" y="43.999999999999986" width="212" height="199.66666666666669"/>
+                                <rect key="frame" x="44" y="44" width="212" height="235"/>
                                 <color key="backgroundColor" red="1" green="0.95189665010000002" blue="0.84578163920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">“Kallor shrugged. 'I have walked this land when the T'lan Imass were but children. I have commanded armies a hundred thousand strong. I have spread the fire of my wrath across entire continents, and sat alone upon tall thrones. Do you grasp the meaning of this?'
-
-'Yes,' said Caladan Brood. 'You never learn.”</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU2-Vn-uJP" userLabel="Create Counter Button">
-                                <rect key="frame" x="44" y="243.66666666666666" width="212" height="35.333333333333343"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add Counter"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WU2-Vn-uJP" firstAttribute="top" secondItem="JMV-q5-LKn" secondAttribute="bottom" id="0Nn-cx-gBe"/>
-                            <constraint firstItem="WU2-Vn-uJP" firstAttribute="bottom" secondItem="sPg-2c-Dwi" secondAttribute="bottom" id="20v-9n-Dps"/>
                             <constraint firstItem="JMV-q5-LKn" firstAttribute="trailing" secondItem="sPg-2c-Dwi" secondAttribute="trailing" id="39I-YU-aSR"/>
-                            <constraint firstItem="sPg-2c-Dwi" firstAttribute="trailing" secondItem="WU2-Vn-uJP" secondAttribute="trailing" id="MZf-xK-MIv"/>
-                            <constraint firstItem="WU2-Vn-uJP" firstAttribute="leading" secondItem="sPg-2c-Dwi" secondAttribute="leading" id="XWZ-4c-j2E"/>
-                            <constraint firstItem="WU2-Vn-uJP" firstAttribute="height" secondItem="sPg-2c-Dwi" secondAttribute="height" multiplier="0.15" id="gfR-8I-0Vd"/>
+                            <constraint firstItem="sPg-2c-Dwi" firstAttribute="bottom" secondItem="JMV-q5-LKn" secondAttribute="bottom" id="di2-Qj-Sw1"/>
                             <constraint firstItem="sPg-2c-Dwi" firstAttribute="leading" secondItem="JMV-q5-LKn" secondAttribute="leading" id="umY-K9-r8z"/>
                             <constraint firstItem="sPg-2c-Dwi" firstAttribute="top" secondItem="JMV-q5-LKn" secondAttribute="top" id="ySx-vj-k53"/>
                         </constraints>
@@ -452,20 +441,22 @@
                     </navigationItem>
                     <size key="freeformSize" width="300" height="300"/>
                     <connections>
-                        <outlet property="noteTextField" destination="JMV-q5-LKn" id="C3s-t7-djp"/>
+                        <outlet property="textField" destination="JMV-q5-LKn" id="C3s-t7-djp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfZ-QA-Nik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941.37931034482767" y="728"/>
+            <point key="canvasLocation" x="936" y="797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uUr-eq-rdV">
             <objects>
                 <navigationController storyboardIdentifier="Notes View Controller" automaticallyAdjustsScrollViewInsets="NO" id="GRT-4i-Jvg" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="375"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C0H-qt-fXG">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -476,10 +467,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uA6-sh-3RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="1508"/>
+            <point key="canvasLocation" x="401" y="-46"/>
         </scene>
     </scenes>
     <resources>
         <image name="Inox-Brute1" width="750" height="640"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dxd-Ag-2nS"/>
+    </inferredMetricsTieBreakers>
 </document>

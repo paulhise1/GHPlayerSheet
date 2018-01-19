@@ -24,7 +24,7 @@ class CharacterModel {
     var items = [ItemType]()
     var battleMarks = 0
     var activePerks = [String]()
-    var notes: NotesListModel?
+    var notes: NotesDatasource?
     
     init(characterClass: CharacterClass, name: String, level: Int) {
         self.characterClass = characterClass

@@ -1,26 +1,15 @@
 import Foundation
 
-class NoteModel {
+struct NoteModel: Codable {
     
-    var noteTitle: String
-    var noteBody: String
-    var noteUpdated: String
+    var noteText: String
+    let creationDate: Date
+    var updatedDate: Date
     
-    init(noteTitle: String, noteBody: String, noteUpdated: String) {
-        self.noteTitle = noteTitle
-        self.noteBody = noteBody
-        self.noteUpdated = noteUpdated
-        
+    init(noteText: String, creationDate: Date, updatedDate: Date) {
+        self.noteText = noteText
+        self.creationDate = creationDate
+        self.updatedDate = updatedDate
     }
-    
-    func convertDate(date: Date) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
-        print(dateFormatter.string(from: date))
-    }
-    
-    
-    
+
 }
