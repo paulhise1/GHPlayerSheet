@@ -1,5 +1,14 @@
 import UIKit
 
+
+
+protocol DisplayNoteViewControllerDelegate {
+    func updateNoteList(noteTitle: String, noteBody: String)
+}
+
+
+
+
 class DisplayNoteViewController: UIViewController {
     
     var noteText: String?
@@ -9,7 +18,7 @@ class DisplayNoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        noteTextField.text = noteText
+        
        
     }
 

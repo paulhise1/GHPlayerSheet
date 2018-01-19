@@ -14,6 +14,8 @@
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
 		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
+		1E2CF32A201162AA002335DF /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* NoteModel.swift */; };
+		1E2CF32C20116524002335DF /* NotesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF32B20116524002335DF /* NotesListModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
 		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		1E2CF329201162AA002335DF /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		1E2CF32B20116524002335DF /* NotesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
+				1E2CF329201162AA002335DF /* NoteModel.swift */,
+				1E2CF32B20116524002335DF /* NotesListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,9 +304,11 @@
 				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
 				1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */,
 				1E0A39C22010A02E007924D9 /* DisplayNoteViewController.swift in Sources */,
+				1E2CF32C20116524002335DF /* NotesListModel.swift in Sources */,
 				1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */,
 				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,
+				1E2CF32A201162AA002335DF /* NoteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,14 +18,13 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     @IBOutlet weak var enterNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var perksLabel: UILabel!
-    @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var stateModifierContainerView: UIView!
     var statModifierView: StatModifierView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var notesContainerView: UIView!
     
     
-    //MARK: - View Did Load
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,7 +85,6 @@ class CharacterSheetViewController: UIViewController, UITextFieldDelegate, StatM
     
     //MARK: - statModifierView Delegate Methods
     func statModifierViewDidBeginModifying(sender: StatModifierView) {
-        
         addBlurEffect()
         view.bringSubview(toFront: stateModifierContainerView)
     }
