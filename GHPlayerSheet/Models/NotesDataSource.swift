@@ -11,11 +11,13 @@ class NotesDatasource {
         loadNotesList()
     }
     
-    func saveNote() {
+    func saveNotes() {
         let encoder = PropertyListEncoder()
         do {
             let data = try encoder.encode(self.notesList)
             try data.write(to: self.dataFilePath!)
+            print("Saved Notes.plist to user's Library")
+            print("new plist has \(notesList.count) notes")
         } catch {
             print("Error encoding notesList to Notes.plist: \(error)")
         }

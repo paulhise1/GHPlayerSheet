@@ -1,7 +1,7 @@
 import UIKit
 
 class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
-   
+    
     var notesDatasource = NotesDatasource()
     var selectedNoteText: String?
     var selectedNoteDate: Date?
@@ -26,7 +26,7 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         let createdDate = noteCreatedDate
         var note = NoteModel(noteText: noteText, creationDate: createdDate, updatedDate: date)
         notesDatasource.notesList[index] = note
-        notesDatasource.saveNote()
+        notesDatasource.saveNotes()
         tableView.reloadData()
     }
     
@@ -34,7 +34,13 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         let date = Date()
         var note = NoteModel(noteText: noteText, creationDate: date, updatedDate: date)
         notesDatasource.notesList.append(note)
-        notesDatasource.saveNote()
+        notesDatasource.saveNotes()
+        tableView.reloadData()
+    }
+    
+    func trashedNote(index: Int) {
+        notesDatasource.notesList.remove(at: index)
+        notesDatasource.saveNotes()
         tableView.reloadData()
     }
     
@@ -93,6 +99,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
         if (editingStyle == .delete) {
             notesDatasource.notesList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            notesDatasource.saveNotes()
         }
     }
     
@@ -103,9 +110,14 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
         return dateAsString
     }
     
+    func dateDisplayer(){
+    // want this to be like in notes app where it will say today, yesterday, weekday if in this last week, and otherwise show the date.
+    }
+    
+    // would like to move the body text down the string a little so its not just mirroring the title.
     func createNoteTitle(noteText: String) -> String {
-        if noteText.count > 20 {
-            let index = noteText.index(noteText.startIndex, offsetBy: 20)
+        if noteText.count > 25 {
+            let index = noteText.index(noteText.startIndex, offsetBy: 25)
             
             let subString = noteText.prefix(upTo: index)
             let newString = String(subString)

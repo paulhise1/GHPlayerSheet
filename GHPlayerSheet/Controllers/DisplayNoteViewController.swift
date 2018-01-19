@@ -3,53 +3,75 @@ import UIKit
 protocol DisplayNoteViewControllerDelegate: class {
     func updateNotesList(noteText: String, noteCreatedDate: Date, index: Int)
     func createNewNote(noteText: String)
+    func trashedNote(index: Int)
 }
 
-class DisplayNoteViewController: UIViewController, UITextFieldDelegate {
+class DisplayNoteViewController: UIViewController, UITextViewDelegate {
     
     weak var delegate: DisplayNoteViewControllerDelegate?
     var noteText: String?
     var noteCreatedDate: Date?
     var noteIndex: Int?
     var newNote: Bool?
-    var navBarButtonLabel = "Add Note"
+    var newBackButton: UIBarButtonItem?
+    var navBarButtonTitle = "Notes"
     
     
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var textView: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCustomNavBar()
-        if noteText == "" {
-            newNote = true
-        } else {
-            textField.text = noteText
-            navBarButtonLabel = "Notes"
-            newNote = false
-        }
+        setTextView()
     }
     
     @objc func back(sender: UIBarButtonItem) {
         if newNote! {
-            if textField.text != "" {
-                delegate?.createNewNote(noteText: textField.text)
+            if textView.text != "" {
+                delegate?.createNewNote(noteText: textView.text)
             }
         } else {
-            delegate?.updateNotesList(noteText: textField.text, noteCreatedDate: noteCreatedDate!, index: noteIndex!)
+            delegate?.updateNotesList(noteText: textView.text, noteCreatedDate: noteCreatedDate!, index: noteIndex!)
         }
         navigationController?.popViewController(animated: true)
     }
     
-    func setupCustomNavBar() {
-        self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: navBarButtonLabel, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DisplayNoteViewController.back(sender:)))
-        self.navigationItem.leftBarButtonItem = newBackButton
+    @IBAction func trashNoteButton(_ sender: Any) {
+        if newNote! {
+            navigationController?.popViewController(animated: true)
+        } else {
+            delegate?.trashedNote(index: noteIndex!)
+            navigationController?.popViewController(animated: true)
+        }
+    }
+
+    func setTextView(){
+        textView.delegate = self
+        if noteText == "" {
+            newNote = true
+        } else {
+            textView.text = noteText
+            navBarButtonTitle = "Notes"
+            newNote = false
+        }
+    
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        navBarButtonLabel = "Update Note"
+    func setupCustomNavBar() {
+        self.navigationItem.hidesBackButton = true
+        newBackButton = UIBarButtonItem(title: navBarButtonTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DisplayNoteViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if newNote! {
+            newBackButton?.title = "Add Note"
+        } else {
+            newBackButton?.title = "Update Note"
+        }
     }
     
     

@@ -435,13 +435,13 @@
                     <navigationItem key="navigationItem" id="KQQ-Fj-itK">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="kj6-j2-JlO">
                             <connections>
-                                <action selector="addNotePressed:" destination="Bf5-kQ-a47" id="ekt-dC-Htg"/>
+                                <action selector="trashNoteButton:" destination="Qnz-TX-EGY" id="6A8-Im-Fst"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="300" height="300"/>
                     <connections>
-                        <outlet property="textField" destination="JMV-q5-LKn" id="C3s-t7-djp"/>
+                        <outlet property="textView" destination="JMV-q5-LKn" id="FdB-of-HK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfZ-QA-Nik" userLabel="First Responder" sceneMemberID="firstResponder"/>
