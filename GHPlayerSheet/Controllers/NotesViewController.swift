@@ -2,7 +2,7 @@ import UIKit
 
 class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
     
-    var notesDatasource = NotesDatasource()
+    let notesDatasource = NotesDatasource()
     var selectedNote: NoteModel?
 
     @IBOutlet weak var tableView: UITableView!
@@ -39,15 +39,15 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         // want this to be like in notes app where it will say today, yesterday, weekday if in this last week, and otherwise show the date.
     }
     
-    // would like to move the body text down the string a little so its not just mirroring the title.
+    
     func noteTitleFrom(noteText: String?) -> String {
         let noteText = noteText ?? ""
         
-        guard noteText.count > 25 else {
+        guard noteText.count > 24 else {
             return noteText
         }
         
-        let index = noteText.index(noteText.startIndex, offsetBy: 25)
+        let index = noteText.index(noteText.startIndex, offsetBy: 24)
         
         let subString = noteText.prefix(upTo: index)
         let newString = String(subString)
@@ -60,7 +60,7 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
             return titleString
         }
     }
-    
+    // want to do a filter that pulls out all of the \n characters for the message label
     func noteMessageFrom(noteText: String, noteTitle: String) -> String {
         let titleLength = noteTitle.count
         var noteMessage = String(describing: noteText.dropFirst(titleLength))
@@ -87,6 +87,9 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        tableView.estimatedRowHeight = 50.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
         
         let noteText = notesDatasource.noteAt(index: indexPath.row).text
@@ -120,6 +123,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
         }
     }
 
+    
 }
 
 //MARK: - extension on String to help with manipulating substrings
