@@ -25,6 +25,8 @@ class CounterView: UIView {
     let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)
     let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()
     let experienceCounterColor = UIColor.flatSkyBlue().lighten(byPercentage: 0.9)
+    let genericBackgroundColor = UIColor.flatMagentaColorDark()
+    let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.75)
     
     
     @IBOutlet weak var decrementButton: UIButton!
@@ -32,18 +34,12 @@ class CounterView: UIView {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView! {
         didSet {
-            backgroundView.layer.cornerRadius = 20
+            backgroundView.layer.cornerRadius = 18
             backgroundView.layer.masksToBounds = true
         }
     }
     
     // might want to add press and hold functionality
-    @IBAction func decrementButtonTapped(_ sender: Any) {
-        if counterValue > 0 {
-            decrementCounter()
-        }
-    }
-    
     @IBAction func incrementButtonTapped(_ sender: Any) {
         if let maxValue = max {
             if counterValue < maxValue {
@@ -51,6 +47,12 @@ class CounterView: UIView {
             }
         } else {
             incrementCounter()
+        }
+    }
+    
+    @IBAction func decrementButtonTapped(_ sender: Any) {
+        if counterValue > 0 {
+            decrementCounter()
         }
     }
     
@@ -75,7 +77,8 @@ class CounterView: UIView {
             backgroundView.backgroundColor = experienceBackgroundColor
             counterLabel.textColor = experienceCounterColor
         case .generic:
-            backgroundView.backgroundColor = UIColor.flatMagenta()
+            backgroundView.backgroundColor = genericBackgroundColor
+            counterLabel.textColor = genericCounterColor
         }
     }
     

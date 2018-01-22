@@ -18,7 +18,7 @@
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1EA938D82015898600B070B4 /* ScenarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA938D72015898600B070B4 /* ScenarioViewController.swift */; };
 		1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA938D92015A31600B070B4 /* CounterView.swift */; };
-		1EA938DC2015A32900B070B4 /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DB2015A32900B070B4 /* CounterView.xib */; };
+		1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DB2015A32900B070B4 /* HorizontalCounterView.xib */; };
 		1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DD2015A71900B070B4 /* minusImage.png */; };
 		1EA938E02015A71F00B070B4 /* plusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DF2015A71F00B070B4 /* plusImage.png */; };
 		1EB4B28A2015F52700BF0AB0 /* VerticalCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */; };
@@ -44,7 +44,7 @@
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1EA938D72015898600B070B4 /* ScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewController.swift; sourceTree = "<group>"; };
 		1EA938D92015A31600B070B4 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
-		1EA938DB2015A32900B070B4 /* CounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterView.xib; sourceTree = "<group>"; };
+		1EA938DB2015A32900B070B4 /* HorizontalCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalCounterView.xib; sourceTree = "<group>"; };
 		1EA938DD2015A71900B070B4 /* minusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minusImage.png; sourceTree = "<group>"; };
 		1EA938DF2015A71F00B070B4 /* plusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusImage.png; sourceTree = "<group>"; };
 		1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalCounterView.xib; sourceTree = "<group>"; };
@@ -103,9 +103,9 @@
 				1E0FFCEF200C409B001525F7 /* StatModifierView.swift */,
 				1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */,
 				1EA938D92015A31600B070B4 /* CounterView.swift */,
-				1EA938DB2015A32900B070B4 /* CounterView.xib */,
-				1E2CF3272010B946002335DF /* NoteTableViewCell.swift */,
+				1EA938DB2015A32900B070B4 /* HorizontalCounterView.xib */,
 				1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */,
+				1E2CF3272010B946002335DF /* NoteTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
-				1EA938DC2015A32900B070B4 /* CounterView.xib in Resources */,
+				1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */,
 				1ECF00D62007106400C2E11D /* Main.storyboard in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
 				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,

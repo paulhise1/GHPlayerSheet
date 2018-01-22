@@ -18,6 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gce-TP-pFA" userLabel="Black Back View">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkm-m6-R02" userLabel="Background View">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,15 +53,19 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Nkm-m6-R02" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="1bX-27-ZMw"/>
+                <constraint firstItem="Gce-TP-pFA" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="2G8-O2-SW7"/>
                 <constraint firstItem="BOs-md-DVj" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="BhM-60-yOz"/>
                 <constraint firstItem="Nkm-m6-R02" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="EZk-A6-drQ"/>
                 <constraint firstItem="BOs-md-DVj" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="GcM-Mv-Eey"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9PL-Dn-t65" secondAttribute="trailing" constant="10" id="Jhh-1L-tj8"/>
                 <constraint firstItem="Nkm-m6-R02" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="SNb-Nj-CsB"/>
+                <constraint firstItem="Gce-TP-pFA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="SZ9-or-WGn"/>
                 <constraint firstItem="Nkm-m6-R02" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="SlM-hL-A6Q"/>
+                <constraint firstItem="Gce-TP-pFA" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="TEo-LX-zBf"/>
                 <constraint firstItem="9PL-Dn-t65" firstAttribute="height" secondItem="BOs-md-DVj" secondAttribute="height" id="ax8-IH-jng"/>
                 <constraint firstItem="BOs-md-DVj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="dbb-2W-lth"/>
                 <constraint firstItem="Oji-X6-A2G" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="iS3-Gs-PLk"/>
+                <constraint firstItem="Gce-TP-pFA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="nAX-aw-eMj"/>
                 <constraint firstItem="9PL-Dn-t65" firstAttribute="centerY" secondItem="BOs-md-DVj" secondAttribute="centerY" id="uox-bh-ERO"/>
                 <constraint firstItem="9PL-Dn-t65" firstAttribute="width" secondItem="BOs-md-DVj" secondAttribute="width" id="xxt-GR-Og7"/>
                 <constraint firstItem="Oji-X6-A2G" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zOX-PN-dCh"/>
