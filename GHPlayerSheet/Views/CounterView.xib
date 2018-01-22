@@ -18,13 +18,13 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1Q-HI-Jls">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkm-m6-R02" userLabel="Background View">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oji-X6-A2G">
-                    <rect key="frame" x="184.5" y="20.5" width="31" height="60"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <rect key="frame" x="184" y="20.5" width="32" height="60"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -48,16 +48,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="p1Q-HI-Jls" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="4JK-7g-e0r"/>
+                <constraint firstItem="Nkm-m6-R02" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="1bX-27-ZMw"/>
                 <constraint firstItem="BOs-md-DVj" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="BhM-60-yOz"/>
+                <constraint firstItem="Nkm-m6-R02" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="EZk-A6-drQ"/>
                 <constraint firstItem="BOs-md-DVj" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="GcM-Mv-Eey"/>
-                <constraint firstItem="p1Q-HI-Jls" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="IhP-jC-c0A"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9PL-Dn-t65" secondAttribute="trailing" constant="10" id="Jhh-1L-tj8"/>
-                <constraint firstItem="p1Q-HI-Jls" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Wsf-db-Oay"/>
+                <constraint firstItem="Nkm-m6-R02" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="SNb-Nj-CsB"/>
+                <constraint firstItem="Nkm-m6-R02" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="SlM-hL-A6Q"/>
                 <constraint firstItem="9PL-Dn-t65" firstAttribute="height" secondItem="BOs-md-DVj" secondAttribute="height" id="ax8-IH-jng"/>
                 <constraint firstItem="BOs-md-DVj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="dbb-2W-lth"/>
                 <constraint firstItem="Oji-X6-A2G" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="iS3-Gs-PLk"/>
-                <constraint firstItem="p1Q-HI-Jls" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="klj-QT-CpR"/>
                 <constraint firstItem="9PL-Dn-t65" firstAttribute="centerY" secondItem="BOs-md-DVj" secondAttribute="centerY" id="uox-bh-ERO"/>
                 <constraint firstItem="9PL-Dn-t65" firstAttribute="width" secondItem="BOs-md-DVj" secondAttribute="width" id="xxt-GR-Og7"/>
                 <constraint firstItem="Oji-X6-A2G" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zOX-PN-dCh"/>
@@ -65,6 +65,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="backgroundView" destination="Nkm-m6-R02" id="kyT-3W-R5x"/>
                 <outlet property="counterLabel" destination="Oji-X6-A2G" id="SyB-UV-8aa"/>
                 <outlet property="decrementButton" destination="BOs-md-DVj" id="34I-t2-arj"/>
                 <outlet property="incrementButton" destination="9PL-Dn-t65" id="U5F-xw-b8D"/>

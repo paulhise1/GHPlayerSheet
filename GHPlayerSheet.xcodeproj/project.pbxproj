@@ -21,6 +21,7 @@
 		1EA938DC2015A32900B070B4 /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DB2015A32900B070B4 /* CounterView.xib */; };
 		1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DD2015A71900B070B4 /* minusImage.png */; };
 		1EA938E02015A71F00B070B4 /* plusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DF2015A71F00B070B4 /* plusImage.png */; };
+		1EB4B28A2015F52700BF0AB0 /* VerticalCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
 		1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D72007106400C2E11D /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		1EA938DB2015A32900B070B4 /* CounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterView.xib; sourceTree = "<group>"; };
 		1EA938DD2015A71900B070B4 /* minusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minusImage.png; sourceTree = "<group>"; };
 		1EA938DF2015A71F00B070B4 /* plusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusImage.png; sourceTree = "<group>"; };
+		1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalCounterView.xib; sourceTree = "<group>"; };
 		1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00D02007106400C2E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				1EA938D92015A31600B070B4 /* CounterView.swift */,
 				1EA938DB2015A32900B070B4 /* CounterView.xib */,
 				1E2CF3272010B946002335DF /* NoteTableViewCell.swift */,
+				1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EB4B28A2015F52700BF0AB0 /* VerticalCounterView.xib in Resources */,
 				1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */,
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
@@ -263,10 +267,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,15 +31,17 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     //MARK: - Setup Child Views
     func setupHealthCounterView() {
         let healthCounterView = Bundle.main.loadNibNamed("CounterView", owner: self, options: nil)?.first as? CounterView
-        healthContainerView.addSubview(healthCounterView!)
         healthCounterView?.frame = healthContainerView.bounds
+        healthCounterView?.setupCounter(startingValue: 15, type: CounterType.health, maxValue: 15)
+        healthContainerView.addSubview(healthCounterView!)
         healthCounterView?.delegate = self
     }
     
     func setupExperienceCounterView() {
         let experienceCounterView = Bundle.main.loadNibNamed("CounterView", owner: self, options: nil)?.first as? CounterView
+        experienceCounterView?.frame = experienceContainerView.bounds
+        experienceCounterView?.setupCounter(startingValue: 0, type: CounterType.experience)
         experienceContainerView.addSubview(experienceCounterView!)
-        experienceCounterView?.frame = healthContainerView.bounds
         experienceCounterView?.delegate = self
     }
     

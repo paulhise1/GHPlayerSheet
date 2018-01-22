@@ -6,5 +6,5 @@ target 'GHPlayerSheet' do
 
   # Pods for GHPlayerSheet
   pod 'DynamicBlurView'
-
+  pod 'ChameleonFramework'
 end

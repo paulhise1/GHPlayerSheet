@@ -1,12 +1,17 @@
 PODS:
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - DynamicBlurView (2.0.1)
 
 DEPENDENCIES:
+  - ChameleonFramework
   - DynamicBlurView
 
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DynamicBlurView: 5e6babd80cc0ddfd3ddfc4f5dacf2fe4181e7c52
 
-PODFILE CHECKSUM: 63dfb711567e99e0757b6f9d325683ab0a63931d
+PODFILE CHECKSUM: 7ce26c1491e201935ec52802fa43866ef6d1287e
 
 COCOAPODS: 1.3.1
