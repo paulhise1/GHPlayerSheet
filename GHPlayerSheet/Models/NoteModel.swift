@@ -2,14 +2,14 @@ import Foundation
 
 struct NoteModel: Codable {
     
-    var noteText: String
-    let creationDate: Date
-    var updatedDate: Date
+    var text: String
+    let creationDate: Date // Identifier
+    var date: Date
     
-    init(noteText: String, creationDate: Date, updatedDate: Date) {
-        self.noteText = noteText
+    init(text: String, creationDate: Date, currentDate: Date) {
+        self.text = text
         self.creationDate = creationDate
-        self.updatedDate = updatedDate
+        self.date = currentDate
     }
 
 }

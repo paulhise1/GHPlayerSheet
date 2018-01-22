@@ -1,7 +1,7 @@
 import Foundation
 
 enum CharacterClass: String {
-    case none = ""
+    case none
     case cragheart = "Savvas Cragheart"
     case scoundrel = "Human Scoundrel"
     case tinkerer = "Quatryl Tinkerer"
