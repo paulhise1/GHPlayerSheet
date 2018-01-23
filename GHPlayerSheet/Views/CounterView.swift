@@ -8,9 +8,8 @@ enum CounterType {
 }
 
 protocol CounterViewDelegate: class {
-    func valueDidChange(value: Int)
+    func counterValueDidChange(value: Int, sender: CounterView)
 }
-
 
 class CounterView: UIView {
 
@@ -29,10 +28,10 @@ class CounterView: UIView {
     let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.75)
     
     
-    @IBOutlet weak var decrementButton: UIButton!
-    @IBOutlet weak var incrementButton: UIButton!
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var backgroundView: UIView! {
+    @IBOutlet private weak var decrementButton: UIButton!
+    @IBOutlet private weak var incrementButton: UIButton!
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var backgroundView: UIView! {
         didSet {
             backgroundView.layer.cornerRadius = 18
             backgroundView.layer.masksToBounds = true
@@ -59,16 +58,16 @@ class CounterView: UIView {
     func setupCounter(startingValue: Int, type: CounterType, maxValue: Int? = nil) {
         counterType = type
         max = maxValue
-        setValue(value: startingValue)
-        setColors()
+        setCounterValue(value: startingValue)
+        setDefaultColors()
     }
     
-    private func setValue(value: Int) {
+    private func setCounterValue(value: Int) {
         counterValue = value
         counterLabel.text = String(counterValue)
     }
     
-    private func setColors() {
+    private func setDefaultColors() {
         switch counterType {
         case .health:
             backgroundView.backgroundColor = healthBackgroundColor
@@ -85,12 +84,12 @@ class CounterView: UIView {
     private func incrementCounter() {
         counterValue = counterValue + 1
         counterLabel.text = String(counterValue)
-        delegate?.valueDidChange(value: counterValue)
+        delegate?.counterValueDidChange(value: counterValue, sender: self)
     }
     
     private func decrementCounter() {
         counterValue = counterValue - 1
         counterLabel.text = String(counterValue)
-        delegate?.valueDidChange(value: counterValue)
+        delegate?.counterValueDidChange(value: counterValue, sender: self)
     }
 }

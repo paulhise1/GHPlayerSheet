@@ -16,16 +16,13 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCounters()
     }
   
-    
-    func valueDidChange(value: Int) {
+    func counterValueDidChange(value: Int, sender: CounterView) {
         
     }
     

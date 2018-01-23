@@ -13,8 +13,10 @@ class CharacterModel: Codable {
     var activePerks = [String]()
     //var notes: NotesDatasource?
     
-    init(characterClass: CharacterClass) {
+    init(characterClass: CharacterClass, gold: Int = 0, experience: Int = 0) {
         self.characterClass = characterClass
+        self.gold = gold
+        self.experience = experience
     }
 
     func updateGold(amount: Int) -> Int {

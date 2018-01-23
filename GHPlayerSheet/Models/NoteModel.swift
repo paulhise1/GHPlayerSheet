@@ -1,6 +1,6 @@
 import Foundation
 
-struct NoteModel: Codable {
+struct NoteModel: Codable, ModelProtocol {
     
     var text: String
     let creationDate: Date // Identifier
@@ -12,4 +12,7 @@ struct NoteModel: Codable {
         self.date = currentDate
     }
 
+    func identifier() -> Date {
+        return creationDate
+    }
 }

@@ -10,7 +10,6 @@ class CharacterSheetViewController: UIViewController {
     }
 
     //MARK: - Class Properties
-    let characterDatasource = CharactersDatasource()
     var currentCharacter : CharacterModel?
     var blurView: DynamicBlurView?
     
@@ -29,20 +28,12 @@ class CharacterSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentCharacter = characterDatasource.getCharacter()
-        
         setupStatModifierView()
         setupNotesView()
         setupDefaultNameLabelAppearance()
-        
     }
     
     //MARK: - Helper Methods
-    func setupDefaultNameLabelAppearance() {
-        nameLabel.text = Constants.nameDefaultText
-        nameLabel.textColor = .lightGray
-    }
-    
     func addBlurEffect(){
         // Would like to animate, animation was stuttered
         blurView = DynamicBlurView(frame: view.bounds)
@@ -86,8 +77,18 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
 }
 
 
-//MARK: - Character Name TextField Methods
+//MARK: - Character Name Button and TextField Methods
 extension CharacterSheetViewController: UITextFieldDelegate {
+    
+    func setupDefaultNameLabelAppearance() {
+        if let name = currentCharacter?.name {
+            nameLabel.text = name
+            nameLabel.textColor = UIColor.flatMagenta()
+        } else {
+            nameLabel.text = Constants.nameDefaultText
+            nameLabel.textColor = .lightGray
+        }
+    }
     
     @IBAction func enterNameButtonTapped(_ sender: Any) {
         let textField = UITextField()
@@ -120,7 +121,7 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         nameLabel.text = textField.text
-        nameLabel.textColor = .blue
+        nameLabel.textColor = UIColor.flatMagenta()
         if textField.text == "" {
             setupDefaultNameLabelAppearance()
         }

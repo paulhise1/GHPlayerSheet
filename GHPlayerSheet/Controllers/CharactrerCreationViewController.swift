@@ -2,22 +2,36 @@ import UIKit
 
 class CharacterCreationViewController: UIViewController {
 
-    let characterDatasource = CharactersDatasource()
+    let scenarioShareManager = ScenarioShareManager()
+    
+    @IBOutlet weak var colorChangingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func createCharacterTapped(_ sender: Any) {
-        
+    
+    
+    
+    
+    
+}
+
+extension CharacterCreationViewController {
+    
+    var newCharacter: CharacterModel? = nil
+    
+    @IBAction func newCharacterButtonTapped(_ sender: Any) {
         //Stubbed
-        let newCharacter = CharacterModel(characterClass: .brute)
-        newCharacter.gold = 47
-        newCharacter.experience = 133
-        characterDatasource.updateCharacter(updatedCharacter: newCharacter)
+        newCharacter = CharacterModel(characterClass: .brute, gold: 47, experience: 133)
         performSegue(withIdentifier: "toCharacterSheet", sender: self)
         
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! CharacterSheetViewController
+        destinationVC.currentCharacter = newCharacter ?? nil
+    }
 }
+
+

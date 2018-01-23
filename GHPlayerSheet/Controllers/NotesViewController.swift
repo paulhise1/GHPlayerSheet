@@ -2,10 +2,21 @@ import UIKit
 
 class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
     
-    let notesDatasource = NotesDatasource()
+    struct Constants {
+        static let pathComponent = "notes.plist"
+    }
+    
+    let notesDatasource: ModelDatasource<NoteModel>
     var selectedNote: NoteModel?
 
     @IBOutlet weak var tableView: UITableView!
+    
+    required init?(coder aDecoder: NSCoder) {
+        let url = URL.libraryFilePathWith(finalPathComponent: Constants.pathComponent)
+        self.notesDatasource = ModelDatasource(with: url)
+        
+        super.init(coder: aDecoder)
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +27,9 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
 
     func didUpdateNote(note: NoteModel) {
         if note.text == "" {
-            notesDatasource.removeNote(note: note)
+            notesDatasource.remove(model: note)
         } else {
-            notesDatasource.updateNote(updatedNote: note)
+            notesDatasource.update(model: note)
         }
         tableView.reloadData()
     }
@@ -28,18 +39,10 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         performSegue(withIdentifier: "toUpdateNote", sender: self)
     }
     
-    func dateToStringFormater(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/DD"
-        let dateAsString = formatter.string(from: Date())
-        return dateAsString
-    }
-    
     func dateDisplayer(){
         // want this to be like in notes app where it will say today, yesterday, weekday if in this last week, and otherwise show the date.
     }
-    
-    
+
     func noteTitleFrom(noteText: String?) -> String {
         let noteText = noteText ?? ""
         
@@ -92,13 +95,12 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
         tableView.rowHeight = UITableViewAutomaticDimension
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
         
-        let noteText = notesDatasource.noteAt(index: indexPath.row).text
-        
-        let date = dateToStringFormater(date: notesDatasource.noteAt(index: indexPath.row).date)
+        let noteText = notesDatasource.modelAt(index: indexPath.row).text
+        let dateString = Date.dateToStringFormater(date: notesDatasource.modelAt(index: indexPath.row).date)
         let noteTitle = noteTitleFrom(noteText: noteText)
         
         cell.noteTitleLabel.text = noteTitle
-        cell.noteDateTimeLabel.text = date
+        cell.noteDateTimeLabel.text = dateString
         cell.noteBodyLabel.text = noteMessageFrom(noteText: noteText, noteTitle: noteTitle)
         
         return cell
@@ -107,7 +109,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedNote = notesDatasource.noteAt(index: indexPath.row)
+        selectedNote = notesDatasource.modelAt(index: indexPath.row)
         performSegue(withIdentifier: "toUpdateNote", sender: self)
     }
     
@@ -117,62 +119,10 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            let note = notesDatasource.noteAt(index: indexPath.row)
-            notesDatasource.removeNote(note: note)
+            let noteModel = notesDatasource.modelAt(index: indexPath.row)
+            notesDatasource.remove(model: noteModel)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-
-    
 }
-
-//MARK: - extension on String to help with manipulating substrings
-extension String {
-    func index(at offset: Int, from start: Index? = nil) -> Index? {
-        return index(start ?? startIndex, offsetBy: offset, limitedBy: endIndex)
-    }
-    func character(at offset: Int) -> Character? {
-        precondition(offset >= 0, "offset can't be negative")
-        guard let index = index(at: offset) else { return nil }
-        return self[index]
-    }
-    subscript(_ range: CountableRange<Int>) -> Substring {
-        precondition(range.lowerBound >= 0, "lowerBound can't be negative")
-        let start = index(at: range.lowerBound) ?? endIndex
-        return self[start..<(index(at: range.count, from: start) ?? endIndex)]
-    }
-    subscript(_ range: CountableClosedRange<Int>) -> Substring {
-        precondition(range.lowerBound >= 0, "lowerBound can't be negative")
-        let start = index(at: range.lowerBound) ?? endIndex
-        return self[start..<(index(at: range.count, from: start) ?? endIndex)]
-    }
-    subscript(_ range: PartialRangeUpTo<Int>) -> Substring {
-        return prefix(range.upperBound)
-    }
-    subscript(_ range: PartialRangeThrough<Int>) -> Substring {
-        return prefix(range.upperBound+1)
-    }
-    subscript(_ range: PartialRangeFrom<Int>) -> Substring {
-        return suffix(max(0,count-range.lowerBound))
-    }
-}
-
-extension Substring {
-    var string: String { return String(self) }
-}
-
-//let test = "Hello USA 🇺🇸!!! Hello Brazil 🇧🇷!!!"
-//test.character(at: 10)   // "🇺🇸"
-//test.character(at: 11)   // "!"
-//test[10...]   // "🇺🇸!!! Hello Brazil 🇧🇷!!!"
-//test[10..<12]   // "🇺🇸!"
-//test[10...12]   // "🇺🇸!!"
-//test[...10]   // "Hello USA 🇺🇸"
-//test[..<10]   // "Hello USA "
-//test.first   // "H"
-//test.last    // "!"
-//
-//// Note that they all return a Substring of the original String.
-//// To create a new String you need to add .string as follow
-//test[10...].string  // "🇺🇸!!! Hello Brazil 🇧🇷!!!"
 

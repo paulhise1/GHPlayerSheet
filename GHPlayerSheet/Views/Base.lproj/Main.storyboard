@@ -20,26 +20,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-dJ-BDt">
-                                <rect key="frame" x="225" y="151" width="362" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Create Character"/>
-                                <connections>
-                                    <action selector="createCharacterTapped:" destination="gdu-2w-PYF" eventType="touchUpInside" id="gdo-GZ-Cjx"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cYm-8b-1BQ" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="-0.33333333333334281" width="812" height="375.66666666666674"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kS-mN-N77">
+                                        <rect key="frame" x="105" y="24" width="134" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.23018704354763031" green="0.77713233232498169" blue="0.3158949613571167" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Advertiser"/>
+                                        <connections>
+                                            <action selector="beginAdvertising:" destination="gdu-2w-PYF" eventType="touchUpInside" id="T01-Dt-7C9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-dJ-BDt">
+                                        <rect key="frame" x="232" y="271" width="348" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="New Character">
+                                            <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newCharacterButtonTapped:" destination="gdu-2w-PYF" eventType="touchUpInside" id="bi0-CB-OBr"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6XT-2c-fgi" userLabel="Color Changing View">
+                                        <rect key="frame" x="286" y="38" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDJ-Wg-ne7">
+                                        <rect key="frame" x="105" y="135" width="90" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1911550909280777" green="0.6378670334815979" blue="0.26147949695587158" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="invite peer"/>
+                                        <connections>
+                                            <action selector="invitePeerTapped:" destination="gdu-2w-PYF" eventType="touchUpInside" id="OOm-fL-Seb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNK-p7-R6S">
+                                        <rect key="frame" x="551" y="23" width="120" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Browser"/>
+                                        <connections>
+                                            <action selector="beginBrowsing:" destination="gdu-2w-PYF" eventType="touchUpInside" id="2tz-tZ-VOH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhv-Ta-3rG">
+                                        <rect key="frame" x="588" y="135" width="117" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.97670525312423706" green="0.60546392202377319" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="accept invite"/>
+                                        <connections>
+                                            <action selector="acceptInviteTapped:" destination="gdu-2w-PYF" eventType="touchUpInside" id="S9s-Bq-T2U"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cYm-8b-1BQ" firstAttribute="centerY" secondItem="AE3-mp-Rpf" secondAttribute="centerY" id="1C4-Rw-Nck"/>
+                            <constraint firstItem="cYm-8b-1BQ" firstAttribute="width" secondItem="AE3-mp-Rpf" secondAttribute="width" id="5qy-hE-9LN"/>
+                            <constraint firstItem="cYm-8b-1BQ" firstAttribute="centerX" secondItem="AE3-mp-Rpf" secondAttribute="centerX" id="9do-tw-JnT"/>
+                            <constraint firstItem="cYm-8b-1BQ" firstAttribute="height" secondItem="AE3-mp-Rpf" secondAttribute="height" id="9xl-h4-02A"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sfH-d5-pzb"/>
                     </view>
                     <connections>
+                        <outlet property="colorChangingView" destination="6XT-2c-fgi" id="y7H-vk-pdL"/>
                         <segue destination="YSa-nI-ikU" kind="show" identifier="toCharacterSheet" id="Jd8-8u-8ge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUU-bW-BHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-447" y="719"/>
+            <point key="canvasLocation" x="143" y="-505"/>
         </scene>
         <!--Character Sheet View Controller-->
         <scene sceneID="fmv-nT-R8k">
