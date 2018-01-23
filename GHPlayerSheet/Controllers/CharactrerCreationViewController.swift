@@ -2,24 +2,12 @@ import UIKit
 
 class CharacterCreationViewController: UIViewController {
 
-    let scenarioShareManager = ScenarioShareManager()
-    
-    @IBOutlet weak var colorChangingView: UIView!
+    var newCharacter: CharacterModel? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-
-    
-    
-    
-    
-    
-}
-
-extension CharacterCreationViewController {
-    
-    var newCharacter: CharacterModel? = nil
     
     @IBAction func newCharacterButtonTapped(_ sender: Any) {
         //Stubbed

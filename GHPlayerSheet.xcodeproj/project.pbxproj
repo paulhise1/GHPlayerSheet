@@ -139,10 +139,10 @@
 				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
 				1E83F7192010661C000AAECD /* NotesViewController.swift */,
 				1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */,
-				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
-				1EB4B29B2016FA3000BF0AB0 /* MPCManager.swift */,
 				1EB4B2952016264C00BF0AB0 /* CharactrerCreationViewController.swift */,
+				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
 				1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */,
+				1EB4B29B2016FA3000BF0AB0 /* MPCManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

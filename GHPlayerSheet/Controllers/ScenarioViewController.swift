@@ -1,15 +1,10 @@
-//
-//  ScenarioViewController.swift
-//  GHPlayerSheet
-//
-//  Created by Paul Hise on 1/21/18.
-//  Copyright © 2018 Paul Hise. All rights reserved.
-//
-
 import UIKit
 
-class ScenarioViewController: UIViewController, CounterViewDelegate {
+class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioShareManagerDelegate {
     
+    let scenarioShare = ScenarioShareManager()
+    
+    @IBOutlet weak var connectedDevicesLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
     @IBOutlet weak var healthTrackerContainerView: UIView!
@@ -18,7 +13,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        scenarioShare.delegate = self
         setupCounters()
     }
   
@@ -30,6 +25,34 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         setupHealthCounterView()
         setupExperienceCounterView()
         setupGenericCounterView()
+    }
+    
+    //MARK:- MCScenarioShare delegates to register stat changes.
+    func connectedDevicesChanged(manager: ScenarioShareManager, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            var connectedDevicesString = "Connected friends:"
+            for devices in connectedDevices {
+                 connectedDevicesString = connectedDevicesString + ", " + devices
+            }
+            if let i = connectedDevicesString.index(of: ",") {
+                connectedDevicesString.remove(at: i)
+            }
+            self.connectedDevicesLabel.text = connectedDevicesString
+        }
+    }
+    
+    func statChanged(manager: ScenarioShareManager, statString: String) {
+        // need some way, possibly a switch to figure out who sent data change and put it in the column accordingly
+        //example from tutorial, seems like changes need to be on main thread
+//        OperationQueue.main.addOperation {
+//            switch colorString {
+//            case "red":
+//                self.change(color: .red)
+//            case "yellow":
+//                self.change(color: .yellow)
+//            default:
+//                NSLog("%@", "Unknown color value received: \(colorString)")
+//            }
     }
     
     
