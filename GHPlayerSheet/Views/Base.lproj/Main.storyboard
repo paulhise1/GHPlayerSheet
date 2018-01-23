@@ -211,7 +211,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-up-pMo" userLabel="Player 2 Stat Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="129.66666666666666"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h82-OA-Q8E">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h82-OA-Q8E">
                                                         <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="43.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -234,7 +234,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BCe-Hh-6vj" userLabel="Player 3 Stat Stack View">
                                                 <rect key="frame" x="207.33333333333331" y="0.0" width="207.33333333333331" height="129.66666666666666"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-lq-1S4">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-lq-1S4">
                                                         <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="43.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -257,7 +257,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Bc-xz-9S0" userLabel="Player 4 Stat Stack View">
                                                 <rect key="frame" x="414.66666666666669" y="0.0" width="207.33333333333331" height="129.66666666666666"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAp-Pr-a39">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAp-Pr-a39">
                                                         <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="43.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -351,6 +351,15 @@
                         <outlet property="experienceTrackerContainerView" destination="wPC-oV-DMu" id="L32-vh-7Mj"/>
                         <outlet property="genericTrackerContainerView" destination="mmh-ew-FYs" id="eFc-Qb-dBI"/>
                         <outlet property="healthTrackerContainerView" destination="7aU-6G-nQY" id="QeJ-IB-Cir"/>
+                        <outlet property="player2ExperienceLabel" destination="Skt-PM-DaU" id="awg-9Q-o6B"/>
+                        <outlet property="player2HealthLabel" destination="3RJ-o6-6uq" id="KkF-0Z-af4"/>
+                        <outlet property="player2NameLabel" destination="h82-OA-Q8E" id="UcV-yw-tVu"/>
+                        <outlet property="player3ExperienceLabel" destination="Hqg-HI-Xoh" id="Fbo-oY-nL3"/>
+                        <outlet property="player3HealthLabel" destination="7fR-ou-1Mx" id="VUa-2f-J6A"/>
+                        <outlet property="player3NameLabel" destination="EEb-lq-1S4" id="wge-fi-uWN"/>
+                        <outlet property="player4ExperienceLabel" destination="hSA-sB-f8V" id="tv6-Gq-fIt"/>
+                        <outlet property="player4HealthLabel" destination="KsB-ex-ncF" id="K3Y-v5-0DK"/>
+                        <outlet property="player4NameLabel" destination="xAp-Pr-a39" id="XR0-nv-yEc"/>
                         <outlet property="scenarioGoalLabel" destination="AMt-2m-3wX" id="17o-Za-pn3"/>
                         <outlet property="scenarioTitleLabel" destination="ucL-hg-AVU" id="VjU-ND-QwA"/>
                     </connections>

@@ -11,33 +11,67 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
     
+    @IBOutlet weak var player2NameLabel: UILabel!
+    @IBOutlet weak var player2HealthLabel: UILabel!
+    @IBOutlet weak var player2ExperienceLabel: UILabel!
+    
+    @IBOutlet weak var player3NameLabel: UILabel!
+    @IBOutlet weak var player3HealthLabel: UILabel!
+    @IBOutlet weak var player3ExperienceLabel: UILabel!
+    
+    @IBOutlet weak var player4NameLabel: UILabel!
+    @IBOutlet weak var player4HealthLabel: UILabel!
+    @IBOutlet weak var player4ExperienceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scenarioShare.delegate = self
         setupCounters()
     }
   
-    func counterValueDidChange(value: Int, sender: CounterView) {
+    func counterValueDidChange(value: Int, type: CounterType) {
+        print("value: \(value), type: \(type)")
+    }
+    
+    func setPlayerNames() {
+//        player2NameLabel.text =
+//        player3NameLabel.text =
+//        player4NameLabel.text =
+    }
+    
+    func updateAllStats() {
+        broadcastMyStats()
+        changePlayer2Stats()
+        changePlayer3Stats()
+        changePlayer4Stats()
+    }
+    
+    func broadcastMyStats() {
         
     }
     
-    func setupCounters() {
-        setupHealthCounterView()
-        setupExperienceCounterView()
-        setupGenericCounterView()
+    func changePlayer2Stats() {
+//        player2HealthLabel.text =
+//        player2ExperienceLabel.text =
+    }
+    
+    func changePlayer3Stats() {
+//        player3HealthLabel.text =
+//        player3ExperienceLabel.text =
+    }
+    
+    func changePlayer4Stats() {
+//        player4HealthLabel.text =
+//        player4ExperienceLabel.text =
     }
     
     //MARK:- MCScenarioShare delegates to register stat changes.
     func connectedDevicesChanged(manager: ScenarioShareManager, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
-            var connectedDevicesString = "Connected friends:"
-            for devices in connectedDevices {
-                 connectedDevicesString = connectedDevicesString + ", " + devices
-            }
-            if let i = connectedDevicesString.index(of: ",") {
-                connectedDevicesString.remove(at: i)
-            }
-            self.connectedDevicesLabel.text = connectedDevicesString
+            // want to use the connectedDevices list to divy out which of the other players will fill in which slots in the stack view
+            
+            self.connectedDevicesLabel.text = self.updateWhoIsConnectedLabel(connectedDevices: connectedDevices)
+            self.updateAllStats()
         }
     }
     
@@ -55,12 +89,28 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
 //            }
     }
     
+    func updateWhoIsConnectedLabel(connectedDevices: [String]) -> String {
+        var connectedDevicesString = "Connected friends:"
+        for devices in connectedDevices {
+            connectedDevicesString = connectedDevicesString + ", " + devices
+        }
+        if let i = connectedDevicesString.index(of: ",") {
+            connectedDevicesString.remove(at: i)
+        }
+        return connectedDevicesString
+    }
     
     //MARK: - Setup Child Views
+    func setupCounters() {
+        setupHealthCounterView()
+        setupExperienceCounterView()
+        setupGenericCounterView()
+    }
+    
     func setupHealthCounterView() {
         let healthCounterView = Bundle.main.loadNibNamed("HorizontalCounterView", owner: self, options: nil)?.first as? CounterView
         healthCounterView?.frame = healthTrackerContainerView.bounds
-        healthCounterView?.setupCounter(startingValue: 15, type: CounterType.health, maxValue: 15)
+        healthCounterView?.setupCounter(startingValue: 15, type: .health, maxValue: 15)
         healthTrackerContainerView.addSubview(healthCounterView!)
         healthCounterView?.delegate = self
     }
