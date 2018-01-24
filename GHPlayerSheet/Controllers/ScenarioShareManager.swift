@@ -1,12 +1,9 @@
 import Foundation
 import MultipeerConnectivity
 
-
 protocol ScenarioShareManagerDelegate {
-    
-    func connectedDevicesChanged(manager : ScenarioShareManager, connectedDevices: [String])
-    func statChanged(manager : ScenarioShareManager, statString: String)
-    
+    func deviceConnectionStateChanged(displayName: String, state: MCSessionState)
+    func statChanged(statType: StatUpdateType, value: String, displayName: String)
 }
 
 class ScenarioShareManager: NSObject {
@@ -43,12 +40,13 @@ class ScenarioShareManager: NSObject {
     }()
     
     // sending data.  need it to be more than just statname
-    func send(statName: String) {
-        NSLog("%@", "sendStat: \(statName) to \(session.connectedPeers.count) peers")
+    func broadcastStatDidChange(statType: String, value: String) {
+        NSLog("%@", "sendStat: \(statType) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
-                try self.session.send(statName.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+                let data = NSKeyedArchiver.archivedData(withRootObject: ["statType": statType, "value": value])
+                try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
             }
             catch let error {
                 NSLog("%@", "Error for sending: \(error)")
@@ -62,13 +60,26 @@ extension ScenarioShareManager: MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         print("peer \(peerID) didChangeState: \(state)")
-        self.delegate?.connectedDevicesChanged(manager: self, connectedDevices: session.connectedPeers.map{$0.displayName})
+        self.delegate?.deviceConnectionStateChanged(displayName: peerID.displayName, state: state)
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("didRecieveData: \(data)")
-        let str = String(data: data, encoding: .utf8)!
-        self.delegate?.statChanged(manager: self, statString: str)
+        //FIXME: ask brian what he would do here.
+        if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? Dictionary<String, String>, let statString = dictionary["statType"], let value = dictionary["value"] {
+            var statType: StatUpdateType
+            switch statString {
+            case "health":
+                statType = StatUpdateType.health
+            case "experience":
+                statType = StatUpdateType.experience
+            case "name":
+                statType = StatUpdateType.name
+            default:
+                return
+            }
+            self.delegate?.statChanged(statType: statType, value: value, displayName: peerID.displayName)
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

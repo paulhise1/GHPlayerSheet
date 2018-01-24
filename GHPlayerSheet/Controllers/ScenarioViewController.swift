@@ -1,9 +1,17 @@
 import UIKit
+import MultipeerConnectivity
+
+enum StatUpdateType {
+    case name
+    case health
+    case experience
+}
 
 class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioShareManagerDelegate {
     
-    let scenarioShare = ScenarioShareManager()
+    let scenarioShareManager = ScenarioShareManager()
     
+   
     @IBOutlet weak var connectedDevicesLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
@@ -11,83 +19,74 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
     
-    @IBOutlet weak var player2NameLabel: UILabel!
-    @IBOutlet weak var player2HealthLabel: UILabel!
-    @IBOutlet weak var player2ExperienceLabel: UILabel!
+    private var players = [String]()
     
-    @IBOutlet weak var player3NameLabel: UILabel!
-    @IBOutlet weak var player3HealthLabel: UILabel!
-    @IBOutlet weak var player3ExperienceLabel: UILabel!
-    
-    @IBOutlet weak var player4NameLabel: UILabel!
-    @IBOutlet weak var player4HealthLabel: UILabel!
-    @IBOutlet weak var player4ExperienceLabel: UILabel!
+    @IBOutlet var playerNameLabels: [UILabel]!
+    @IBOutlet var playerHealthLabels: [UILabel]!
+    @IBOutlet var playerExperienceLabels: [UILabel]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scenarioShare.delegate = self
+        scenarioShareManager.delegate = self
         setupCounters()
     }
   
     func counterValueDidChange(value: Int, type: CounterType) {
-        print("value: \(value), type: \(type)")
+        let stringValue = String(value)
+        var statType: String?
+        switch type {
+        case .health:
+            statType = "health"
+        case .experience:
+            statType = "experience"
+        default:
+            return
+        }
+        scenarioShareManager.broadcastStatDidChange(statType: statType!, value: stringValue)
     }
     
-    func setPlayerNames() {
-//        player2NameLabel.text =
-//        player3NameLabel.text =
-//        player4NameLabel.text =
-    }
-    
-    func updateAllStats() {
-        broadcastMyStats()
-        changePlayer2Stats()
-        changePlayer3Stats()
-        changePlayer4Stats()
-    }
-    
-    func broadcastMyStats() {
-        
-    }
-    
-    func changePlayer2Stats() {
-//        player2HealthLabel.text =
-//        player2ExperienceLabel.text =
-    }
-    
-    func changePlayer3Stats() {
-//        player3HealthLabel.text =
-//        player3ExperienceLabel.text =
-    }
-    
-    func changePlayer4Stats() {
-//        player4HealthLabel.text =
-//        player4ExperienceLabel.text =
-    }
-    
-    //MARK:- MCScenarioShare delegates to register stat changes.
-    func connectedDevicesChanged(manager: ScenarioShareManager, connectedDevices: [String]) {
+    func statChanged(statType: StatUpdateType, value: String, displayName: String) {
         OperationQueue.main.addOperation {
-            // want to use the connectedDevices list to divy out which of the other players will fill in which slots in the stack view
-            
-            self.connectedDevicesLabel.text = self.updateWhoIsConnectedLabel(connectedDevices: connectedDevices)
-            self.updateAllStats()
+            switch statType {
+            case .health:
+                if let index = self.players.index(of: displayName) {
+                    self.playerHealthLabels[index].text = value
+                }
+            case .experience:
+                if let index = self.players.index(of: displayName) {
+                    self.playerExperienceLabels[index].text = value
+                }
+            case .name:
+                if let index = self.players.index(of: displayName) {
+                    self.playerNameLabels[index].text = value
+                }
+            }
         }
     }
     
-    func statChanged(manager: ScenarioShareManager, statString: String) {
-        // need some way, possibly a switch to figure out who sent data change and put it in the column accordingly
-        //example from tutorial, seems like changes need to be on main thread
-//        OperationQueue.main.addOperation {
-//            switch colorString {
-//            case "red":
-//                self.change(color: .red)
-//            case "yellow":
-//                self.change(color: .yellow)
-//            default:
-//                NSLog("%@", "Unknown color value received: \(colorString)")
-//            }
+    //MARK:- MCScenarioShare delegates to register stat changes.
+    func deviceConnectionStateChanged(displayName: String, state: MCSessionState) {
+        OperationQueue.main.addOperation {
+            switch state {
+            case .connected:
+                if !self.players.contains(displayName) {
+                    self.players.append(displayName)
+                    if let index = self.players.index(of: displayName) {
+                        self.playerNameLabels[index].text = displayName
+                    }
+                }
+            case .notConnected:
+                //TODO: handle disconnects
+                return
+            default:
+                return
+            }
+            
+            self.connectedDevicesLabel.text = self.updateWhoIsConnectedLabel(connectedDevices: self.players)
+        }
     }
+    
+    
     
     func updateWhoIsConnectedLabel(connectedDevices: [String]) -> String {
         var connectedDevicesString = "Connected friends:"
@@ -110,7 +109,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     func setupHealthCounterView() {
         let healthCounterView = Bundle.main.loadNibNamed("HorizontalCounterView", owner: self, options: nil)?.first as? CounterView
         healthCounterView?.frame = healthTrackerContainerView.bounds
-        healthCounterView?.setupCounter(startingValue: 15, type: .health, maxValue: 15)
+        healthCounterView?.configure(value: 15, counterType: .health, maxValue: 15)
         healthTrackerContainerView.addSubview(healthCounterView!)
         healthCounterView?.delegate = self
     }
@@ -118,7 +117,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     func setupExperienceCounterView() {
         let experienceCounterView = Bundle.main.loadNibNamed("HorizontalCounterView", owner: self, options: nil)?.first as? CounterView
         experienceCounterView?.frame = experienceTrackerContainerView.bounds
-        experienceCounterView?.setupCounter(startingValue: 0, type: CounterType.experience)
+        experienceCounterView?.configure(value: 0, counterType: CounterType.experience)
         experienceTrackerContainerView.addSubview(experienceCounterView!)
         experienceCounterView?.delegate = self
     }
@@ -126,13 +125,9 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     func setupGenericCounterView() {
         let genericCounterView = Bundle.main.loadNibNamed("VerticalCounterView", owner: self, options: nil)?.first as?CounterView
         genericCounterView?.frame = genericTrackerContainerView.bounds
-        genericCounterView?.setupCounter(startingValue: 0, type: CounterType.generic)
+        genericCounterView?.configure(value: 0, counterType: CounterType.generic)
         genericTrackerContainerView.addSubview(genericCounterView!)
         genericCounterView?.delegate = self
     }
     
 }
-
-
-
-

@@ -11,7 +11,6 @@ class CharacterModel: Codable {
     //var items = [ItemType]()
     var battleMarks = 0
     var activePerks = [String]()
-    //var notes: NotesDatasource?
     
     init(characterClass: CharacterClass, gold: Int = 0, experience: Int = 0) {
         self.characterClass = characterClass

@@ -25,9 +25,9 @@ class CounterView: UIView {
 
     weak var delegate: CounterViewDelegate?
     
-    private var counterType: CounterType = .generic
-    private var counterValue: Int = 0
-    private var max: Int?
+    private var counterType: CounterType?
+    private var value: Int?
+    private var maxValue: Int?
     
     @IBOutlet private weak var decrementButton: UIButton!
     @IBOutlet private weak var incrementButton: UIButton!
@@ -39,12 +39,12 @@ class CounterView: UIView {
         }
     }
     
-    func setupCounter(startingValue: Int, type: CounterType, maxValue: Int? = nil) {
-        counterValue = startingValue
-        counterType = type
-        max = maxValue
+    func configure(value: Int = 0, counterType: CounterType = .generic, maxValue: Int? = nil) {
+        self.value = value
+        self.counterType = counterType
+        self.maxValue = maxValue
         setDefaultColors()
-        counterLabel.text = String(counterValue)
+        counterLabel.text = String(value)
     }
     
     @IBAction func incrementButtonTapped(_ sender: Any) {
@@ -56,45 +56,42 @@ class CounterView: UIView {
     }
     
     private func setCounterValue(value: Int) {
-        counterValue = value
-        counterLabel.text = String(counterValue)
+        self.value = value
+        counterLabel.text = String(value)
     }
     
     private func setDefaultColors() {
         switch counterType {
-        case .health:
+        case .health?:
             backgroundView.backgroundColor = Constants.healthBackgroundColor
             counterLabel.textColor = Constants.healthCounterColor
-        case .experience:
+        case .experience?:
             backgroundView.backgroundColor = Constants.experienceBackgroundColor
             counterLabel.textColor = Constants.experienceCounterColor
-        case .generic:
+        default:
             backgroundView.backgroundColor = Constants.genericBackgroundColor
             counterLabel.textColor = Constants.genericCounterColor
         }
     }
     
     private func incrementCounter() {
-        if let maxValue = max {
-            if counterValue < maxValue {
-                counterValue = counterValue + 1
-                counterLabel.text = String(counterValue)
-                delegate?.counterValueDidChange(value: counterValue, type: counterType)
-            }
+        guard var newValue = value, let counterType = counterType else { return }
+        if let maxValue = maxValue {
+            newValue = min(newValue + 1, maxValue)
         } else {
-            counterValue = counterValue + 1
-            counterLabel.text = String(counterValue)
-            delegate?.counterValueDidChange(value: counterValue, type: counterType)
+            newValue = newValue + 1
         }
-        
+        counterLabel.text = String(newValue)
+        delegate?.counterValueDidChange(value: newValue, type: counterType)
+        value = newValue
     }
     
     private func decrementCounter() {
-        if counterValue > 0 {
-            counterValue = counterValue - 1
-            counterLabel.text = String(counterValue)
-            delegate?.counterValueDidChange(value: counterValue, type: counterType)
-        }
+        guard var newValue = value, let counterType = counterType else { return }
+        newValue = max(0, newValue - 1)
+        counterLabel.text = String(newValue)
+        delegate?.counterValueDidChange(value: newValue, type: counterType)
+        value = newValue
     }
     
 }

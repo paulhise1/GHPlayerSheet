@@ -43,7 +43,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwg-Qc-E7t" userLabel="Increment Button">
-                    <rect key="frame" x="12.5" y="195.5" width="100" height="100.5"/>
+                    <rect key="frame" x="12.5" y="199.5" width="100" height="100.5"/>
                     <state key="normal" title="Button" image="minusImage.png"/>
                     <connections>
                         <action selector="decrementButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="DOr-J5-Dcl"/>
@@ -58,7 +58,7 @@
                 <constraint firstItem="Fwg-Qc-E7t" firstAttribute="centerX" secondItem="cfc-Gy-5XW" secondAttribute="centerX" id="HOG-OV-vsq"/>
                 <constraint firstItem="hh5-yz-Um2" firstAttribute="centerX" secondItem="0GC-7I-Qpb" secondAttribute="centerX" id="Iaz-Cd-MDK"/>
                 <constraint firstItem="zV3-so-GdR" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="NE2-wJ-XEw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fwg-Qc-E7t" secondAttribute="bottom" constant="4" id="NHz-ei-jm1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fwg-Qc-E7t" secondAttribute="bottom" id="NHz-ei-jm1"/>
                 <constraint firstItem="zV3-so-GdR" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="O5U-gh-BCK"/>
                 <constraint firstItem="cfc-Gy-5XW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="R7C-iE-VXa"/>
                 <constraint firstItem="hh5-yz-Um2" firstAttribute="centerY" secondItem="0GC-7I-Qpb" secondAttribute="centerY" multiplier="1.1" id="RoG-a9-T0j"/>
