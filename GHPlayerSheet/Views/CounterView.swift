@@ -7,16 +7,6 @@ enum CounterType {
     case experience
 }
 
-//MARK: - Constants
-struct Constants {
-    static let healthBackgroundColor = UIColor.flatRedColorDark()
-    static let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)
-    static let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()
-    static let experienceCounterColor = UIColor.flatSkyBlue().lighten(byPercentage: 0.9)
-    static let genericBackgroundColor = UIColor.flatMagentaColorDark()
-    static let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.75)
-}
-
 protocol CounterViewDelegate: class {
     func counterValueDidChange(value: Int, type: CounterType)
 }
@@ -63,14 +53,14 @@ class CounterView: UIView {
     private func setDefaultColors() {
         switch counterType {
         case .health?:
-            backgroundView.backgroundColor = Constants.healthBackgroundColor
-            counterLabel.textColor = Constants.healthCounterColor
+            backgroundView.backgroundColor = ColorConstants.healthBackgroundColor
+            counterLabel.textColor = ColorConstants.healthCounterColor
         case .experience?:
-            backgroundView.backgroundColor = Constants.experienceBackgroundColor
-            counterLabel.textColor = Constants.experienceCounterColor
+            backgroundView.backgroundColor = ColorConstants.experienceBackgroundColor
+            counterLabel.textColor = ColorConstants.experienceCounterColor
         default:
-            backgroundView.backgroundColor = Constants.genericBackgroundColor
-            counterLabel.textColor = Constants.genericCounterColor
+            backgroundView.backgroundColor = ColorConstants.genericBackgroundColor
+            counterLabel.textColor = ColorConstants.genericCounterColor
         }
     }
     

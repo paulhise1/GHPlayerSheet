@@ -12,7 +12,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     let scenarioShareManager = ScenarioShareManager()
     
    
-    @IBOutlet weak var connectedDevicesLabel: UILabel!
+    @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
     @IBOutlet weak var healthTrackerContainerView: UIView!
@@ -25,10 +25,15 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     @IBOutlet var playerHealthLabels: [UILabel]!
     @IBOutlet var playerExperienceLabels: [UILabel]!
     
+    @IBOutlet weak var player2StatStack: UIStackView!
+    @IBOutlet weak var player3StatStack: UIStackView!
+    @IBOutlet weak var player4StatStack: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scenarioShareManager.delegate = self
         setupCounters()
+        updateStackViews()
     }
   
     func counterValueDidChange(value: Int, type: CounterType) {
@@ -71,22 +76,92 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
             case .connected:
                 if !self.players.contains(displayName) {
                     self.players.append(displayName)
+                    self.updateStackViews()
                     if let index = self.players.index(of: displayName) {
                         self.playerNameLabels[index].text = displayName
                     }
                 }
+                if let index = self.players.index(of: displayName) {
+                    self.updatePlayersVisualConnectionStatus(state: state, index: index)
+                }
             case .notConnected:
                 //TODO: handle disconnects
+                if self.players.contains(displayName) {
+                    if let index = self.players.index(of: displayName) {
+                        self.updatePlayersVisualConnectionStatus(state: state, index: index)
+                    }
+                }
                 return
             default:
                 return
             }
             
-            self.connectedDevicesLabel.text = self.updateWhoIsConnectedLabel(connectedDevices: self.players)
+            //self.connectedDevicesLabel.text = self.updateWhoIsConnectedLabel(connectedDevices: self.players)
         }
     }
     
+    func updatePlayersVisualConnectionStatus(state: MCSessionState, index: Int) {
+        switch state {
+        case .connected:
+            switch index {
+            case 0:
+                self.playerNameLabels[index].backgroundColor = ColorConstants.connectedPlayerBackground
+                self.playerNameLabels[index].textColor = ColorConstants.connectedPlayerText
+            case 1:
+                self.playerNameLabels[index].backgroundColor = ColorConstants.connectedPlayerBackground
+                self.playerNameLabels[index].textColor = ColorConstants.connectedPlayerText
+            case 2:
+                self.playerNameLabels[index].backgroundColor = ColorConstants.connectedPlayerBackground
+                self.playerNameLabels[index].textColor = ColorConstants.connectedPlayerText
+            default:
+                return
+            }
+        case .notConnected:
+            switch index {
+            case 0:
+                self.playerNameLabels[index].backgroundColor = ColorConstants.disconnectedPlayerBackground
+                self.playerNameLabels[index].textColor = ColorConstants.disconnectedPlayerText
+            case 1:
+                self.playerNameLabels[index].backgroundColor = ColorConstants.disconnectedPlayerBackground
+                self.playerNameLabels[index].textColor = ColorConstants.disconnectedPlayerText
+            case 2:
+                self.playerNameLabels[index].backgroundColor = ColorConstants.disconnectedPlayerBackground
+                self.playerNameLabels[index].textColor = ColorConstants.disconnectedPlayerText
+            default:
+                return
+            }
+        case .connecting:
+            return
+        }
+    }
     
+    func updateStackViews() {
+        let playerCount = players.count
+        switch playerCount {
+        case 0:
+            noOtherPlayersLabel.isHidden = false
+            player2StatStack.isHidden = true
+            player3StatStack.isHidden = true
+            player4StatStack.isHidden = true
+        case 1:
+            noOtherPlayersLabel.isHidden = true
+            player2StatStack.isHidden = false
+            player3StatStack.isHidden = true
+            player4StatStack.isHidden = true
+        case 2:
+            noOtherPlayersLabel.isHidden = true
+            player2StatStack.isHidden = false
+            player3StatStack.isHidden = false
+            player4StatStack.isHidden = true
+        case 3:
+            noOtherPlayersLabel.isHidden = true
+            player2StatStack.isHidden = false
+            player3StatStack.isHidden = false
+            player4StatStack.isHidden = false
+        default:
+            return
+        }
+    }
     
     func updateWhoIsConnectedLabel(connectedDevices: [String]) -> String {
         var connectedDevicesString = "Connected friends:"
@@ -98,6 +173,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
         }
         return connectedDevicesString
     }
+    
     
     //MARK: - Setup Child Views
     func setupCounters() {
