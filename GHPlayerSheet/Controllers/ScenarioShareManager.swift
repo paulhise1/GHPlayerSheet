@@ -2,13 +2,13 @@ import Foundation
 import MultipeerConnectivity
 
 protocol ScenarioShareManagerDelegate {
-    func deviceConnectionStateChanged(displayName: String, state: MCSessionState)
+    func deviceConnectionStateChanged(displayName: String, state: MCSessionState, peers: [MCPeerID])
     func recievedStatChanged(statType: StatUpdateType, value: String, displayName: String)
 }
 
 class ScenarioShareManager: NSObject {
     
-    private let scenarioShareServiceType = "ghscenario"
+    private let scenarioShareServiceType = Constants.mPCServicType
     
     private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
@@ -40,15 +40,15 @@ class ScenarioShareManager: NSObject {
     }()
 
     func broadcastStatUpdate(statType: String, value: String) {
-        NSLog("%@", "sendStat: \(statType) to \(session.connectedPeers.count) peers")
+        print("sendStat: \(statType) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
-                let data = NSKeyedArchiver.archivedData(withRootObject: ["statType": statType, "value": value])
+                let data = NSKeyedArchiver.archivedData(withRootObject: [Constants.statTypeKey: statType, Constants.valueKey: value])
                 try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
             }
             catch let error {
-                NSLog("%@", "Error for sending: \(error)")
+                print("Error for sending: \(error)")
             }
         }
     }
@@ -59,20 +59,20 @@ extension ScenarioShareManager: MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         print("peer \(peerID) didChangeState: \(state)")
-        self.delegate?.deviceConnectionStateChanged(displayName: peerID.displayName, state: state)
+        self.delegate?.deviceConnectionStateChanged(displayName: peerID.displayName, state: state, peers: session.connectedPeers)
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("didRecieveData: \(data)")
         //FIXME: ask brian what he would do here.
-        if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? Dictionary<String, String>, let statString = dictionary["statType"], let value = dictionary["value"] {
+        if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? Dictionary<String, String>, let statString = dictionary[Constants.statTypeKey], let value = dictionary[Constants.valueKey] {
             var statType: StatUpdateType
             switch statString {
-            case "health":
+            case Constants.healthStatType:
                 statType = StatUpdateType.health
-            case "experience":
+            case Constants.experienceStatType:
                 statType = StatUpdateType.experience
-            case "name":
+            case Constants.nameStatType:
                 statType = StatUpdateType.name
             default:
                 return

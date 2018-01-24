@@ -203,6 +203,12 @@
                                 <color key="textColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSk-F3-pcv" userLabel="connected with">
+                                <rect key="frame" x="62.666666666666686" y="230.66666666666666" width="564.66666666666652" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-Pv-g14" userLabel="Stats Stacks Container View">
                                 <rect key="frame" x="62.666666666666686" y="89.999999999999986" width="564.66666666666652" height="140.66666666666663"/>
                                 <subviews>
@@ -322,6 +328,7 @@
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="height" secondItem="Nlq-Pv-g14" secondAttribute="height" multiplier="1.35" id="GBg-hX-B6J"/>
                             <constraint firstItem="Faj-gC-WmW" firstAttribute="height" secondItem="xh9-cW-c5f" secondAttribute="height" id="HKb-AN-ROr"/>
                             <constraint firstItem="Faj-gC-WmW" firstAttribute="centerX" secondItem="xh9-cW-c5f" secondAttribute="centerX" id="JeE-aU-05g"/>
+                            <constraint firstItem="KSk-F3-pcv" firstAttribute="top" secondItem="Nlq-Pv-g14" secondAttribute="bottom" id="Lha-1H-7Y8"/>
                             <constraint firstItem="Nlq-Pv-g14" firstAttribute="top" secondItem="4s2-Rf-p7M" secondAttribute="bottom" constant="8" id="N9U-wh-6YK"/>
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" multiplier="0.95" id="Q2g-ka-mJE"/>
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="width" secondItem="Dv6-5b-JJM" secondAttribute="width" multiplier="0.135" id="VFF-vp-rZE"/>
@@ -332,6 +339,8 @@
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="width" secondItem="OOT-yG-uHp" secondAttribute="width" id="fxG-TJ-tIJ"/>
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="leading" secondItem="Nlq-Pv-g14" secondAttribute="trailing" constant="10" id="gAx-P5-KOv"/>
                             <constraint firstItem="6Mu-IO-y3d" firstAttribute="centerX" secondItem="Dv6-5b-JJM" secondAttribute="centerX" id="hP2-VI-33L"/>
+                            <constraint firstItem="KSk-F3-pcv" firstAttribute="centerX" secondItem="Nlq-Pv-g14" secondAttribute="centerX" id="hra-L3-Yj7"/>
+                            <constraint firstItem="KSk-F3-pcv" firstAttribute="width" secondItem="Nlq-Pv-g14" secondAttribute="width" id="miC-uq-VwB"/>
                             <constraint firstItem="OOT-yG-uHp" firstAttribute="top" secondItem="Nlq-Pv-g14" secondAttribute="bottom" constant="30" id="oDe-8q-K4l"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="leading" secondItem="xh9-cW-c5f" secondAttribute="centerX" constant="10" id="qKe-Q8-8UZ"/>
                             <constraint firstAttribute="centerX" secondItem="OOT-yG-uHp" secondAttribute="trailing" constant="10" id="qfH-Mg-toT"/>
@@ -342,6 +351,7 @@
                         <viewLayoutGuide key="safeArea" id="Dv6-5b-JJM"/>
                     </view>
                     <connections>
+                        <outlet property="connectedWithLabel" destination="KSk-F3-pcv" id="1pT-lV-QiY"/>
                         <outlet property="experienceTrackerContainerView" destination="KVd-xu-mQG" id="E8F-2d-yQZ"/>
                         <outlet property="genericTrackerContainerView" destination="RRX-i4-3cv" id="FhO-ep-cd9"/>
                         <outlet property="healthTrackerContainerView" destination="OOT-yG-uHp" id="i2P-fH-Shd"/>
@@ -386,13 +396,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwh-Yq-GDQ" userLabel="Note Title Label">
-                                                    <rect key="frame" x="9" y="5.6666666666666661" width="232" height="19.333333333333336"/>
+                                                    <rect key="frame" x="9" y="5.6666666666666661" width="144" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXa-qq-Z87" userLabel="Note Message Label">
-                                                    <rect key="frame" x="52" y="25" width="204" height="17"/>
+                                                    <rect key="frame" x="52" y="25" width="116" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

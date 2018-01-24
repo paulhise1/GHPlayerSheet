@@ -10,6 +10,12 @@ enum StatUpdateType {
 struct Constants {
     static let healthStatType = "health"
     static let experienceStatType = "experience"
+    static let nameStatType = "name"
+    static let verticalCounterNibName = "VerticalCounterView"
+    static let horizontalCounterNibName = "HorizontalCounterView"
+    static let statTypeKey = "statType"
+    static let valueKey = "value"
+    static let mPCServicType = "ghscenario"
 }
 
 class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioShareManagerDelegate {
@@ -34,6 +40,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     @IBOutlet weak var player2StatStack: UIStackView!
     @IBOutlet weak var player3StatStack: UIStackView!
     @IBOutlet weak var player4StatStack: UIStackView!
+    @IBOutlet weak var connectedWithLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +85,11 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     //MARK:- MCScenarioShare delegates to register stat changes.
-    func deviceConnectionStateChanged(displayName: String, state: MCSessionState) {
+    func deviceConnectionStateChanged(displayName: String, state: MCSessionState, peers: [MCPeerID]) {
         OperationQueue.main.addOperation {
+            
+            
+            
             switch state {
             case .connected:
                 if !self.players.contains(displayName) {
@@ -90,15 +100,17 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
                     }
                 }
                 self.updateNewlyConnectedPlayer()
+                self.connectedWithLabel.text = self.connectedPeersString(connectedWith: peers)
                 if let index = self.players.index(of: displayName) {
                     self.updatePlayersVisualConnectionStatus(state: state, index: index)
-                    
                 }
             case .notConnected:
-                if self.players.contains(displayName) {
-                    if let index = self.players.index(of: displayName) {
-                        self.updatePlayersVisualConnectionStatus(state: state, index: index)
-                    }
+                if let index = self.players.index(of: displayName) {
+                    self.updatePlayersVisualConnectionStatus(state: state, index: index)
+                }
+                self.connectedWithLabel.text = self.connectedPeersString(connectedWith: peers)
+                if let index = self.players.index(of: displayName) {
+                    self.updatePlayersVisualConnectionStatus(state: state, index: index)
                 }
             default:
                 return
@@ -114,6 +126,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     func updatePlayersVisualConnectionStatus(state: MCSessionState, index: Int) {
+        print("updating player at spot number \(index + 1), new state: \(state.rawValue) - (0 = connected, 2 = disconnected)")
         switch state {
         case .connected:
             switch index {
@@ -176,17 +189,14 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
         }
     }
     
-    func updateWhoIsConnectedLabel(connectedDevices: [String]) -> String {
-        var connectedDevicesString = "Connected friends:"
-        for devices in connectedDevices {
-            connectedDevicesString = connectedDevicesString + ", " + devices
+    func connectedPeersString(connectedWith: [MCPeerID]) -> String {
+        var connectedWithString = "Connected to:"
+        for peer in connectedWith {
+            let peerName = peer.displayName
+            connectedWithString =  connectedWithString + "  " + "\(peerName),"
         }
-        if let i = connectedDevicesString.index(of: ",") {
-            connectedDevicesString.remove(at: i)
-        }
-        return connectedDevicesString
+        return connectedWithString
     }
-    
     
     //MARK: - Setup Child Views
     func setupCounters() {
@@ -196,7 +206,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     func setupHealthCounterView() {
-        let healthCounterView = Bundle.main.loadNibNamed("HorizontalCounterView", owner: self, options: nil)?.first as? CounterView
+        let healthCounterView = Bundle.main.loadNibNamed(Constants.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView
         healthCounterView?.frame = healthTrackerContainerView.bounds
         
         // stubbed - need to get health and maxvalue from character
@@ -209,7 +219,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     func setupExperienceCounterView() {
-        let experienceCounterView = Bundle.main.loadNibNamed("HorizontalCounterView", owner: self, options: nil)?.first as? CounterView
+        let experienceCounterView = Bundle.main.loadNibNamed(Constants.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView
         experienceCounterView?.frame = experienceTrackerContainerView.bounds
         experienceCounterView?.configure(value: 0, counterType: CounterType.experience)
         experienceTrackerContainerView.addSubview(experienceCounterView!)
@@ -217,7 +227,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     func setupGenericCounterView() {
-        let genericCounterView = Bundle.main.loadNibNamed("VerticalCounterView", owner: self, options: nil)?.first as?CounterView
+        let genericCounterView = Bundle.main.loadNibNamed(Constants.verticalCounterNibName, owner: self, options: nil)?.first as?CounterView
         genericCounterView?.frame = genericTrackerContainerView.bounds
         genericCounterView?.configure(value: 0, counterType: CounterType.generic)
         genericTrackerContainerView.addSubview(genericCounterView!)
