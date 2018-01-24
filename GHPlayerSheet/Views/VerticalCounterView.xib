@@ -27,13 +27,13 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh5-yz-Um2" userLabel="Counter Label">
-                    <rect key="frame" x="47" y="135" width="32.5" height="60"/>
+                    <rect key="frame" x="47" y="136.5" width="32.5" height="60"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfc-Gy-5XW" userLabel="Increment Button">
-                    <rect key="frame" x="12.5" y="4" width="100" height="100.5"/>
+                    <rect key="frame" x="15.5" y="4" width="94" height="94.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="cfc-Gy-5XW" secondAttribute="height" id="p84-f8-0bA"/>
                     </constraints>
@@ -43,7 +43,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwg-Qc-E7t" userLabel="Increment Button">
-                    <rect key="frame" x="12.5" y="199.5" width="100" height="100.5"/>
+                    <rect key="frame" x="15.5" y="211" width="94" height="94"/>
                     <state key="normal" title="Button" image="minusImage.png"/>
                     <connections>
                         <action selector="decrementButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="DOr-J5-Dcl"/>
@@ -58,11 +58,11 @@
                 <constraint firstItem="Fwg-Qc-E7t" firstAttribute="centerX" secondItem="cfc-Gy-5XW" secondAttribute="centerX" id="HOG-OV-vsq"/>
                 <constraint firstItem="hh5-yz-Um2" firstAttribute="centerX" secondItem="0GC-7I-Qpb" secondAttribute="centerX" id="Iaz-Cd-MDK"/>
                 <constraint firstItem="zV3-so-GdR" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="NE2-wJ-XEw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fwg-Qc-E7t" secondAttribute="bottom" id="NHz-ei-jm1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fwg-Qc-E7t" secondAttribute="bottom" constant="-5" id="NHz-ei-jm1"/>
                 <constraint firstItem="zV3-so-GdR" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="O5U-gh-BCK"/>
                 <constraint firstItem="cfc-Gy-5XW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="R7C-iE-VXa"/>
-                <constraint firstItem="hh5-yz-Um2" firstAttribute="centerY" secondItem="0GC-7I-Qpb" secondAttribute="centerY" multiplier="1.1" id="RoG-a9-T0j"/>
-                <constraint firstItem="cfc-Gy-5XW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="USq-pr-ZDw"/>
+                <constraint firstItem="hh5-yz-Um2" firstAttribute="centerY" secondItem="0GC-7I-Qpb" secondAttribute="centerY" multiplier="1.11" id="RoG-a9-T0j"/>
+                <constraint firstItem="cfc-Gy-5XW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.75" id="USq-pr-ZDw"/>
                 <constraint firstItem="0GC-7I-Qpb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f7Q-OA-vFo"/>
                 <constraint firstItem="0GC-7I-Qpb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="kBT-u1-7so"/>
                 <constraint firstItem="zV3-so-GdR" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="n27-tA-ZSo"/>

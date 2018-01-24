@@ -7,10 +7,16 @@ enum StatUpdateType {
     case experience
 }
 
+struct Constants {
+    static let healthStatType = "health"
+    static let experienceStatType = "experience"
+}
+
 class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioShareManagerDelegate {
     
-    let scenarioShareManager = ScenarioShareManager()
-    
+    private let scenarioShareManager = ScenarioShareManager()
+    private var currentHealth = 0
+    private var currentExperience = 0
    
     @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
@@ -41,16 +47,18 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
         var statType: String?
         switch type {
         case .health:
-            statType = "health"
+            currentHealth = value
+            statType = Constants.healthStatType
         case .experience:
-            statType = "experience"
+            currentExperience = value
+            statType = Constants.experienceStatType
         default:
             return
         }
-        scenarioShareManager.broadcastStatDidChange(statType: statType!, value: stringValue)
+        scenarioShareManager.broadcastStatUpdate(statType: statType!, value: stringValue)
     }
     
-    func statChanged(statType: StatUpdateType, value: String, displayName: String) {
+    func recievedStatChanged(statType: StatUpdateType, value: String, displayName: String) {
         OperationQueue.main.addOperation {
             switch statType {
             case .health:
@@ -81,23 +89,28 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
                         self.playerNameLabels[index].text = displayName
                     }
                 }
+                self.updateNewlyConnectedPlayer()
                 if let index = self.players.index(of: displayName) {
                     self.updatePlayersVisualConnectionStatus(state: state, index: index)
+                    
                 }
             case .notConnected:
-                //TODO: handle disconnects
                 if self.players.contains(displayName) {
                     if let index = self.players.index(of: displayName) {
                         self.updatePlayersVisualConnectionStatus(state: state, index: index)
                     }
                 }
-                return
             default:
                 return
             }
-            
-            //self.connectedDevicesLabel.text = self.updateWhoIsConnectedLabel(connectedDevices: self.players)
         }
+    }
+    
+    func updateNewlyConnectedPlayer() {
+        let healthString = String(currentHealth)
+        let experienceString = String(currentExperience)
+        scenarioShareManager.broadcastStatUpdate(statType: Constants.healthStatType, value: healthString)
+        scenarioShareManager.broadcastStatUpdate(statType: Constants.experienceStatType, value: experienceString)
     }
     
     func updatePlayersVisualConnectionStatus(state: MCSessionState, index: Int) {
@@ -185,7 +198,12 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     func setupHealthCounterView() {
         let healthCounterView = Bundle.main.loadNibNamed("HorizontalCounterView", owner: self, options: nil)?.first as? CounterView
         healthCounterView?.frame = healthTrackerContainerView.bounds
-        healthCounterView?.configure(value: 15, counterType: .health, maxValue: 15)
+        
+        // stubbed - need to get health and maxvalue from character
+        let characterHealth = 17
+        healthCounterView?.configure(value: characterHealth, counterType: .health, maxValue: characterHealth)
+        currentHealth = characterHealth
+        
         healthTrackerContainerView.addSubview(healthCounterView!)
         healthCounterView?.delegate = self
     }

@@ -299,7 +299,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRX-i4-3cv" userLabel="Generic Tracker Container View">
-                                <rect key="frame" x="637.33333333333337" y="53.333333333333343" width="98" height="182"/>
+                                <rect key="frame" x="637.33333333333337" y="57.333333333333343" width="97.666666666666629" height="190"/>
                                 <color key="backgroundColor" red="0.46620205044746399" green="0.15637357532978058" blue="0.6434749960899353" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOT-yG-uHp" userLabel="Health Tracker Container View">
@@ -319,11 +319,11 @@
                             <constraint firstItem="Nlq-Pv-g14" firstAttribute="width" secondItem="Dv6-5b-JJM" secondAttribute="width" multiplier="0.78" id="7bO-sm-D7o"/>
                             <constraint firstItem="4s2-Rf-p7M" firstAttribute="centerX" secondItem="6Mu-IO-y3d" secondAttribute="centerX" id="A8t-sm-2jG"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="height" secondItem="OOT-yG-uHp" secondAttribute="height" id="EAN-K3-H2w"/>
-                            <constraint firstItem="RRX-i4-3cv" firstAttribute="height" secondItem="Nlq-Pv-g14" secondAttribute="height" multiplier="1.3" id="GBg-hX-B6J"/>
+                            <constraint firstItem="RRX-i4-3cv" firstAttribute="height" secondItem="Nlq-Pv-g14" secondAttribute="height" multiplier="1.35" id="GBg-hX-B6J"/>
                             <constraint firstItem="Faj-gC-WmW" firstAttribute="height" secondItem="xh9-cW-c5f" secondAttribute="height" id="HKb-AN-ROr"/>
                             <constraint firstItem="Faj-gC-WmW" firstAttribute="centerX" secondItem="xh9-cW-c5f" secondAttribute="centerX" id="JeE-aU-05g"/>
                             <constraint firstItem="Nlq-Pv-g14" firstAttribute="top" secondItem="4s2-Rf-p7M" secondAttribute="bottom" constant="8" id="N9U-wh-6YK"/>
-                            <constraint firstItem="RRX-i4-3cv" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" multiplier="0.9" id="Q2g-ka-mJE"/>
+                            <constraint firstItem="RRX-i4-3cv" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" multiplier="0.95" id="Q2g-ka-mJE"/>
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="width" secondItem="Dv6-5b-JJM" secondAttribute="width" multiplier="0.135" id="VFF-vp-rZE"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="bottom" secondItem="OOT-yG-uHp" secondAttribute="bottom" id="VOx-I1-2Ou"/>
                             <constraint firstItem="Faj-gC-WmW" firstAttribute="centerY" secondItem="xh9-cW-c5f" secondAttribute="centerY" id="cSq-0j-Qor"/>

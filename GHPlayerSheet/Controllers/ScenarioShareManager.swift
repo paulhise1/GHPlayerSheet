@@ -3,7 +3,7 @@ import MultipeerConnectivity
 
 protocol ScenarioShareManagerDelegate {
     func deviceConnectionStateChanged(displayName: String, state: MCSessionState)
-    func statChanged(statType: StatUpdateType, value: String, displayName: String)
+    func recievedStatChanged(statType: StatUpdateType, value: String, displayName: String)
 }
 
 class ScenarioShareManager: NSObject {
@@ -38,9 +38,8 @@ class ScenarioShareManager: NSObject {
         session.delegate = self
         return session
     }()
-    
-    // sending data.  need it to be more than just statname
-    func broadcastStatDidChange(statType: String, value: String) {
+
+    func broadcastStatUpdate(statType: String, value: String) {
         NSLog("%@", "sendStat: \(statType) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
@@ -78,7 +77,7 @@ extension ScenarioShareManager: MCSessionDelegate {
             default:
                 return
             }
-            self.delegate?.statChanged(statType: statType, value: value, displayName: peerID.displayName)
+            self.delegate?.recievedStatChanged(statType: statType, value: value, displayName: peerID.displayName)
         }
     }
     

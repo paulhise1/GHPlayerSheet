@@ -50,20 +50,6 @@ class CounterView: UIView {
         counterLabel.text = String(value)
     }
     
-    private func setDefaultColors() {
-        switch counterType {
-        case .health?:
-            backgroundView.backgroundColor = ColorConstants.healthBackgroundColor
-            counterLabel.textColor = ColorConstants.healthCounterColor
-        case .experience?:
-            backgroundView.backgroundColor = ColorConstants.experienceBackgroundColor
-            counterLabel.textColor = ColorConstants.experienceCounterColor
-        default:
-            backgroundView.backgroundColor = ColorConstants.genericBackgroundColor
-            counterLabel.textColor = ColorConstants.genericCounterColor
-        }
-    }
-    
     private func incrementCounter() {
         guard var newValue = value, let counterType = counterType else { return }
         if let maxValue = maxValue {
@@ -84,4 +70,17 @@ class CounterView: UIView {
         value = newValue
     }
     
+    private func setDefaultColors() {
+        switch counterType {
+        case .health?:
+            backgroundView.backgroundColor = ColorConstants.healthBackgroundColor
+            counterLabel.textColor = ColorConstants.healthCounterColor
+        case .experience?:
+            backgroundView.backgroundColor = ColorConstants.experienceBackgroundColor
+            counterLabel.textColor = ColorConstants.experienceCounterColor
+        default:
+            backgroundView.backgroundColor = ColorConstants.genericBackgroundColor
+            counterLabel.textColor = ColorConstants.genericCounterColor
+        }
+    }
 }

@@ -27,7 +27,6 @@
 		1EB4B2962016264C00BF0AB0 /* CharactrerCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B2952016264C00BF0AB0 /* CharactrerCreationViewController.swift */; };
 		1EB4B2982016DF2700BF0AB0 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B2972016DF2700BF0AB0 /* ModelProtocol.swift */; };
 		1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B2992016E9C100BF0AB0 /* Helpers.swift */; };
-		1EB4B29C2016FA3000BF0AB0 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B29B2016FA3000BF0AB0 /* MPCManager.swift */; };
 		1EB4B2A02017381200BF0AB0 /* ScenarioShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
@@ -60,7 +59,6 @@
 		1EB4B2952016264C00BF0AB0 /* CharactrerCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactrerCreationViewController.swift; sourceTree = "<group>"; };
 		1EB4B2972016DF2700BF0AB0 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
 		1EB4B2992016E9C100BF0AB0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		1EB4B29B2016FA3000BF0AB0 /* MPCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioShareManager.swift; sourceTree = "<group>"; };
 		1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +143,6 @@
 				1EB4B2952016264C00BF0AB0 /* CharactrerCreationViewController.swift */,
 				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
 				1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */,
-				1EB4B29B2016FA3000BF0AB0 /* MPCManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -343,7 +340,6 @@
 			files = (
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
 				1EB4B2982016DF2700BF0AB0 /* ModelProtocol.swift in Sources */,
-				1EB4B29C2016FA3000BF0AB0 /* MPCManager.swift in Sources */,
 				1EF640DA2011AC3F00696393 /* ModelDatasource.swift in Sources */,
 				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
 				1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */,
