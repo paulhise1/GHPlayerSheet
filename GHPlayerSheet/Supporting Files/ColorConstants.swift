@@ -14,6 +14,6 @@ struct ColorConstants {
     static let disconnectedPlayerBackground = UIColor.flatGray()
     static let disconnectedPlayerText = UIColor.flatGrayColorDark().darken(byPercentage: 0.1)
     static let connectedPlayerBackground = UIColor.flatMintColorDark()
-    static let connectedPlayerText = UIColor.black
+    static let connectedPlayerText = UIColor.flatYellowColorDark()
     
 }
