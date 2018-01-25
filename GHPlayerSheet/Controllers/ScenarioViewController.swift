@@ -36,6 +36,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     @IBOutlet var playerNameLabels: [UILabel]!
     @IBOutlet var playerHealthLabels: [UILabel]!
     @IBOutlet var playerExperienceLabels: [UILabel]!
+    private var playerMaxHealths = [String]()
     
     @IBOutlet weak var player2StatStack: UIStackView!
     @IBOutlet weak var player3StatStack: UIStackView!
