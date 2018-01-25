@@ -1,9 +1,10 @@
 import Foundation
 
 
-class CharacterModel: Codable {
+class CharacterModel: Codable, ModelProtocol {
     
     let characterClass : CharacterClass
+    var creationDate: Date
     var name = ""
     var level = 1
     var experience = 0
@@ -12,12 +13,17 @@ class CharacterModel: Codable {
     var battleMarks = 0
     var activePerks = [String]()
     
-    init(characterClass: CharacterClass, gold: Int = 0, experience: Int = 0) {
+    init(characterClass: CharacterClass, creationDate: Date = Date(), gold: Int = 0, experience: Int = 0) {
         self.characterClass = characterClass
+        self.creationDate = creationDate
         self.gold = gold
         self.experience = experience
     }
 
+    func identifier() -> Date {
+        return creationDate
+    }
+    
     func updateGold(amount: Int) -> Int {
         gold = gold + amount
         return gold

@@ -1,5 +1,9 @@
 import Foundation
 
+protocol ModelProtocol {
+    func identifier() -> Date
+}
+
 class ModelDatasource<T: ModelProtocol> {
     
     private var models: [T]

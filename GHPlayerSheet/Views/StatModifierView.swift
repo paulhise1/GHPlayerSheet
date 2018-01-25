@@ -19,16 +19,18 @@ class StatModifierView: UIView {
     weak var delegate: StatModifierViewDelegate?
     
     var currentStatType: StatType?
-    
     var goldAmount: Int? {
         didSet {
-            goldButton.setTitle("\(goldAmount!)", for: .normal)
+            if let gold = goldAmount {
+            goldButton.setTitle("\(gold)", for: .normal)
+            }
         }
     }
-    
     var experienceAmount: Int? {
         didSet {
-            experienceButton.setTitle("\(experienceAmount!)", for: .normal)
+            if let experience = experienceAmount{
+                experienceButton.setTitle("\(experience)", for: .normal)
+            }
         }
     }
     
@@ -43,10 +45,8 @@ class StatModifierView: UIView {
     }
     
     func commonInit(){
-        
     }
     
-    // create did sets for labels
     @IBOutlet weak var goldButton: UIButton!
     @IBOutlet weak var experienceButton: UIButton!
     
@@ -134,18 +134,28 @@ class StatModifierView: UIView {
         dismissNumpad()
     }
     
+    //Ask Tim about these unwrapping functions.  avoiding so many if lets but also set values to possibly unwanted values and not sure if that is any better than force unwrapping.  seems similar to nil coalessing with those values as the second part of them.
     @IBAction func acceptSubtractionButtonTapped(_ sender: Any) {
-        if let enteredAmount = Int(amountLabel.text!) {
-            switch currentStatType {
-            case .gold?:
-                delegate?.updateGold(amount: -(enteredAmount))
-            case .experience?:
-                delegate?.updateExperience(amount: -(enteredAmount))
-            default:
-                return
+        
+        let gold = unwrapOptionalInt(optionalInt: goldAmount)
+        let experience = unwrapOptionalInt(optionalInt: experienceAmount)
+        let enteredAmount = unwrapOptionalString(optionalString: amountLabel.text)
+        let amountInt = unwrapOptionalInt(optionalInt: Int(enteredAmount))
+        
+        switch currentStatType {
+        case .gold?:
+            if amountInt <= gold {
+                delegate?.updateGold(amount: -(amountInt))
+                dismissNumpad()
             }
+        case .experience?:
+            if amountInt <= experience {
+                delegate?.updateExperience(amount: -(amountInt))
+                dismissNumpad()
+            }
+        default:
+            return
         }
-        dismissNumpad()
     }
 
     
@@ -159,6 +169,20 @@ class StatModifierView: UIView {
         experienceButton.isEnabled = true
         delegate?.statModifierViewDidEndModifying(sender: self)
         
+    }
+
+    func unwrapOptionalString(optionalString: String?) -> String {
+        if let unwrappedString = optionalString {
+            return unwrappedString
+        }
+        return ""
+    }
+
+    func unwrapOptionalInt(optionalInt: Int?) -> Int {
+        if let unwrappedInt = optionalInt {
+            return unwrappedInt
+        }
+        return 0
     }
     
     func widthForAlignment() -> CGFloat {

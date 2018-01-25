@@ -168,6 +168,7 @@
                         <constraint firstAttribute="width" secondItem="upw-C9-wzD" secondAttribute="height" id="L97-gU-wGc"/>
                         <constraint firstAttribute="width" constant="50" id="dCN-4G-BMk"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <state key="normal" backgroundImage="goldbag3.png"/>
                     <connections>
                         <action selector="goldButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="vNd-Cg-DFI"/>
@@ -175,6 +176,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaY-R5-jpk" userLabel="XP Button">
                     <rect key="frame" x="0.0" y="65" width="50" height="50"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <state key="normal" backgroundImage="experienceStar.png">
                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
