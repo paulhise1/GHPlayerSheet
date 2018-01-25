@@ -8,7 +8,7 @@ enum CounterType {
 }
 
 protocol CounterViewDelegate: class {
-    func counterValueDidChange(value: Int, type: CounterType)
+    func counterValueDidChange(value: String, type: CounterType)
 }
 
 class CounterView: UIView {
@@ -29,10 +29,10 @@ class CounterView: UIView {
         }
     }
     
-    func configure(value: Int = 0, counterType: CounterType = .generic, maxValue: Int? = nil) {
-        self.value = value
+    func configure(value: String = "0", counterType: CounterType = .generic, maxValue: String? = nil) {
+        self.value = Int(value)
         self.counterType = counterType
-        self.maxValue = maxValue
+        if let maxValue = maxValue { self.maxValue = Int(maxValue) }
         setDefaultColors()
         counterLabel.text = String(value)
     }
@@ -58,7 +58,7 @@ class CounterView: UIView {
             newValue = newValue + 1
         }
         counterLabel.text = String(newValue)
-        delegate?.counterValueDidChange(value: newValue, type: counterType)
+        delegate?.counterValueDidChange(value: String(newValue), type: counterType)
         value = newValue
     }
     
@@ -66,7 +66,7 @@ class CounterView: UIView {
         guard var newValue = value, let counterType = counterType else { return }
         newValue = max(0, newValue - 1)
         counterLabel.text = String(newValue)
-        delegate?.counterValueDidChange(value: newValue, type: counterType)
+        delegate?.counterValueDidChange(value: String(newValue), type: counterType)
         value = newValue
     }
     

@@ -7,7 +7,7 @@ enum StatUpdateType {
     case experience(String)
 }
 
-struct Constants {
+struct MPCConstants {
     static let healthStatType = "health"
     static let experienceStatType = "experience"
     static let nameStatType = "name"
@@ -16,14 +16,17 @@ struct Constants {
     static let statTypeKey = "statType"
     static let valueKey = "value"
     static let mPCServicType = "ghscenario"
+    static let maxHealth = "maxHealth"
 }
 
 class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioShareManagerDelegate {
     
-    private let scenarioShareManager = ScenarioShareManager()
-    private var currentHealth = 0
-    private var currentExperience = 0
-   
+    private var maxHealth: String?
+    private var currentHealth: String?
+    private var name: String?
+    private var scenarioShareManager: ScenarioShareManager?
+    private var currentExperience = "0"
+    
     @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
@@ -45,30 +48,54 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scenarioShareManager.delegate = self
+        configure()
+    }
+    
+    //TODO: remove default values...only for prototype
+    func configure(name: String = UIDevice.current.name, health: String = "15") {
+        self.name = name
+        self.maxHealth = health
+        self.currentHealth = health
+        scenarioShareManager = ScenarioShareManager(displayName: name, maxHealth: health)
+        scenarioShareManager?.delegate = self
+        
         setupCounters()
         updateStackViews()
     }
-  
-    func counterValueDidChange(value: Int, type: CounterType) {
-        let stringValue = String(value)
+    
+    func counterValueDidChange(value: String, type: CounterType) {
         var statType: String?
         switch type {
         case .health:
             currentHealth = value
-            statType = Constants.healthStatType
+            statType = MPCConstants.healthStatType
         case .experience:
             currentExperience = value
-            statType = Constants.experienceStatType
+            statType = MPCConstants.experienceStatType
         default:
             return
         }
-        scenarioShareManager.broadcastStatUpdate(statType: statType!, value: stringValue)
+        scenarioShareManager?.broadcastStatUpdate(statType: statType!, value: value)
     }
     
-    func recievedStatChanged(statType: StatUpdateType, displayName: String) {
+    func didRecieveInvitationFromPeer(displayName: String, maxHealth: String) {
+        print("@@@@GotInvite \(displayName): connectionTest")
+
+        if !self.players.contains(displayName) {
+            self.players.append(displayName)
+            self.playerMaxHealths.append(maxHealth)
+            // Perhaps study behavior of this on didSet of players[]
+            self.updateStackViews()
+            //
+            if let index = self.players.index(of: displayName) {
+                self.playerNameLabels[index].text = displayName
+            }
+        }
+    }
+    
+    func didReceiveNewStat(type: StatUpdateType, displayName: String) {
         OperationQueue.main.addOperation {
-            switch statType {
+            switch type {
             case .health(let value):
                 if let index = self.players.index(of: displayName) {
                     self.playerHealthLabels[index].text = value
@@ -86,54 +113,47 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     //MARK:- MCScenarioShare delegates to register stat changes.
-    func deviceConnectionStateChanged(displayName: String, state: MCSessionState, peers: [MCPeerID]) {
+    func deviceConnectionDidChange(state: MCSessionState, displayName: String, peers: [MCPeerID]) {
         OperationQueue.main.addOperation {
             switch state {
             case .connected:
-                if !self.players.contains(displayName) {
-                    self.players.append(displayName)
-                    self.updateStackViews()
-                    if let index = self.players.index(of: displayName) {
-                        self.playerNameLabels[index].text = displayName
-                    }
-                }
                 self.updateNewlyConnectedPlayer()
                 self.connectedWithLabel.text = self.connectedPeersString(connectedWith: peers)
                 if let index = self.players.index(of: displayName) {
+                    print("^^^^connected   - updating \(self.players[index]))      connectionTest")
                     self.updatePlayersVisualConnectionStatus(state: state, index: index)
                 }
             case .notConnected:
                 if let index = self.players.index(of: displayName) {
+                    print("****disconnected - updating \(self.players[index]))      connectionTest")
                     self.updatePlayersVisualConnectionStatus(state: state, index: index)
                 }
+                //NOTE:Debug Label
                 self.connectedWithLabel.text = self.connectedPeersString(connectedWith: peers)
-                if let index = self.players.index(of: displayName) {
-                    self.updatePlayersVisualConnectionStatus(state: state, index: index)
-                }
-            default:
+            case.connecting:
+                print("????Connecting\(displayName): connectionTest")
                 return
             }
         }
     }
     
     func updateNewlyConnectedPlayer() {
-        let healthString = String(currentHealth)
-        let experienceString = String(currentExperience)
-        scenarioShareManager.broadcastStatUpdate(statType: Constants.healthStatType, value: healthString)
-        scenarioShareManager.broadcastStatUpdate(statType: Constants.experienceStatType, value: experienceString)
+        if let currentHealth = currentHealth {
+            scenarioShareManager?.broadcastStatUpdate(statType: MPCConstants.healthStatType, value: currentHealth)
+            scenarioShareManager?.broadcastStatUpdate(statType: MPCConstants.experienceStatType, value: currentExperience)
+        }
     }
     
     func updatePlayersVisualConnectionStatus(state: MCSessionState, index: Int) {
-        print("updating player at spot number \(index + 1), new state: \(state.rawValue) - (0 = connected, 2 = disconnected)")
         self.playerNameLabels[index].backgroundColor = state == MCSessionState.connected ? ColorConstants.connectedPlayerBackground : ColorConstants.disconnectedPlayerBackground
         self.playerNameLabels[index].textColor = state == MCSessionState.connected ? ColorConstants.connectedPlayerText : ColorConstants.disconnectedPlayerText
     }
     
     func updateStackViews() {
-            noOtherPlayersLabel.isHidden = players.count == 0
-            player2StatStack.isHidden = !(players.count > 0)
-            player3StatStack.isHidden = !(players.count > 1)
-            player4StatStack.isHidden = !(players.count > 2)
+        noOtherPlayersLabel.isHidden = players.count == 0
+        player2StatStack.isHidden = !(players.count > 0)
+        player3StatStack.isHidden = !(players.count > 1)
+        player4StatStack.isHidden = !(players.count > 2)
     }
     
     // NOTE: helper function for debugging
@@ -154,30 +174,26 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
     func setupHealthCounterView() {
-        let healthCounterView = Bundle.main.loadNibNamed(Constants.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView
+        let healthCounterView = Bundle.main.loadNibNamed(MPCConstants.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView
         healthCounterView?.frame = healthTrackerContainerView.bounds
-        
-        // stubbed - need to get health and maxvalue from character
-        let characterHealth = 17
-        healthCounterView?.configure(value: characterHealth, counterType: .health, maxValue: characterHealth)
-        currentHealth = characterHealth
-        
+        let currentHealth = self.currentHealth ?? "0"
+        healthCounterView?.configure(value: currentHealth, counterType: .health, maxValue: maxHealth)
         healthTrackerContainerView.addSubview(healthCounterView!)
         healthCounterView?.delegate = self
     }
     
     func setupExperienceCounterView() {
-        let experienceCounterView = Bundle.main.loadNibNamed(Constants.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView
+        let experienceCounterView = Bundle.main.loadNibNamed(MPCConstants.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView
         experienceCounterView?.frame = experienceTrackerContainerView.bounds
-        experienceCounterView?.configure(value: 0, counterType: CounterType.experience)
+        experienceCounterView?.configure(value: currentExperience, counterType: CounterType.experience)
         experienceTrackerContainerView.addSubview(experienceCounterView!)
         experienceCounterView?.delegate = self
     }
     
     func setupGenericCounterView() {
-        let genericCounterView = Bundle.main.loadNibNamed(Constants.verticalCounterNibName, owner: self, options: nil)?.first as?CounterView
+        let genericCounterView = Bundle.main.loadNibNamed(MPCConstants.verticalCounterNibName, owner: self, options: nil)?.first as?CounterView
         genericCounterView?.frame = genericTrackerContainerView.bounds
-        genericCounterView?.configure(value: 0, counterType: CounterType.generic)
+        genericCounterView?.configure(value: "0", counterType: CounterType.generic)
         genericTrackerContainerView.addSubview(genericCounterView!)
         genericCounterView?.delegate = self
     }
