@@ -12,6 +12,7 @@ class ModelDatasource<T: ModelProtocol> {
     init(with filePath: URL?) {
         self.filePath = filePath
         self.models = ModelDatasource.loadModels(from: filePath)
+        print(filePath)
     }
     
     func remove(model: T) {

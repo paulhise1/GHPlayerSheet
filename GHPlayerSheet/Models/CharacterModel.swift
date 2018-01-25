@@ -23,17 +23,6 @@ class CharacterModel: Codable, ModelProtocol {
     func identifier() -> Date {
         return creationDate
     }
-    
-    func updateGold(amount: Int) -> Int {
-        gold = gold + amount
-        return gold
-    }
-
-    func updateExperience(amount: Int) -> Int {
-        experience = experience + amount
-        return experience
-    }
-    
 }
 
 extension CharacterModel {
@@ -50,5 +39,7 @@ extension CharacterModel {
 //    enum ItemType: String, Codable {
 //        case
 //    }
+    
+    
 
 }

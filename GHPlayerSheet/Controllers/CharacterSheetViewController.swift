@@ -7,11 +7,11 @@ class CharacterSheetViewController: UIViewController {
     //MARK: - Constants
     struct Constants {
         static let nameDefaultText = "Enter Name"
-        static let toNotesSegueID =  "Notes View Controller"
+        static let NotesViewControllerID =  "Notes View Controller"
     }
 
     //MARK: - Class Properties
-    var character: CharacterModel?
+    var characterManager: CharacterManager?
     var blurView: DynamicBlurView?
     var textField: UITextField?
     
@@ -28,51 +28,16 @@ class CharacterSheetViewController: UIViewController {
     @IBOutlet weak var notesContainerView: UIView!
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //stubbed
-        character = CharacterModel(characterClass: .mindthief, gold: 30, experience: 45)
-        
+        characterManager = CharacterManager()
         setupStatModifierView()
         setupNotesView()
         setupDefaultNameLabelAppearance()
     }
     
-    //MARK: - Helper Methods
-    func addBlurEffect(){
-        // Would like to animate, animation was stuttered
-        blurView = DynamicBlurView(frame: view.bounds)
-        blurView?.isUserInteractionEnabled = true
-        blurView?.blurRadius = 2
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.dismissActiveView(sender:)))
-        if let blurView = blurView {
-            view.addSubview(blurView)
-            blurView.addGestureRecognizer(gesture)
-        }
-        
-        
-    }
-    
-    @objc func dismissActiveView(sender : UITapGestureRecognizer) {
-        if let textField = textField {
-            textField.removeFromSuperview()
-            removeBlurEffect()
-        }
-        if let statModifierView = statModifierView {
-            statModifierView.dismissNumpad()
-            removeBlurEffect()
-        }
-    }
-    
-    func removeBlurEffect(){
-        blurView?.blurRadius = 0
-        blurView?.removeFromSuperview()
-    }
-    
 }
-
 
 //MARK: - StatModifier View Methods
 extension CharacterSheetViewController: StatModifierViewDelegate {
@@ -86,14 +51,14 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
         removeBlurEffect()
     }
     
-    func updateGold(amount: Int) {
-        if let statModifierView = statModifierView, let goldAmount = character?.updateGold(amount: amount) {
+    func didUpdateGold(amount: Int) {
+        if let statModifierView = statModifierView, let goldAmount = characterManager?.updateGold(amount: amount) {
             statModifierView.goldAmount = goldAmount
         }
     }
     
-    func updateExperience(amount: Int) {
-        if let statModifierView = statModifierView, let experienceAmount = character?.updateExperience(amount: amount) {
+    func didUpdateExperience(amount: Int) {
+        if let statModifierView = statModifierView, let experienceAmount = characterManager?.updateExperience(amount: amount) {
             statModifierView.experienceAmount = experienceAmount
         }
     }
@@ -104,8 +69,8 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
 extension CharacterSheetViewController: UITextFieldDelegate {
     
     func setupDefaultNameLabelAppearance() {
-        if character?.name != "" {
-            nameLabel.text = character?.name
+        if characterManager?.character?.name != "" {
+            nameLabel.text = characterManager?.character?.name
             nameLabel.textColor = UIColor.flatMagenta()
         } else {
             nameLabel.text = Constants.nameDefaultText
@@ -140,7 +105,10 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameLabel.text = textField.text
+        if let nameText = textField.text {
+            characterManager?.setName(name: nameText)
+        }
+        nameLabel.text = characterManager?.character?.name
         nameLabel.textColor = UIColor.flatMagenta()
         if textField.text == "" {
             setupDefaultNameLabelAppearance()
@@ -154,9 +122,40 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     
 }
 
-//MARK: - Setup Child Views
 extension CharacterSheetViewController {
     
+    //MARK: - Helper Methods
+    func addBlurEffect(){
+        // Would like to animate, animation was stuttered
+        blurView = DynamicBlurView(frame: view.bounds)
+        blurView?.isUserInteractionEnabled = true
+        blurView?.blurRadius = 2
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.dismissActiveView(sender:)))
+        if let blurView = blurView {
+            view.addSubview(blurView)
+            blurView.addGestureRecognizer(gesture)
+        }
+        
+        
+    }
+    
+    @objc func dismissActiveView(sender : UITapGestureRecognizer) {
+        if let textField = textField {
+            textField.removeFromSuperview()
+            removeBlurEffect()
+        }
+        if let statModifierView = statModifierView {
+            statModifierView.dismissNumpad()
+            removeBlurEffect()
+        }
+    }
+    
+    func removeBlurEffect(){
+        blurView?.blurRadius = 0
+        blurView?.removeFromSuperview()
+    }
+    
+    //MARK: - Setup Child Views methods
     func setupStatModifierView() {
         statModifierView = Bundle.main.loadNibNamed(String(describing: StatModifierView.self), owner: self, options: nil)?.first as? StatModifierView
         if let statModifierView = statModifierView {
@@ -164,14 +163,14 @@ extension CharacterSheetViewController {
             statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
             statModifierView.frame = stateModifierContainerView.bounds
             statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            if let gold = character?.gold { statModifierView.goldAmount = (gold) }
-            if let experience = character?.experience { statModifierView.experienceAmount = (experience) }
+            if let gold = characterManager?.character?.gold { statModifierView.goldAmount = (gold) }
+            if let experience = characterManager?.character?.experience { statModifierView.experienceAmount = (experience) }
             statModifierView.delegate = self
         }
     }
     
     func setupNotesView() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.toNotesSegueID) {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.NotesViewControllerID) {
             addChildViewController(controller)
             controller.view.frame = notesContainerView.bounds
             controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

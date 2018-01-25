@@ -9,8 +9,8 @@ enum StatType {
 protocol StatModifierViewDelegate: class {
     func statModifierViewDidBeginModifying(sender: StatModifierView)
     func statModifierViewDidEndModifying(sender: StatModifierView)
-    func updateGold(amount: Int)
-    func updateExperience(amount: Int)
+    func didUpdateGold(amount: Int)
+    func didUpdateExperience(amount: Int)
 }
 
 
@@ -124,9 +124,9 @@ class StatModifierView: UIView {
         if let amount = Int(amountLabel.text!) {
             switch currentStatType {
             case .gold?:
-                delegate?.updateGold(amount: amount)
+                delegate?.didUpdateGold(amount: amount)
             case .experience?:
-                delegate?.updateExperience(amount: amount)
+                delegate?.didUpdateExperience(amount: amount)
             default:
                 return
             }
@@ -145,12 +145,12 @@ class StatModifierView: UIView {
         switch currentStatType {
         case .gold?:
             if amountInt <= gold {
-                delegate?.updateGold(amount: -(amountInt))
+                delegate?.didUpdateGold(amount: -(amountInt))
                 dismissNumpad()
             }
         case .experience?:
             if amountInt <= experience {
-                delegate?.updateExperience(amount: -(amountInt))
+                delegate?.didUpdateExperience(amount: -(amountInt))
                 dismissNumpad()
             }
         default:

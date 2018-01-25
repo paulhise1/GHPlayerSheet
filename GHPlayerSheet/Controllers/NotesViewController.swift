@@ -4,6 +4,8 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
     
     struct Constants {
         static let pathComponent = "notes.plist"
+        static let noteCellID = "noteCell"
+        static let segueToDisplayNoteID = "toUpdateNote"
     }
     
     let notesDatasource: ModelDatasource<NoteModel>
@@ -36,7 +38,7 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
     
     @IBAction func addNotePressed(_ sender: Any) {
         selectedNote = nil
-        performSegue(withIdentifier: "toUpdateNote", sender: self)
+        performSegue(withIdentifier: Constants.segueToDisplayNoteID, sender: self)
     }
     
     func dateDisplayer(){
@@ -74,7 +76,7 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toUpdateNote" {
+        if segue.identifier == Constants.segueToDisplayNoteID {
             let destinationVC = segue.destination as! DisplayNoteViewController
             destinationVC.note = selectedNote
             destinationVC.delegate = self
@@ -93,7 +95,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
         
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.noteCellID, for: indexPath) as! NoteTableViewCell
         
         let noteText = notesDatasource.modelAt(index: indexPath.row).text
         let dateString = Date.dateToStringFormater(date: notesDatasource.modelAt(index: indexPath.row).date)
@@ -110,7 +112,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedNote = notesDatasource.modelAt(index: indexPath.row)
-        performSegue(withIdentifier: "toUpdateNote", sender: self)
+        performSegue(withIdentifier: Constants.segueToDisplayNoteID, sender: self)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

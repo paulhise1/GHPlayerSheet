@@ -14,6 +14,8 @@
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
 		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
 		1E209E442019D4AD00A4986A /* levelCrown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E209E432019D4AC00A4986A /* levelCrown.png */; };
+		1E209E462019F49F00A4986A /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterManager.swift */; };
+		1E209E482019FF8400A4986A /* NewCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E472019FF8400A4986A /* NewCharacterViewController.swift */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
 		1E2CF32A201162AA002335DF /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* NoteModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
@@ -45,6 +47,8 @@
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
 		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
 		1E209E432019D4AC00A4986A /* levelCrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrown.png; sourceTree = "<group>"; };
+		1E209E452019F49F00A4986A /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
+		1E209E472019FF8400A4986A /* NewCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCharacterViewController.swift; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		1E2CF329201162AA002335DF /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -123,10 +127,10 @@
 		1E0FFCED200B6746001525F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
-				1EB4B28D2016098A00BF0AB0 /* CharacterDatasource.swift */,
-				1E2CF329201162AA002335DF /* NoteModel.swift */,
 				1EF640D92011AC3F00696393 /* ModelDatasource.swift */,
+				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
+				1E2CF329201162AA002335DF /* NoteModel.swift */,
+				1EB4B28D2016098A00BF0AB0 /* CharacterDatasource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -139,6 +143,8 @@
 				1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */,
 				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
 				1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */,
+				1E209E472019FF8400A4986A /* NewCharacterViewController.swift */,
+				1E209E452019F49F00A4986A /* CharacterManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			files = (
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
 				1EF640DA2011AC3F00696393 /* ModelDatasource.swift in Sources */,
+				1E209E482019FF8400A4986A /* NewCharacterViewController.swift in Sources */,
 				1ECF00E920072B6500C2E11D /* CharacterSheetViewController.swift in Sources */,
 				1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */,
 				1E0A39C22010A02E007924D9 /* DisplayNoteViewController.swift in Sources */,
@@ -345,6 +352,7 @@
 				1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */,
 				1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
+				1E209E462019F49F00A4986A /* CharacterManager.swift in Sources */,
 				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1EB4B28E2016098A00BF0AB0 /* CharacterDatasource.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,
