@@ -3,7 +3,7 @@ import MultipeerConnectivity
 
 protocol ScenarioShareManagerDelegate {
     func deviceConnectionStateChanged(displayName: String, state: MCSessionState, peers: [MCPeerID])
-    func recievedStatChanged(statType: StatUpdateType, value: String, displayName: String)
+    func recievedStatChanged(statType: StatUpdateType, displayName: String)
 }
 
 class ScenarioShareManager: NSObject {
@@ -52,35 +52,54 @@ class ScenarioShareManager: NSObject {
             }
         }
     }
-    
 }
 
+
 extension ScenarioShareManager: MCSessionDelegate {
-    
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         print("peer \(peerID) didChangeState: \(state)")
         self.delegate?.deviceConnectionStateChanged(displayName: peerID.displayName, state: state, peers: session.connectedPeers)
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("didRecieveData: \(data)")
-        //FIXME: ask brian what he would do here.
         if let dictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? Dictionary<String, String>, let statString = dictionary[Constants.statTypeKey], let value = dictionary[Constants.valueKey] {
             var statType: StatUpdateType
             switch statString {
             case Constants.healthStatType:
-                statType = StatUpdateType.health
+                statType = StatUpdateType.health(value)
             case Constants.experienceStatType:
-                statType = StatUpdateType.experience
+                statType = StatUpdateType.experience(value)
             case Constants.nameStatType:
-                statType = StatUpdateType.name
+                statType = StatUpdateType.name(value)
             default:
                 return
             }
-            self.delegate?.recievedStatChanged(statType: statType, value: value, displayName: peerID.displayName)
+            self.delegate?.recievedStatChanged(statType: statType, displayName: peerID.displayName)
         }
     }
+}
+
+extension ScenarioShareManager: MCNearbyServiceAdvertiserDelegate {
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+        print("didReceiveInvitationFromPeer \(peerID)")
+        invitationHandler(true, self.session)
+    }
+}
+
+extension ScenarioShareManager: MCNearbyServiceBrowserDelegate {
+    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
+        print("found peer: \(peerID)")
+        print("invite peer: \(peerID)")
+        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
+    }
     
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+        print("lost peer: \(peerID)")
+    }
+}
+
+// Unused but required delegate methods
+extension ScenarioShareManager {
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         print("didReceiveStream: \(streamName)")
     }
@@ -92,37 +111,14 @@ extension ScenarioShareManager: MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         print("didFinishReceivingResourceWithName \(resourceName)")
     }
-}
-
-extension ScenarioShareManager: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         print("didNotStartAdvertisingPeer: \(error)")
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        print("didReceiveInvitationFromPeer \(peerID)")
-        invitationHandler(true, self.session)
-    }
-
-}
-
-extension ScenarioShareManager: MCNearbyServiceBrowserDelegate {
-    
-    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        print("found peer: \(peerID)")
-        print("invite peer: \(peerID)")
-        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
-    }
-    
-    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        print("lost peer: \(peerID)")
-    }
-    
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
         print("didNotStartBrowsingForPeers: \(error)")
     }
-    
 }
 
 

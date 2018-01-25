@@ -2,9 +2,9 @@ import UIKit
 import MultipeerConnectivity
 
 enum StatUpdateType {
-    case name
-    case health
-    case experience
+    case name(String)
+    case health(String)
+    case experience(String)
 }
 
 struct Constants {
@@ -65,18 +65,18 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
         scenarioShareManager.broadcastStatUpdate(statType: statType!, value: stringValue)
     }
     
-    func recievedStatChanged(statType: StatUpdateType, value: String, displayName: String) {
+    func recievedStatChanged(statType: StatUpdateType, displayName: String) {
         OperationQueue.main.addOperation {
             switch statType {
-            case .health:
+            case .health(let value):
                 if let index = self.players.index(of: displayName) {
                     self.playerHealthLabels[index].text = value
                 }
-            case .experience:
+            case .experience(let value):
                 if let index = self.players.index(of: displayName) {
                     self.playerExperienceLabels[index].text = value
                 }
-            case .name:
+            case .name(let value):
                 if let index = self.players.index(of: displayName) {
                     self.playerNameLabels[index].text = value
                 }
@@ -87,9 +87,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     //MARK:- MCScenarioShare delegates to register stat changes.
     func deviceConnectionStateChanged(displayName: String, state: MCSessionState, peers: [MCPeerID]) {
         OperationQueue.main.addOperation {
-            
-            
-            
             switch state {
             case .connected:
                 if !self.players.contains(displayName) {
@@ -127,68 +124,18 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     
     func updatePlayersVisualConnectionStatus(state: MCSessionState, index: Int) {
         print("updating player at spot number \(index + 1), new state: \(state.rawValue) - (0 = connected, 2 = disconnected)")
-        switch state {
-        case .connected:
-            switch index {
-            case 0:
-                self.playerNameLabels[index].backgroundColor = ColorConstants.connectedPlayerBackground
-                self.playerNameLabels[index].textColor = ColorConstants.connectedPlayerText
-            case 1:
-                self.playerNameLabels[index].backgroundColor = ColorConstants.connectedPlayerBackground
-                self.playerNameLabels[index].textColor = ColorConstants.connectedPlayerText
-            case 2:
-                self.playerNameLabels[index].backgroundColor = ColorConstants.connectedPlayerBackground
-                self.playerNameLabels[index].textColor = ColorConstants.connectedPlayerText
-            default:
-                return
-            }
-        case .notConnected:
-            switch index {
-            case 0:
-                self.playerNameLabels[index].backgroundColor = ColorConstants.disconnectedPlayerBackground
-                self.playerNameLabels[index].textColor = ColorConstants.disconnectedPlayerText
-            case 1:
-                self.playerNameLabels[index].backgroundColor = ColorConstants.disconnectedPlayerBackground
-                self.playerNameLabels[index].textColor = ColorConstants.disconnectedPlayerText
-            case 2:
-                self.playerNameLabels[index].backgroundColor = ColorConstants.disconnectedPlayerBackground
-                self.playerNameLabels[index].textColor = ColorConstants.disconnectedPlayerText
-            default:
-                return
-            }
-        case .connecting:
-            return
-        }
+        self.playerNameLabels[index].backgroundColor = state == MCSessionState.connected ? ColorConstants.connectedPlayerBackground : ColorConstants.disconnectedPlayerBackground
+        self.playerNameLabels[index].textColor = state == MCSessionState.connected ? ColorConstants.connectedPlayerText : ColorConstants.disconnectedPlayerText
     }
     
     func updateStackViews() {
-        let playerCount = players.count
-        switch playerCount {
-        case 0:
-            noOtherPlayersLabel.isHidden = false
-            player2StatStack.isHidden = true
-            player3StatStack.isHidden = true
-            player4StatStack.isHidden = true
-        case 1:
-            noOtherPlayersLabel.isHidden = true
-            player2StatStack.isHidden = false
-            player3StatStack.isHidden = true
-            player4StatStack.isHidden = true
-        case 2:
-            noOtherPlayersLabel.isHidden = true
-            player2StatStack.isHidden = false
-            player3StatStack.isHidden = false
-            player4StatStack.isHidden = true
-        case 3:
-            noOtherPlayersLabel.isHidden = true
-            player2StatStack.isHidden = false
-            player3StatStack.isHidden = false
-            player4StatStack.isHidden = false
-        default:
-            return
-        }
+            noOtherPlayersLabel.isHidden = players.count == 0
+            player2StatStack.isHidden = !(players.count > 0)
+            player3StatStack.isHidden = !(players.count > 1)
+            player4StatStack.isHidden = !(players.count > 2)
     }
     
+    // NOTE: helper function for debugging
     func connectedPeersString(connectedWith: [MCPeerID]) -> String {
         var connectedWithString = "Connected to:"
         for peer in connectedWith {
@@ -235,3 +182,5 @@ class ScenarioViewController: UIViewController, CounterViewDelegate, ScenarioSha
     }
     
 }
+
+
