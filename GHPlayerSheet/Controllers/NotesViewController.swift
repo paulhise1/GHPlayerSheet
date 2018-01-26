@@ -30,6 +30,8 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
     func didUpdateNote(note: NoteModel) {
         if note.text == "" {
             notesDatasource.remove(model: note)
+        } else if note.text == selectedNote?.text {
+            selectedNote?.text = ""
         } else {
             notesDatasource.update(model: note)
         }

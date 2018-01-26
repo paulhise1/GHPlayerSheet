@@ -10,6 +10,7 @@ class DisplayNoteViewController: UIViewController, UITextViewDelegate {
     
     weak var delegate: DisplayNoteViewControllerDelegate?
     var newBackButton: UIBarButtonItem?
+    // would like a better back symbol
     var navBarButtonTitle = "<Notes"
     
     

@@ -97,7 +97,6 @@ class StatModifierView: UIView {
         bringSubview(toFront: numpadContainerView)
         bringSubview(toFront: buttonToFront)
         buttonToDisable.isEnabled = false
-        //sendSubview(toBack: buttonToDisable)
     }
     
     

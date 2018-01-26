@@ -8,7 +8,7 @@ struct ColorConstants {
     static let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()
     static let experienceCounterColor = UIColor.flatSkyBlue().lighten(byPercentage: 0.9)
     static let genericBackgroundColor = UIColor.flatMagentaColorDark()
-    static let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.75)
+    static let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.7)
     
     // ScenarioVC Colors
     static let disconnectedPlayerBackground = UIColor.flatGray()
@@ -16,4 +16,6 @@ struct ColorConstants {
     static let connectedPlayerBackground = UIColor.flatMintColorDark()
     static let connectedPlayerText = UIColor.flatYellowColorDark()
     
+    // CheckmarksView Colors
+    static let checkmarksViewBackground = UIColor.flatMint().lighten(byPercentage: 0.2)
 }

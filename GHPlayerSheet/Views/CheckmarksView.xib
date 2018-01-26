@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CheckmarksView" customModule="GHPlayerSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AGU-BU-G8X" userLabel="Top Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="220" height="28"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vC-b5-cMz" userLabel="Checkmark Image View Container">
+                            <rect key="frame" x="0.0" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="MYC-1C-8sP">
+                                    <rect key="frame" x="1" y="4" width="11.5" height="21"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="MYC-1C-8sP" firstAttribute="width" secondItem="0vC-b5-cMz" secondAttribute="width" multiplier="0.85" id="D63-1b-vOo"/>
+                                <constraint firstItem="MYC-1C-8sP" firstAttribute="centerY" secondItem="0vC-b5-cMz" secondAttribute="centerY" id="aZd-ha-tov"/>
+                                <constraint firstItem="MYC-1C-8sP" firstAttribute="centerX" secondItem="0vC-b5-cMz" secondAttribute="centerX" id="q8l-73-GHp"/>
+                                <constraint firstItem="MYC-1C-8sP" firstAttribute="height" secondItem="0vC-b5-cMz" secondAttribute="height" multiplier="0.75" id="sWH-g8-13C"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4V-6d-OXC">
+                            <rect key="frame" x="14.5" y="0.0" width="15" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHP-b4-4I2" userLabel="Check Box 1 Container">
+                            <rect key="frame" x="29.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xv1-Jc-OwW" userLabel="Button 1">
+                                    <rect key="frame" x="1" y="4" width="14" height="24"/>
+                                    <state key="normal" title="Button" image="checkedBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxOneTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Ko-gf-r36"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="xv1-Jc-OwW" secondAttribute="bottom" id="4u8-f7-xsj"/>
+                                <constraint firstItem="xv1-Jc-OwW" firstAttribute="width" secondItem="XHP-b4-4I2" secondAttribute="width" id="Uqd-o4-Q3h"/>
+                                <constraint firstItem="xv1-Jc-OwW" firstAttribute="centerX" secondItem="XHP-b4-4I2" secondAttribute="centerX" id="jiI-fM-lMj"/>
+                                <constraint firstItem="xv1-Jc-OwW" firstAttribute="height" secondItem="XHP-b4-4I2" secondAttribute="height" multiplier="0.85" id="ovn-0f-RZ5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFm-t9-z3y" userLabel="Check Box 2 Container">
+                            <rect key="frame" x="44" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nW-SD-FTY" userLabel="Button 2">
+                                    <rect key="frame" x="1" y="4" width="14" height="24"/>
+                                    <state key="normal" title="Button" image="checkedBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxTwoTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="AQ4-V1-npH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="8nW-SD-FTY" firstAttribute="height" secondItem="ZFm-t9-z3y" secondAttribute="height" multiplier="0.85" id="MeF-8T-4pf"/>
+                                <constraint firstItem="8nW-SD-FTY" firstAttribute="centerX" secondItem="ZFm-t9-z3y" secondAttribute="centerX" id="aCd-S8-bPB"/>
+                                <constraint firstItem="8nW-SD-FTY" firstAttribute="width" secondItem="ZFm-t9-z3y" secondAttribute="width" id="uXE-dK-ED7"/>
+                                <constraint firstAttribute="bottom" secondItem="8nW-SD-FTY" secondAttribute="bottom" id="vft-oU-hnQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWO-Sk-hce" userLabel="Check Box 3 Container">
+                            <rect key="frame" x="58.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-4x-RCf" userLabel="Button 3">
+                                    <rect key="frame" x="1" y="4" width="14.5" height="24"/>
+                                    <state key="normal" title="Button" image="checkedBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxThreeTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="fHU-b4-8wH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Hm2-4x-RCf" firstAttribute="width" secondItem="PWO-Sk-hce" secondAttribute="width" id="4RW-4j-6hI"/>
+                                <constraint firstAttribute="bottom" secondItem="Hm2-4x-RCf" secondAttribute="bottom" id="AfE-UH-BNX"/>
+                                <constraint firstItem="Hm2-4x-RCf" firstAttribute="centerX" secondItem="PWO-Sk-hce" secondAttribute="centerX" id="BTw-vQ-Tcl"/>
+                                <constraint firstItem="Hm2-4x-RCf" firstAttribute="height" secondItem="PWO-Sk-hce" secondAttribute="height" multiplier="0.85" id="mL9-zC-8UM"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBw-6q-jj3" userLabel="Checkmark Image View Container">
+                            <rect key="frame" x="73.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="OTV-bx-b7d">
+                                    <rect key="frame" x="1" y="4" width="11.5" height="21"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="OTV-bx-b7d" firstAttribute="width" secondItem="gBw-6q-jj3" secondAttribute="width" multiplier="0.85" id="54F-xp-4AQ"/>
+                                <constraint firstItem="OTV-bx-b7d" firstAttribute="centerY" secondItem="gBw-6q-jj3" secondAttribute="centerY" id="qiQ-OW-ZfP"/>
+                                <constraint firstItem="OTV-bx-b7d" firstAttribute="height" secondItem="gBw-6q-jj3" secondAttribute="height" multiplier="0.75" id="t2K-hC-ll9"/>
+                                <constraint firstItem="OTV-bx-b7d" firstAttribute="centerX" secondItem="gBw-6q-jj3" secondAttribute="centerX" id="xWt-Xt-HcK"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omm-EV-Riy">
+                            <rect key="frame" x="88" y="0.0" width="14.5" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9i-XU-pUk" userLabel="Check Box 4 Container">
+                            <rect key="frame" x="102.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-A3-jPy" userLabel="Button 4">
+                                    <rect key="frame" x="1" y="4" width="14.5" height="24"/>
+                                    <state key="normal" title="Button" image="checkedBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxFourTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="vqH-JK-YIK"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="WI3-A3-jPy" firstAttribute="centerX" secondItem="I9i-XU-pUk" secondAttribute="centerX" id="Fvu-li-C36"/>
+                                <constraint firstItem="WI3-A3-jPy" firstAttribute="width" secondItem="I9i-XU-pUk" secondAttribute="width" id="bh4-ao-xew"/>
+                                <constraint firstAttribute="bottom" secondItem="WI3-A3-jPy" secondAttribute="bottom" id="e5N-PJ-gfi"/>
+                                <constraint firstItem="WI3-A3-jPy" firstAttribute="height" secondItem="I9i-XU-pUk" secondAttribute="height" multiplier="0.85" id="hK5-av-45P"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgr-xY-pLJ" userLabel="Check Box 5 Container">
+                            <rect key="frame" x="117.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNW-9C-8QK" userLabel="Button 5">
+                                    <rect key="frame" x="1" y="4" width="14" height="24"/>
+                                    <state key="normal" title="Button" image="checkedBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxFiveTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZYX-V5-WBN"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="yNW-9C-8QK" secondAttribute="bottom" id="1nH-dm-XUg"/>
+                                <constraint firstItem="yNW-9C-8QK" firstAttribute="height" secondItem="xgr-xY-pLJ" secondAttribute="height" multiplier="0.85" id="JFi-Dy-F11"/>
+                                <constraint firstItem="yNW-9C-8QK" firstAttribute="width" secondItem="xgr-xY-pLJ" secondAttribute="width" id="ozp-NE-RPS"/>
+                                <constraint firstItem="yNW-9C-8QK" firstAttribute="centerX" secondItem="xgr-xY-pLJ" secondAttribute="centerX" id="rcj-a9-kpn"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzW-Wd-Ox4" userLabel="Check Box 6 Container">
+                            <rect key="frame" x="132" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7g-nW-299" userLabel="Button 6">
+                                    <rect key="frame" x="1.5" y="11.5" width="10.5" height="16.5"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxSixTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="wVL-DY-Ccp"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="G7g-nW-299" firstAttribute="centerX" secondItem="VzW-Wd-Ox4" secondAttribute="centerX" id="Bv6-6n-01y"/>
+                                <constraint firstItem="G7g-nW-299" firstAttribute="width" secondItem="VzW-Wd-Ox4" secondAttribute="width" multiplier="0.75" id="HxX-NH-riT"/>
+                                <constraint firstItem="G7g-nW-299" firstAttribute="height" secondItem="VzW-Wd-Ox4" secondAttribute="height" multiplier="0.6" id="YZk-Lg-VZZ"/>
+                                <constraint firstAttribute="bottom" secondItem="G7g-nW-299" secondAttribute="bottom" id="nqg-Yc-10H"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="of9-Ku-UbG" userLabel="Checkmark Image View Container">
+                            <rect key="frame" x="146.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="gGZ-aw-5ab">
+                                    <rect key="frame" x="1.5" y="4" width="13.5" height="21"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="gGZ-aw-5ab" firstAttribute="centerX" secondItem="of9-Ku-UbG" secondAttribute="centerX" id="W6W-X6-ivx"/>
+                                <constraint firstItem="gGZ-aw-5ab" firstAttribute="height" secondItem="of9-Ku-UbG" secondAttribute="height" multiplier="0.75" id="WZB-Vj-UDq"/>
+                                <constraint firstItem="gGZ-aw-5ab" firstAttribute="centerY" secondItem="of9-Ku-UbG" secondAttribute="centerY" id="e6r-jj-n0v"/>
+                                <constraint firstItem="gGZ-aw-5ab" firstAttribute="width" secondItem="of9-Ku-UbG" secondAttribute="width" multiplier="0.85" id="nUs-G0-0Hq"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eta-8v-yzb">
+                            <rect key="frame" x="161.5" y="0.0" width="14.5" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCM-E5-3hV" userLabel="Check Box 7 Container">
+                            <rect key="frame" x="176" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v2-SL-OY0" userLabel="Button 7">
+                                    <rect key="frame" x="2.5" y="11.5" width="11" height="16.5"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxSevenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="NrG-j3-Krl"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="6v2-SL-OY0" firstAttribute="width" secondItem="iCM-E5-3hV" secondAttribute="width" multiplier="0.75" id="3d6-aE-6Dp"/>
+                                <constraint firstItem="6v2-SL-OY0" firstAttribute="centerX" secondItem="iCM-E5-3hV" secondAttribute="centerX" id="EKJ-o7-3Qy"/>
+                                <constraint firstItem="6v2-SL-OY0" firstAttribute="height" secondItem="iCM-E5-3hV" secondAttribute="height" multiplier="0.6" id="pig-mO-VvK"/>
+                                <constraint firstAttribute="bottom" secondItem="6v2-SL-OY0" secondAttribute="bottom" id="wJs-N5-Qoi"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6Y-91-aY1" userLabel="Check Box 8 Container">
+                            <rect key="frame" x="190.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-UG-q4o" userLabel="Button 8">
+                                    <rect key="frame" x="1.5" y="11.5" width="12" height="16.5"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxEightTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="qLW-dP-Gzy"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="kEg-UG-q4o" secondAttribute="bottom" id="OVt-wr-Msa"/>
+                                <constraint firstItem="kEg-UG-q4o" firstAttribute="height" secondItem="S6Y-91-aY1" secondAttribute="height" multiplier="0.6" id="aAA-Lv-Luy"/>
+                                <constraint firstItem="kEg-UG-q4o" firstAttribute="width" secondItem="S6Y-91-aY1" secondAttribute="width" multiplier="0.75" id="jRh-02-gar"/>
+                                <constraint firstItem="kEg-UG-q4o" firstAttribute="centerX" secondItem="S6Y-91-aY1" secondAttribute="centerX" id="rLS-qx-ww7"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jl9-o8-DOf" userLabel="Check Box 9 Container">
+                            <rect key="frame" x="205.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-Ar-ACn" userLabel="Button 9">
+                                    <rect key="frame" x="2" y="11.5" width="11" height="16.5"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxNineTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="SPU-QN-kdt"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="G4f-Ar-ACn" firstAttribute="width" secondItem="Jl9-o8-DOf" secondAttribute="width" multiplier="0.75" id="D9G-PK-r6Y"/>
+                                <constraint firstItem="G4f-Ar-ACn" firstAttribute="height" secondItem="Jl9-o8-DOf" secondAttribute="height" multiplier="0.6" id="IFW-ef-xd2"/>
+                                <constraint firstItem="G4f-Ar-ACn" firstAttribute="centerX" secondItem="Jl9-o8-DOf" secondAttribute="centerX" id="ZCd-33-1Ur"/>
+                                <constraint firstAttribute="bottom" secondItem="G4f-Ar-ACn" secondAttribute="bottom" id="cvI-TB-GjV"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9ea-27-0zU" userLabel="Bottom Stack View">
+                    <rect key="frame" x="0.0" y="32" width="220" height="28"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnd-gE-VwJ" userLabel="Checkmark Image View Container">
+                            <rect key="frame" x="0.0" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="ewI-Jk-dhZ">
+                                    <rect key="frame" x="1" y="3.5" width="12.5" height="21"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ewI-Jk-dhZ" firstAttribute="centerY" secondItem="Lnd-gE-VwJ" secondAttribute="centerY" id="3F1-os-9EM"/>
+                                <constraint firstItem="ewI-Jk-dhZ" firstAttribute="centerX" secondItem="Lnd-gE-VwJ" secondAttribute="centerX" id="TCT-QX-mb3"/>
+                                <constraint firstItem="ewI-Jk-dhZ" firstAttribute="height" secondItem="Lnd-gE-VwJ" secondAttribute="height" multiplier="0.75" id="VfZ-D0-UVh"/>
+                                <constraint firstItem="ewI-Jk-dhZ" firstAttribute="width" secondItem="Lnd-gE-VwJ" secondAttribute="width" multiplier="0.85" id="oKG-AM-89v"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-RG-Ugd">
+                            <rect key="frame" x="14.5" y="0.0" width="15" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xr-Dx-xGp" userLabel="Check Box 10 Container">
+                            <rect key="frame" x="29.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvp-AO-hD5" userLabel="Button 10">
+                                    <rect key="frame" x="2" y="11" width="10.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxTenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="kv0-tY-JMC"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="pvp-AO-hD5" secondAttribute="bottom" id="PcP-DZ-FZN"/>
+                                <constraint firstItem="pvp-AO-hD5" firstAttribute="height" secondItem="3Xr-Dx-xGp" secondAttribute="height" multiplier="0.6" id="SoI-os-Omx"/>
+                                <constraint firstItem="pvp-AO-hD5" firstAttribute="centerX" secondItem="3Xr-Dx-xGp" secondAttribute="centerX" id="dgy-Ye-Quz"/>
+                                <constraint firstItem="pvp-AO-hD5" firstAttribute="width" secondItem="3Xr-Dx-xGp" secondAttribute="width" multiplier="0.75" id="vMO-sE-fAt"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQ1-xc-3aH" userLabel="Check Box 11 Container">
+                            <rect key="frame" x="44" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaA-qj-Whe" userLabel="Button 11">
+                                    <rect key="frame" x="1.5" y="11" width="11.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxElevenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="opi-cr-c5R"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="oaA-qj-Whe" firstAttribute="centerX" secondItem="kQ1-xc-3aH" secondAttribute="centerX" id="S7v-sd-1OQ"/>
+                                <constraint firstAttribute="bottom" secondItem="oaA-qj-Whe" secondAttribute="bottom" id="Tgw-Ft-lec"/>
+                                <constraint firstItem="oaA-qj-Whe" firstAttribute="height" secondItem="kQ1-xc-3aH" secondAttribute="height" multiplier="0.6" id="iv0-Qk-wy1"/>
+                                <constraint firstItem="oaA-qj-Whe" firstAttribute="width" secondItem="kQ1-xc-3aH" secondAttribute="width" multiplier="0.75" id="tEn-61-0u9"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Grd-dE-Dbb" userLabel="Check Box 12 Container">
+                            <rect key="frame" x="58.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-Vb-d1N" userLabel="Button 12">
+                                    <rect key="frame" x="2" y="11" width="11.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxTwelveTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qg0-xd-Kwy"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="YO1-Vb-d1N" firstAttribute="height" secondItem="Grd-dE-Dbb" secondAttribute="height" multiplier="0.6" id="1Us-tF-QYr"/>
+                                <constraint firstAttribute="bottom" secondItem="YO1-Vb-d1N" secondAttribute="bottom" id="P3B-oy-4Z0"/>
+                                <constraint firstItem="YO1-Vb-d1N" firstAttribute="width" secondItem="Grd-dE-Dbb" secondAttribute="width" multiplier="0.75" id="SDa-9g-C0P"/>
+                                <constraint firstItem="YO1-Vb-d1N" firstAttribute="centerX" secondItem="Grd-dE-Dbb" secondAttribute="centerX" id="qWt-FV-csO"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-Eu-B4E" userLabel="Checkmark Image View Container">
+                            <rect key="frame" x="73.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-TM-sCj">
+                                    <rect key="frame" x="1" y="3.5" width="12.5" height="21"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="fXA-TM-sCj" firstAttribute="centerY" secondItem="e7d-Eu-B4E" secondAttribute="centerY" id="49A-S4-Nm5"/>
+                                <constraint firstItem="fXA-TM-sCj" firstAttribute="height" secondItem="e7d-Eu-B4E" secondAttribute="height" multiplier="0.75" id="IV4-By-pHg"/>
+                                <constraint firstItem="fXA-TM-sCj" firstAttribute="width" secondItem="e7d-Eu-B4E" secondAttribute="width" multiplier="0.85" id="Rsp-oL-TLH"/>
+                                <constraint firstItem="fXA-TM-sCj" firstAttribute="centerX" secondItem="e7d-Eu-B4E" secondAttribute="centerX" id="rYE-Rn-rhC"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cV-7d-427">
+                            <rect key="frame" x="88" y="0.0" width="14.5" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkd-kd-HUz" userLabel="Check Box 13 Container">
+                            <rect key="frame" x="102.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MA4-k0-vDn" userLabel="Button 13">
+                                    <rect key="frame" x="1.5" y="11" width="12" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxThirteenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="n8H-JC-tkz"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="MA4-k0-vDn" firstAttribute="height" secondItem="zkd-kd-HUz" secondAttribute="height" multiplier="0.6" id="1pY-f7-H7I"/>
+                                <constraint firstItem="MA4-k0-vDn" firstAttribute="width" secondItem="zkd-kd-HUz" secondAttribute="width" multiplier="0.75" id="4W2-iQ-JtM"/>
+                                <constraint firstItem="MA4-k0-vDn" firstAttribute="centerX" secondItem="zkd-kd-HUz" secondAttribute="centerX" id="U4c-tI-Tb6"/>
+                                <constraint firstAttribute="bottom" secondItem="MA4-k0-vDn" secondAttribute="bottom" id="xge-Kx-eLe"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKH-id-7er" userLabel="Check Box 14 Container">
+                            <rect key="frame" x="117.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lo-bs-x4z" userLabel="Button 14">
+                                    <rect key="frame" x="1.5" y="11" width="11.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxFourteenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="yjE-7q-uFX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="6lo-bs-x4z" firstAttribute="width" secondItem="QKH-id-7er" secondAttribute="width" multiplier="0.75" id="EEE-0S-Fik"/>
+                                <constraint firstAttribute="bottom" secondItem="6lo-bs-x4z" secondAttribute="bottom" id="Hqa-fK-oVb"/>
+                                <constraint firstItem="6lo-bs-x4z" firstAttribute="height" secondItem="QKH-id-7er" secondAttribute="height" multiplier="0.6" id="dFH-wy-97S"/>
+                                <constraint firstItem="6lo-bs-x4z" firstAttribute="centerX" secondItem="QKH-id-7er" secondAttribute="centerX" id="xUd-z0-RXt"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idU-Kk-Xuv" userLabel="Check Box 15 Container">
+                            <rect key="frame" x="132" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdb-VY-By6" userLabel="Button 15">
+                                    <rect key="frame" x="2" y="11" width="10.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxFifteenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="EUt-lb-OWg"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="rdb-VY-By6" firstAttribute="width" secondItem="idU-Kk-Xuv" secondAttribute="width" multiplier="0.75" id="9yh-VP-0H3"/>
+                                <constraint firstItem="rdb-VY-By6" firstAttribute="height" secondItem="idU-Kk-Xuv" secondAttribute="height" multiplier="0.6" id="IbJ-ph-TJ1"/>
+                                <constraint firstItem="rdb-VY-By6" firstAttribute="centerX" secondItem="idU-Kk-Xuv" secondAttribute="centerX" id="anu-T8-R2O"/>
+                                <constraint firstAttribute="bottom" secondItem="rdb-VY-By6" secondAttribute="bottom" id="bzU-Cm-H41"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZa-Ij-wh4" userLabel="Checkmark Image View Container">
+                            <rect key="frame" x="146.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="sAi-En-Rdc">
+                                    <rect key="frame" x="1" y="3.5" width="13" height="21"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="sAi-En-Rdc" firstAttribute="centerY" secondItem="SZa-Ij-wh4" secondAttribute="centerY" id="8J0-NN-e0O"/>
+                                <constraint firstItem="sAi-En-Rdc" firstAttribute="width" secondItem="SZa-Ij-wh4" secondAttribute="width" multiplier="0.85" id="GgG-f2-aae"/>
+                                <constraint firstItem="sAi-En-Rdc" firstAttribute="height" secondItem="SZa-Ij-wh4" secondAttribute="height" multiplier="0.75" id="Kob-w2-khx"/>
+                                <constraint firstItem="sAi-En-Rdc" firstAttribute="centerX" secondItem="SZa-Ij-wh4" secondAttribute="centerX" id="qLh-Y8-rfP"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6c-JL-goA">
+                            <rect key="frame" x="161.5" y="0.0" width="14.5" height="28"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZM-Wr-LVz" userLabel="Check Box 16 Container">
+                            <rect key="frame" x="176" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jj-Ag-MeQ" userLabel="Button 16">
+                                    <rect key="frame" x="2" y="11" width="11" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxSixteenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="RyX-pS-9PT"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="3Jj-Ag-MeQ" firstAttribute="centerX" secondItem="cZM-Wr-LVz" secondAttribute="centerX" id="4as-7P-4bd"/>
+                                <constraint firstItem="3Jj-Ag-MeQ" firstAttribute="width" secondItem="cZM-Wr-LVz" secondAttribute="width" multiplier="0.75" id="H5y-fq-Hc5"/>
+                                <constraint firstItem="3Jj-Ag-MeQ" firstAttribute="height" secondItem="cZM-Wr-LVz" secondAttribute="height" multiplier="0.6" id="fgN-vI-cyO"/>
+                                <constraint firstAttribute="bottom" secondItem="3Jj-Ag-MeQ" secondAttribute="bottom" id="vsf-BW-Q5K"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8z-sF-x5H" userLabel="Check Box 17 Container">
+                            <rect key="frame" x="190.5" y="0.0" width="15" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHp-dF-1Wm" userLabel="Button 17">
+                                    <rect key="frame" x="2" y="11" width="11.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxSeventeenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="lzQ-8a-Es5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="XHp-dF-1Wm" secondAttribute="bottom" id="6wu-q3-bVj"/>
+                                <constraint firstItem="XHp-dF-1Wm" firstAttribute="width" secondItem="q8z-sF-x5H" secondAttribute="width" multiplier="0.75" id="QNm-Ae-fUC"/>
+                                <constraint firstItem="XHp-dF-1Wm" firstAttribute="height" secondItem="q8z-sF-x5H" secondAttribute="height" multiplier="0.6" id="e1x-fa-Nfx"/>
+                                <constraint firstItem="XHp-dF-1Wm" firstAttribute="centerX" secondItem="q8z-sF-x5H" secondAttribute="centerX" id="tag-jg-ApN"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-Ff-RJi" userLabel="Check Box 18 Container">
+                            <rect key="frame" x="205.5" y="0.0" width="14.5" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNb-bj-RLk" userLabel="Button 18">
+                                    <rect key="frame" x="1.5" y="11" width="11.5" height="17"/>
+                                    <state key="normal" title="Button" image="emptyCheckBox.png"/>
+                                    <connections>
+                                        <action selector="checkBoxEighteenTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="hkM-56-ITS"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="HNb-bj-RLk" firstAttribute="width" secondItem="eSy-Ff-RJi" secondAttribute="width" multiplier="0.75" id="ZiN-W9-weV"/>
+                                <constraint firstAttribute="bottom" secondItem="HNb-bj-RLk" secondAttribute="bottom" id="bNc-u0-eSW"/>
+                                <constraint firstItem="HNb-bj-RLk" firstAttribute="height" secondItem="eSy-Ff-RJi" secondAttribute="height" multiplier="0.6" id="d73-mN-0lT"/>
+                                <constraint firstItem="HNb-bj-RLk" firstAttribute="centerX" secondItem="eSy-Ff-RJi" secondAttribute="centerX" id="phi-uh-MH4"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="9ea-27-0zU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4IH-gT-fAh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="leading" secondItem="AGU-BU-G8X" secondAttribute="leading" id="GFP-9C-wns"/>
+                <constraint firstItem="9ea-27-0zU" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.47" id="Kgt-mF-zvO"/>
+                <constraint firstItem="9ea-27-0zU" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Vek-mo-cc7"/>
+                <constraint firstItem="9ea-27-0zU" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="cSy-nd-wYU"/>
+                <constraint firstItem="AGU-BU-G8X" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="lfu-go-MBp"/>
+                <constraint firstItem="AGU-BU-G8X" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pgG-2D-W31"/>
+                <constraint firstItem="AGU-BU-G8X" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.47" id="s86-2x-eJb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="checkmarkBoxButton" destination="xv1-Jc-OwW" collectionClass="NSMutableArray" id="o3z-dO-Y5Y"/>
+                <outletCollection property="checkmarkBoxButton" destination="8nW-SD-FTY" collectionClass="NSMutableArray" id="28l-2n-Pyn"/>
+                <outletCollection property="checkmarkBoxButton" destination="Hm2-4x-RCf" collectionClass="NSMutableArray" id="AqV-p6-hh1"/>
+                <outletCollection property="checkmarkBoxButton" destination="WI3-A3-jPy" collectionClass="NSMutableArray" id="OVj-A2-iHs"/>
+                <outletCollection property="checkmarkBoxButton" destination="yNW-9C-8QK" collectionClass="NSMutableArray" id="LF7-Ss-iSd"/>
+                <outletCollection property="checkmarkBoxButton" destination="G7g-nW-299" collectionClass="NSMutableArray" id="nwK-oJ-Euq"/>
+                <outletCollection property="checkmarkBoxButton" destination="6v2-SL-OY0" collectionClass="NSMutableArray" id="XZz-D8-9tA"/>
+                <outletCollection property="checkmarkBoxButton" destination="kEg-UG-q4o" collectionClass="NSMutableArray" id="2Gu-LB-0Oj"/>
+                <outletCollection property="checkmarkBoxButton" destination="G4f-Ar-ACn" collectionClass="NSMutableArray" id="qbY-EB-uNc"/>
+                <outletCollection property="checkmarkBoxButton" destination="pvp-AO-hD5" collectionClass="NSMutableArray" id="Hdv-PR-lUx"/>
+                <outletCollection property="checkmarkBoxButton" destination="oaA-qj-Whe" collectionClass="NSMutableArray" id="6QU-MK-WLE"/>
+                <outletCollection property="checkmarkBoxButton" destination="YO1-Vb-d1N" collectionClass="NSMutableArray" id="nUW-Vh-vfm"/>
+                <outletCollection property="checkmarkBoxButton" destination="MA4-k0-vDn" collectionClass="NSMutableArray" id="aGY-8N-Rxb"/>
+                <outletCollection property="checkmarkBoxButton" destination="6lo-bs-x4z" collectionClass="NSMutableArray" id="n2F-B2-iAS"/>
+                <outletCollection property="checkmarkBoxButton" destination="rdb-VY-By6" collectionClass="NSMutableArray" id="faG-Nv-7Rr"/>
+                <outletCollection property="checkmarkBoxButton" destination="3Jj-Ag-MeQ" collectionClass="NSMutableArray" id="8z8-GY-RYx"/>
+                <outletCollection property="checkmarkBoxButton" destination="XHp-dF-1Wm" collectionClass="NSMutableArray" id="CbM-R2-X7O"/>
+                <outletCollection property="checkmarkBoxButton" destination="HNb-bj-RLk" collectionClass="NSMutableArray" id="igG-Gl-OC4"/>
+            </connections>
+            <point key="canvasLocation" x="-198" y="-355.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkedBox.png" width="825" height="633"/>
+        <image name="checkmark.png" width="596" height="718"/>
+        <image name="emptyCheckBox.png" width="600" height="600"/>
+    </resources>
+</document>

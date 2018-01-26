@@ -7,7 +7,8 @@ class CharacterSheetViewController: UIViewController {
     //MARK: - Constants
     struct Constants {
         static let nameDefaultText = "Enter Name"
-        static let NotesViewControllerID =  "Notes View Controller"
+        static let notesNavStackID =  "NotesNavStack"
+        static let perksNavStackID = "PerksNavStack"
     }
 
     //MARK: - Class Properties
@@ -21,10 +22,12 @@ class CharacterSheetViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     var statModifierView: StatModifierView?
-    
-    @IBOutlet weak var stateModifierContainerView: UIView!
+    @IBOutlet weak var statModifierContainerView: UIView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
-   
+    
+    
+    @IBOutlet weak var perksContainerView: UIView!
+    
     @IBOutlet weak var notesContainerView: UIView!
     
     
@@ -32,8 +35,7 @@ class CharacterSheetViewController: UIViewController {
         super.viewDidLoad()
         
         characterManager = CharacterManager()
-        setupStatModifierView()
-        setupNotesView()
+        setupChildViews()
         setupDefaultNameLabelAppearance()
     }
     
@@ -44,11 +46,12 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
     
     func statModifierViewDidBeginModifying(sender: StatModifierView) {
         addBlurEffect()
-        view.bringSubview(toFront: stateModifierContainerView)
+        view.bringSubview(toFront: statModifierContainerView)
     }
     
     func statModifierViewDidEndModifying(sender: StatModifierView) {
         removeBlurEffect()
+        view.bringSubview(toFront: perksContainerView)
     }
     
     func didUpdateGold(amount: Int) {
@@ -72,6 +75,7 @@ extension CharacterSheetViewController: UITextFieldDelegate {
         if characterManager?.character?.name != "" {
             nameLabel.text = characterManager?.character?.name
             nameLabel.textColor = UIColor.flatMagenta()
+            nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         } else {
             nameLabel.text = Constants.nameDefaultText
             nameLabel.textColor = .lightGray
@@ -156,12 +160,19 @@ extension CharacterSheetViewController {
     }
     
     //MARK: - Setup Child Views methods
+    func setupChildViews() {
+        setupNotesView()
+        setupPerksView()
+        //setupCheckmarksView()
+        setupStatModifierView()
+    }
+    
     func setupStatModifierView() {
         statModifierView = Bundle.main.loadNibNamed(String(describing: StatModifierView.self), owner: self, options: nil)?.first as? StatModifierView
         if let statModifierView = statModifierView {
-            stateModifierContainerView.addSubview(statModifierView)
+            statModifierContainerView.addSubview(statModifierView)
             statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
-            statModifierView.frame = stateModifierContainerView.bounds
+            statModifierView.frame = statModifierContainerView.bounds
             statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             if let gold = characterManager?.character?.gold { statModifierView.goldAmount = (gold) }
             if let experience = characterManager?.character?.experience { statModifierView.experienceAmount = (experience) }
@@ -170,7 +181,7 @@ extension CharacterSheetViewController {
     }
     
     func setupNotesView() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.NotesViewControllerID) {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.notesNavStackID) {
             addChildViewController(controller)
             controller.view.frame = notesContainerView.bounds
             controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -178,7 +189,32 @@ extension CharacterSheetViewController {
             controller.didMove(toParentViewController: self)
         }
     }
+    
+    func setupPerksView() {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.perksNavStackID) {
+            addChildViewController(controller)
+            controller.view.frame = perksContainerView.bounds
+            perksContainerView.addSubview(controller.view)
+            controller.didMove(toParentViewController: self)
+            
+        }
+    }
+    
+//    func setupCheckmarksView() {
+//        var checkmarksView = Bundle.main.loadNibNamed(String(describing: CheckmarksView.self), owner: self, options: nil)?.first as? CheckmarksView
+//        if let checkmarksView = checkmarksView {
+//            checkmarksContainerView.addSubview(checkmarksView)
+//            checkmarksView.frame = checkmarksContainerView.bounds
+//            checkmarksView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            checkmarksView.configureColorBackground()
+//        }
+//    }
+    
 }
+
+
+
+
 
 
 

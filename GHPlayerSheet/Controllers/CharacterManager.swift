@@ -27,6 +27,12 @@ class CharacterManager: ModelProtocol {
         }
     }
     
+    func getCharacterType() -> CharacterModel.CharacterClass? {
+        if let character = character {
+            return character.characterClass
+        } else { return nil }
+    }
+    
     func identifier() -> Date {
         if let character = character {
             return character.creationDate
