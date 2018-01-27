@@ -7,12 +7,12 @@ class CharacterSheetViewController: UIViewController {
     //MARK: - Constants
     struct Constants {
         static let nameDefaultText = "Enter Name"
-        static let notesNavStackID =  "NotesNavStack"
-        static let perksNavStackID = "PerksNavStack"
+        static let notesViewID =  "NotesNavStack"
+        static let perksViewID = "PerksNavStack"
     }
 
     //MARK: - Class Properties
-    private var viewManager: CharacterSheetViewModel?
+    private var viewModel: CharacterSheetViewModel?
     private var blurView: DynamicBlurView?
     private var textField: UITextField?
     
@@ -25,7 +25,6 @@ class CharacterSheetViewController: UIViewController {
     @IBOutlet weak var statModifierContainerView: UIView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
     
-    
     @IBOutlet weak var perksContainerView: UIView!
     
     @IBOutlet weak var notesContainerView: UIView!
@@ -33,10 +32,9 @@ class CharacterSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewManager = CharacterSheetViewModel()
-        setupChildViews()
+        viewModel = CharacterSheetViewModel()
         setupDefaultNameLabelAppearance()
+        setupChildViews()
     }
     
 }
@@ -55,14 +53,16 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
     }
     
     func didUpdateGold(amount: Int) {
-        if let statModifierView = statModifierView, let goldAmount = viewManager?.updateGold(amount: amount) {
-            statModifierView.goldAmount = goldAmount
+        if let statModifierView = statModifierView, let viewModel = viewModel {
+            viewModel.updateGold(amount: amount)
+            statModifierView.goldAmount = viewModel.characterModel.gold
         }
     }
     
     func didUpdateExperience(amount: Int) {
-        if let statModifierView = statModifierView, let experienceAmount = viewManager?.updateExperience(amount: amount) {
-            statModifierView.experienceAmount = experienceAmount
+        if let statModifierView = statModifierView, let viewModel = viewModel {
+            viewModel.updateExperience(amount: amount)
+            statModifierView.experienceAmount = viewModel.characterModel.experience
         }
     }
 
@@ -72,9 +72,9 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
 extension CharacterSheetViewController: UITextFieldDelegate {
     
     func setupDefaultNameLabelAppearance() {
-        if let viewManager = viewManager {
-            if viewManager.name() != "" {
-                nameLabel.text = viewManager.name()
+        if let viewModel = viewModel {
+            if viewModel.characterModel.name != "" {
+                nameLabel.text = viewModel.characterModel.name
                 nameLabel.textColor = ColorConstants.characterNameText
                 //need FontConstants file
                 nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -112,9 +112,9 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let textFieldText = textField.text, let viewManager = viewManager {
-            viewManager.setName(name: textFieldText)
-            nameLabel.text = viewManager.name()
+        if let textFieldText = textField.text, let viewModel = viewModel {
+            viewModel.updateName(name: textFieldText)
+            nameLabel.text = viewModel.characterModel.name
         }
         nameLabel.textColor = ColorConstants.characterNameText
         if textField.text == "" {
@@ -174,32 +174,33 @@ extension CharacterSheetViewController {
             statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
             statModifierView.frame = statModifierContainerView.bounds
             statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            if let viewManager = viewManager {
-                statModifierView.goldAmount = viewManager.gold()
-                statModifierView.experienceAmount = viewManager.experience()
+            if let viewManager = viewModel {
+                statModifierView.goldAmount = viewManager.characterModel.gold
+                statModifierView.experienceAmount = viewManager.characterModel.experience
             }
             statModifierView.delegate = self
         }
     }
     
     func setupNotesView() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.notesNavStackID) {
-            addChildViewController(controller)
-            controller.view.frame = notesContainerView.bounds
-            controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            notesContainerView.addSubview(controller.view)
-            controller.didMove(toParentViewController: self)
+        if let notesNavViewController = storyboard?.instantiateViewController(withIdentifier: Constants.notesViewID) {
+            addChildViewController(notesNavViewController)
+            notesNavViewController.view.frame = notesContainerView.bounds
+            notesNavViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            notesContainerView.addSubview(notesNavViewController.view)
+            notesNavViewController.didMove(toParentViewController: self)
         }
     }
     
     func setupPerksView() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: Constants.perksNavStackID) {
-            addChildViewController(controller)
-            controller.view.frame = perksContainerView.bounds
-            perksContainerView.addSubview(controller.view)
-            controller.didMove(toParentViewController: self)
-        
-            
+        if let perksNavController = storyboard?.instantiateViewController(withIdentifier: Constants.perksViewID) as? UINavigationController {
+            addChildViewController(perksNavController)
+            perksNavController.view.frame = perksContainerView.bounds
+            perksContainerView.addSubview(perksNavController.view)
+            perksNavController.didMove(toParentViewController: self)
+            if let viewModel = viewModel, let perksVC = perksNavController.topViewController as? PerksViewController {
+            perksVC.configure(with: viewModel.characterModel.characterClass)
+            }
         }
     }
     

@@ -38,7 +38,7 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         tableView.reloadData()
     }
     
-    @IBAction func addNotePressed(_ sender: Any) {
+    @IBAction func composeNoteTapped(_ sender: Any) {
         selectedNote = nil
         performSegue(withIdentifier: Constants.segueToDisplayNoteID, sender: self)
     }

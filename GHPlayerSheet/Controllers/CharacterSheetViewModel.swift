@@ -11,7 +11,7 @@ class CharacterSheetViewModel: ModelProtocol {
     // it will get injected with the characterModel from the hub
     private let characterDatasource: ModelDatasource<CharacterModel>
     
-    private var characterModel: CharacterModel
+    var characterModel: CharacterModel
     
     init() {
         let url = URL.libraryFilePathWith(finalPathComponent: Constants.pathComponent)
@@ -20,48 +20,27 @@ class CharacterSheetViewModel: ModelProtocol {
         characterModel = characterDatasource.modelAt(index: 0)
     }
     
-    func character() -> CharacterModel {
-        return characterModel
+    func updateName(name: String) {
+        characterModel.updateName(name: name)
+        characterDatasource.update(model: characterModel)
     }
     
-    func characterClass() -> CharacterClass {
-        let characterClass = characterModel.characterClass
-        return characterClass
+    func updateGold(amount: Int) {
+        characterModel.updateGold(amount: characterModel.gold + amount)
+        characterDatasource.update(model: characterModel)
+    }
+    
+    
+    func updateExperience(amount: Int) {
+        characterModel.updateExperience(amount: characterModel.experience + amount)
+        characterDatasource.update(model: characterModel)
     }
     
     func identifier() -> Date {
-        return characterModel.creationDate
+    return Date()
     }
-    
-    func name() -> String {
-        return characterModel.name
-    }
-    
-    func gold() -> Int {
-        return characterModel.gold
-    }
-    
-    func experience() -> Int {
-        return characterModel.experience
-    }
-    
-    func setName(name: String) {
-        characterModel.name = name
-        characterDatasource.update(model: characterModel)
-    }
-    
-    func updateGold(amount: Int) -> Int {
-        characterModel.gold = characterModel.gold + amount
-        characterDatasource.update(model: characterModel)
-        return characterModel.gold
-    }
+   
     
     
-    func updateExperience(amount: Int) -> Int {
-        characterModel.experience = characterModel.experience + amount
-        characterDatasource.update(model: characterModel)
-        return characterModel.experience
-    }
-    
-
 }
+

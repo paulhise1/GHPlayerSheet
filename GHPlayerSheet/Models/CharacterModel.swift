@@ -8,18 +8,18 @@ enum CharacterClass: String, Codable {
     case spellweaver = "Orchid Spellweaver"
     case brute = "Inox Brute"
 }
-
+    
 class CharacterModel: Codable, ModelProtocol {
     
     let characterClass : CharacterClass
-    var creationDate: Date
-    var name = ""
-    var level = 1
-    var experience = 0
-    var gold = 0
-    //var items = [ItemType]()
-    var battleMarks = 0
-    var activePerks = [String]()
+    let creationDate: Date
+    private(set) var name = ""
+    private(set) var level = 1
+    private(set) var experience = 0
+    private(set) var gold = 0
+    private(set) var battleMarks = 0
+    private(set) var activePerks = [String]()
+    //private(set) var items = [ItemType]()
     
     init(characterClass: CharacterClass, creationDate: Date = Date(), gold: Int = 0, experience: Int = 0) {
         self.characterClass = characterClass
@@ -31,6 +31,19 @@ class CharacterModel: Codable, ModelProtocol {
     func identifier() -> Date {
         return creationDate
     }
+    
+    func updateName(name: String) {
+        self.name = name
+    }
+    
+    func updateGold(amount: Int) {
+        gold = amount
+    }
+    
+    func updateExperience(amount: Int) {
+        experience = experience + amount
+    }
+    
 }
 
     

@@ -1,25 +1,43 @@
 import Foundation
 
-class PerkManager {
+class PerkViewModel {
     
-    func getPerkList(perksFor type: PerkListType) -> [PerkModel] {
+    
+    
+}
+
+
+extension PerkViewModel {
+    
+    func perksList(perksFor type: CharacterClass) -> [PerkModel] {
         switch type {
         case .brute:
             
             let brutePerk1 = PerkModel(perk: "Remove two (-1) cards", perkCount: 1)
+            brutePerk1.checked = false
             let brutePerk2 = PerkModel(perk: "Replace one (-1) card with one (+1) card", perkCount: 1)
+            brutePerk2.checked = false
             let brutePerk3 = PerkModel(perk: "Add two (+1) cards", perkCount: 2)
+            brutePerk3.checked = false
             let brutePerk4 = PerkModel(perk: "Add one (+3) card", perkCount: 1)
+            brutePerk4.checked = false
             let brutePerk5 = PerkModel(perk: "Add three ↷ PUSH ⇢ 1 cards", perkCount: 2)
+            brutePerk5.checked = false
             let brutePerk6 = PerkModel(perk: "Add two ↷ PIERCE ⤁ 3 cards", perkCount: 1)
+            brutePerk6.checked = false
             let brutePerk7 = PerkModel(perk: "Add one ↷ STUN 💫 card", perkCount: 2)
+            brutePerk7.checked = false
             let brutePerk8 = PerkModel(perk: "Add one ↷ DISARM 👋🏽 card and one ↷ MUDDLE ❓ card", perkCount: 1)
+            brutePerk8.checked = false
             let brutePerk9 = PerkModel(perk: "Add one ↷ ADD TARGET ◎ card", perkCount: 2)
+            brutePerk9.checked = false
             let brutePerk10 = PerkModel(perk: "Add one (+1) Shield🛡1,Self card", perkCount: 1)
+            brutePerk10.checked = false
             let brutePerk11 = PerkModel(perk: "Ignore negative item effects and add one (+1) card", perkCount: 1)
+            brutePerk11.checked = false
             let brutePerkList = [brutePerk1, brutePerk2, brutePerk3, brutePerk4, brutePerk5, brutePerk6, brutePerk7, brutePerk8, brutePerk9, brutePerk10, brutePerk11]
             return brutePerkList
-        
+            
         case .cragheart:
             let cragheartPerk1 = PerkModel(perk: "Remove four (+0) cards", perkCount: 1)
             let cragheartPerk2 = PerkModel(perk: "Replace one (-1) card with one (+1) card", perkCount: 3)
@@ -95,5 +113,35 @@ class PerkManager {
             let tinkererPerkList = [tinkererPerk1, tinkererPerk2, tinkererPerk3, tinkererPerk4, tinkererPerk5, tinkererPerk6, tinkererPerk7, tinkererPerk8, tinkererPerk9, tinkererPerk10, tinkererPerk11]
             return tinkererPerkList
         }
+    }
+    
+    enum AttackModifierSymbols: String {
+        case negativeOne = "(-1)"
+        case negativeTwo = "(-2)"
+        case plusZero = "(+0)"
+        case plusOne = "(+1)"
+        case plusTwo = "(+2)"
+        case plusThree = "(+3)"
+        case rollingModifier = "↷"
+        case push = "⇢"
+        case pull = "⇠"
+        case pierce = "⤁"
+        case stun = "💫"
+        case disarm = "👋🏽"
+        case muddle = "❓"
+        case addTarget = "◎"
+        case shield = "🛡"
+        case immobilize = "🚷"
+        case curse = "⚡️"
+        case wound = "🚑"
+        case poison = "☠️"
+        case invisible = "👤"
+        case heal = "❣️"
+        case fire = "🔥"
+        case earth = "🍃"
+        case air = "💨"
+        case ice = "❄️"
+        case light = "🔆"
+        case dark = "🌑"
     }
 }
