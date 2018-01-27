@@ -19,7 +19,7 @@
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
 		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
 		1E209E442019D4AD00A4986A /* levelCrown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E209E432019D4AC00A4986A /* levelCrown.png */; };
-		1E209E462019F49F00A4986A /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterManager.swift */; };
+		1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */; };
 		1E209E482019FF8400A4986A /* NewCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E472019FF8400A4986A /* NewCharacterViewController.swift */; };
 		1E209E50201A1AA900A4986A /* PerkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E4F201A1AA900A4986A /* PerkModel.swift */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
@@ -63,7 +63,7 @@
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
 		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
 		1E209E432019D4AC00A4986A /* levelCrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrown.png; sourceTree = "<group>"; };
-		1E209E452019F49F00A4986A /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
+		1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewModel.swift; sourceTree = "<group>"; };
 		1E209E472019FF8400A4986A /* NewCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCharacterViewController.swift; sourceTree = "<group>"; };
 		1E209E4F201A1AA900A4986A /* PerkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkModel.swift; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,12 +165,12 @@
 			isa = PBXGroup;
 			children = (
 				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
+				1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */,
 				1E83F7192010661C000AAECD /* NotesViewController.swift */,
 				1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */,
 				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
 				1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */,
 				1E209E472019FF8400A4986A /* NewCharacterViewController.swift */,
-				1E209E452019F49F00A4986A /* CharacterManager.swift */,
 				1ED519C8201B2BD60072F09A /* PerksViewController.swift */,
 				1ED519CA201B2D390072F09A /* PerkToAddViewController.swift */,
 				1ED519CC201B419A0072F09A /* PerkManager.swift */,
@@ -392,7 +392,7 @@
 				1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */,
 				1ED519CD201B419A0072F09A /* PerkManager.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
-				1E209E462019F49F00A4986A /* CharacterManager.swift in Sources */,
+				1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */,
 				1ED519CB201B2D390072F09A /* PerkToAddViewController.swift in Sources */,
 				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1EB4B28E2016098A00BF0AB0 /* CharacterDatasource.swift in Sources */,

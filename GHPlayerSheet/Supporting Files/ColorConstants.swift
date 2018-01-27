@@ -2,6 +2,10 @@ import UIKit
 
 struct ColorConstants {
     
+    // CharacterSheetVC Colors
+    static let characterNameText = UIColor.flatMagenta()
+    static let defaultEnterNameText = UIColor.lightGray
+    
     // CounterView Colors for counters
     static let healthBackgroundColor = UIColor.flatRedColorDark()
     static let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)

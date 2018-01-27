@@ -1,16 +1,15 @@
 import Foundation
 
+enum CharacterClass: String, Codable {
+    case cragheart = "Savvas Cragheart"
+    case scoundrel = "Human Scoundrel"
+    case tinkerer = "Quatryl Tinkerer"
+    case mindthief = "Vermling Mindthief"
+    case spellweaver = "Orchid Spellweaver"
+    case brute = "Inox Brute"
+}
 
 class CharacterModel: Codable, ModelProtocol {
-    
-    enum CharacterClass: String, Codable {
-        case cragheart = "Savvas Cragheart"
-        case scoundrel = "Human Scoundrel"
-        case tinkerer = "Quatryl Tinkerer"
-        case mindthief = "Vermling Mindthief"
-        case spellweaver = "Orchid Spellweaver"
-        case brute = "Inox Brute"
-    }
     
     let characterClass : CharacterClass
     var creationDate: Date

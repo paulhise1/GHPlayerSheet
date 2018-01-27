@@ -12,16 +12,16 @@ class CharacterSheetViewController: UIViewController {
     }
 
     //MARK: - Class Properties
-    var characterManager: CharacterManager?
-    var blurView: DynamicBlurView?
-    var textField: UITextField?
+    private var viewManager: CharacterSheetViewModel?
+    private var blurView: DynamicBlurView?
+    private var textField: UITextField?
     
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var enterNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var statModifierView: StatModifierView?
+    private var statModifierView: StatModifierView?
     @IBOutlet weak var statModifierContainerView: UIView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
     
@@ -34,7 +34,7 @@ class CharacterSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        characterManager = CharacterManager()
+        viewManager = CharacterSheetViewModel()
         setupChildViews()
         setupDefaultNameLabelAppearance()
     }
@@ -55,13 +55,13 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
     }
     
     func didUpdateGold(amount: Int) {
-        if let statModifierView = statModifierView, let goldAmount = characterManager?.updateGold(amount: amount) {
+        if let statModifierView = statModifierView, let goldAmount = viewManager?.updateGold(amount: amount) {
             statModifierView.goldAmount = goldAmount
         }
     }
     
     func didUpdateExperience(amount: Int) {
-        if let statModifierView = statModifierView, let experienceAmount = characterManager?.updateExperience(amount: amount) {
+        if let statModifierView = statModifierView, let experienceAmount = viewManager?.updateExperience(amount: amount) {
             statModifierView.experienceAmount = experienceAmount
         }
     }
@@ -72,13 +72,16 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
 extension CharacterSheetViewController: UITextFieldDelegate {
     
     func setupDefaultNameLabelAppearance() {
-        if characterManager?.character?.name != "" {
-            nameLabel.text = characterManager?.character?.name
-            nameLabel.textColor = UIColor.flatMagenta()
-            nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        } else {
-            nameLabel.text = Constants.nameDefaultText
-            nameLabel.textColor = .lightGray
+        if let viewManager = viewManager {
+            if viewManager.name() != "" {
+                nameLabel.text = viewManager.name()
+                nameLabel.textColor = ColorConstants.characterNameText
+                //need FontConstants file
+                nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+            } else {
+                nameLabel.text = Constants.nameDefaultText
+                nameLabel.textColor = ColorConstants.defaultEnterNameText
+            }
         }
     }
     
@@ -109,17 +112,16 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nameText = textField.text {
-            characterManager?.setName(name: nameText)
+        if let textFieldText = textField.text, let viewManager = viewManager {
+            viewManager.setName(name: textFieldText)
+            nameLabel.text = viewManager.name()
         }
-        nameLabel.text = characterManager?.character?.name
-        nameLabel.textColor = UIColor.flatMagenta()
+        nameLabel.textColor = ColorConstants.characterNameText
         if textField.text == "" {
             setupDefaultNameLabelAppearance()
         }
         textField.removeFromSuperview()
         removeBlurEffect()
-        
         view.endEditing(true)
         return true
     }
@@ -139,8 +141,6 @@ extension CharacterSheetViewController {
             view.addSubview(blurView)
             blurView.addGestureRecognizer(gesture)
         }
-        
-        
     }
     
     @objc func dismissActiveView(sender : UITapGestureRecognizer) {
@@ -163,8 +163,8 @@ extension CharacterSheetViewController {
     func setupChildViews() {
         setupNotesView()
         setupPerksView()
-        //setupCheckmarksView()
         setupStatModifierView()
+        //setupCheckmarksView()
     }
     
     func setupStatModifierView() {
@@ -174,8 +174,10 @@ extension CharacterSheetViewController {
             statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
             statModifierView.frame = statModifierContainerView.bounds
             statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            if let gold = characterManager?.character?.gold { statModifierView.goldAmount = (gold) }
-            if let experience = characterManager?.character?.experience { statModifierView.experienceAmount = (experience) }
+            if let viewManager = viewManager {
+                statModifierView.goldAmount = viewManager.gold()
+                statModifierView.experienceAmount = viewManager.experience()
+            }
             statModifierView.delegate = self
         }
     }
@@ -196,6 +198,7 @@ extension CharacterSheetViewController {
             controller.view.frame = perksContainerView.bounds
             perksContainerView.addSubview(controller.view)
             controller.didMove(toParentViewController: self)
+        
             
         }
     }
