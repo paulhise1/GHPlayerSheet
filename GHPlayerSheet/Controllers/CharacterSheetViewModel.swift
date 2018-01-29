@@ -1,6 +1,6 @@
 import Foundation
 
-class CharacterSheetViewModel: ModelProtocol {
+class CharacterSheetViewModel {
     
     struct Constants {
         static let pathComponent = "characters.plist"
@@ -30,17 +30,8 @@ class CharacterSheetViewModel: ModelProtocol {
         characterDatasource.update(model: characterModel)
     }
     
-    
     func updateExperience(amount: Int) {
         characterModel.updateExperience(amount: characterModel.experience + amount)
         characterDatasource.update(model: characterModel)
     }
-    
-    func identifier() -> Date {
-    return Date()
-    }
-   
-    
-    
 }
-

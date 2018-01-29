@@ -6,7 +6,6 @@ class PerkViewModel {
     
 }
 
-
 extension PerkViewModel {
     
     func perksList(perksFor type: CharacterClass) -> [PerkModel] {

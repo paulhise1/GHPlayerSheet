@@ -2,7 +2,7 @@ import UIKit
 import DynamicBlurView
 
 
-class CharacterSheetViewController: UIViewController {
+class CharacterSheetViewController: UIViewController, PerksViewControllerDelegate {
     
     //MARK: - Constants
     struct Constants {
@@ -21,6 +21,10 @@ class CharacterSheetViewController: UIViewController {
     @IBOutlet weak var enterNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
+    private var perkSymbolListView: PerkSymbolListView?
+    @IBOutlet weak var symbolListContainerView: UIView!
+    @IBOutlet weak var perkSymbolListContainerLeadingConstraint: NSLayoutConstraint!
+    
     private var statModifierView: StatModifierView?
     @IBOutlet weak var statModifierContainerView: UIView!
     @IBOutlet weak var statModifierContainerLeadingConstraint: NSLayoutConstraint!
@@ -32,6 +36,7 @@ class CharacterSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = CharacterSheetViewModel()
         setupDefaultNameLabelAppearance()
         setupChildViews()
@@ -164,6 +169,8 @@ extension CharacterSheetViewController {
         setupNotesView()
         setupPerksView()
         setupStatModifierView()
+        setupPerksSymbolListView()
+        symbolListContainerView.isHidden = true
         //setupCheckmarksView()
     }
     
@@ -174,13 +181,25 @@ extension CharacterSheetViewController {
             statModifierContainerLeadingConstraint.constant = -(statModifierView.widthForAlignment())
             statModifierView.frame = statModifierContainerView.bounds
             statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            if let viewManager = viewModel {
-                statModifierView.goldAmount = viewManager.characterModel.gold
-                statModifierView.experienceAmount = viewManager.characterModel.experience
+            if let viewModel = viewModel {
+                statModifierView.goldAmount = viewModel.characterModel.gold
+                statModifierView.experienceAmount = viewModel.characterModel.experience
             }
             statModifierView.delegate = self
         }
     }
+    
+    func setupPerksSymbolListView() {
+        perkSymbolListView = Bundle.main.loadNibNamed(String(describing: PerkSymbolListView.self), owner: self, options: nil)?.first as? PerkSymbolListView
+        if let perkSymbolListView = perkSymbolListView {
+            symbolListContainerView.addSubview(perkSymbolListView)
+            perkSymbolListContainerLeadingConstraint.constant = -(perkSymbolListView.widthForAlignment())
+            perksContainerView.frame = symbolListContainerView.bounds
+            perksContainerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
+    }
+    
+    
     
     func setupNotesView() {
         if let notesNavViewController = storyboard?.instantiateViewController(withIdentifier: Constants.notesViewID) {
@@ -199,9 +218,16 @@ extension CharacterSheetViewController {
             perksContainerView.addSubview(perksNavController.view)
             perksNavController.didMove(toParentViewController: self)
             if let viewModel = viewModel, let perksVC = perksNavController.topViewController as? PerksViewController {
-            perksVC.configure(with: viewModel.characterModel.characterClass)
+                perksVC.configure(with: viewModel.characterModel.characterClass)
+                perksVC.delegate = self
             }
         }
+    }
+    
+    func perkSymbolListRequested() {
+        symbolListContainerView.isHidden = false
+        view.bringSubview(toFront: symbolListContainerView)
+        
     }
     
 //    func setupCheckmarksView() {
