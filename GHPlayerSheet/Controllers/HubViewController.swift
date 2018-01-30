@@ -1,5 +1,5 @@
 import UIKit
-import Firebase
+import FirebaseDatabase
 
 class HubViewController: UIViewController {
 
@@ -17,23 +17,23 @@ class HubViewController: UIViewController {
     @IBOutlet weak var joinScenarioLabel: UILabel!
     @IBOutlet weak var joinScenarioButton: UIButton!
     
-    var characterDatasource: ModelDatasource<CharacterModel>?
-    var character: CharacterModel?
+    private var characterDatasource: ModelDatasource<CharacterModel>?
+    private var character: CharacterModel?
     
-    var database: DatabaseReference!
+    private var database: DatabaseReference!
     
     //stubbed properties
-    let partyName = "Harlem Globe Trotters"
-    let playerName = "Mr Bob Dobalina"
-    let playerName2 = "Lu Bu"
-    //let partyName = "The Funk Hunters"
-    let player = "player"
+    //let partyName = "Harlem Globe Trotters"
+    //let playerName = "Mr Bob Dobalina"
+    //let playerName2 = "Lu Bu"
+    let partyName = "The Funk Hunters"
+    let playerKey = "players"
     let scenarioKey = "scenario"
     var scenarioNumber = 0
-    //let playerName = "Djeniac"
+    let playerName = "Djeniac"
     let playerHealth = 12
     let playerMaxHealth = 12
-    //let playerName2 = "Orsaf"
+    let playerName2 = "Orsaf"
     let playerHealth2 = 15
     let playerMaxHealth2 = 15
     let playerExperience = 0
@@ -66,8 +66,6 @@ class HubViewController: UIViewController {
                 }
             }
         })
-        
-        
     }
    
     @IBAction func createScenarioButtonTapped(_ sender: Any) {
@@ -75,15 +73,14 @@ class HubViewController: UIViewController {
     }
     
     @IBAction func startScenarioButtonTapped(_ sender: Any) {
-        
         if let amountString = amountLabel.text {
             let amount = Int(amountString)
             if let amount = amount, let playerInfo = playerInfo  {
                 if amount > 0 && amount <= 95 {
                     scenarioNumber = amount
-                    database.child(partyName).child(player).setValue(playerName)
+                    database.child(partyName).child(playerKey).setValue(playerName)
                     database.child(partyName).child(scenarioKey).setValue(["scenarioNumber" : scenarioNumber])
-                    database.child(partyName).child(player).child(playerName).setValue(playerInfo)
+                    database.child(partyName).child(playerKey).child(playerName).setValue(playerInfo)
                     performSegue(withIdentifier: Constants.segueToScenarioID, sender: self)
                 }
             }
@@ -91,9 +88,10 @@ class HubViewController: UIViewController {
     }
     
     @IBAction func joinScenarioButtonTapped(_ sender: Any) {
-        database.child(partyName).child(player).child(playerName2).setValue(playerInfo2)
+        database.child(partyName).child(playerKey).child(playerName2).setValue(playerInfo2)
         performSegue(withIdentifier: Constants.segueToScenarioID, sender: self)
     }
+    
     
     
     //MARK: - Number Pad Methods

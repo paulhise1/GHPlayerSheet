@@ -28,6 +28,8 @@
 		1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */; };
 		1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */; };
 		1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */; };
+		1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7CB2420202F88002D1EA1 /* ScenarioViewModel.swift */; };
+		1EA7CB272020314B002D1EA1 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7CB262020314B002D1EA1 /* FirebaseService.swift */; };
 		1EA938D82015898600B070B4 /* ScenarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA938D72015898600B070B4 /* ScenarioViewController.swift */; };
 		1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA938D92015A31600B070B4 /* CounterView.swift */; };
 		1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA938DB2015A32900B070B4 /* HorizontalCounterView.xib */; };
@@ -74,6 +76,8 @@
 		1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkSymbolListView.swift; sourceTree = "<group>"; };
 		1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerkSymbolListView.xib; sourceTree = "<group>"; };
 		1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EA7CB2420202F88002D1EA1 /* ScenarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewModel.swift; sourceTree = "<group>"; };
+		1EA7CB262020314B002D1EA1 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		1EA938D72015898600B070B4 /* ScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewController.swift; sourceTree = "<group>"; };
 		1EA938D92015A31600B070B4 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		1EA938DB2015A32900B070B4 /* HorizontalCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalCounterView.xib; sourceTree = "<group>"; };
@@ -176,9 +180,11 @@
 				1ED519CC201B419A0072F09A /* PerkViewModel.swift */,
 				1E83F7192010661C000AAECD /* NotesViewController.swift */,
 				1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */,
-				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
-				1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */,
 				1E209E472019FF8400A4986A /* HubViewController.swift */,
+				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
+				1EA7CB2420202F88002D1EA1 /* ScenarioViewModel.swift */,
+				1EA7CB262020314B002D1EA1 /* FirebaseService.swift */,
+				1EB4B29F2017381200BF0AB0 /* ScenarioShareManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -404,11 +410,13 @@
 				1EB4B2A02017381200BF0AB0 /* ScenarioShareManager.swift in Sources */,
 				1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */,
 				1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */,
+				1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */,
 				1ED519CD201B419A0072F09A /* PerkViewModel.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
 				1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */,
 				1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */,
 				1ED519CB201B2D390072F09A /* PerkToAddViewController.swift in Sources */,
+				1EA7CB272020314B002D1EA1 /* FirebaseService.swift in Sources */,
 				1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* CharacterModel.swift in Sources */,
 				1EA95A3A20188FBA0065A136 /* ColorConstants.swift in Sources */,
