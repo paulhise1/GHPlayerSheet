@@ -27,8 +27,10 @@ protocol ScenarioViewModelDelegate: class {
 }
 
 class ScenarioViewModel {
+    
     private var players = [Player]()
     private var service: ScenarioService
+    private var firebaseService: FirebaseService
     
     weak var delegate: ScenarioViewModelDelegate?
     
@@ -36,6 +38,8 @@ class ScenarioViewModel {
     private(set) var maxHealth: String
     private(set) var currentHealth: String
     private(set) var currentExperience = "0"
+    private var player: Player
+    
     var playerCount: Int {
         return players.count
     }
@@ -46,20 +50,38 @@ class ScenarioViewModel {
         self.maxHealth = maxHealth
         self.currentHealth = maxHealth
         self.service = service
+        self.player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
+        self.firebaseService = FirebaseService()
+        self.firebaseService.delegate = self
+        addPlayerToService()
+    }
+    
+    func addPlayerToService() {
+        service.pushPlayerToService(player: player)
     }
     
     func updateCurrentHealth(value: String) {
-        // counter changed so we need to tell firebase
+        currentHealth = value
+        let player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
+        service.pushPlayerToService(player: player)
     }
     
+    
     func updateCurrentExperience(value: String) {
-        // counter changed so we need to tell firebase
+        currentExperience = value
+        let player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
+        service.pushPlayerToService(player: player)
     }
+    
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {
+    
     func didUpdatePlayers(players: [Player]) {
-        
+        self.players = players.filter{ $0 != self.player}
+        delegate?.didUpdatePlayers(players: self.players)
+        print("$$$$$$ players from ViewModel: \(self.players) $$$$$$$")
     }
+    
 }
 

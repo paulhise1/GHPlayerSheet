@@ -3,12 +3,13 @@ import FirebaseDatabase
 
 class HubViewController: UIViewController {
 
-    struct Constants {
+    struct Constant {
         static let pathComponent = "characters.plist"
         static let segueToCharacterSheetID = "toCharacterSheetVC"
         static let segueToScenarioID = "toScenarioViewController"
+        static let playerKey = "players"
+        static let scenarioKey = "scenario"
     }
-    
     
     @IBOutlet weak var numpadContainerView: UIView!
     @IBOutlet var numberButtons: [UIButton]!
@@ -24,41 +25,26 @@ class HubViewController: UIViewController {
     
     //stubbed properties
     //let partyName = "Harlem Globe Trotters"
-    //let playerName = "Mr Bob Dobalina"
-    //let playerName2 = "Lu Bu"
     let partyName = "The Funk Hunters"
-    let playerKey = "players"
-    let scenarioKey = "scenario"
-    var scenarioNumber = 0
-    let playerName = "Djeniac"
-    let playerHealth = 12
-    let playerMaxHealth = 12
-    let playerName2 = "Orsaf"
-    let playerHealth2 = 15
-    let playerMaxHealth2 = 15
-    let playerExperience = 0
-    var playerInfo: [String : Any]?
-    var playerInfo2: [String: Any]?
+    
+    var scenarioNumber = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        database = Database.database().reference()
-        
-        let url = URL.libraryFilePathWith(finalPathComponent: Constants.pathComponent)
+        let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.characterDatasource = ModelDatasource(with: url)
+        
+        database = Database.database().reference()
         numpadContainerView.isHidden = true
         configureFirebaseListener()
         
-        //stubbed
-        playerInfo = ["health": playerHealth, "experience": playerExperience, "maxHealth": playerMaxHealth] as [String : Any]
-        playerInfo2 = ["health": playerMaxHealth2, "experience": playerExperience, "maxHealth": playerMaxHealth2] as [String : Any]
     }
     
     func configureFirebaseListener(){
-        let scenarioRef = database.child(partyName).child(scenarioKey)
+        let scenarioRef = database.child(partyName).child(Constant.scenarioKey)
         scenarioRef.observe(.value, with: { (snapshot) in
-            let scenarioDictFromFirebase = snapshot.value as? [String: Int]
+            let scenarioDictFromFirebase = snapshot.value as? [String: String]
             if let scenarioDictFromFirebase = scenarioDictFromFirebase {
                 let scenarioNumberFromFirebase = scenarioDictFromFirebase["scenarioNumber"]
                 if let scenarioNumberFromFirebase = scenarioNumberFromFirebase {
@@ -75,24 +61,20 @@ class HubViewController: UIViewController {
     @IBAction func startScenarioButtonTapped(_ sender: Any) {
         if let amountString = amountLabel.text {
             let amount = Int(amountString)
-            if let amount = amount, let playerInfo = playerInfo  {
+            if let amount = amount {
                 if amount > 0 && amount <= 95 {
-                    scenarioNumber = amount
-                    database.child(partyName).child(playerKey).setValue(playerName)
-                    database.child(partyName).child(scenarioKey).setValue(["scenarioNumber" : scenarioNumber])
-                    database.child(partyName).child(playerKey).child(playerName).setValue(playerInfo)
-                    performSegue(withIdentifier: Constants.segueToScenarioID, sender: self)
+                    scenarioNumber = amountString
+                    database.child(partyName).setValue(Constant.playerKey)
+                    database.child(partyName).child(Constant.scenarioKey).setValue(["scenarioNumber" : scenarioNumber])
+                    performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
                 }
             }
         }
     }
     
     @IBAction func joinScenarioButtonTapped(_ sender: Any) {
-        database.child(partyName).child(playerKey).child(playerName2).setValue(playerInfo2)
-        performSegue(withIdentifier: Constants.segueToScenarioID, sender: self)
+        performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
     }
-    
-    
     
     //MARK: - Number Pad Methods
     @IBAction func numberButtonTapped(_ sender: UIButton) {
@@ -116,12 +98,14 @@ class HubViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.segueToCharacterSheetID {
+        if segue.identifier == Constant.segueToCharacterSheetID {
+            //Stubbed character created
             character = CharacterModel(characterClass: .brute, gold: 30, experience: 45)
             if let character = character {
                 characterDatasource?.update(model: character)
             }
         }
     }
+    
     
 }

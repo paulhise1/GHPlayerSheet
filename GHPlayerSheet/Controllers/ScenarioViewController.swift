@@ -13,8 +13,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let horizontalCounterNibName = "HorizontalCounterView"
     }
     
-    private let partyName = "The Funk Hunters"
-    
     @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
@@ -36,12 +34,12 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configure()
     }
     
     //TODO: remove default values...only for prototype
-    func configure(name: String = UIDevice.current.name, health: String = "0") {
-        
+    func configure(name: String = UIDevice.current.name, health: String = "17") {
         self.viewModel = ScenarioViewModel(name: name, maxHealth: health, service: FirebaseService())
         self.viewModel?.delegate = self
         
@@ -93,16 +91,38 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     func updateStackViews() {
         guard let count = viewModel?.playerCount else { return }
-        noOtherPlayersLabel.isHidden = count == 0
+        print("updateStackViews called while reading a count of \(count)")
         player2StatStack.isHidden = !(count > 0)
         player3StatStack.isHidden = !(count > 1)
         player4StatStack.isHidden = !(count > 2)
+        noOtherPlayersLabel.isHidden = !(count == 0)
+        //if count == 0 { noOtherPlayersLabel.isHidden = false }
+        //else { noOtherPlayersLabel.isHidden = true }
     }
     
 }
 
 extension ScenarioViewController: ScenarioViewModelDelegate {
     func didUpdatePlayers(players: [Player]) {
-        // update the individual player views with their new models
+        updateStackViews()
+        displayPlayersData(players: players)
+        print("@@@@@@@ players to display as they arrived at VeiwController \(players) @@@@@@@")
     }
+    
+    func displayPlayersData(players: [Player]) {
+        var i = 0
+        for player in players {
+            print("displayPlayerData called for player named: \(player.name)")
+            playerNameLabels[i].text = player.name
+            playerHealthLabels[i].text = ("\(player.health)/\(player.maxHealth)")
+            playerExperienceLabels[i].text = player.experience
+            i = i + 1
+        }
+    }
+    
+    
 }
+
+
+
+

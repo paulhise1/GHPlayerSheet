@@ -504,13 +504,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-Pv-g14" userLabel="Stats Stacks Container View">
                                 <rect key="frame" x="44" y="85" width="624" height="159"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No other players found to connect with." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-6z-V1f">
-                                        <rect key="frame" x="160.66666666666666" y="69" width="302.33333333333337" height="20.333333333333329"/>
-                                        <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="52w-7z-6nl">
                                         <rect key="frame" x="0.0" y="0.0" width="624" height="159"/>
                                         <subviews>
@@ -596,12 +589,17 @@
                                 <constraints>
                                     <constraint firstItem="52w-7z-6nl" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" id="1Ej-Kg-GIF"/>
                                     <constraint firstItem="52w-7z-6nl" firstAttribute="centerX" secondItem="Nlq-Pv-g14" secondAttribute="centerX" id="3L2-qT-YCb"/>
-                                    <constraint firstItem="MTX-6z-V1f" firstAttribute="centerX" secondItem="Nlq-Pv-g14" secondAttribute="centerX" id="3lN-p8-ygb"/>
                                     <constraint firstItem="52w-7z-6nl" firstAttribute="width" secondItem="Nlq-Pv-g14" secondAttribute="width" id="aoa-iM-CH1"/>
-                                    <constraint firstItem="MTX-6z-V1f" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" id="elp-Wf-la4"/>
                                     <constraint firstItem="52w-7z-6nl" firstAttribute="height" secondItem="Nlq-Pv-g14" secondAttribute="height" id="w1l-vx-EVQ"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Members Not Yet Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-6z-V1f">
+                                <rect key="frame" x="231.33333333333337" y="154.33333333333334" width="249.66666666666663" height="20.333333333333343"/>
+                                <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRX-i4-3cv" userLabel="Generic Tracker Container View">
                                 <rect key="frame" x="678" y="79.999999999999986" width="80" height="183.66666666666663"/>
                                 <color key="backgroundColor" red="0.46620205044746399" green="0.15637357532978058" blue="0.6434749960899353" alpha="1" colorSpace="calibratedRGB"/>
@@ -634,6 +632,8 @@
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="RRX-i4-3cv" secondAttribute="trailing" constant="10" id="J9p-8q-0h6"/>
                             <constraint firstItem="KSk-F3-pcv" firstAttribute="top" secondItem="Nlq-Pv-g14" secondAttribute="bottom" id="Lha-1H-7Y8"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="bottom" secondItem="OOT-yG-uHp" secondAttribute="bottom" id="Vfg-9j-kFx"/>
+                            <constraint firstItem="MTX-6z-V1f" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" id="aMy-gZ-Qfj"/>
+                            <constraint firstItem="MTX-6z-V1f" firstAttribute="centerX" secondItem="Nlq-Pv-g14" secondAttribute="centerX" id="fk0-Cr-LpM"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="width" secondItem="OOT-yG-uHp" secondAttribute="width" id="fxG-TJ-tIJ"/>
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="leading" secondItem="Nlq-Pv-g14" secondAttribute="trailing" constant="10" id="gAx-P5-KOv"/>
                             <constraint firstItem="KSk-F3-pcv" firstAttribute="centerX" secondItem="Nlq-Pv-g14" secondAttribute="centerX" id="hra-L3-Yj7"/>
