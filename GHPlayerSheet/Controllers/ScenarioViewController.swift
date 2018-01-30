@@ -5,6 +5,7 @@ enum StatUpdateType {
     case name(String)
     case health(String)
     case experience(String)
+    case maxHealth(String)
 }
 
 struct MPCConstants {

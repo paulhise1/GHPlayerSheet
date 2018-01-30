@@ -8,5 +8,6 @@ target 'GHPlayerSheet' do
   pod 'DynamicBlurView'
   pod 'ChameleonFramework'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end
