@@ -39,7 +39,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         updateStackViews()
     }
     
-    //TODO: remove default values...only for prototype
     func configure(name: String, health: String, scenerioService: ScenarioService) {
         self.viewModel = ScenarioViewModel(name: name, maxHealth: health, service: scenerioService)
         self.viewModel?.delegate = self

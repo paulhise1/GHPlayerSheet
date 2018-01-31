@@ -506,6 +506,7 @@
                                         </state>
                                         <connections>
                                             <action selector="exitButtonTapped:" destination="SLd-gy-nxU" eventType="touchUpInside" id="KG4-Tw-RVZ"/>
+                                            <segue destination="Eu9-Fu-iu7" kind="show" id="SPl-XF-nz8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Scenario Title Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-IO-y3d">
