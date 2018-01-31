@@ -3,7 +3,7 @@ import UIKit // Delete when stub name is gone
 import FirebaseDatabase
 
 protocol HubViewModelDelegate: class {
-    func updateJoinScenarioLabel(scenarioLabelText: String)
+    func updateScenarioInfo(scenarioLabelText: String)
 }
 
 class HubViewModel: ScenarioServiceDelegate {
@@ -46,14 +46,10 @@ class HubViewModel: ScenarioServiceDelegate {
         scenarioService.createScenario(partyName: partyName, number: number)
     }
     
-//    func addScenarioListener() {
-//        scenarioService.addScenarioListener()
-//    }
-    
     func didGetScenarioNumber(scenarioNumber: String) {
         guard let scenarioName = Scenario.scenarioFromNumber(scenarioNumber)?.name else { return }
         let scenarioLableText = "# \(scenarioNumber): \(scenarioName)"
-        delegate?.updateJoinScenarioLabel(scenarioLabelText: scenarioLableText)
+        delegate?.updateScenarioInfo(scenarioLabelText: scenarioLableText)
     }
     
     func didUpdatePlayers(players: [Player]) {

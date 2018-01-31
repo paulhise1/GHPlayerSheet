@@ -4,7 +4,7 @@ protocol ScenarioService {
     weak var delegate: ScenarioServiceDelegate? {get set}
     func pushPlayerToService(player: Player)
     func createScenario(partyName: String, number: String)
-    //func addScenarioListener()
+    func scenarioInfo()
 }
 
 protocol ScenarioServiceDelegate: class {
@@ -61,6 +61,7 @@ class ScenarioViewModel {
     
     func addPlayerToService() {
         service.pushPlayerToService(player: player)
+        service.scenarioInfo()
     }
     
     func updateCurrentHealth(value: String) {
@@ -74,13 +75,13 @@ class ScenarioViewModel {
         let player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
         service.pushPlayerToService(player: player)
     }
+    
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {
     func didUpdatePlayers(players: [Player]) {
         self.players = players.filter{ $0 != self.player}
         delegate?.didUpdatePlayers(players: self.players)
-        //print("$$$$$$ players from ViewModel: \(self.players) $$$$$$$")
     }
 
     func didGetScenarioNumber(scenarioNumber: String) {

@@ -5,6 +5,7 @@ class HubViewController: UIViewController, HubViewModelDelegate {
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
         static let segueToScenarioID = "toScenarioViewController"
+        static let partyScenarioLabelText = "Your party scenario:"
         
     }
     
@@ -39,13 +40,22 @@ class HubViewController: UIViewController, HubViewModelDelegate {
     }
     
     @IBAction func joinScenarioButtonTapped(_ sender: Any) {
-        //viewModel?.addScenarioListener()
         performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
     }
     
-    func updateJoinScenarioLabel(scenarioLabelText: String) {
-        partyScenarioInfoLabel1.text = "Your party scenario:"
+    func updateScenarioInfo(scenarioLabelText: String) {
+        partyScenarioInfoLabel1.text = Constant.partyScenarioLabelText
         partyScenarioInfoLabel2.text = scenarioLabelText
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.segueToCharacterSheetID {
+            // things to do before character sheet segue
+        } else if segue.identifier == Constant.segueToScenarioID {
+            guard let vm = viewModel else { return }
+            let destinationVC = segue.destination as? ScenarioViewController
+            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService)
+        }
     }
     
     //MARK: - Number Pad Methods
@@ -67,17 +77,5 @@ class HubViewController: UIViewController, HubViewModelDelegate {
             amount = "0"
         }
         amountLabel.text = amount
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.segueToCharacterSheetID {
-            // things to do before character sheet segue
-        } else if segue.identifier == Constant.segueToScenarioID {
-            guard let vm = viewModel else {
-                return
-            }
-            let destinationVC = segue.destination as? ScenarioViewController
-            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService)
-        }
     }
 }

@@ -495,7 +495,7 @@
                                 <rect key="frame" x="44" y="0.0" width="724" height="85"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-uj-6Kk">
-                                        <rect key="frame" x="639.66666666666663" y="5" width="84.333333333333371" height="34"/>
+                                        <rect key="frame" x="639.66666666666663" y="20" width="84.333333333333371" height="34"/>
                                         <color key="backgroundColor" red="0.38526773452758789" green="0.13679999113082886" blue="0.1175478994846344" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Mnd-uj-6Kk" secondAttribute="height" multiplier="5:2" id="fXs-4u-CIx"/>
@@ -540,7 +540,6 @@
                                     <constraint firstAttribute="trailing" secondItem="4s2-Rf-p7M" secondAttribute="trailing" id="WUh-h1-0PR"/>
                                     <constraint firstItem="6Mu-IO-y3d" firstAttribute="top" secondItem="iLI-z3-qSs" secondAttribute="top" constant="5" id="XVN-gL-FXI"/>
                                     <constraint firstItem="3sp-gO-HZl" firstAttribute="top" secondItem="6Mu-IO-y3d" secondAttribute="bottom" id="cQ4-e6-EhC"/>
-                                    <constraint firstItem="Mnd-uj-6Kk" firstAttribute="top" secondItem="6Mu-IO-y3d" secondAttribute="top" id="cdW-5X-WvI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-Pv-g14" userLabel="Stats Stacks Container View">
@@ -636,9 +635,9 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Members Not Yet Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-6z-V1f">
-                                <rect key="frame" x="281.33333333333331" y="167" width="249.66666666666669" height="20.333333333333343"/>
+                                <rect key="frame" x="231" y="162.66666666666666" width="350" height="30"/>
                                 <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -671,6 +670,7 @@
                             <constraint firstItem="OOT-yG-uHp" firstAttribute="width" secondItem="xh9-cW-c5f" secondAttribute="width" multiplier="0.4" id="6D7-IP-mPG"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="height" secondItem="OOT-yG-uHp" secondAttribute="height" id="EAN-K3-H2w"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" id="Iwr-cY-AND"/>
+                            <constraint firstItem="Mnd-uj-6Kk" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" constant="20" id="J43-eb-kKw"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="RRX-i4-3cv" secondAttribute="trailing" constant="10" id="J9p-8q-0h6"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="bottom" secondItem="OOT-yG-uHp" secondAttribute="bottom" id="Vfg-9j-kFx"/>
                             <constraint firstItem="MTX-6z-V1f" firstAttribute="centerY" secondItem="Dv6-5b-JJM" secondAttribute="centerY" id="aMy-gZ-Qfj"/>
