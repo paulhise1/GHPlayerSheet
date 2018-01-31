@@ -15,6 +15,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet weak var scenarioTitleLabel: UILabel!
+    @IBOutlet weak var scenarioRequirementLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
     @IBOutlet weak var healthTrackerContainerView: UIView!
     @IBOutlet weak var experienceTrackerContainerView: UIView!
@@ -25,27 +26,29 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet var playerExperienceLabels: [UILabel]!
     private var playerMaxHealths = [String]()
     
+    @IBOutlet weak var playerStatStacksContainerView: UIView!
     @IBOutlet weak var player2StatStack: UIStackView!
     @IBOutlet weak var player3StatStack: UIStackView!
     @IBOutlet weak var player4StatStack: UIStackView!
-    @IBOutlet weak var connectedWithLabel: UILabel!
     
     private var viewModel: ScenarioViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configure()
-    }
-    
-    //TODO: remove default values...only for prototype
-    func configure(name: String = UIDevice.current.name, health: String = "17") {
-        self.viewModel = ScenarioViewModel(name: name, maxHealth: health, service: FirebaseService())
-        self.viewModel?.delegate = self
-        
         setupCounters()
         updateStackViews()
     }
+    
+    //TODO: remove default values...only for prototype
+    func configure(name: String, health: String, scenerioService: ScenarioService) {
+        self.viewModel = ScenarioViewModel(name: name, maxHealth: health, service: scenerioService)
+        self.viewModel?.delegate = self
+    }
+    
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        //go back to hub screen.
+    }
+    
     
     func counterValueDidChange(value: String, type: CounterType) {
         switch type {
@@ -91,13 +94,11 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     func updateStackViews() {
         guard let count = viewModel?.playerCount else { return }
-        print("updateStackViews called while reading a count of \(count)")
         player2StatStack.isHidden = !(count > 0)
+        playerStatStacksContainerView.isHidden = !(count > 0)
         player3StatStack.isHidden = !(count > 1)
         player4StatStack.isHidden = !(count > 2)
         noOtherPlayersLabel.isHidden = !(count == 0)
-        //if count == 0 { noOtherPlayersLabel.isHidden = false }
-        //else { noOtherPlayersLabel.isHidden = true }
     }
     
 }
@@ -106,13 +107,11 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
     func didUpdatePlayers(players: [Player]) {
         updateStackViews()
         displayPlayersData(players: players)
-        print("@@@@@@@ players to display as they arrived at VeiwController \(players) @@@@@@@")
     }
     
     func displayPlayersData(players: [Player]) {
         var i = 0
         for player in players {
-            print("displayPlayerData called for player named: \(player.name)")
             playerNameLabels[i].text = player.name
             playerHealthLabels[i].text = ("\(player.health)/\(player.maxHealth)")
             playerExperienceLabels[i].text = player.experience
@@ -120,7 +119,11 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
         }
     }
     
-    
+    func setupLabelsForScenario(name: String, requirements: String, goal: String) {
+        scenarioTitleLabel.text = name
+        scenarioRequirementLabel.text = requirements
+        scenarioGoalLabel.text = goal
+    }
 }
 
 

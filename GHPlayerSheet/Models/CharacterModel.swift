@@ -13,6 +13,9 @@ class CharacterModel: Codable, ModelProtocol {
     
     let characterClass : CharacterClass
     let creationDate: Date
+    var health: String {
+        return String((level * 2) + 8)
+    }
     private(set) var name = ""
     private(set) var level = 1
     private(set) var experience = 0

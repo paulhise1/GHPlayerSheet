@@ -1,11 +1,15 @@
 import Foundation
 
 protocol ScenarioService {
+    weak var delegate: ScenarioServiceDelegate? {get set}
     func pushPlayerToService(player: Player)
+    func createScenario(partyName: String, number: String)
+    //func addScenarioListener()
 }
 
 protocol ScenarioServiceDelegate: class {
     func didUpdatePlayers(players: [Player])
+    func didGetScenarioNumber(scenarioNumber: String)
 }
 
 struct Player: Hashable, Equatable {
@@ -24,13 +28,13 @@ struct Player: Hashable, Equatable {
 
 protocol ScenarioViewModelDelegate: class {
     func didUpdatePlayers(players: [Player])
+    func setupLabelsForScenario(name: String, requirements: String, goal: String)
 }
 
 class ScenarioViewModel {
     
     private var players = [Player]()
     private var service: ScenarioService
-    private var firebaseService: FirebaseService
     
     weak var delegate: ScenarioViewModelDelegate?
     
@@ -51,8 +55,7 @@ class ScenarioViewModel {
         self.currentHealth = maxHealth
         self.service = service
         self.player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
-        self.firebaseService = FirebaseService()
-        self.firebaseService.delegate = self
+        self.service.delegate = self
         addPlayerToService()
     }
     
@@ -66,22 +69,26 @@ class ScenarioViewModel {
         service.pushPlayerToService(player: player)
     }
     
-    
     func updateCurrentExperience(value: String) {
         currentExperience = value
         let player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
         service.pushPlayerToService(player: player)
     }
-    
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {
-    
     func didUpdatePlayers(players: [Player]) {
         self.players = players.filter{ $0 != self.player}
         delegate?.didUpdatePlayers(players: self.players)
-        print("$$$$$$ players from ViewModel: \(self.players) $$$$$$$")
+        //print("$$$$$$ players from ViewModel: \(self.players) $$$$$$$")
     }
-    
+
+    func didGetScenarioNumber(scenarioNumber: String) {
+        guard let scenario = Scenario.scenarioFromNumber(scenarioNumber) else { return }
+        let name = "Scenario # \(scenarioNumber): \(scenario.name)"
+        let requirements = "Requirements: \(scenario.requirements)"
+        let goal = "Goal: \(scenario.goal)"
+        delegate?.setupLabelsForScenario(name: name, requirements: requirements, goal: goal)
+    }
 }
 

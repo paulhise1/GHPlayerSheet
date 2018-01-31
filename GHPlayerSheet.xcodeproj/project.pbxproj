@@ -24,6 +24,8 @@
 		1E209E50201A1AA900A4986A /* PerkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E4F201A1AA900A4986A /* PerkModel.swift */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
 		1E2CF32A201162AA002335DF /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* NoteModel.swift */; };
+		1E590FC42021808400D3EE52 /* ScenarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC32021808400D3EE52 /* ScenarioModel.swift */; };
+		1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC720218C7E00D3EE52 /* HubViewModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */; };
 		1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */; };
@@ -72,6 +74,8 @@
 		1E209E4F201A1AA900A4986A /* PerkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkModel.swift; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		1E2CF329201162AA002335DF /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		1E590FC32021808400D3EE52 /* ScenarioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioModel.swift; sourceTree = "<group>"; };
+		1E590FC720218C7E00D3EE52 /* HubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkSymbolListView.swift; sourceTree = "<group>"; };
 		1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerkSymbolListView.xib; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				1EF640D92011AC3F00696393 /* ModelDatasource.swift */,
 				1ECF00E42007130B00C2E11D /* CharacterModel.swift */,
 				1E2CF329201162AA002335DF /* NoteModel.swift */,
+				1E590FC32021808400D3EE52 /* ScenarioModel.swift */,
+				1E590FC720218C7E00D3EE52 /* HubViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -422,7 +428,9 @@
 				1EA95A3A20188FBA0065A136 /* ColorConstants.swift in Sources */,
 				1E209E50201A1AA900A4986A /* PerkModel.swift in Sources */,
 				1EA938D82015898600B070B4 /* ScenarioViewController.swift in Sources */,
+				1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */,
 				1ED519C9201B2BD60072F09A /* PerksViewController.swift in Sources */,
+				1E590FC42021808400D3EE52 /* ScenarioModel.swift in Sources */,
 				1E2CF32A201162AA002335DF /* NoteModel.swift in Sources */,
 				1E038273201AC31800C6AB12 /* CheckmarksView.swift in Sources */,
 			);

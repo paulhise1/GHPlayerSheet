@@ -13,7 +13,6 @@ protocol StatModifierViewDelegate: class {
     func didUpdateExperience(amount: Int)
 }
 
-
 class StatModifierView: UIView {
 
     weak var delegate: StatModifierViewDelegate?
@@ -26,6 +25,7 @@ class StatModifierView: UIView {
             }
         }
     }
+    
     var experienceAmount: Int? {
         didSet {
             if let experience = experienceAmount{
@@ -62,7 +62,6 @@ class StatModifierView: UIView {
     }
     @IBOutlet var numberButtons: [UIButton]!
     
-
     //MARK: - Gold and Experience Button Methods
     @IBAction func goldButtonTapped(_ sender: Any) {
         if numpadContainerView.isHidden {
@@ -98,7 +97,6 @@ class StatModifierView: UIView {
         bringSubview(toFront: buttonToFront)
         buttonToDisable.isEnabled = false
     }
-    
     
     //MARK: - Number Pad Methods
     @IBAction func numberButtonTapped(_ sender: UIButton) {
@@ -157,7 +155,6 @@ class StatModifierView: UIView {
         }
     }
 
-    
     //MARK: - Helper Methods
     func dismissNumpad() {
         amountLabel.text = "0"
@@ -187,12 +184,4 @@ class StatModifierView: UIView {
     func widthForAlignment() -> CGFloat {
         return goldButton.frame.size.width
     }
-    
-    
-    
 }
-
-
-
-
-

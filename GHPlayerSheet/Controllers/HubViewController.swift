@@ -1,79 +1,51 @@
 import UIKit
-import FirebaseDatabase
 
-class HubViewController: UIViewController {
+class HubViewController: UIViewController, HubViewModelDelegate {
 
     struct Constant {
-        static let pathComponent = "characters.plist"
         static let segueToCharacterSheetID = "toCharacterSheetVC"
         static let segueToScenarioID = "toScenarioViewController"
-        static let playerKey = "players"
-        static let scenarioKey = "scenario"
+        
     }
     
     @IBOutlet weak var numpadContainerView: UIView!
     @IBOutlet var numberButtons: [UIButton]!
     @IBOutlet weak var amountLabel: UILabel!
     
-    @IBOutlet weak var joinScenarioLabel: UILabel!
+    
+    @IBOutlet weak var partyScenarioInfoLabel1: UILabel!
+    @IBOutlet weak var partyScenarioInfoLabel2: UILabel!
     @IBOutlet weak var joinScenarioButton: UIButton!
     
-    private var characterDatasource: ModelDatasource<CharacterModel>?
-    private var character: CharacterModel?
-    
-    private var database: DatabaseReference!
-    
-    //stubbed properties
-    //let partyName = "Harlem Globe Trotters"
-    let partyName = "The Funk Hunters"
-    
-    var scenarioNumber = "0"
+    private var viewModel: HubViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
-        self.characterDatasource = ModelDatasource(with: url)
+        self.viewModel = HubViewModel()
+        self.viewModel?.delegate = self
         
-        database = Database.database().reference()
-        numpadContainerView.isHidden = true
-        configureFirebaseListener()
-        
+        self.numpadContainerView.isHidden = true
     }
     
-    func configureFirebaseListener(){
-        let scenarioRef = database.child(partyName).child(Constant.scenarioKey)
-        scenarioRef.observe(.value, with: { (snapshot) in
-            let scenarioDictFromFirebase = snapshot.value as? [String: String]
-            if let scenarioDictFromFirebase = scenarioDictFromFirebase {
-                let scenarioNumberFromFirebase = scenarioDictFromFirebase["scenarioNumber"]
-                if let scenarioNumberFromFirebase = scenarioNumberFromFirebase {
-                    self.joinScenarioLabel.text = "Your party's scenario is # \(scenarioNumberFromFirebase)"
-                }
-            }
-        })
-    }
-   
     @IBAction func createScenarioButtonTapped(_ sender: Any) {
         numpadContainerView.isHidden = false
     }
     
     @IBAction func startScenarioButtonTapped(_ sender: Any) {
-        if let amountString = amountLabel.text {
-            let amount = Int(amountString)
-            if let amount = amount {
-                if amount > 0 && amount <= 95 {
-                    scenarioNumber = amountString
-                    database.child(partyName).setValue(Constant.playerKey)
-                    database.child(partyName).child(Constant.scenarioKey).setValue(["scenarioNumber" : scenarioNumber])
-                    performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
-                }
-            }
-        }
+        guard let number = amountLabel.text else { return }
+        viewModel?.startScenario(number: number)
+        performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
     }
     
     @IBAction func joinScenarioButtonTapped(_ sender: Any) {
+        //viewModel?.addScenarioListener()
         performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+    }
+    
+    func updateJoinScenarioLabel(scenarioLabelText: String) {
+        partyScenarioInfoLabel1.text = "Your party scenario:"
+        partyScenarioInfoLabel2.text = scenarioLabelText
     }
     
     //MARK: - Number Pad Methods
@@ -99,13 +71,13 @@ class HubViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.segueToCharacterSheetID {
-            //Stubbed character created
-            character = CharacterModel(characterClass: .brute, gold: 30, experience: 45)
-            if let character = character {
-                characterDatasource?.update(model: character)
+            // things to do before character sheet segue
+        } else if segue.identifier == Constant.segueToScenarioID {
+            guard let vm = viewModel else {
+                return
             }
+            let destinationVC = segue.destination as? ScenarioViewController
+            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService)
         }
     }
-    
-    
 }

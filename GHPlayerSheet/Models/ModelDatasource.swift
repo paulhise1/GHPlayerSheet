@@ -12,8 +12,10 @@ class ModelDatasource<T: ModelProtocol> {
     init(with filePath: URL?) {
         self.filePath = filePath
         self.models = ModelDatasource.loadModels(from: filePath)
-        print(filePath)
+        guard let path = filePath else { return }
+        print(path)
     }
+
     
     func remove(model: T) {
         models = models.filter() {
