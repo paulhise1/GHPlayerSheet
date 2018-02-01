@@ -28,7 +28,7 @@ struct Player: Hashable, Equatable {
 
 protocol ScenarioViewModelDelegate: class {
     func didUpdatePlayers(players: [Player])
-    func setupLabelsForScenario(name: String, requirements: String, goal: String)
+    func setupLabelsForScenario(name: String, goal: String)
 }
 
 class ScenarioViewModel {
@@ -87,9 +87,8 @@ extension ScenarioViewModel: ScenarioServiceDelegate {
     func didGetScenarioNumber(scenarioNumber: String) {
         guard let scenario = Scenario.scenarioFromNumber(scenarioNumber) else { return }
         let name = "Scenario # \(scenarioNumber): \(scenario.name)"
-        let requirements = "Requirements: \(scenario.requirements)"
         let goal = "Goal: \(scenario.goal)"
-        delegate?.setupLabelsForScenario(name: name, requirements: requirements, goal: goal)
+        delegate?.setupLabelsForScenario(name: name, goal: goal)
     }
 }
 

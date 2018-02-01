@@ -26,7 +26,7 @@ class FirebaseService: ScenarioService {
     
     func createScenario(partyName: String, number: String) {
         database.child(partyName).setValue(Constant.playerKey)
-        database.child(partyName).child(Constant.scenarioKey).setValue([Constant.scenarioKey: number])
+        database.child(partyName).setValue([Constant.scenarioKey: number])
     }
     
     func pushPlayerToService(player: Player) {
@@ -46,13 +46,6 @@ class FirebaseService: ScenarioService {
         })
     }
     
-    private func configureScenarioListener() {
-        let scenarioRef = database.child(partyName).child(Constant.scenarioKey)
-        scenarioRef.observe(.value, with: { (snapshot) in
-            self.processScenario(snapshot: snapshot)
-        })
-    }
-    
     private func processPlayers(snapshot: DataSnapshot) {
         guard let playerDictFromFirebase = snapshot.value as? [String: [String: String]] else { return }
         var players = [Player]()
@@ -63,8 +56,15 @@ class FirebaseService: ScenarioService {
         self.delegate?.didUpdatePlayers(players: players)
     }
     
+    private func configureScenarioListener() {
+        let scenarioRef = database.child(partyName).child(Constant.scenarioKey)
+        scenarioRef.observe(.value, with: { (snapshot) in
+            self.processScenario(snapshot: snapshot)
+        })
+    }
+    
     private func processScenario(snapshot: DataSnapshot) {
-        guard let scenarioDict = snapshot.value as? [String: String], let scenario = scenarioDict[Constant.scenarioKey] else { return }
-        self.delegate?.didGetScenarioNumber(scenarioNumber: scenario)
+        guard let number = snapshot.value as? String else { return }
+        self.delegate?.didGetScenarioNumber(scenarioNumber: number)
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 protocol ModelProtocol {
-    func identifier() -> Date
+    var identifier: Date {get}
 }
 
 class ModelDatasource<T: ModelProtocol> {
@@ -19,7 +19,7 @@ class ModelDatasource<T: ModelProtocol> {
     
     func remove(model: T) {
         models = models.filter() {
-            return $0.identifier() != model.identifier()
+            return $0.identifier != model.identifier
         }
         saveModels()
     }

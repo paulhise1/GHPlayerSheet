@@ -8,8 +8,8 @@ class PerksViewController: UIViewController, PerkToAddTableViewCellDelegate {
    
     weak var delegate: PerksViewControllerDelegate?
     
-    private var earnedPerks: [PerkModel]?
-    private var perks: [PerkModel]?
+    private var earnedPerks: [Perk]?
+    private var perks: [Perk]?
     private var perkViewModel: PerkViewModel?
     private var characterClass: CharacterClass?
     
@@ -30,9 +30,7 @@ class PerksViewController: UIViewController, PerkToAddTableViewCellDelegate {
     }
   
     func buildPerkList(characterClass: CharacterClass) {
-        if let perkViewModel = perkViewModel {
-            perks = perkViewModel.perksList(perksFor: characterClass)
-        }
+            perks = Perk.perksList(perksFor: characterClass)
     }
     
     func symbolListShouldShow(sender: PerkToAddViewController) {

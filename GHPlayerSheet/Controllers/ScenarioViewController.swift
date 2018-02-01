@@ -13,14 +13,16 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let horizontalCounterNibName = "HorizontalCounterView"
     }
     
-    @IBOutlet weak var noOtherPlayersLabel: UILabel!
+    @IBOutlet weak var selfNameLabel: UILabel!
+    
     @IBOutlet weak var scenarioTitleLabel: UILabel!
-    @IBOutlet weak var scenarioRequirementLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
     @IBOutlet weak var healthTrackerContainerView: UIView!
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
     
+    @IBOutlet weak var partyNameLabel: UILabel!
+    @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet var playerNameLabels: [UILabel]!
     @IBOutlet var playerHealthLabels: [UILabel]!
     @IBOutlet var playerExperienceLabels: [UILabel]!
@@ -118,9 +120,8 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
         }
     }
     
-    func setupLabelsForScenario(name: String, requirements: String, goal: String) {
+    func setupLabelsForScenario(name: String, goal: String) {
         scenarioTitleLabel.text = name
-        scenarioRequirementLabel.text = requirements
         scenarioGoalLabel.text = goal
     }
 }

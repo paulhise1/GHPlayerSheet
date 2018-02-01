@@ -9,9 +9,9 @@ class CharacterSheetViewModel {
     // Stubbed until hub view controller will hold onto character datasource
     // this Viewmodel will delegate back to hub to make saves to character
     // it will get injected with the characterModel from the hub
-    private let characterDatasource: ModelDatasource<CharacterModel>
+    private let characterDatasource: ModelDatasource<Character>
     
-    var characterModel: CharacterModel
+    var characterModel: Character
     
     init() {
         let url = URL.libraryFilePathWith(finalPathComponent: Constants.pathComponent)
@@ -26,7 +26,7 @@ class CharacterSheetViewModel {
     }
     
     func updateGold(amount: Int) {
-        characterModel.updateGold(amount: characterModel.gold + amount)
+        characterModel.updateGold(amount: characterModel.gold! + amount)
         characterDatasource.update(model: characterModel)
     }
     

@@ -1,12 +1,12 @@
 import UIKit
 
 protocol DisplayNoteViewControllerDelegate: class {
-    func didUpdateNote(note: NoteModel)
+    func didUpdateNote(note: Note)
 }
 
 class DisplayNoteViewController: UIViewController, UITextViewDelegate {
     
-    var note: NoteModel?
+    var note: Note?
     
     weak var delegate: DisplayNoteViewControllerDelegate?
     var newBackButton: UIBarButtonItem?
@@ -26,7 +26,7 @@ class DisplayNoteViewController: UIViewController, UITextViewDelegate {
     
     @objc func back(sender: UIBarButtonItem) {
         let creationDate = note?.creationDate ?? Date()
-        let updatedNote = NoteModel(text: textView.text, creationDate: creationDate, currentDate: Date())
+        let updatedNote = Note(text: textView.text, creationDate: creationDate, currentDate: Date())
         delegate?.didUpdateNote(note: updatedNote)
         navigationController?.popViewController(animated: true)
     }

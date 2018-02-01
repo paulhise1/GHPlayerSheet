@@ -8,8 +8,8 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         static let segueToDisplayNoteID = "toUpdateNote"
     }
     
-    let notesDatasource: ModelDatasource<NoteModel>
-    var selectedNote: NoteModel?
+    let notesDatasource: ModelDatasource<Note>
+    var selectedNote: Note?
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,7 +27,7 @@ class NotesViewController: UIViewController, DisplayNoteViewControllerDelegate {
         tableView.dataSource = self
     }
 
-    func didUpdateNote(note: NoteModel) {
+    func didUpdateNote(note: Note) {
         if note.text == "" {
             notesDatasource.remove(model: note)
         } else if note.text == selectedNote?.text {

@@ -13,9 +13,9 @@ class PerkToAddViewController: UIViewController, UITableViewDelegate, UITableVie
     
     weak var delegate: PerkToAddTableViewCellDelegate?
     
-    var perks: [PerkModel]?
+    var perks: [Perk]?
     var previouslySelectedCellIndex: Int?
-    var checkedPerks: [PerkModel]?
+    var checkedPerks: [Perk]?
     var isDifferentCell = true
     
     
@@ -27,6 +27,7 @@ class PerkToAddViewController: UIViewController, UITableViewDelegate, UITableVie
             addPerkButtonContainerView.layer.masksToBounds = true
         }
     }
+    
     @IBOutlet weak var addPerksButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
@@ -43,7 +44,7 @@ class PerkToAddViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
     }
     
-    func configure(with perks: [PerkModel]) {
+    func configure(with perks: [Perk]) {
         self.perks = perks
     }
     
@@ -89,44 +90,36 @@ class PerkToAddViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let previouslySelectedCellIndex = previouslySelectedCellIndex, let perks = perks {
-            if previouslySelectedCellIndex == indexPath.row{
-                isDifferentCell = false
-            } else {
-                isDifferentCell = true
-            }
-            perks[previouslySelectedCellIndex].checked = false
-            addPerkButtonContainerView.isHidden = true
-            addPerksButton.isHidden = true
-            perkToAddLabel.isHidden = false
-            self.previouslySelectedCellIndex = nil
-        } else {
-            isDifferentCell = true
-        }
-        
-        if let perks = perks {
-            if perks[indexPath.row].perkAvailable > 0 {
-                if isDifferentCell{
-                    previouslySelectedCellIndex = indexPath.row
-                    perks[indexPath.row].checked = true
-                    addPerkButtonContainerView.isHidden = false
-                    addPerksButton.isHidden = false
-                    perkToAddLabel.isHidden = true
-                }
-            }
+        guard var previouslySelectedCellIndex = previouslySelectedCellIndex, let perks = perks
+            else { isDifferentCell = true
+                return }
+        guard previouslySelectedCellIndex == indexPath.row
+            else { isDifferentCell = true
+                return }
+        isDifferentCell = false
+        perks[previouslySelectedCellIndex].checked = false
+        addPerkButtonContainerView.isHidden = true
+        addPerksButton.isHidden = true
+        perkToAddLabel.isHidden = false
+        self.previouslySelectedCellIndex = nil
+        guard perks[indexPath.row].perkAvailable > 0 else { return }
+        if isDifferentCell{
+            previouslySelectedCellIndex = indexPath.row
+            perks[indexPath.row].checked = true
+            addPerkButtonContainerView.isHidden = false
+            addPerksButton.isHidden = false
+            perkToAddLabel.isHidden = true
         }
         tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated : Bool) {
         super.viewWillDisappear(animated)
-        
-            if self.isMovingFromParentViewController {
-                if let perks = perks, let previouslySelectedCellIndex = previouslySelectedCellIndex {
-                    perks[previouslySelectedCellIndex].checked = false
-                }
+        if self.isMovingFromParentViewController {
+            guard let perks = perks, let previouslySelectedCellIndex = previouslySelectedCellIndex else { return }
+            perks[previouslySelectedCellIndex].checked = false
         }
     }
-
+    
 }
 
