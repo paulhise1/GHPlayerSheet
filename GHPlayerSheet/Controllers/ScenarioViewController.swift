@@ -34,20 +34,31 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet weak var player4StatStack: UIStackView!
     
     private var viewModel: ScenarioViewModel?
+    private var partyName: String?
+    private var playerName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCounters()
         updateStackViews()
+        setPartyAndPlayerNameLabels()
     }
     
-    func configure(name: String, health: String, scenerioService: ScenarioService) {
+    func configure(name: String, health: String, scenerioService: ScenarioService, partyName: String, playerName: String) {
         self.viewModel = ScenarioViewModel(name: name, maxHealth: health, service: scenerioService)
         self.viewModel?.delegate = self
+        self.partyName = partyName
+        self.playerName = playerName
+    }
+    
+    func setPartyAndPlayerNameLabels() {
+        guard let party = partyName, let player = playerName else { return }
+        self.partyNameLabel.text = party
+        self.selfNameLabel.text = player
     }
     
     @IBAction func exitButtonTapped(_ sender: Any) {
-        //go back to hub screen.
+        //goes back to hub screen.
     }
     
     

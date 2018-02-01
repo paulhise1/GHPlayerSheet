@@ -19,7 +19,7 @@ class HubViewModel: ScenarioServiceDelegate {
     private var character: Character?
     let partyName = "The Funk Hunters"
     private(set) var scenarioService: ScenarioService
-    private var characterDatasource: ModelDatasource<Character>?
+    private(set) var characterDatasource: ModelDatasource<Character>?
     
     var name: String {
         guard let char = character else { return "" }
@@ -41,6 +41,11 @@ class HubViewModel: ScenarioServiceDelegate {
         
         let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.characterDatasource = ModelDatasource(with: url)
+        print(url ?? "Could not print character.plist URL")
+    }
+    
+    func loadCharacterFromPList(){
+        character = characterDatasource?.modelAt(index: 0)
     }
     
     func characterInfoForLabel() -> String {
@@ -60,7 +65,9 @@ class HubViewModel: ScenarioServiceDelegate {
     
     func createCharacter(charClass: CharacterClass, name: String, experience: Int) {
         character = Character(characterClass: charClass, name: name)
-        character?.updateExperience(amount: experience)
+        guard let char = character else { return }
+        char.updateExperience(amount: experience)
+        characterDatasource?.update(model: char)
     }
     
     func characterClassAt(index: Int) -> CharacterClass? {
@@ -72,6 +79,6 @@ class HubViewModel: ScenarioServiceDelegate {
     }
     
     func didUpdatePlayers(players: [Player]) {
-        // just need this to conform to delegate so I can get the scenarioNumber Info
+        // unused but required delegate method
     }
 }

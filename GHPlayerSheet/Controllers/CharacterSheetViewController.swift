@@ -10,11 +10,6 @@ class CharacterSheetViewController: UIViewController, PerksViewControllerDelegat
         static let notesViewID =  "NotesNavStack"
         static let perksViewID = "PerksNavStack"
     }
-
-    //MARK: - Class Properties
-    private var viewModel: CharacterSheetViewModel?
-    private var blurView: DynamicBlurView?
-    private var textField: UITextField?
     
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var levelLabel: UILabel!
@@ -33,13 +28,19 @@ class CharacterSheetViewController: UIViewController, PerksViewControllerDelegat
     
     @IBOutlet weak var notesContainerView: UIView!
     
+    private var viewModel: CharacterSheetViewModel?
+    private var blurView: DynamicBlurView?
+    private var textField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = CharacterSheetViewModel()
         setupDefaultNameLabelAppearance()
         setupChildViews()
+    }
+
+    func configure(characterDataSource: ModelDatasource<Character>) {
+        self.viewModel = CharacterSheetViewModel(characterDatasource: characterDataSource)
     }
     
 }

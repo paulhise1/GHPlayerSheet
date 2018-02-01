@@ -4,7 +4,7 @@ class HubViewController: UIViewController, HubViewModelDelegate {
 
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
-        static let segueToScenarioID = "toScenarioViewController"
+        static let segueToScenarioID = "toScenarioVC"
         static let partyScenarioLabelText = "Your party scenario:"
         
     }
@@ -40,11 +40,13 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         self.classPickerView.dataSource = self
         
         displayCharacterInfo()
+        configureTextfields()
     }
     
     func displayCharacterInfo() {
-        if let labelText = viewModel?.characterInfoForLabel() {
-            characterInfoLabel.text = labelText
+        if let vm = viewModel {
+            vm.loadCharacterFromPList()
+            characterInfoLabel.text = vm.characterInfoForLabel()
         } else {
             characterInfoLabel.text = "Create a Character to get started!"
         }
@@ -76,13 +78,20 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         partyScenarioInfoLabel2.text = scenarioLabelText
     }
     
+    @IBAction func characterSheetButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: Constant.segueToCharacterSheetID, sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vm = viewModel, let charDatasource = vm.characterDatasource else { return }
         if segue.identifier == Constant.segueToCharacterSheetID {
-            // things to do before character sheet segue
+            let destinationVC = segue.destination as? CharacterSheetViewController
+            destinationVC?.configure(characterDataSource: charDatasource)
+            
+            
         } else if segue.identifier == Constant.segueToScenarioID {
-            guard let vm = viewModel else { return }
             let destinationVC = segue.destination as? ScenarioViewController
-            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService)
+            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService, partyName: vm.partyName, playerName: vm.name)
         }
     }
     
@@ -108,7 +117,7 @@ class HubViewController: UIViewController, HubViewModelDelegate {
     }
 }
 
-extension HubViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension HubViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -116,7 +125,6 @@ extension HubViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let number = viewModel?.characterClassCount ?? 0
-        print(number)
         return number
     }
     
@@ -130,5 +138,21 @@ extension HubViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let title = viewModel?.characterClassAttributedStringAt(index: row) ?? nil
         return title
+    }
+    
+    func configureTextfields() {
+        nameTextField.delegate = self
+        nameTextField.returnKeyType = .done
+        experienceTextField.delegate = self
+        experienceTextField.returnKeyType = .done
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if nameTextField.isFirstResponder {
+            experienceTextField.becomeFirstResponder()
+        } else if experienceTextField.isFirstResponder {
+         experienceTextField.resignFirstResponder()
+        }
+        return true
     }
 }

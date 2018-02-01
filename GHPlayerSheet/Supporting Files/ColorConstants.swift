@@ -10,9 +10,9 @@ struct ColorConstants {
     static let healthBackgroundColor = UIColor.flatRedColorDark()
     static let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)
     static let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()
-    static let experienceCounterColor = UIColor.flatSkyBlue().lighten(byPercentage: 0.9)
-    static let genericBackgroundColor = UIColor.flatMagentaColorDark()
-    static let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.7)
+    static let experienceCounterColor = UIColor.flatPowderBlue()
+    static let genericBackgroundColor = UIColor.flatPurpleColorDark()
+    static let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.8)
     
     // ScenarioVC Colors
     static let disconnectedPlayerBackground = UIColor.flatGray()
