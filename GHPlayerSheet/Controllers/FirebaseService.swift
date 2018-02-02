@@ -15,9 +15,9 @@ class FirebaseService: ScenarioService {
 
     private let database: DatabaseReference
     
-    let partyName: String
+    let partyName: String?
     
-    init(partyName: String) {
+    init(partyName: String?) {
         self.partyName = partyName
         database = Database.database().reference()
         configurePlayersListener()
@@ -32,7 +32,8 @@ class FirebaseService: ScenarioService {
     func pushPlayerToService(player: Player) {
         let playerName = player.name
         let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth]
-        database.child(partyName).child(Constant.playerKey).child(playerName).setValue(playerInfo)
+        guard let party = partyName else { return }
+        database.child(party).child(Constant.playerKey).child(playerName).setValue(playerInfo)
     }
     
     func scenarioInfo() {
@@ -40,7 +41,8 @@ class FirebaseService: ScenarioService {
     }
     
     private func configurePlayersListener(){
-        let playerRef = database.child(partyName).child(Constant.playerKey)
+        guard let party = partyName else { return }
+        let playerRef = database.child(party).child(Constant.playerKey)
         playerRef.observe(.value, with: { (snapshot) in
             self.processPlayers(snapshot: snapshot)
         })
@@ -57,7 +59,8 @@ class FirebaseService: ScenarioService {
     }
     
     private func configureScenarioListener() {
-        let scenarioRef = database.child(partyName).child(Constant.scenarioKey)
+        guard let party = partyName else { return }
+        let scenarioRef = database.child(party).child(Constant.scenarioKey)
         scenarioRef.observe(.value, with: { (snapshot) in
             self.processScenario(snapshot: snapshot)
         })

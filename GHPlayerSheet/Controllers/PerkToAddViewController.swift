@@ -21,7 +21,7 @@ class PerkToAddViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var perkToAddLabel: UILabel!
     @IBOutlet weak var addPerkButtonBorderView: UIView!
-    @IBOutlet weak var addPerkButtonContainerView: UIView!{
+    @IBOutlet weak var addPerkButtonContainerView: UIView! {
         didSet {
             addPerkButtonContainerView.layer.cornerRadius = 10
             addPerkButtonContainerView.layer.masksToBounds = true

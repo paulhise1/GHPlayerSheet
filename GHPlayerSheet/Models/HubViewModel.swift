@@ -17,7 +17,7 @@ class HubViewModel: ScenarioServiceDelegate {
     weak var delegate: HubViewModelDelegate?
     
     private var character: Character?
-    let partyName = "The Funk Hunters"
+    let partyName: String?
     private(set) var scenarioService: ScenarioService
     private(set) var characterDatasource: ModelDatasource<Character>?
     
@@ -36,8 +36,11 @@ class HubViewModel: ScenarioServiceDelegate {
     }
     
     init() {
-        self.scenarioService = FirebaseService(partyName: partyName)
-        self.scenarioService.delegate = self
+        //stub
+        partyName = "The Funk Hunters"
+        
+        scenarioService = FirebaseService(partyName: partyName)
+        scenarioService.delegate = self
         
         let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.characterDatasource = ModelDatasource(with: url)
@@ -53,8 +56,13 @@ class HubViewModel: ScenarioServiceDelegate {
         return "\(char.name): Level \(char.level) \(char.characterClass.rawValue)"
     }
     
+    func partyNameForLabel() -> String {
+        guard let party = partyName else { return "No party info available"}
+        return party
+    }
     func startScenario(number: String) {
-        scenarioService.createScenario(partyName: partyName, number: number)
+        guard let party = partyName else { return }
+        scenarioService.createScenario(partyName: party, number: number)
     }
     
     func didGetScenarioNumber(scenarioNumber: String) {
@@ -74,8 +82,8 @@ class HubViewModel: ScenarioServiceDelegate {
         return Character.classes[index]
     }
     
-    func characterClassAttributedStringAt(index: Int) -> NSAttributedString {
-        return NSAttributedString(string: Character.classes[index].rawValue, attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
+    func characterClassStringAt(index: Int) -> String {
+        return Character.classes[index].rawValue
     }
     
     func didUpdatePlayers(players: [Player]) {

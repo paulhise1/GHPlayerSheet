@@ -10,6 +10,12 @@ class CharacterSheetViewController: UIViewController, PerksViewControllerDelegat
         static let notesViewID =  "NotesNavStack"
         static let perksViewID = "PerksNavStack"
     }
+    @IBOutlet weak var exitButton: UIButton! {
+        didSet {
+            exitButton.layer.cornerRadius = 4
+            exitButton.layer.masksToBounds = true
+        }
+    }
     
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var levelLabel: UILabel!

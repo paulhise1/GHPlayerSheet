@@ -11,22 +11,81 @@ class HubViewController: UIViewController, HubViewModelDelegate {
     
     @IBOutlet weak var characterInfoLabel: UILabel!
     
+    @IBOutlet weak var toCharacterSheetButton: UIButton! {
+        didSet {
+            toCharacterSheetButton.layer.cornerRadius = 4
+            toCharacterSheetButton.layer.masksToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var createCharacterContainerView: UIView!
     @IBOutlet weak var classPickerView: UIPickerView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var experienceTextField: UITextField!
+    @IBOutlet weak var experienceButton: UIButton! {
+        didSet {
+            experienceButton.layer.cornerRadius = 4
+            experienceButton.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var newCharacterButton: UIButton! {
+        didSet {
+            newCharacterButton.layer.cornerRadius = 4
+            newCharacterButton.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var acceptCharacterButton: UIButton! {
+        didSet {
+            acceptCharacterButton.layer.cornerRadius = 4
+            acceptCharacterButton.layer.masksToBounds = true
+        }
+    }
     
     @IBOutlet weak var numpadContainerView: UIView!
+        {
+        didSet {
+            numpadContainerView.layer.cornerRadius = 4
+            numpadContainerView.layer.masksToBounds = true
+         }
+    }
     @IBOutlet var numberButtons: [UIButton]!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var numpadLabelView: UILabel!
+    @IBOutlet weak var numpadAcceptButton: UIButton!
     
-    
+    @IBOutlet weak var createPartyButton: UIButton! {
+        didSet {
+            createPartyButton.layer.cornerRadius = 4
+            createPartyButton.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var newPartyButton: UIButton! {
+        didSet {
+            newPartyButton.layer.cornerRadius = 4
+            newPartyButton.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var partyNameLabel: UILabel!
+    @IBOutlet weak var scenarioInfoLabelContainerView: UIView!
     @IBOutlet weak var partyScenarioInfoLabel1: UILabel!
     @IBOutlet weak var partyScenarioInfoLabel2: UILabel!
-    @IBOutlet weak var joinScenarioButton: UIButton!
+    @IBOutlet weak var newScenarioButton: UIButton! {
+        didSet {
+            newScenarioButton.layer.cornerRadius = 4
+            newScenarioButton.layer.masksToBounds = true
+
+        }
+    }
+    @IBOutlet weak var joinScenarioButton: UIButton! {
+        didSet {
+            joinScenarioButton.layer.cornerRadius = 4
+            joinScenarioButton.layer.masksToBounds = true
+        }
+    }
     
     private var viewModel: HubViewModel?
     
     private var selectedClass: CharacterClass?
+    private var experience: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,32 +100,69 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         
         displayCharacterInfo()
         configureTextfields()
+        configureHiddenViews()
+    }
+    
+    func configureHiddenViews(){
+        scenarioInfoLabelContainerView.isHidden = true
+        createCharacterContainerView.isHidden = true
     }
     
     func displayCharacterInfo() {
-        if let vm = viewModel {
-            vm.loadCharacterFromPList()
-            characterInfoLabel.text = vm.characterInfoForLabel()
-        } else {
+        guard let vm = viewModel else {
             characterInfoLabel.text = "Create a Character to get started!"
+            return
         }
+        vm.loadCharacterFromPList()
+        characterInfoLabel.text = vm.characterInfoForLabel()
+        guard let party = vm.partyName else {
+            partyNameLabel.isHidden = true
+            createPartyButton.isHidden = false
+            return
+        }
+        partyNameLabel.text = party
+        createPartyButton.isHidden = true
     }
     
     @IBAction func createCharacterButtonTapped(_ sender: Any) {
-        guard let charClass = selectedClass, let name = nameTextField.text, let xp = experienceTextField.text, let intXp = Int(xp) else { return }
-        guard name != "" else { return }
+        guard let charClass = selectedClass, let name = nameTextField.text, !name.isEmpty, let xp = experience, let intXp = Int(xp) else { return }
         viewModel?.createCharacter(charClass: charClass, name: name, experience: intXp)
         displayCharacterInfo()
+        createCharacterContainerView.isHidden = true
+        newCharacterButton.isHidden = false
+        toCharacterSheetButton.isHidden = false
+    }
+    
+    @IBAction func addCharacterButtonTapped(_ sender: Any) {
+        createCharacterContainerView.isHidden = false
+        newCharacterButton.isHidden = true
+        toCharacterSheetButton.isHidden = true
     }
     
     @IBAction func createScenarioButtonTapped(_ sender: Any) {
         numpadContainerView.isHidden = false
+        amountLabel.text = "0"
+        numpadLabelView.text = "Enter Scenario Number"
+        numpadAcceptButton.setTitle("Start Scenario", for: .normal)
     }
     
-    @IBAction func startScenarioButtonTapped(_ sender: Any) {
+    @IBAction func experienceButtonTapped(_ sender: Any) {
+        numpadContainerView.isHidden = false
+        amountLabel.text = "0"
+        numpadLabelView.text = "Enter Total Experience"
+        numpadAcceptButton.setTitle("Accept", for: .normal)
+    }
+    
+    @IBAction func numpadAcceptButtonTapped(_ sender: Any) {
         guard let number = amountLabel.text else { return }
-        viewModel?.startScenario(number: number)
-        performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+        if numpadAcceptButton.titleLabel?.text == "Start Scenario" {
+            viewModel?.startScenario(number: number)
+            performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+        } else if numpadAcceptButton.titleLabel?.text == "Accept" {
+            experienceButton.setTitle(number, for: .normal)
+            experience = number
+            numpadContainerView.isHidden = true
+        }
     }
     
     @IBAction func joinScenarioButtonTapped(_ sender: Any) {
@@ -74,6 +170,11 @@ class HubViewController: UIViewController, HubViewModelDelegate {
     }
     
     func updateScenarioInfo(scenarioLabelText: String) {
+        createPartyButton.isHidden = true
+        joinScenarioButton.isHidden = false
+        newScenarioButton.isHidden = false
+        newPartyButton.isHidden = false
+        scenarioInfoLabelContainerView.isHidden = false
         partyScenarioInfoLabel1.text = Constant.partyScenarioLabelText
         partyScenarioInfoLabel2.text = scenarioLabelText
     }
@@ -90,8 +191,9 @@ class HubViewController: UIViewController, HubViewModelDelegate {
             
             
         } else if segue.identifier == Constant.segueToScenarioID {
+            guard let party = vm.partyName else { return }
             let destinationVC = segue.destination as? ScenarioViewController
-            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService, partyName: vm.partyName, playerName: vm.name)
+            destinationVC?.configure(name: vm.name, health: vm.health, scenerioService: vm.scenarioService, partyName: party, playerName: vm.name)
         }
     }
     
@@ -101,9 +203,16 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         if amount == "0" {
             amount = ""
         }
-        if amount.count < 2 {
-            amount = amount + sender.titleLabel!.text!
-            amountLabel.text = amount
+        if numpadAcceptButton.titleLabel?.text == "Start Scenario" {
+            if amount.count < 2 {
+                amount = amount + sender.titleLabel!.text!
+                amountLabel.text = amount
+            }
+        } else if numpadAcceptButton.titleLabel?.text == "Accept" {
+            if amount.count < 3 {
+                amount = amount + sender.titleLabel!.text!
+                amountLabel.text = amount
+            }
         }
     }
     
@@ -135,24 +244,28 @@ extension HubViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITex
         selectedClass = charClass
     }
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let title = viewModel?.characterClassAttributedStringAt(index: row) ?? nil
-        return title
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = (view as? UILabel) ?? UILabel()
+        label.textColor = UIColor.flatBlackColorDark()
+        label.font = UIFont(name: "HighTowerText-Reg" , size: 20)
+        label.text = viewModel?.characterClassStringAt(index: row)
+        label.textAlignment = .center
+        return label
     }
+    
+//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        let title = viewModel?.characterClassStringAt(index: row) ?? nil
+//        return title
+//    }
     
     func configureTextfields() {
         nameTextField.delegate = self
+        nameTextField.keyboardType = .asciiCapable
         nameTextField.returnKeyType = .done
-        experienceTextField.delegate = self
-        experienceTextField.returnKeyType = .done
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if nameTextField.isFirstResponder {
-            experienceTextField.becomeFirstResponder()
-        } else if experienceTextField.isFirstResponder {
-         experienceTextField.resignFirstResponder()
-        }
+        nameTextField.resignFirstResponder()
         return true
     }
 }
