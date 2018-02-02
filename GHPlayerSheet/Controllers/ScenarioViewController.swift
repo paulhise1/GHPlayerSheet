@@ -11,6 +11,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     struct Constant {
         static let verticalCounterNibName = "VerticalCounterView"
         static let horizontalCounterNibName = "HorizontalCounterView"
+        static let toHubVCSegueID = "toHubVC"
     }
     
     @IBOutlet weak var selfNameLabel: UILabel!
@@ -57,11 +58,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         self.selfNameLabel.text = player
     }
     
-    @IBAction func exitButtonTapped(_ sender: Any) {
-        //goes back to hub screen.
-    }
-    
-    
     func counterValueDidChange(value: String, type: CounterType) {
         switch type {
         case .health:
@@ -70,6 +66,17 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
             viewModel?.updateCurrentExperience(value: value)
         default:
             return
+        }
+    }
+    
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.toHubVCSegueID {
+            viewModel?.removePlayerFromSerivce()
         }
     }
     

@@ -26,6 +26,7 @@
 		1E2CF32A201162AA002335DF /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* Note.swift */; };
 		1E30437A2024A28C008D6B07 /* exitsign2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3043792024A28B008D6B07 /* exitsign2.png */; };
 		1E30437C2024A4DC008D6B07 /* exitSignV.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30437B2024A4DB008D6B07 /* exitSignV.png */; };
+		1E30437E2024B792008D6B07 /* exitSign3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30437D2024B790008D6B07 /* exitSign3.png */; };
 		1E590FC42021808400D3EE52 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC32021808400D3EE52 /* Scenario.swift */; };
 		1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC720218C7E00D3EE52 /* HubViewModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
@@ -90,6 +91,7 @@
 		1E2CF329201162AA002335DF /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1E3043792024A28B008D6B07 /* exitsign2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitsign2.png; sourceTree = "<group>"; };
 		1E30437B2024A4DB008D6B07 /* exitSignV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitSignV.png; sourceTree = "<group>"; };
+		1E30437D2024B790008D6B07 /* exitSign3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitSign3.png; sourceTree = "<group>"; };
 		1E590FC32021808400D3EE52 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		1E590FC720218C7E00D3EE52 /* HubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1E30437D2024B790008D6B07 /* exitSign3.png */,
 				1E30437B2024A4DB008D6B07 /* exitSignV.png */,
 				1E3043792024A28B008D6B07 /* exitsign2.png */,
 				1ED412D720247722004A7791 /* ghcard5.jpg */,
@@ -389,6 +392,7 @@
 				1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */,
 				1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */,
 				1ECF00D62007106400C2E11D /* Main.storyboard in Resources */,
+				1E30437E2024B792008D6B07 /* exitSign3.png in Resources */,
 				1ED412D6202471BB004A7791 /* ghbackground.jpg in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
 				1ED412C820245C28004A7791 /* HTOWERT.TTF in Resources */,

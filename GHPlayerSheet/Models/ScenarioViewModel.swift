@@ -5,6 +5,8 @@ protocol ScenarioService {
     func pushPlayerToService(player: Player)
     func createScenario(partyName: String, number: String)
     func scenarioInfo()
+    func updatePartyName(partyName: String)
+    func removePlayerFromService(player: Player)
 }
 
 protocol ScenarioServiceDelegate: class {
@@ -62,6 +64,10 @@ class ScenarioViewModel {
     func addPlayerToService() {
         service.pushPlayerToService(player: player)
         service.scenarioInfo()
+    }
+    
+    func removePlayerFromSerivce() {
+        service.removePlayerFromService(player: player)
     }
     
     func updateCurrentHealth(value: String) {

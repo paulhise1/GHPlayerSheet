@@ -17,7 +17,7 @@ class HubViewModel: ScenarioServiceDelegate {
     weak var delegate: HubViewModelDelegate?
     
     private var character: Character?
-    let partyName: String?
+    private(set) var partyName: String?
     private(set) var scenarioService: ScenarioService
     private(set) var characterDatasource: ModelDatasource<Character>?
     
@@ -37,8 +37,6 @@ class HubViewModel: ScenarioServiceDelegate {
     
     init() {
         //stub
-        partyName = "The Funk Hunters"
-        
         scenarioService = FirebaseService(partyName: partyName)
         scenarioService.delegate = self
         
@@ -48,7 +46,15 @@ class HubViewModel: ScenarioServiceDelegate {
     }
     
     func loadCharacterFromPList(){
-        character = characterDatasource?.modelAt(index: 0)
+        guard let characterCount = characterDatasource?.count() else { return }
+        guard characterCount > 0 else { return }
+        character = characterDatasource?.modelAt(index: 0) 
+    }
+    
+    func updateParty(partyname: String) {
+        self.partyName = partyname
+        guard let party = partyName else { return }
+        scenarioService.updatePartyName(partyName: party)
     }
     
     func characterInfoForLabel() -> String {

@@ -98,30 +98,40 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         self.classPickerView.delegate = self
         self.classPickerView.dataSource = self
         
-        displayCharacterInfo()
+        configureViews()
         configureTextfields()
-        configureHiddenViews()
+        displayCharacterInfo()
     }
     
-    func configureHiddenViews(){
+    func configureViews(){
         scenarioInfoLabelContainerView.isHidden = true
         createCharacterContainerView.isHidden = true
+        newPartyButton.isHidden = true
+        createPartyButton.isHidden = true
+        joinScenarioButton.isEnabled = false
     }
     
     func displayCharacterInfo() {
-        guard let vm = viewModel else {
-            characterInfoLabel.text = "Create a Character to get started!"
-            return
-        }
+        guard let vm = viewModel else { return }
+        vm.scenarioService.scenarioInfo()
         vm.loadCharacterFromPList()
         characterInfoLabel.text = vm.characterInfoForLabel()
         guard let party = vm.partyName else {
             partyNameLabel.isHidden = true
             createPartyButton.isHidden = false
+            newPartyButton.isHidden = true
             return
         }
+        
         partyNameLabel.text = party
+        partyNameLabel.isHidden = false
         createPartyButton.isHidden = true
+        newPartyButton.isHidden = false
+    }
+    
+    func setPartyName(partyName: String) {
+        viewModel?.updateParty(partyname: partyName)
+        displayCharacterInfo()
     }
     
     @IBAction func createCharacterButtonTapped(_ sender: Any) {
@@ -137,6 +147,12 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         createCharacterContainerView.isHidden = false
         newCharacterButton.isHidden = true
         toCharacterSheetButton.isHidden = true
+    }
+    
+    @IBAction func createPartyButtonTapped(_ sender: Any) {
+        //stub
+        let party = "The Funk Hunters"
+        setPartyName(partyName: party)
     }
     
     @IBAction func createScenarioButtonTapped(_ sender: Any) {
@@ -171,8 +187,7 @@ class HubViewController: UIViewController, HubViewModelDelegate {
     
     func updateScenarioInfo(scenarioLabelText: String) {
         createPartyButton.isHidden = true
-        joinScenarioButton.isHidden = false
-        newScenarioButton.isHidden = false
+        joinScenarioButton.isEnabled = true
         newPartyButton.isHidden = false
         scenarioInfoLabelContainerView.isHidden = false
         partyScenarioInfoLabel1.text = Constant.partyScenarioLabelText

@@ -15,7 +15,7 @@ class FirebaseService: ScenarioService {
 
     private let database: DatabaseReference
     
-    let partyName: String?
+    private(set) var partyName: String?
     
     init(partyName: String?) {
         self.partyName = partyName
@@ -29,11 +29,24 @@ class FirebaseService: ScenarioService {
         database.child(partyName).setValue([Constant.scenarioKey: number])
     }
     
+    func updatePartyName(partyName: String) {
+        self.partyName = partyName
+        scenarioInfo()
+        configurePlayersListener()
+    }
+    
     func pushPlayerToService(player: Player) {
+        configurePlayersListener()
         let playerName = player.name
         let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth]
         guard let party = partyName else { return }
         database.child(party).child(Constant.playerKey).child(playerName).setValue(playerInfo)
+    }
+    
+    func removePlayerFromService(player: Player) {
+        guard let party = partyName else { return }
+        database.child(party).child(Constant.playerKey).child(player.name).removeValue()
+        scenarioInfo()
     }
     
     func scenarioInfo() {
