@@ -145,6 +145,7 @@ extension CharacterSheetViewController {
     //MARK: - Helper Methods
     func addBlurEffect(){
         // Would like to animate, animation was stuttered
+        blurView = nil
         blurView = DynamicBlurView(frame: view.bounds)
         blurView?.isUserInteractionEnabled = true
         blurView?.blurRadius = 2

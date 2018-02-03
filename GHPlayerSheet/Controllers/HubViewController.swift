@@ -103,6 +103,7 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         displayCharacterInfo()
     }
     
+    //MARK: - View handling methods
     func configureViews(){
         scenarioInfoLabelContainerView.isHidden = true
         createCharacterContainerView.isHidden = true
@@ -122,76 +123,10 @@ class HubViewController: UIViewController, HubViewModelDelegate {
             newPartyButton.isHidden = true
             return
         }
-        
         partyNameLabel.text = party
         partyNameLabel.isHidden = false
         createPartyButton.isHidden = true
         newPartyButton.isHidden = false
-    }
-    
-    func setPartyName(partyName: String) {
-        viewModel?.updateParty(partyname: partyName)
-        displayCharacterInfo()
-    }
-    
-    @IBAction func createCharacterButtonTapped(_ sender: Any) {
-        guard let charClass = selectedClass, let name = nameTextField.text, !name.isEmpty, let xp = experience, let intXp = Int(xp) else { return }
-        viewModel?.createCharacter(charClass: charClass, name: name, experience: intXp)
-        displayCharacterInfo()
-        createCharacterContainerView.isHidden = true
-        newCharacterButton.isHidden = false
-        toCharacterSheetButton.isHidden = false
-    }
-    
-    @IBAction func addCharacterButtonTapped(_ sender: Any) {
-        createCharacterContainerView.isHidden = false
-        newCharacterButton.isHidden = true
-        toCharacterSheetButton.isHidden = true
-    }
-    
-    @IBAction func createPartyButtonTapped(_ sender: Any) {
-        //stub
-        let party = "The Funk Hunters"
-        setPartyName(partyName: party)
-    }
-    
-    @IBAction func createScenarioButtonTapped(_ sender: Any) {
-        numpadContainerView.isHidden = false
-        amountLabel.text = "0"
-        numpadLabelView.text = "Enter Scenario Number"
-        numpadAcceptButton.setTitle("Start Scenario", for: .normal)
-    }
-    
-    @IBAction func experienceButtonTapped(_ sender: Any) {
-        numpadContainerView.isHidden = false
-        amountLabel.text = "0"
-        numpadLabelView.text = "Enter Total Experience"
-        numpadAcceptButton.setTitle("Accept", for: .normal)
-    }
-    
-    @IBAction func numpadAcceptButtonTapped(_ sender: Any) {
-        guard let number = amountLabel.text else { return }
-        if numpadAcceptButton.titleLabel?.text == "Start Scenario" {
-            viewModel?.startScenario(number: number)
-            performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
-        } else if numpadAcceptButton.titleLabel?.text == "Accept" {
-            experienceButton.setTitle(number, for: .normal)
-            experience = number
-            numpadContainerView.isHidden = true
-        }
-    }
-    
-    @IBAction func joinScenarioButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
-    }
-    
-    func updateScenarioInfo(scenarioLabelText: String) {
-        createPartyButton.isHidden = true
-        joinScenarioButton.isEnabled = true
-        newPartyButton.isHidden = false
-        scenarioInfoLabelContainerView.isHidden = false
-        partyScenarioInfoLabel1.text = Constant.partyScenarioLabelText
-        partyScenarioInfoLabel2.text = scenarioLabelText
     }
     
     @IBAction func characterSheetButtonTapped(_ sender: Any) {
@@ -212,7 +147,52 @@ class HubViewController: UIViewController, HubViewModelDelegate {
         }
     }
     
+    //MARK: - party creation methods
+    func setPartyName(partyName: String) {
+        viewModel?.updateParty(partyname: partyName)
+        displayCharacterInfo()
+    }
+    
+    @IBAction func createPartyButtonTapped(_ sender: Any) {
+        //stub
+        let party = "The Funk Hunters"
+        setPartyName(partyName: party)
+    }
+    
+    //MARK: - scenario methods
+    @IBAction func createScenarioButtonTapped(_ sender: Any) {
+        numpadContainerView.isHidden = false
+        amountLabel.text = "0"
+        numpadLabelView.text = "Enter Scenario Number"
+        numpadAcceptButton.setTitle("Start Scenario", for: .normal)
+    }
+    
+    @IBAction func joinScenarioButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+    }
+    
+    func updateScenarioInfo(scenarioLabelText: String) {
+        createPartyButton.isHidden = true
+        joinScenarioButton.isEnabled = true
+        newPartyButton.isHidden = false
+        scenarioInfoLabelContainerView.isHidden = false
+        partyScenarioInfoLabel1.text = Constant.partyScenarioLabelText
+        partyScenarioInfoLabel2.text = scenarioLabelText
+    }
+    
     //MARK: - Number Pad Methods
+    @IBAction func numpadAcceptButtonTapped(_ sender: Any) {
+        guard let number = amountLabel.text else { return }
+        if numpadAcceptButton.titleLabel?.text == "Start Scenario" {
+            viewModel?.startScenario(number: number)
+            performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+        } else if numpadAcceptButton.titleLabel?.text == "Accept" {
+            experienceButton.setTitle(number, for: .normal)
+            experience = number
+            numpadContainerView.isHidden = true
+        }
+    }
+    
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         var amount = amountLabel.text!
         if amount == "0" {
@@ -238,6 +218,29 @@ class HubViewController: UIViewController, HubViewModelDelegate {
             amount = "0"
         }
         amountLabel.text = amount
+    }
+    
+    //MARK: - character creation methods
+    @IBAction func createCharacterButtonTapped(_ sender: Any) {
+        guard let charClass = selectedClass, let name = nameTextField.text, !name.isEmpty, let xp = experience, let intXp = Int(xp) else { return }
+        viewModel?.createCharacter(charClass: charClass, name: name, experience: intXp)
+        displayCharacterInfo()
+        createCharacterContainerView.isHidden = true
+        newCharacterButton.isHidden = false
+        toCharacterSheetButton.isHidden = false
+    }
+    
+    @IBAction func addCharacterButtonTapped(_ sender: Any) {
+        createCharacterContainerView.isHidden = false
+        newCharacterButton.isHidden = true
+        toCharacterSheetButton.isHidden = true
+    }
+    
+    @IBAction func experienceButtonTapped(_ sender: Any) {
+        numpadContainerView.isHidden = false
+        amountLabel.text = "0"
+        numpadLabelView.text = "Enter Total Experience"
+        numpadAcceptButton.setTitle("Accept", for: .normal)
     }
 }
 
@@ -267,11 +270,6 @@ extension HubViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITex
         label.textAlignment = .center
         return label
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-//        let title = viewModel?.characterClassStringAt(index: row) ?? nil
-//        return title
-//    }
     
     func configureTextfields() {
         nameTextField.delegate = self

@@ -25,12 +25,12 @@ class CharacterSheetViewModel {
     }
     
     func updateGold(amount: Int) {
-        characterModel.updateGold(amount: characterModel.gold! + amount)
+        characterModel.updateGold(amount: amount)
         characterDatasource?.update(model: characterModel)
     }
     
     func updateExperience(amount: Int) {
-        characterModel.updateExperience(amount: characterModel.experience + amount)
+        characterModel.updateExperience(amount: amount)
         characterDatasource?.update(model: characterModel)
     }
 }

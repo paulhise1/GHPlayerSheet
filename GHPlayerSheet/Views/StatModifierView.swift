@@ -1,5 +1,4 @@
 import UIKit
-import DynamicBlurView
 
 enum StatType {
     case gold
@@ -32,19 +31,6 @@ class StatModifierView: UIView {
                 experienceButton.setTitle("\(experience)", for: .normal)
             }
         }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    func commonInit(){
     }
     
     @IBOutlet weak var goldButton: UIButton!
@@ -133,7 +119,6 @@ class StatModifierView: UIView {
     
     //Ask Tim about these unwrapping functions.  avoiding so many if lets but also set values to possibly unwanted values and not sure if that is any better than force unwrapping.  seems similar to nil coalessing with those values as the second part of them.
     @IBAction func acceptSubtractionButtonTapped(_ sender: Any) {
-        
         let gold = unwrapOptionalInt(optionalInt: goldAmount)
         let experience = unwrapOptionalInt(optionalInt: experienceAmount)
         let enteredAmount = unwrapOptionalString(optionalString: amountLabel.text)

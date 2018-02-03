@@ -45,7 +45,8 @@ class Character: Codable, ModelProtocol {
     }
     
     func updateGold(amount: Int) {
-        gold = amount
+        guard var gold = gold else { return }
+        gold = gold + amount
     }
     
     func updateExperience(amount: Int) {
