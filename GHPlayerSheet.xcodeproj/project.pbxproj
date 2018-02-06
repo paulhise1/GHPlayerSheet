@@ -24,15 +24,31 @@
 		1E209E50201A1AA900A4986A /* Perk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E4F201A1AA900A4986A /* Perk.swift */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
 		1E2CF32A201162AA002335DF /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* Note.swift */; };
+		1E2D861B2029A23B009B51E9 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D861A2029A23B009B51E9 /* CharacterCollectionViewCell.swift */; };
 		1E30437A2024A28C008D6B07 /* exitsign2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3043792024A28B008D6B07 /* exitsign2.png */; };
 		1E30437C2024A4DC008D6B07 /* exitSignV.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30437B2024A4DB008D6B07 /* exitSignV.png */; };
 		1E30437E2024B792008D6B07 /* exitSign3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30437D2024B790008D6B07 /* exitSign3.png */; };
+		1E30438020271E7C008D6B07 /* ScenarioLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */; };
+		1E30438B20272D60008D6B07 /* mindThiefSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438120272D54008D6B07 /* mindThiefSymbol.png */; };
+		1E30438C20272D60008D6B07 /* scoundrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438220272D56008D6B07 /* scoundrel.png */; };
+		1E30438D20272D60008D6B07 /* brute.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438320272D57008D6B07 /* brute.jpg */; };
+		1E30438E20272D60008D6B07 /* mindThief.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438420272D58008D6B07 /* mindThief.png */; };
+		1E30438F20272D60008D6B07 /* spellweaverSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438520272D59008D6B07 /* spellweaverSymbol.png */; };
+		1E30439020272D60008D6B07 /* tinkerer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438620272D5A008D6B07 /* tinkerer.jpg */; };
+		1E30439120272D61008D6B07 /* cragheart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438720272D5C008D6B07 /* cragheart.jpg */; };
+		1E30439220272D61008D6B07 /* spellWeaver.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438820272D5D008D6B07 /* spellWeaver.png */; };
+		1E30439320272D61008D6B07 /* scoundrelSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30438920272D5E008D6B07 /* scoundrelSymbol.png */; };
+		1E30439620272F2F008D6B07 /* greenPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30439520272F2D008D6B07 /* greenPlus.png */; };
+		1E30439820273B6C008D6B07 /* HubNumPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E30439720273B6C008D6B07 /* HubNumPad.xib */; };
+		1E30439A202740A8008D6B07 /* HubNumPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E304399202740A8008D6B07 /* HubNumPadView.swift */; };
 		1E590FC42021808400D3EE52 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC32021808400D3EE52 /* Scenario.swift */; };
 		1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC720218C7E00D3EE52 /* HubViewModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */; };
 		1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */; };
 		1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */; };
+		1EA64A4F2029DD9B005A525E /* cragheartSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA64A4E2029DD9B005A525E /* cragheartSymbol.png */; };
+		1EA64A532029DEBF005A525E /* tinkererSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EA64A522029DEBF005A525E /* tinkererSymbol.png */; };
 		1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7CB2420202F88002D1EA1 /* ScenarioViewModel.swift */; };
 		1EA7CB272020314B002D1EA1 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7CB262020314B002D1EA1 /* FirebaseService.swift */; };
 		1EA938D82015898600B070B4 /* ScenarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA938D72015898600B070B4 /* ScenarioViewController.swift */; };
@@ -89,15 +105,31 @@
 		1E209E4F201A1AA900A4986A /* Perk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perk.swift; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		1E2CF329201162AA002335DF /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		1E2D861A2029A23B009B51E9 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		1E3043792024A28B008D6B07 /* exitsign2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitsign2.png; sourceTree = "<group>"; };
 		1E30437B2024A4DB008D6B07 /* exitSignV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitSignV.png; sourceTree = "<group>"; };
 		1E30437D2024B790008D6B07 /* exitSign3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitSign3.png; sourceTree = "<group>"; };
+		1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioLobbyViewController.swift; sourceTree = "<group>"; };
+		1E30438120272D54008D6B07 /* mindThiefSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mindThiefSymbol.png; sourceTree = "<group>"; };
+		1E30438220272D56008D6B07 /* scoundrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoundrel.png; sourceTree = "<group>"; };
+		1E30438320272D57008D6B07 /* brute.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brute.jpg; sourceTree = "<group>"; };
+		1E30438420272D58008D6B07 /* mindThief.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mindThief.png; sourceTree = "<group>"; };
+		1E30438520272D59008D6B07 /* spellweaverSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spellweaverSymbol.png; sourceTree = "<group>"; };
+		1E30438620272D5A008D6B07 /* tinkerer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tinkerer.jpg; sourceTree = "<group>"; };
+		1E30438720272D5C008D6B07 /* cragheart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cragheart.jpg; sourceTree = "<group>"; };
+		1E30438820272D5D008D6B07 /* spellWeaver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spellWeaver.png; sourceTree = "<group>"; };
+		1E30438920272D5E008D6B07 /* scoundrelSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoundrelSymbol.png; sourceTree = "<group>"; };
+		1E30439520272F2D008D6B07 /* greenPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenPlus.png; sourceTree = "<group>"; };
+		1E30439720273B6C008D6B07 /* HubNumPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HubNumPad.xib; sourceTree = "<group>"; };
+		1E304399202740A8008D6B07 /* HubNumPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubNumPadView.swift; sourceTree = "<group>"; };
 		1E590FC32021808400D3EE52 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		1E590FC720218C7E00D3EE52 /* HubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkSymbolListView.swift; sourceTree = "<group>"; };
 		1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerkSymbolListView.xib; sourceTree = "<group>"; };
 		1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EA64A4E2029DD9B005A525E /* cragheartSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cragheartSymbol.png; sourceTree = "<group>"; };
+		1EA64A522029DEBF005A525E /* tinkererSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinkererSymbol.png; sourceTree = "<group>"; };
 		1EA7CB2420202F88002D1EA1 /* ScenarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewModel.swift; sourceTree = "<group>"; };
 		1EA7CB262020314B002D1EA1 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		1EA938D72015898600B070B4 /* ScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				1ECF00D42007106400C2E11D /* Main.storyboard */,
+				1E30439720273B6C008D6B07 /* HubNumPad.xib */,
+				1E304399202740A8008D6B07 /* HubNumPadView.swift */,
 				1E0FFCEF200C409B001525F7 /* StatModifierView.swift */,
 				1EA938D92015A31600B070B4 /* CounterView.swift */,
 				1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */,
@@ -190,6 +224,7 @@
 				1ED519CE201B64B70072F09A /* PerkToAddTableViewCell.swift */,
 				1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */,
 				1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */,
+				1E2D861A2029A23B009B51E9 /* CharacterCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +248,7 @@
 		1E0FFCEE200B6752001525F7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */,
 				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
 				1ED519C8201B2BD60072F09A /* PerksViewController.swift */,
 				1ED519CA201B2D390072F09A /* PerkToAddViewController.swift */,
@@ -229,6 +265,18 @@
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1E30439520272F2D008D6B07 /* greenPlus.png */,
+				1EA64A522029DEBF005A525E /* tinkererSymbol.png */,
+				1EA64A4E2029DD9B005A525E /* cragheartSymbol.png */,
+				1E30438320272D57008D6B07 /* brute.jpg */,
+				1E30438720272D5C008D6B07 /* cragheart.jpg */,
+				1E30438420272D58008D6B07 /* mindThief.png */,
+				1E30438120272D54008D6B07 /* mindThiefSymbol.png */,
+				1E30438220272D56008D6B07 /* scoundrel.png */,
+				1E30438920272D5E008D6B07 /* scoundrelSymbol.png */,
+				1E30438820272D5D008D6B07 /* spellWeaver.png */,
+				1E30438520272D59008D6B07 /* spellweaverSymbol.png */,
+				1E30438620272D5A008D6B07 /* tinkerer.jpg */,
 				1E30437D2024B790008D6B07 /* exitSign3.png */,
 				1E30437B2024A4DB008D6B07 /* exitSignV.png */,
 				1E3043792024A28B008D6B07 /* exitsign2.png */,
@@ -369,31 +417,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E209E442019D4AD00A4986A /* levelCrown.png in Resources */,
+				1E30438B20272D60008D6B07 /* mindThiefSymbol.png in Resources */,
 				1ED412D820247723004A7791 /* ghcard5.jpg in Resources */,
+				1E30439120272D61008D6B07 /* cragheart.jpg in Resources */,
 				1ED412D5202471BB004A7791 /* ghbackground2.jpg in Resources */,
 				1E038278201AC5E700C6AB12 /* checkedBox.png in Resources */,
+				1EA64A532029DEBF005A525E /* tinkererSymbol.png in Resources */,
+				1E30438D20272D60008D6B07 /* brute.jpg in Resources */,
 				1ED412C6202459A6004A7791 /* PirataOne-Gloomhaven.ttf in Resources */,
 				1EB4B28A2015F52700BF0AB0 /* VerticalCounterView.xib in Resources */,
 				1ED412CD2024633A004A7791 /* ghcard1.jpg in Resources */,
 				1E30437C2024A4DC008D6B07 /* exitSignV.png in Resources */,
+				1EA64A4F2029DD9B005A525E /* cragheartSymbol.png in Resources */,
 				1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */,
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
+				1E30438C20272D60008D6B07 /* scoundrel.png in Resources */,
+				1E30439820273B6C008D6B07 /* HubNumPad.xib in Resources */,
 				1ED519C7201B269D0072F09A /* bruteSymbol.png in Resources */,
 				1ED412CE2024633A004A7791 /* ghcard3.jpg in Resources */,
 				1E038275201AC33C00C6AB12 /* CheckmarksView.xib in Resources */,
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
 				1ED412C3202456B2004A7791 /* Blank Map.jpg in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
+				1E30438F20272D60008D6B07 /* spellweaverSymbol.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1ED412CF2024633A004A7791 /* ghcard2.jpg in Resources */,
+				1E30439020272D60008D6B07 /* tinkerer.jpg in Resources */,
+				1E30439620272F2F008D6B07 /* greenPlus.png in Resources */,
 				1E038279201AC5E700C6AB12 /* checkmark.png in Resources */,
 				1E03827B201AC6ED00C6AB12 /* emptyCheckBox.png in Resources */,
 				1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */,
+				1E30438E20272D60008D6B07 /* mindThief.png in Resources */,
 				1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */,
 				1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */,
+				1E30439220272D61008D6B07 /* spellWeaver.png in Resources */,
 				1ECF00D62007106400C2E11D /* Main.storyboard in Resources */,
 				1E30437E2024B792008D6B07 /* exitSign3.png in Resources */,
 				1ED412D6202471BB004A7791 /* ghbackground.jpg in Resources */,
+				1E30439320272D61008D6B07 /* scoundrelSymbol.png in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
 				1ED412C820245C28004A7791 /* HTOWERT.TTF in Resources */,
 				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,
@@ -418,6 +479,7 @@
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/UICollectionViewGallery/UICollectionViewGallery.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -426,6 +488,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICollectionViewGallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -474,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2D861B2029A23B009B51E9 /* CharacterCollectionViewCell.swift in Sources */,
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
 				1EF640DA2011AC3F00696393 /* ModelDatasource.swift in Sources */,
 				1ED519CF201B64B70072F09A /* PerkToAddTableViewCell.swift in Sources */,
@@ -487,6 +551,7 @@
 				1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */,
 				1ED519CD201B419A0072F09A /* PerkViewModel.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
+				1E30438020271E7C008D6B07 /* ScenarioLobbyViewController.swift in Sources */,
 				1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */,
 				1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */,
 				1ED519CB201B2D390072F09A /* PerkToAddViewController.swift in Sources */,
@@ -501,6 +566,7 @@
 				1E590FC42021808400D3EE52 /* Scenario.swift in Sources */,
 				1E2CF32A201162AA002335DF /* Note.swift in Sources */,
 				1E038273201AC31800C6AB12 /* CheckmarksView.swift in Sources */,
+				1E30439A202740A8008D6B07 /* HubNumPadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BC6278S7RY;
 				INFOPLIST_FILE = GHPlayerSheet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hisehouse.GHPlayerSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -666,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BC6278S7RY;
 				INFOPLIST_FILE = GHPlayerSheet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hisehouse.GHPlayerSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

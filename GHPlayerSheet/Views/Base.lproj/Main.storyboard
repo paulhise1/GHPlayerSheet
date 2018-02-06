@@ -13,9 +13,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HTOWERT.TTF">
-            <string>HighTowerText-Reg</string>
-        </array>
         <array key="PirataOne-Gloomhaven.ttf">
             <string>PirataOne-Regular</string>
         </array>
@@ -32,430 +29,127 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghbackground2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Job-Nb-JWh" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Character" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gX-yo-6Gu">
-                                <rect key="frame" x="93.999999999999986" y="20.000000000000004" width="225.66666666666663" height="46.333333333333343"/>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="36"/>
-                                <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohj-D4-exI" userLabel="Create New Character Container View">
-                                <rect key="frame" x="528" y="66.999999999999986" width="203" height="225.66666666666663"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSL-g2-dEZ">
-                                        <rect key="frame" x="0.0" y="34" width="203" height="162"/>
-                                    </pickerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAs-5g-NQ5" userLabel="Character Creation Input Fields Stack View">
-                                        <rect key="frame" x="18.666666666666629" y="0.0" width="167.33333333333334" height="64"/>
-                                        <subviews>
-                                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Character Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZTy-OQ-zG9">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="30"/>
-                                                <color key="backgroundColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxi-5e-VcS">
-                                                <rect key="frame" x="0.0" y="30" width="167.33333333333334" height="34"/>
-                                                <color key="backgroundColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                <state key="normal" title="Experience">
-                                                    <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="experienceButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="FAb-L1-oJb"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2T-pO-87Z">
-                                        <rect key="frame" x="20.333333333333371" y="186" width="162.33333333333334" height="44"/>
-                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="28"/>
-                                        <state key="normal" title="Create" backgroundImage="ghcard5.jpg">
-                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="createCharacterButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="gDo-CR-lc1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spellweaverSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="4jd-v9-Rkz" userLabel="Add Character Symbol Image View">
+                                <rect key="frame" x="381" y="264.33333333333331" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstItem="eSL-g2-dEZ" firstAttribute="width" secondItem="Ohj-D4-exI" secondAttribute="width" id="2mx-j0-WtV"/>
-                                    <constraint firstItem="JAs-5g-NQ5" firstAttribute="centerX" secondItem="Ohj-D4-exI" secondAttribute="centerX" id="Ff5-aI-DoQ"/>
-                                    <constraint firstItem="C2T-pO-87Z" firstAttribute="top" secondItem="eSL-g2-dEZ" secondAttribute="bottom" constant="-10" id="adA-99-Pxd"/>
-                                    <constraint firstItem="eSL-g2-dEZ" firstAttribute="centerX" secondItem="Ohj-D4-exI" secondAttribute="centerX" id="bcW-vT-2TN"/>
-                                    <constraint firstItem="C2T-pO-87Z" firstAttribute="centerX" secondItem="Ohj-D4-exI" secondAttribute="centerX" id="cIH-oK-lTn"/>
-                                    <constraint firstItem="JAs-5g-NQ5" firstAttribute="top" secondItem="Ohj-D4-exI" secondAttribute="top" id="ffJ-RT-JFL"/>
-                                    <constraint firstItem="eSL-g2-dEZ" firstAttribute="top" secondItem="JAs-5g-NQ5" secondAttribute="bottom" constant="-30" id="ihG-d2-uvA"/>
+                                    <constraint firstAttribute="width" constant="50" id="lkE-mu-eNu"/>
+                                    <constraint firstAttribute="height" constant="50" id="u7C-mS-7YK"/>
                                 </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owX-EB-9yg">
-                                <rect key="frame" x="101.33333333333333" y="108.66666666666669" width="162.33333333333337" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Gg8-Yy-hE5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="17"/>
-                                <state key="normal" title="Create Party" backgroundImage="ghcard1.jpg">
-                                    <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createPartyButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="Vmc-oX-M6B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Psj-UM-iVj">
-                                <rect key="frame" x="101.33333333333333" y="226.66666666666666" width="162.33333333333337" height="43.999999999999972"/>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="17"/>
-                                <state key="normal" title="New Scenario" backgroundImage="ghcard1.jpg">
-                                    <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createScenarioButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="qvx-yX-x9S"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OqT-5Y-oZI" userLabel="Add Character Button">
-                                <rect key="frame" x="558" y="167.66666666666666" width="162.33333333333337" height="44"/>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="17"/>
-                                <state key="normal" title="Add Character" backgroundImage="ghcard1.jpg">
-                                    <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addCharacterButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="899-3O-rfh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atP-9a-5jK">
-                                <rect key="frame" x="558" y="226.66666666666666" width="162.33333333333337" height="43.999999999999972"/>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="17"/>
-                                <state key="normal" title="Character Sheet" backgroundImage="ghcard1.jpg">
-                                    <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="characterSheetButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="DC9-dM-sah"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1c-8O-Gir">
-                                <rect key="frame" x="101.33333333333333" y="285.66666666666669" width="162.33333333333337" height="44"/>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="17"/>
-                                <state key="normal" title="New Party" backgroundImage="ghcard1.jpg">
-                                    <color key="titleColor" red="0.92120724919999997" green="0.84832113980000001" blue="0.62377804520000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mK4-9Y-7WV">
-                                <rect key="frame" x="101.33333333333333" y="167.66666666666666" width="162.33333333333337" height="44"/>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="17"/>
-                                <state key="normal" title="Join Scenario" backgroundImage="ghcard1.jpg">
-                                    <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinScenarioButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="5Un-0O-6mm"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLs-Ig-icl" userLabel="Scenario Info Label Container View">
-                                <rect key="frame" x="109" y="108.66666666666669" width="419" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjR-81-jVl" userLabel="Scenario Name Label 1">
-                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                        <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqI-yJ-nwm" userLabel="Scenario Name Label 2">
-                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                        <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NjR-81-jVl" secondAttribute="trailing" constant="20" symbolic="YES" id="C4z-n4-KyL"/>
-                                    <constraint firstItem="vqI-yJ-nwm" firstAttribute="leading" secondItem="NjR-81-jVl" secondAttribute="leading" id="CTe-tj-VMj"/>
-                                    <constraint firstItem="vqI-yJ-nwm" firstAttribute="top" secondItem="NjR-81-jVl" secondAttribute="bottom" id="VPl-Bq-oFI"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vqI-yJ-nwm" secondAttribute="trailing" constant="20" symbolic="YES" id="Y4w-Ns-71o"/>
-                                    <constraint firstItem="NjR-81-jVl" firstAttribute="top" secondItem="tLs-Ig-icl" secondAttribute="top" id="YZf-1F-6GU"/>
-                                    <constraint firstItem="NjR-81-jVl" firstAttribute="leading" secondItem="tLs-Ig-icl" secondAttribute="leading" id="eUG-0e-Fnf"/>
-                                    <constraint firstAttribute="height" constant="50" id="xlK-iR-Krp"/>
-                                </constraints>
-                            </view>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oK7-qX-rmC">
-                                <rect key="frame" x="114" y="66.333333333333329" width="99" height="32.333333333333329"/>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
+                                <rect key="frame" x="84.333333333333314" y="19.999999999999996" width="119" height="38.666666666666657"/>
+                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuG-Jj-tqi" userLabel="NumPad Container View">
-                                <rect key="frame" x="293" y="67" width="224.33333333333337" height="299"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Random Scenario Cards - Back.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yXK-aj-YoQ" userLabel="numpad Background View">
-                                        <rect key="frame" x="0.33333333333331439" y="0.0" width="224.33333333333334" height="299"/>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rcj-Eg-Msn">
-                                        <rect key="frame" x="0.33333333333331439" y="0.0" width="224.33333333333334" height="299"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-o2-TfY" userLabel="Spacer View 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="224.33333333333334" height="33.333333333333336"/>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Scenario Number" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXx-Z6-gMz">
-                                                <rect key="frame" x="0.0" y="33.333333333333329" width="224.33333333333334" height="33.333333333333329"/>
-                                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="20"/>
-                                                <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGV-vB-hlf">
-                                                <rect key="frame" x="0.0" y="66.666666666666657" width="224.33333333333334" height="33"/>
-                                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
-                                                <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-P8-131">
-                                                <rect key="frame" x="0.0" y="99.666666666666657" width="224.33333333333334" height="33.333333333333343"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfI-aT-RoS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="1">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="jUb-dB-sUH"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl4-jt-hdy">
-                                                        <rect key="frame" x="74.666666666666686" y="0.0" width="75" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="2">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="f1S-hz-Mgk"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ues-E0-Lf3">
-                                                        <rect key="frame" x="149.66666666666669" y="0.0" width="74.666666666666686" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="3">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="hbE-ew-7nW"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NBA-ad-gZj">
-                                                <rect key="frame" x="0.0" y="133" width="224.33333333333334" height="33.333333333333343"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiS-fh-TcR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="4">
-                                                            <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="Pdg-f0-hGt"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXc-IZ-ayR">
-                                                        <rect key="frame" x="74.666666666666686" y="0.0" width="75" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="5">
-                                                            <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="4yy-AJ-XJZ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gku-Le-Ea9">
-                                                        <rect key="frame" x="149.66666666666669" y="0.0" width="74.666666666666686" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="6">
-                                                            <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="ZiI-SH-FAA"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zwH-Rn-nHJ">
-                                                <rect key="frame" x="0.0" y="166.33333333333334" width="224.33333333333334" height="33.333333333333343"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpf-Sx-gm2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="7">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="pWl-YA-JWd"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ra2-lO-NIH">
-                                                        <rect key="frame" x="74.666666666666686" y="0.0" width="75" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="8">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="Nwx-ZB-wPs"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8V-Ck-6IH">
-                                                        <rect key="frame" x="149.66666666666669" y="0.0" width="74.666666666666686" height="33.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="9">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="0cl-Yq-dio"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hdX-lH-xHN">
-                                                <rect key="frame" x="0.0" y="199.66666666666669" width="224.33333333333334" height="33"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zea-En-OXZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="33"/>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3az-qn-Wjq">
-                                                        <rect key="frame" x="74.666666666666686" y="0.0" width="75" height="33"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                                        <state key="normal" title="0">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="numberButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="r96-77-C71"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcx-Zd-klA">
-                                                        <rect key="frame" x="149.66666666666669" y="0.0" width="74.666666666666686" height="33"/>
-                                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
-                                                        <state key="normal" title="&lt;">
-                                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="deleteButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="ujP-hT-C1k"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYW-Ci-Yni">
-                                                <rect key="frame" x="0.0" y="232.66666666666669" width="224.33333333333334" height="33.333333333333314"/>
-                                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
-                                                <state key="normal" title="Start Scenario">
-                                                    <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="numpadAcceptButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="eEw-Cu-OzW"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogo-Ho-ILw" userLabel="Spacer View 2 ">
-                                                <rect key="frame" x="0.0" y="266" width="224.33333333333334" height="33.333333333333314"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.88629400069999997" green="0.84773276610000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="yXK-aj-YoQ" firstAttribute="centerX" secondItem="MuG-Jj-tqi" secondAttribute="centerX" id="BvT-tW-QbM"/>
-                                    <constraint firstAttribute="bottom" secondItem="rcj-Eg-Msn" secondAttribute="bottom" id="Pwy-VP-piT"/>
-                                    <constraint firstItem="yXK-aj-YoQ" firstAttribute="centerY" secondItem="MuG-Jj-tqi" secondAttribute="centerY" id="Qjy-rx-ipy"/>
-                                    <constraint firstItem="rcj-Eg-Msn" firstAttribute="leading" secondItem="MuG-Jj-tqi" secondAttribute="leading" id="Vsi-Nj-mGA"/>
-                                    <constraint firstAttribute="trailing" secondItem="rcj-Eg-Msn" secondAttribute="trailing" id="WeI-2j-UpI"/>
-                                    <constraint firstItem="yXK-aj-YoQ" firstAttribute="height" secondItem="MuG-Jj-tqi" secondAttribute="height" id="g7k-rn-ZV4"/>
-                                    <constraint firstItem="yXK-aj-YoQ" firstAttribute="width" secondItem="MuG-Jj-tqi" secondAttribute="width" id="onL-l4-Yxh"/>
-                                    <constraint firstAttribute="width" secondItem="MuG-Jj-tqi" secondAttribute="height" multiplier="3:4" id="pOZ-mB-z8X"/>
-                                    <constraint firstItem="rcj-Eg-Msn" firstAttribute="top" secondItem="MuG-Jj-tqi" secondAttribute="top" id="uS7-kJ-NgI"/>
-                                </constraints>
+                                <rect key="frame" x="182.66666666666666" y="27" width="446.66666666666674" height="300"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VRa-OV-cLQ" userLabel="Characters Collection View">
+                                <rect key="frame" x="81.333333333333314" y="87.666666666666671" width="649.33333333333348" height="162.33333333333331"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VRa-OV-cLQ" secondAttribute="height" multiplier="4:1" id="6AO-F7-Cd4"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="1gZ-NK-4FC">
+                                    <size key="itemSize" width="170" height="189"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCollectionViewCell" id="Igo-Uf-urt" customClass="CharacterCollectionViewCell" customModule="GHPlayerSheet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-13.333333333333334" width="170" height="189"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="189"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="odU-0X-94y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="189"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="odU-0X-94y" firstAttribute="centerY" secondItem="Igo-Uf-urt" secondAttribute="centerY" id="Ei6-I9-uIW"/>
+                                            <constraint firstItem="odU-0X-94y" firstAttribute="height" secondItem="Igo-Uf-urt" secondAttribute="height" id="Ryl-9g-G9d"/>
+                                            <constraint firstItem="odU-0X-94y" firstAttribute="width" secondItem="Igo-Uf-urt" secondAttribute="width" id="Vsl-QL-ZMR"/>
+                                            <constraint firstItem="odU-0X-94y" firstAttribute="centerX" secondItem="Igo-Uf-urt" secondAttribute="centerX" id="goX-f4-Y3V"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="characterImage" destination="odU-0X-94y" id="AvE-BZ-Hec"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eu9-Fu-iu7" id="Wcz-g3-omO"/>
+                                    <outlet property="delegate" destination="Eu9-Fu-iu7" id="eAm-Cn-007"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Info Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gX-yo-6Gu">
+                                <rect key="frame" x="80.666666666666686" y="250" width="649.33333333333326" height="45"/>
+                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiF-xS-0YC">
+                                <rect key="frame" x="386.33333333333331" y="290" width="9.6666666666666856" height="51.666666666666686"/>
+                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spellweaverSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="EEo-jc-Jf8" userLabel="Character Symbol Image View">
+                                <rect key="frame" x="406" y="291" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="NjQ-B7-XJz"/>
+                                    <constraint firstAttribute="height" constant="50" id="lff-yg-0gz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oK7-qX-rmC" secondAttribute="trailing" constant="20" symbolic="YES" id="0N5-zO-wRd"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="owX-EB-9yg" secondAttribute="trailing" constant="20" symbolic="YES" id="1I7-5J-wOW"/>
-                            <constraint firstItem="owX-EB-9yg" firstAttribute="width" secondItem="UCt-9I-Pfa" secondAttribute="width" multiplier="0.2" id="1gm-9R-scy"/>
-                            <constraint firstItem="atP-9a-5jK" firstAttribute="width" secondItem="owX-EB-9yg" secondAttribute="width" id="2BM-yS-cP0"/>
-                            <constraint firstItem="6gX-yo-6Gu" firstAttribute="top" secondItem="6SU-sA-Zgb" secondAttribute="top" constant="20" id="47C-rc-dta"/>
-                            <constraint firstItem="Ohj-D4-exI" firstAttribute="top" secondItem="MuG-Jj-tqi" secondAttribute="top" id="48E-Om-Jld"/>
-                            <constraint firstItem="atP-9a-5jK" firstAttribute="top" secondItem="OqT-5Y-oZI" secondAttribute="bottom" constant="15" id="6PE-YF-0hi"/>
+                            <constraint firstItem="MuG-Jj-tqi" firstAttribute="centerY" secondItem="6SU-sA-Zgb" secondAttribute="centerY" id="1ex-2p-vLd"/>
+                            <constraint firstItem="oK7-qX-rmC" firstAttribute="leading" secondItem="6SU-sA-Zgb" secondAttribute="leading" constant="40" id="6bS-MN-KJi"/>
+                            <constraint firstItem="hiF-xS-0YC" firstAttribute="top" secondItem="6gX-yo-6Gu" secondAttribute="bottom" constant="-5" id="73n-1R-jj2"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="7fA-Vj-Ict"/>
-                            <constraint firstItem="Ohj-D4-exI" firstAttribute="leading" secondItem="MuG-Jj-tqi" secondAttribute="trailing" constant="10" id="7sQ-vJ-WyW"/>
-                            <constraint firstItem="atP-9a-5jK" firstAttribute="leading" secondItem="OqT-5Y-oZI" secondAttribute="leading" id="8Nd-Uc-fgU"/>
-                            <constraint firstItem="Ohj-D4-exI" firstAttribute="leading" secondItem="tLs-Ig-icl" secondAttribute="trailing" id="8fm-cr-Fft"/>
-                            <constraint firstAttribute="bottom" secondItem="MuG-Jj-tqi" secondAttribute="bottom" constant="8" id="9be-KT-hbh"/>
-                            <constraint firstItem="oK7-qX-rmC" firstAttribute="top" secondItem="6gX-yo-6Gu" secondAttribute="bottom" id="Bjf-kF-EJI"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OqT-5Y-oZI" secondAttribute="trailing" constant="20" symbolic="YES" id="CBe-c2-GDM"/>
-                            <constraint firstItem="OqT-5Y-oZI" firstAttribute="top" secondItem="mK4-9Y-7WV" secondAttribute="top" id="CvW-E4-TdH"/>
-                            <constraint firstItem="OqT-5Y-oZI" firstAttribute="leading" secondItem="MuG-Jj-tqi" secondAttribute="trailing" constant="40" id="D6k-8d-I6D"/>
-                            <constraint firstItem="Ohj-D4-exI" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" multiplier="0.6" id="DSy-LY-1Mh"/>
-                            <constraint firstItem="Psj-UM-iVj" firstAttribute="top" secondItem="mK4-9Y-7WV" secondAttribute="bottom" constant="15" id="GBL-FE-Qoo"/>
-                            <constraint firstItem="b1c-8O-Gir" firstAttribute="width" secondItem="owX-EB-9yg" secondAttribute="width" id="H43-xw-V9b"/>
-                            <constraint firstItem="atP-9a-5jK" firstAttribute="height" secondItem="owX-EB-9yg" secondAttribute="height" id="Hr2-Su-wze"/>
-                            <constraint firstItem="MuG-Jj-tqi" firstAttribute="centerX" secondItem="6SU-sA-Zgb" secondAttribute="centerX" id="JD2-rY-1CZ"/>
-                            <constraint firstItem="tLs-Ig-icl" firstAttribute="top" secondItem="oK7-qX-rmC" secondAttribute="bottom" constant="10" id="LOF-eD-4cU"/>
-                            <constraint firstItem="C2T-pO-87Z" firstAttribute="width" secondItem="owX-EB-9yg" secondAttribute="width" id="Mqt-Om-EvY"/>
+                            <constraint firstItem="EEo-jc-Jf8" firstAttribute="centerY" secondItem="hiF-xS-0YC" secondAttribute="centerY" id="87R-7L-AMV"/>
+                            <constraint firstItem="EEo-jc-Jf8" firstAttribute="leading" secondItem="6SU-sA-Zgb" secondAttribute="centerX" id="92X-Zo-3ix"/>
+                            <constraint firstItem="4jd-v9-Rkz" firstAttribute="top" secondItem="VRa-OV-cLQ" secondAttribute="bottom" constant="14.333333333333371" id="9FC-E1-BcV"/>
+                            <constraint firstItem="MuG-Jj-tqi" firstAttribute="centerX" secondItem="6SU-sA-Zgb" secondAttribute="centerX" id="AGu-Fe-xWM"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="centerX" secondItem="UCt-9I-Pfa" secondAttribute="centerX" id="MrP-9k-oYF"/>
-                            <constraint firstItem="mK4-9Y-7WV" firstAttribute="width" secondItem="owX-EB-9yg" secondAttribute="width" id="PLl-iC-nag"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Psj-UM-iVj" secondAttribute="trailing" constant="20" symbolic="YES" id="QsA-Nk-1iP"/>
-                            <constraint firstItem="b1c-8O-Gir" firstAttribute="top" secondItem="Psj-UM-iVj" secondAttribute="bottom" constant="15" id="SKk-6p-ctM"/>
-                            <constraint firstItem="b1c-8O-Gir" firstAttribute="height" secondItem="owX-EB-9yg" secondAttribute="height" id="SVH-GK-wy0"/>
-                            <constraint firstItem="mK4-9Y-7WV" firstAttribute="leading" secondItem="owX-EB-9yg" secondAttribute="leading" id="UY5-1a-yML"/>
-                            <constraint firstItem="OqT-5Y-oZI" firstAttribute="width" secondItem="owX-EB-9yg" secondAttribute="width" id="VZe-Ms-1G9"/>
-                            <constraint firstItem="OqT-5Y-oZI" firstAttribute="height" secondItem="owX-EB-9yg" secondAttribute="height" id="WJI-s4-NrX"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mK4-9Y-7WV" secondAttribute="trailing" constant="20" symbolic="YES" id="Was-XD-Rbi"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b1c-8O-Gir" secondAttribute="trailing" constant="20" symbolic="YES" id="Xpu-Vj-B6I"/>
-                            <constraint firstItem="mK4-9Y-7WV" firstAttribute="height" secondItem="owX-EB-9yg" secondAttribute="height" id="YQK-TD-vhx"/>
-                            <constraint firstItem="Ohj-D4-exI" firstAttribute="width" secondItem="UCt-9I-Pfa" secondAttribute="width" multiplier="0.25" id="YvR-S2-Dl4"/>
-                            <constraint firstItem="C2T-pO-87Z" firstAttribute="height" secondItem="owX-EB-9yg" secondAttribute="height" id="ZQE-NM-hPL"/>
-                            <constraint firstItem="yXK-aj-YoQ" firstAttribute="leading" secondItem="owX-EB-9yg" secondAttribute="trailing" constant="30" id="Zlx-mP-1vp"/>
-                            <constraint firstItem="owX-EB-9yg" firstAttribute="top" secondItem="oK7-qX-rmC" secondAttribute="bottom" constant="10" id="aRS-6x-Uro"/>
-                            <constraint firstItem="tLs-Ig-icl" firstAttribute="leading" secondItem="6gX-yo-6Gu" secondAttribute="leading" constant="15" id="auW-he-bgL"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6gX-yo-6Gu" secondAttribute="trailing" constant="20" symbolic="YES" id="bKP-EC-nk7"/>
+                            <constraint firstItem="hiF-xS-0YC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UCt-9I-Pfa" secondAttribute="leading" constant="20" symbolic="YES" id="NvO-5W-pBu"/>
+                            <constraint firstItem="6gX-yo-6Gu" firstAttribute="width" secondItem="VRa-OV-cLQ" secondAttribute="width" id="Ps0-j3-8V6"/>
+                            <constraint firstItem="6gX-yo-6Gu" firstAttribute="centerX" secondItem="VRa-OV-cLQ" secondAttribute="centerX" id="S7h-CK-NLq"/>
+                            <constraint firstItem="6gX-yo-6Gu" firstAttribute="top" secondItem="VRa-OV-cLQ" secondAttribute="bottom" id="T0D-rZ-nup"/>
+                            <constraint firstItem="MuG-Jj-tqi" firstAttribute="width" secondItem="UCt-9I-Pfa" secondAttribute="width" multiplier="0.55" id="Thg-d5-SKR"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oK7-qX-rmC" secondAttribute="trailing" constant="20" symbolic="YES" id="Ua0-g1-aAZ"/>
+                            <constraint firstItem="VRa-OV-cLQ" firstAttribute="width" secondItem="UCt-9I-Pfa" secondAttribute="width" multiplier="0.8" id="Ukm-uz-PkQ"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="width" secondItem="UCt-9I-Pfa" secondAttribute="width" id="dR9-PT-I8D"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="atP-9a-5jK" secondAttribute="trailing" constant="20" symbolic="YES" id="dgg-Hf-B0c"/>
-                            <constraint firstItem="oK7-qX-rmC" firstAttribute="leading" secondItem="6gX-yo-6Gu" secondAttribute="leading" constant="20" id="doj-Jk-eQG"/>
-                            <constraint firstItem="Psj-UM-iVj" firstAttribute="leading" secondItem="owX-EB-9yg" secondAttribute="leading" id="kvA-Xp-cxH"/>
+                            <constraint firstItem="4jd-v9-Rkz" firstAttribute="centerX" secondItem="6SU-sA-Zgb" secondAttribute="centerX" id="gP4-mg-ygO"/>
+                            <constraint firstItem="6SU-sA-Zgb" firstAttribute="centerX" secondItem="hiF-xS-0YC" secondAttribute="trailing" constant="10" id="ivm-aa-1Lb"/>
+                            <constraint firstItem="VRa-OV-cLQ" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" multiplier="0.9" id="k5m-Bi-Lgm"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" id="lJC-yj-eDe"/>
-                            <constraint firstItem="MuG-Jj-tqi" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" multiplier="0.8" id="laE-So-qJq"/>
-                            <constraint firstItem="mK4-9Y-7WV" firstAttribute="width" secondItem="Psj-UM-iVj" secondAttribute="width" id="mZe-hb-5ML"/>
-                            <constraint firstItem="mK4-9Y-7WV" firstAttribute="height" secondItem="Psj-UM-iVj" secondAttribute="height" id="oiE-cz-LmJ"/>
-                            <constraint firstItem="mK4-9Y-7WV" firstAttribute="top" secondItem="owX-EB-9yg" secondAttribute="bottom" constant="15" id="sc6-R9-Wzh"/>
-                            <constraint firstItem="b1c-8O-Gir" firstAttribute="leading" secondItem="owX-EB-9yg" secondAttribute="leading" id="u34-Vc-5fT"/>
-                            <constraint firstItem="6gX-yo-6Gu" firstAttribute="leading" secondItem="6SU-sA-Zgb" secondAttribute="leading" constant="50" id="vuk-T8-OSe"/>
+                            <constraint firstItem="VRa-OV-cLQ" firstAttribute="centerX" secondItem="6SU-sA-Zgb" secondAttribute="centerX" id="oBP-Og-2FT"/>
+                            <constraint firstItem="oK7-qX-rmC" firstAttribute="top" secondItem="6SU-sA-Zgb" secondAttribute="top" constant="20" id="p6Y-hg-i94"/>
+                            <constraint firstItem="MuG-Jj-tqi" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" multiplier="0.8" id="xAf-Qm-XQP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6SU-sA-Zgb"/>
                     </view>
                     <connections>
-                        <outlet property="acceptCharacterButton" destination="C2T-pO-87Z" id="Qhg-GI-Uou"/>
-                        <outlet property="amountLabel" destination="pGV-vB-hlf" id="IaR-dM-KJp"/>
+                        <outlet property="addCharacterSymbolImageView" destination="4jd-v9-Rkz" id="mtd-Wd-zZx"/>
                         <outlet property="characterInfoLabel" destination="6gX-yo-6Gu" id="IPp-Cn-JSO"/>
-                        <outlet property="classPickerView" destination="eSL-g2-dEZ" id="WsW-1h-5FU"/>
-                        <outlet property="createCharacterContainerView" destination="Ohj-D4-exI" id="MVO-sl-Ecj"/>
-                        <outlet property="createPartyButton" destination="owX-EB-9yg" id="nBj-JU-1z9"/>
-                        <outlet property="experienceButton" destination="Zxi-5e-VcS" id="Rdm-Nu-iIV"/>
-                        <outlet property="joinScenarioButton" destination="mK4-9Y-7WV" id="Jpm-qV-19x"/>
-                        <outlet property="nameTextField" destination="ZTy-OQ-zG9" id="iHw-id-vre"/>
-                        <outlet property="newCharacterButton" destination="OqT-5Y-oZI" id="G29-ws-PUe"/>
-                        <outlet property="newPartyButton" destination="b1c-8O-Gir" id="rEH-cP-fIS"/>
-                        <outlet property="newScenarioButton" destination="Psj-UM-iVj" id="YSu-cz-akc"/>
-                        <outlet property="numpadAcceptButton" destination="kYW-Ci-Yni" id="Wb2-km-bmA"/>
+                        <outlet property="characterLevelLabel" destination="hiF-xS-0YC" id="jFX-nT-dIf"/>
+                        <outlet property="characterSymbolImage" destination="EEo-jc-Jf8" id="MCV-cE-aHX"/>
+                        <outlet property="charactersCollectionView" destination="VRa-OV-cLQ" id="Z7n-FA-guN"/>
                         <outlet property="numpadContainerView" destination="MuG-Jj-tqi" id="kFZ-F7-UNa"/>
-                        <outlet property="numpadLabelView" destination="bXx-Z6-gMz" id="SgN-uX-9ux"/>
                         <outlet property="partyNameLabel" destination="oK7-qX-rmC" id="ZsY-PW-rOC"/>
-                        <outlet property="partyScenarioInfoLabel1" destination="NjR-81-jVl" id="iln-mc-d0A"/>
-                        <outlet property="partyScenarioInfoLabel2" destination="vqI-yJ-nwm" id="3lx-T9-2yO"/>
-                        <outlet property="scenarioInfoLabelContainerView" destination="tLs-Ig-icl" id="omX-q8-wvU"/>
-                        <outlet property="toCharacterSheetButton" destination="atP-9a-5jK" id="RDB-hY-jwC"/>
-                        <outletCollection property="numberButtons" destination="gfI-aT-RoS" collectionClass="NSMutableArray" id="zI6-Yt-OTM"/>
-                        <outletCollection property="numberButtons" destination="cl4-jt-hdy" collectionClass="NSMutableArray" id="6fs-FH-66w"/>
-                        <outletCollection property="numberButtons" destination="Ues-E0-Lf3" collectionClass="NSMutableArray" id="1yM-Gv-nzs"/>
-                        <outletCollection property="numberButtons" destination="Qpf-Sx-gm2" collectionClass="NSMutableArray" id="SkH-FV-i0S"/>
-                        <outletCollection property="numberButtons" destination="ra2-lO-NIH" collectionClass="NSMutableArray" id="g7w-LG-MJR"/>
-                        <outletCollection property="numberButtons" destination="n8V-Ck-6IH" collectionClass="NSMutableArray" id="REX-6O-AL9"/>
-                        <outletCollection property="numberButtons" destination="3az-qn-Wjq" collectionClass="NSMutableArray" id="DFx-OJ-dzy"/>
                         <segue destination="SLd-gy-nxU" kind="show" identifier="toScenarioVC" id="ijo-rD-xsQ"/>
                         <segue destination="YSa-nI-ikU" kind="show" identifier="toCharacterSheetVC" id="9z0-lJ-lpk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EwR-sn-6F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315" y="-382"/>
+            <point key="canvasLocation" x="541.62561576354688" y="-562.39999999999998"/>
         </scene>
         <!--Character Sheet View Controller-->
         <scene sceneID="fmv-nT-R8k">
@@ -1312,14 +1006,12 @@
     </scenes>
     <resources>
         <image name="Inox-Brute1" width="750" height="640"/>
-        <image name="Random Scenario Cards - Back.jpg" width="296" height="437"/>
         <image name="bruteSymbol.png" width="117" height="117"/>
         <image name="exitSign.png" width="1307" height="480"/>
         <image name="exitSign3.png" width="825" height="412"/>
         <image name="ghbackground2.jpg" width="1307" height="1307"/>
-        <image name="ghcard1.jpg" width="563" height="413"/>
-        <image name="ghcard5.jpg" width="347" height="190"/>
         <image name="levelCrown.png" width="499" height="337"/>
+        <image name="spellweaverSymbol.png" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fPN-AC-Qk7"/>

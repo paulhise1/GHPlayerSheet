@@ -40,7 +40,7 @@ class Perk {
             let brutePerkList = [brutePerk1, brutePerk2, brutePerk3, brutePerk4, brutePerk5, brutePerk6, brutePerk7, brutePerk8, brutePerk9, brutePerk10, brutePerk11]
             return brutePerkList
             
-        case .Cragheart:
+        case .cragheart:
             let cragheartPerk1 = Perk(perk: "Remove four (+0) cards", perkCount: 1)
             let cragheartPerk2 = Perk(perk: "Replace one (-1) card with one (+1) card", perkCount: 3)
             let cragheartPerk3 = Perk(perk: "Add one (-2) card and two (+2) cards", perkCount: 1)

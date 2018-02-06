@@ -3,6 +3,8 @@ import FirebaseDatabase
 
 class FirebaseService: ScenarioService {
     
+    
+
     struct Constant {
         static let playerKey = "players"
         static let scenarioKey = "scenario"
@@ -29,11 +31,11 @@ class FirebaseService: ScenarioService {
         database.child(partyName).setValue([Constant.scenarioKey: number])
     }
     
-    func updatePartyName(partyName: String) {
-        self.partyName = partyName
-        scenarioInfo()
-        configurePlayersListener()
-    }
+//    func updatePartyName(partyName: String) {
+//        self.partyName = partyName
+//        addScenarioInfoListener()
+//        configurePlayersListener()
+//    }
     
     func pushPlayerToService(player: Player) {
         configurePlayersListener()
@@ -46,10 +48,10 @@ class FirebaseService: ScenarioService {
     func removePlayerFromService(player: Player) {
         guard let party = partyName else { return }
         database.child(party).child(Constant.playerKey).child(player.name).removeValue()
-        scenarioInfo()
+        addScenarioInfoListener()
     }
     
-    func scenarioInfo() {
+    func addScenarioInfoListener() {
         configureScenarioListener()
     }
     
@@ -58,6 +60,14 @@ class FirebaseService: ScenarioService {
         let playerRef = database.child(party).child(Constant.playerKey)
         playerRef.observe(.value, with: { (snapshot) in
             self.processPlayers(snapshot: snapshot)
+        })
+    }
+    
+    private func configureScenarioListener() {
+        guard let party = partyName else { return }
+        let scenarioRef = database.child(party).child(Constant.scenarioKey)
+        scenarioRef.observe(.value, with: { (snapshot) in
+            self.processScenario(snapshot: snapshot)
         })
     }
     
@@ -71,13 +81,6 @@ class FirebaseService: ScenarioService {
         self.delegate?.didUpdatePlayers(players: players)
     }
     
-    private func configureScenarioListener() {
-        guard let party = partyName else { return }
-        let scenarioRef = database.child(party).child(Constant.scenarioKey)
-        scenarioRef.observe(.value, with: { (snapshot) in
-            self.processScenario(snapshot: snapshot)
-        })
-    }
     
     private func processScenario(snapshot: DataSnapshot) {
         guard let number = snapshot.value as? String else { return }

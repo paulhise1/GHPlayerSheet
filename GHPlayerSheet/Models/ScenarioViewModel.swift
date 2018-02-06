@@ -4,8 +4,8 @@ protocol ScenarioService {
     weak var delegate: ScenarioServiceDelegate? {get set}
     func pushPlayerToService(player: Player)
     func createScenario(partyName: String, number: String)
-    func scenarioInfo()
-    func updatePartyName(partyName: String)
+    func addScenarioInfoListener()
+    //func updatePartyName(partyName: String)
     func removePlayerFromService(player: Player)
 }
 
@@ -63,7 +63,7 @@ class ScenarioViewModel {
     
     func addPlayerToService() {
         service.pushPlayerToService(player: player)
-        service.scenarioInfo()
+        service.addScenarioInfoListener()
     }
     
     func removePlayerFromSerivce() {

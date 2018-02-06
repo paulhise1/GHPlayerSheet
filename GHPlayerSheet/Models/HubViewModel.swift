@@ -2,11 +2,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 
-protocol HubViewModelDelegate: class {
-    func updateScenarioInfo(scenarioLabelText: String)
-}
-
-class HubViewModel: ScenarioServiceDelegate {
+class HubViewModel {
     
     struct Constant {
         static let pathComponent = "characters.plist"
@@ -14,11 +10,9 @@ class HubViewModel: ScenarioServiceDelegate {
         static let scenarioKey = "scenario"
     }
     
-    weak var delegate: HubViewModelDelegate?
-    
     private var character: Character?
-    private(set) var partyName: String?
-    private(set) var scenarioService: ScenarioService
+    private var characters: [Character]?
+    private(set) var partyName: String
     private(set) var characterDatasource: ModelDatasource<Character>?
     
     var name: String {
@@ -36,63 +30,80 @@ class HubViewModel: ScenarioServiceDelegate {
     }
     
     init() {
-        //stub
-        scenarioService = FirebaseService(partyName: partyName)
-        scenarioService.delegate = self
+        //stubb
+        partyName = "The Funk Hunters"
         
-        let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
-        self.characterDatasource = ModelDatasource(with: url)
-        print(url ?? "Could not print character.plist URL")
+        let characterDataURL = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
+        self.characterDatasource = ModelDatasource(with: characterDataURL)
+        print(characterDataURL ?? "Could not print character.plist URL")
     }
     
-    func loadCharacterFromPList(){
+    //MARK: - character methods
+    func loadCharactersFromPList(){
+        var characterList = [Character]()
         guard let characterCount = characterDatasource?.count() else { return }
         guard characterCount > 0 else { return }
-        character = characterDatasource?.modelAt(index: 0) 
+        for i in stride(from: 0, to: characterCount, by: 1) {
+            if let characterToAdd = characterDatasource?.modelAt(index: i) {
+                characterList.append(characterToAdd)
+            }
+        }
+        characters = characterList
     }
     
-    func updateParty(partyname: String) {
-        self.partyName = partyname
-        guard let party = partyName else { return }
-        scenarioService.updatePartyName(partyName: party)
+    func charactersForDisplay() -> [String] {
+        var displayList = [String]()
+        if let characters = characters {
+            if characters.count > 0 {
+                for i in stride(from: 0, to: characters.count, by: 1) {
+                    let char = characters[i]
+                    let imageString = characterImageforClass(characterClass: char.characterClass)
+                    displayList.append(imageString)
+                }
+            }
+        }
+        let allCharactersCount = Character.classes.count
+        for i in stride (from: 0, to: allCharactersCount, by: 1) {
+            let imageString = characterImageforClass(characterClass: Character.classes[i])
+            if displayList.contains(imageString) {}
+            else {
+                displayList.append(imageString)
+            }
+        }
+        return displayList
     }
     
-    func characterInfoForLabel() -> String {
-        guard let char = character else { return "No character info available" }
-        return "\(char.name): Level \(char.level) \(char.characterClass.rawValue)"
+    func characterImageforClass(characterClass: CharacterClass) -> String {
+        switch characterClass {
+        case .cragheart:
+            return "cragheartSymbol"
+        case .brute:
+            return "bruteSymbol"
+        case .mindthief:
+            return "mindthiefSymbol"
+        case .scoundrel:
+            return "scoundrelSymbol"
+        case .spellweaver:
+            return "spellweaverSymbol"
+        case .tinkerer:
+            return "tinkererSymbol"
+        }
     }
     
-    func partyNameForLabel() -> String {
-        guard let party = partyName else { return "No party info available"}
-        return party
-    }
-    func startScenario(number: String) {
-        guard let party = partyName else { return }
-        scenarioService.createScenario(partyName: party, number: number)
-    }
-    
-    func didGetScenarioNumber(scenarioNumber: String) {
-        guard let scenarioName = Scenario.scenarioFromNumber(scenarioNumber)?.name else { return }
-        let scenarioLableText = "# \(scenarioNumber): \(scenarioName)"
-        delegate?.updateScenarioInfo(scenarioLabelText: scenarioLableText)
-    }
+//    func characterInfoForLabel() -> String {
+//        guard let char = character else { return }
+//        return
+//    }
     
     func createCharacter(charClass: CharacterClass, name: String, experience: Int) {
         character = Character(characterClass: charClass, name: name)
         guard let char = character else { return }
         char.updateExperience(amount: experience)
+        guard let intLevel = Int(char.level) else { return }
+        let goldForLevel = 15 * (intLevel + 1)
+        char.updateGold(amount: goldForLevel)
         characterDatasource?.update(model: char)
     }
     
-    func characterClassAt(index: Int) -> CharacterClass? {
-        return Character.classes[index]
-    }
     
-    func characterClassStringAt(index: Int) -> String {
-        return Character.classes[index].rawValue
-    }
-    
-    func didUpdatePlayers(players: [Player]) {
-        // unused but required delegate method
-    }
 }

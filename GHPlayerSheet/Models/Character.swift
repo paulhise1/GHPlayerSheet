@@ -1,7 +1,7 @@
 import Foundation
 
 enum CharacterClass: String, Codable {
-    case Cragheart = "Savvas Cragheart"
+    case cragheart = "Savvas Cragheart"
     case scoundrel = "Human Scoundrel"
     case tinkerer = "Quatryl Tinkerer"
     case mindthief = "Vermling Mindthief"
@@ -25,7 +25,7 @@ class Character: Codable, ModelProtocol {
         return calculateLevel()
     }
     
-    static let classes = [CharacterClass.Cragheart, CharacterClass.scoundrel, CharacterClass.tinkerer, CharacterClass.mindthief, CharacterClass.spellweaver, CharacterClass.brute]
+    static let classes = [CharacterClass.cragheart, CharacterClass.scoundrel, CharacterClass.tinkerer, CharacterClass.mindthief, CharacterClass.spellweaver, CharacterClass.brute]
     
     private(set) var experience: Int
     private(set) var gold: Int?
@@ -56,7 +56,7 @@ class Character: Codable, ModelProtocol {
     private func calculateHealth() -> String {
         var healthValues: [Int]
         switch characterClass {
-        case .Cragheart:
+        case .cragheart:
             healthValues = [10,12,14,16,18,20,22,24,26]
         case .scoundrel:
             healthValues = [8,9,11,12,14,15,17,18,20]
@@ -94,4 +94,6 @@ class Character: Codable, ModelProtocol {
             return "9"
         }
     }
+    
+    
 }

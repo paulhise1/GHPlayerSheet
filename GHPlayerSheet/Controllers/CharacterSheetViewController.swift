@@ -141,7 +141,6 @@ extension CharacterSheetViewController: UITextFieldDelegate {
 }
 
 extension CharacterSheetViewController {
-    
     //MARK: - Helper Methods
     func addBlurEffect(){
         // Would like to animate, animation was stuttered
