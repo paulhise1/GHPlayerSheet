@@ -11,7 +11,7 @@ class PerksViewController: UIViewController, PerkToAddTableViewCellDelegate {
     private var earnedPerks: [Perk]?
     private var perks: [Perk]?
     private var perkViewModel: PerkViewModel?
-    private var characterClass: CharacterClass?
+    private var characterClass: CharacterClass.charClass?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,11 @@ class PerksViewController: UIViewController, PerkToAddTableViewCellDelegate {
         // need to take the perkmodel that was selected, add it to the active list and decrement the available count
     }
     
-    func configure(with characterClass: CharacterClass) {
+    func configure(with characterClass: CharacterClass.charClass) {
         self.characterClass = characterClass
     }
   
-    func buildPerkList(characterClass: CharacterClass) {
+    func buildPerkList(characterClass: CharacterClass.charClass) {
             perks = Perk.perksList(perksFor: characterClass)
     }
     

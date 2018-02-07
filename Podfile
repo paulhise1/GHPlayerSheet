@@ -9,6 +9,5 @@ target 'GHPlayerSheet' do
   pod 'ChameleonFramework'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-  pod 'UICollectionViewGallery'
 
 end

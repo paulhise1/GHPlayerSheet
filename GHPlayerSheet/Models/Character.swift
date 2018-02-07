@@ -1,17 +1,8 @@
 import Foundation
 
-enum CharacterClass: String, Codable {
-    case cragheart = "Savvas Cragheart"
-    case scoundrel = "Human Scoundrel"
-    case tinkerer = "Quatryl Tinkerer"
-    case mindthief = "Vermling Mindthief"
-    case spellweaver = "Orchid Spellweaver"
-    case brute = "Inox Brute"
-}
-    
 class Character: Codable, ModelProtocol {
 
-    let characterClass: CharacterClass
+    let characterClass: CharacterClass.charClass
     private(set) var name: String
     private let creationDate: Date
     
@@ -25,7 +16,7 @@ class Character: Codable, ModelProtocol {
         return calculateLevel()
     }
     
-    static let classes = [CharacterClass.cragheart, CharacterClass.scoundrel, CharacterClass.tinkerer, CharacterClass.mindthief, CharacterClass.spellweaver, CharacterClass.brute]
+    
     
     private(set) var experience: Int
     private(set) var gold: Int?
@@ -33,7 +24,7 @@ class Character: Codable, ModelProtocol {
     private(set) var activePerks = [String]()
     //private(set) var items = [ItemType]()
     
-    init(characterClass: CharacterClass, name: String, experience: Int = 0) {
+    init(characterClass: CharacterClass.charClass, name: String, experience: Int = 0) {
         self.characterClass = characterClass
         self.name = name
         self.experience = experience
@@ -67,6 +58,8 @@ class Character: Codable, ModelProtocol {
         case .spellweaver:
             healthValues = [6,7,8,9,10,11,12,13,14]
         case .brute:
+            healthValues = [10,12,14,16,18,20,22,24,26]
+        case .quartermaster:
             healthValues = [10,12,14,16,18,20,22,24,26]
         }
         return String(healthValues[Int(level)!-1])

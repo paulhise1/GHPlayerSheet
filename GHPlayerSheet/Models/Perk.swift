@@ -11,8 +11,8 @@ class Perk {
         self.perkAvailable = perkCount
     }
     
-    static func perksList(perksFor type: CharacterClass) -> [Perk] {
-        switch type {
+    static func perksList(perksFor charClass: CharacterClass.charClass) -> [Perk] {
+        switch charClass {
         case .brute:
             
             let brutePerk1 = Perk(perk: "Remove two (-1) cards", perkCount: 1)
@@ -114,6 +114,19 @@ class Perk {
             let tinkererPerk11 = Perk(perk: "Ignore negative scenario effects", perkCount: 1)
             let tinkererPerkList = [tinkererPerk1, tinkererPerk2, tinkererPerk3, tinkererPerk4, tinkererPerk5, tinkererPerk6, tinkererPerk7, tinkererPerk8, tinkererPerk9, tinkererPerk10, tinkererPerk11]
             return tinkererPerkList
+        
+        case .quartermaster:
+            let quartermasterPerk1 = Perk(perk: "Remove two (-1) cards", perkCount: 2)
+            let quartermasterPerk2 = Perk(perk: "Remove four (+0) cards", perkCount: 1)
+            let quartermasterPerk3 = Perk(perk: "Replace one (+0) card with one (+2) card", perkCount: 2)
+            let quartermasterPerk4 = Perk(perk: "Add two ↷ (+1) cards", perkCount: 2)
+            let quartermasterPerk5 = Perk(perk: "Add three ↷ MUDDLE ❓ cards", perkCount: 1)
+            let quartermasterPerk6 = Perk(perk: "Add two ↷ PIERCE ⤁ 3 cards", perkCount: 1)
+            let quartermasterPerk7 = Perk(perk: "Add one ↷ STUN 💫 card", perkCount: 1)
+            let quartermasterPerk8 = Perk(perk: "Add one (+0) Refresh an item card", perkCount: 3)
+            let quartermasterPerk9 = Perk(perk: "Ignore negative item effects and add two (+1) cards", perkCount: 1)
+            let quartermasterPerkList = [quartermasterPerk1, quartermasterPerk2, quartermasterPerk3, quartermasterPerk4, quartermasterPerk5, quartermasterPerk6, quartermasterPerk7, quartermasterPerk8, quartermasterPerk9]
+            return quartermasterPerkList
         }
     }
     

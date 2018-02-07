@@ -29,10 +29,14 @@ class HubViewController: UIViewController {
     private var newCharName: String?
     private var newCharClass: CharacterClass?
     private var newCharExperience: String?
-    private var characters: [String]?
+    private var charactersForDisplay: [String]?
     
     private var width: CGFloat {
-        return charactersCollectionView.bounds.width / 5
+        return charactersCollectionView.bounds.width / 6
+    }
+    
+    private var height: CGFloat {
+        return charactersCollectionView.bounds.height
     }
     
     override func viewDidLoad() {
@@ -49,7 +53,7 @@ class HubViewController: UIViewController {
         charactersCollectionView.dataSource = self
         
         
-        characters = viewModel?.charactersForDisplay()
+        charactersForDisplay = viewModel?.allCharsForDisplay()
     }
     
     
@@ -58,14 +62,14 @@ class HubViewController: UIViewController {
 
 extension HubViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let characters = characters {
+        if let characters = charactersForDisplay {
             return characters.count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: width, height: width);
+            return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -77,19 +81,21 @@ extension HubViewController: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return 20.0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.characterCellID, for: indexPath) as! CharacterCollectionViewCell
-        guard let chars = characters else { return cell }
+       
+        guard let chars = charactersForDisplay else { return cell }
         cell.displayContent(image: UIImage(named: chars[indexPath.row])!)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(characters![indexPath.row])
+        print(charactersForDisplay![indexPath.row])
+        collectionView.performBatchUpdates(nil, completion: nil)
     }
     
 }

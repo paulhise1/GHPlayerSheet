@@ -52,29 +52,37 @@
                                     <constraint firstAttribute="width" secondItem="VRa-OV-cLQ" secondAttribute="height" multiplier="4:1" id="6AO-F7-Cd4"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="1gZ-NK-4FC">
-                                    <size key="itemSize" width="170" height="189"/>
+                                    <size key="itemSize" width="170" height="163"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCollectionViewCell" id="Igo-Uf-urt" customClass="CharacterCollectionViewCell" customModule="GHPlayerSheet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-13.333333333333334" width="170" height="189"/>
+                                        <rect key="frame" x="0.0" y="-0.33333333333333331" width="170" height="163"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="170" height="189"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="odU-0X-94y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="189"/>
+                                                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n34-TC-r9z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="163"/>
+                                                    <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="odU-0X-94y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="163"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="n34-TC-r9z" firstAttribute="leading" secondItem="Igo-Uf-urt" secondAttribute="leading" id="6op-Ov-R8m"/>
+                                            <constraint firstItem="n34-TC-r9z" firstAttribute="top" secondItem="Igo-Uf-urt" secondAttribute="top" id="8vs-kD-Yqu"/>
+                                            <constraint firstAttribute="bottom" secondItem="n34-TC-r9z" secondAttribute="bottom" id="93A-ip-Kw5"/>
                                             <constraint firstItem="odU-0X-94y" firstAttribute="centerY" secondItem="Igo-Uf-urt" secondAttribute="centerY" id="Ei6-I9-uIW"/>
                                             <constraint firstItem="odU-0X-94y" firstAttribute="height" secondItem="Igo-Uf-urt" secondAttribute="height" id="Ryl-9g-G9d"/>
                                             <constraint firstItem="odU-0X-94y" firstAttribute="width" secondItem="Igo-Uf-urt" secondAttribute="width" id="Vsl-QL-ZMR"/>
                                             <constraint firstItem="odU-0X-94y" firstAttribute="centerX" secondItem="Igo-Uf-urt" secondAttribute="centerX" id="goX-f4-Y3V"/>
+                                            <constraint firstAttribute="trailing" secondItem="n34-TC-r9z" secondAttribute="trailing" id="lpI-i0-0L0"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="characterImage" destination="odU-0X-94y" id="AvE-BZ-Hec"/>
@@ -1006,12 +1014,12 @@
     </scenes>
     <resources>
         <image name="Inox-Brute1" width="750" height="640"/>
-        <image name="bruteSymbol.png" width="117" height="117"/>
+        <image name="bruteSymbol.png" width="1254" height="1254"/>
         <image name="exitSign.png" width="1307" height="480"/>
         <image name="exitSign3.png" width="825" height="412"/>
         <image name="ghbackground2.jpg" width="1307" height="1307"/>
         <image name="levelCrown.png" width="499" height="337"/>
-        <image name="spellweaverSymbol.png" width="130" height="130"/>
+        <image name="spellweaverSymbol.png" width="1254" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fPN-AC-Qk7"/>

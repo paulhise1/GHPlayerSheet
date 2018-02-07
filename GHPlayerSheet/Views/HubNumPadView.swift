@@ -22,7 +22,7 @@ class HubNumPadView: UIView {
     
     private var experience: String?
     private var name: String?
-    private var characterClass: CharacterClass?
+    private var characterClass: CharacterClass.charClass?
     
     func configure(){
         nameTextField.isHidden = true

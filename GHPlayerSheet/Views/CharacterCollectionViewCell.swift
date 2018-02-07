@@ -16,4 +16,5 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     func displayContent(image: UIImage){
         characterImage.image = image
     }
+    
 }
