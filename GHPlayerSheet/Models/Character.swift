@@ -13,7 +13,7 @@ class Character: Codable, ModelProtocol {
         return calculateHealth()
     }
     var level: String {
-        return calculateLevel()
+        return Character.calculateLevel(experience: self.experience)
     }
     
     
@@ -44,6 +44,10 @@ class Character: Codable, ModelProtocol {
         experience = experience + amount
     }
     
+    static func levelForExperience(experience: Int) -> String {
+        return calculateLevel(experience: experience)
+    }
+    
     private func calculateHealth() -> String {
         var healthValues: [Int]
         switch characterClass {
@@ -65,7 +69,7 @@ class Character: Codable, ModelProtocol {
         return String(healthValues[Int(level)!-1])
     }
     
-    private func calculateLevel() -> String {
+    private static func calculateLevel(experience: Int) -> String {
         switch experience {
         case 0...44:
             return "1"

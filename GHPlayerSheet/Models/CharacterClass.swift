@@ -12,21 +12,22 @@ class CharacterClass: Codable, ModelProtocol {
         case quartermaster = "Valrath QuarterMaster"
     }
     
-    static let classes = [CharacterClass.charClass.cragheart, CharacterClass.charClass.scoundrel, CharacterClass.charClass.tinkerer, CharacterClass.charClass.mindthief, CharacterClass.charClass.spellweaver, CharacterClass.charClass.brute, CharacterClass.charClass.quartermaster]
+    static let startingClasses = [CharacterClass.charClass.cragheart,  CharacterClass.charClass.tinkerer,  CharacterClass.charClass.mindthief]
+    static let unlockableClasses = [CharacterClass.charClass.scoundrel, CharacterClass.charClass.spellweaver, CharacterClass.charClass.brute, CharacterClass.charClass.quartermaster]
 
     let classOf: CharacterClass.charClass
-    private(set) var unlocked: Bool
-    private(set) var owned: Bool
+    var unlocked: Bool
+    var owned: Bool
     var identifier: Date
     
-    init(classOf: CharacterClass.charClass, unlocked: Bool, owned: Bool) {
+    init(classOf: CharacterClass.charClass, unlocked: Bool, owned: Bool, identifier: Date = Date()) {
         self.classOf =  classOf
         self.unlocked = unlocked
         self.owned = owned
-        self.identifier = Date()
+        self.identifier = identifier
     }
     
-    static func characterSymbolImageForClass(charClass: CharacterClass.charClass) -> String {
+    static func characterLockedImageForClass(charClass: CharacterClass.charClass) -> String {
         switch charClass {
         case .cragheart:
             return "cragheartSymbol"
@@ -45,7 +46,26 @@ class CharacterClass: Codable, ModelProtocol {
         }
     }
     
-    static func characterImageForClass(charClass: CharacterClass.charClass) -> String {
+    static func characterUnlockedImageForClass(charClass: CharacterClass.charClass) -> String {
+        switch charClass {
+        case .cragheart:
+            return "cragheartCard"
+        case .brute:
+            return "bruteCard"
+        case .mindthief:
+            return "mindthiefCard"
+        case .scoundrel:
+            return "scoundrelCard"
+        case .spellweaver:
+            return "spellweaverCard"
+        case .tinkerer:
+            return "tinkererCard"
+        case .quartermaster:
+            return "quartermasterCard"
+        }
+    }
+    
+    static func characterOwnedImageForClass(charClass: CharacterClass.charClass) -> String {
         switch charClass {
         case .cragheart:
             return "cragheart"
@@ -63,6 +83,5 @@ class CharacterClass: Codable, ModelProtocol {
             return "quartermaster"
         }
     }
-    
     
 }

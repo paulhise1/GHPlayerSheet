@@ -11,26 +11,10 @@ class HubViewModel {
         static let scenarioKey = "scenario"
     }
     
-    private var character: Character?
-    private var characters: [Character]?
     private(set) var partyName: String
     private(set) var characterDatasource: ModelDatasource<Character>?
     private(set) var classesDatasource: ModelDatasource<CharacterClass>?
-    
-    var name: String {
-        guard let char = character else { return "" }
-        return char.name
-    }
-    
-    var health: String {
-        guard let char = character else { return "0" }
-        return char.health
-    }
-    
-    var characterClassCount: Int {
-        return CharacterClass.classes.count
-    }
-    
+
     init() {
         //stubb
         partyName = "The Funk Hunters"
@@ -41,92 +25,106 @@ class HubViewModel {
         
         let charClassDataURL = URL.libraryFilePathWith(finalPathComponent: Constant.classPathComponent)
         self.classesDatasource = ModelDatasource(with: charClassDataURL)
-        createUnlockedClassesList()
+        
+        createClassesList()
+    }
+  
+    func unlockCharacterClass(charClass: CharacterClass) {
+        charClass.unlocked = true
+        classesDatasource?.update(model: charClass)
     }
     
-    //MARK: - character methods
-    func loadCharactersFromPList(){
-        var characterList = [Character]()
-        guard let characterCount = characterDatasource?.count() else { return }
-        guard characterCount > 0 else { return }
-        for i in stride(from: 0, to: characterCount, by: 1) {
-            if let characterToAdd = characterDatasource?.modelAt(index: i) {
-                characterList.append(characterToAdd)
-            }
-        }
-        characters = characterList
-    }
-    
-    func unlockCharacterClass(charClass: CharacterClass.charClass) {
-        let classUnlocking = CharacterClass(classOf: charClass, unlocked: true, owned: false)
-        classesDatasource?.update(model: classUnlocking)
-    }
-    
-    func createUnlockedClassesList(){
+    private func createClassesList(){
         guard let classesCount = classesDatasource?.count() else { return }
+        //first time building list
         if classesCount == 0 {
-            unlockCharacterClass(charClass: .brute)
-            unlockCharacterClass(charClass: .mindthief)
-            unlockCharacterClass(charClass: .cragheart)
-            // need other 3 starting classes
+            for i in CharacterClass.startingClasses {
+                let startingClass = CharacterClass(classOf: i, unlocked: true, owned: false)
+                classesDatasource?.update(model: startingClass)
+            }
+            for i in CharacterClass.unlockableClasses {
+                let lockedClass = CharacterClass(classOf: i, unlocked: false, owned: false)
+                classesDatasource?.update(model: lockedClass)
+            }
         }
     }
     
-    func unlockedCharsForDisplay() -> [CharacterClass.charClass] {
-        //Owned appended first
-        var unlockedChars = [CharacterClass.charClass]()
-        if let characters = characters {
-            if characters.count > 0 {
-                for i in stride(from: 0, to: characters.count, by: 1) {
-                    let char = characters[i].characterClass
-                    unlockedChars.append(char)
-                }
-            }
-        }
-        //unlocked appended second
-        if let unlockedCount = classesDatasource?.count() {
-            for i in stride (from: 0, to: unlockedCount, by: 1) {
-                if let charClass = classesDatasource?.modelAt(index: i).classOf {
-                    //                    let imageString = CharacterClass.characterImageForClass(charClass: charClass)
-                    if unlockedChars.contains(charClass) {
-                    } else {
-                        unlockedChars.append(charClass)
-                    }
-                }
-            }
-        }
-        return unlockedChars
+    func infoForCharacter(character: Character) -> [String]{
+        let charSymbol = CharacterClass.characterLockedImageForClass(charClass: character.characterClass)
+        return [character.name, character.level, charSymbol]
     }
     
-    func allCharsForDisplay() -> [String] {
-        var displayImageStrings = [String]()
-        let list1 = unlockedCharsForDisplay()
-        var list2 = [CharacterClass.charClass]()
-        for i in list1 {
-            displayImageStrings.append(CharacterClass.characterImageForClass(charClass: i))
+    func classImages() -> [String] {
+        let classesFromPList = loadClasses()
+        let orderedClasses = orderClassesForDisplay(classesList: classesFromPList)
+        return classesToStringForImage(Classes: orderedClasses)
+    }
+    
+    func classesList() -> [CharacterClass] {
+        let classesFromPList = loadClasses()
+        return orderClassesForDisplay(classesList: classesFromPList)
+    }
+    
+    private func loadClasses() -> [CharacterClass] {
+        var classesList = [CharacterClass]()
+        if let classesCount = classesDatasource?.count() {
+            for i in stride(from: 0, to: classesCount, by: 1) {
+                if let classesToAdd = classesDatasource?.modelAt(index: i) {
+                    classesList.append(classesToAdd)
+                }
+            }
         }
-        let allCharactersCount = CharacterClass.classes.count
-        for i in stride (from: 0, to: allCharactersCount, by: 1) {
-            if list1.contains(CharacterClass.classes[i]) {
+        return classesList
+    }
+    
+    private func orderClassesForDisplay(classesList: [CharacterClass]) -> [CharacterClass] {
+        var orderedDisplayClasses = [CharacterClass]()
+        for c in classesList {
+            if c.owned == true {
+                orderedDisplayClasses.append(c)
+            }
+        }
+        for c in classesList {
+            if c.unlocked == true && c.owned == false {
+                orderedDisplayClasses.append(c)
+            }
+        }
+        for c in classesList {
+            if c.unlocked == false {
+                orderedDisplayClasses.append(c)
+            }
+        }
+        return orderedDisplayClasses
+    }
+    
+    private func classesToStringForImage(Classes: [CharacterClass]) -> [String] {
+        var classesString = [String]()
+        for c in Classes {
+            if c.owned {
+                classesString.append(CharacterClass.characterOwnedImageForClass(charClass: c.classOf))
+            } else if c.unlocked && !c.owned {
+                classesString.append(CharacterClass.characterUnlockedImageForClass(charClass: c.classOf))
             } else {
-                list2.append(CharacterClass.classes[i])
+                classesString.append(CharacterClass.characterLockedImageForClass(charClass: c.classOf))
             }
         }
-        for i in list2 {
-            displayImageStrings.append(CharacterClass.characterSymbolImageForClass(charClass: i))
-        }
-        return displayImageStrings
+        return classesString
     }
-    
     
     func createCharacter(charClass: CharacterClass.charClass, name: String, experience: Int) {
-        character = Character(characterClass: charClass, name: name)
-        guard let char = character else { return }
-        char.updateExperience(amount: experience)
-        guard let intLevel = Int(char.level) else { return }
-        let goldForLevel = 15 * (intLevel + 1)
-        char.updateGold(amount: goldForLevel)
-        characterDatasource?.update(model: char)
+        let character = Character(characterClass: charClass, name: name)
+        character.updateExperience(amount: experience)
+        characterDatasource?.update(model: character)
+        if let classesDatasource = classesDatasource {
+            let classesCount = classesDatasource.count()
+            for i in stride(from: 0, to: classesCount, by: 1) {
+                if character.characterClass == classesDatasource.modelAt(index: i).classOf {
+                    let charClass = classesDatasource.modelAt(index: i)
+                    charClass.owned = true
+                    classesDatasource.update(model: charClass)
+                }
+            }
+        }
     }
     
     
