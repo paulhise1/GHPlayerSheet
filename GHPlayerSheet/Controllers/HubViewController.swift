@@ -8,11 +8,7 @@ class HubViewController: UIViewController {
         static let characterCellID = "CharacterCollectionViewCell"
     }
     
-    @IBOutlet weak var backgroundImage: UIImageView! {
-        didSet {
-            backgroundImage.image = UIImage(named: "ghbackground2")
-        }
-    }
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var characterInfoLabel: UILabel!
     @IBOutlet weak var characterLevelLabel: UILabel!
     @IBOutlet weak var characterSymbolImage: UIImageView!
@@ -94,6 +90,9 @@ class HubViewController: UIViewController {
     }
     
     private func setupDisplay() {
+        self.navigationController?.isNavigationBarHidden = true
+        backgroundImage.image = UIImage(named: "hvcbackground")
+        charactersCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         partyNameLabel.text = viewModel?.partyName
         addCharacterContainerView.isHidden = true
         characterInfoLabel.isHidden = true

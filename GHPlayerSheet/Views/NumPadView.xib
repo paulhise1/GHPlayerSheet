@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PirataOne-Gloomhaven.ttf">
+            <string>PirataOne-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NumPadView" customModule="GHPlayerSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="270" height="290"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="C0i-pp-Dgu">
+                    <rect key="frame" x="0.0" y="0.0" width="270" height="290"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlF-xC-OY2">
+                            <rect key="frame" x="0.0" y="0.0" width="270" height="51"/>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="40"/>
+                            <color key="textColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-Kx-xrx">
+                            <rect key="frame" x="0.0" y="51" width="270" height="56.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fja-PG-qAL">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="1">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="V2E-tQ-8AH"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtb-8E-6tl">
+                                    <rect key="frame" x="90" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="2">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="TT1-CL-bJA"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS3-5g-vUS">
+                                    <rect key="frame" x="180" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="3">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="jmn-iR-wyb"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Wp-4U-c8F">
+                            <rect key="frame" x="0.0" y="107.5" width="270" height="56.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYT-4A-1h8">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="4">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="NlT-3e-0Te"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYL-V1-rNw">
+                                    <rect key="frame" x="90" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="5">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="WRF-QQ-KyM"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssk-VY-Lo3">
+                                    <rect key="frame" x="180" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="6">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Guo-yn-zVp"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m7y-9P-Lm6">
+                            <rect key="frame" x="0.0" y="164" width="270" height="56.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdb-LO-nCm">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="7">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="sj3-mG-V4w"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hq-GC-srS">
+                                    <rect key="frame" x="90" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="8">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="kxZ-FZ-ngZ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hft-EI-fJ7">
+                                    <rect key="frame" x="180" y="0.0" width="90" height="56.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="9">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="7zM-Tg-Pbj"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ig3-pu-KfT">
+                            <rect key="frame" x="0.0" y="220.5" width="270" height="69.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6b-DL-ZHR">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="69.5"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEZ-pb-oiZ">
+                                    <rect key="frame" x="90" y="0.0" width="90" height="69.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
+                                    <state key="normal" title="0">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="numberButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="l4b-xq-b2J"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-YS-HfA">
+                                    <rect key="frame" x="180" y="0.0" width="90" height="69.5"/>
+                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="45"/>
+                                    <state key="normal" title="&lt;">
+                                        <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="deleteButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="opr-Lk-gZx"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Dlh-DC-TmL"/>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="C0i-pp-Dgu" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="bH7-LO-oEm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="C0i-pp-Dgu" secondAttribute="bottom" id="dIh-EH-dKA"/>
+                <constraint firstItem="C0i-pp-Dgu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fYJ-KG-P0g"/>
+                <constraint firstItem="C0i-pp-Dgu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nPB-ky-1sU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="amountLabel" destination="GlF-xC-OY2" id="Ek5-Dj-vjQ"/>
+            </connections>
+        </view>
+    </objects>
+</document>

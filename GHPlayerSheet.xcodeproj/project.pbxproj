@@ -37,6 +37,13 @@
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1E8690D9202C34E1000A8697 /* lockedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8690D8202C34DF000A8697 /* lockedIcon.png */; };
 		1E8690DB202C34E6000A8697 /* unlockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8690DA202C34E4000A8697 /* unlockIcon.png */; };
+		1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D3A42202DBC830040E15B /* hvcbackground.png */; };
+		1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */; };
+		1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */; };
+		1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */; };
+		1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */; };
+		1E8E3834202DCD43008C2FF4 /* NumPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E3833202DCD43008C2FF4 /* NumPadView.swift */; };
+		1E8E3836202DCD7B008C2FF4 /* NumPadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3835202DCD7B008C2FF4 /* NumPadView.xib */; };
 		1E94004E202AF50800F913D3 /* bruteCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940047202AF50500F913D3 /* bruteCard.png */; };
 		1E940050202AF50800F913D3 /* cragheartCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940049202AF50600F913D3 /* cragheartCard.png */; };
 		1E94005A202B145000F913D3 /* brute.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940053202B144D00F913D3 /* brute.png */; };
@@ -73,7 +80,6 @@
 		1ED412CF2024633A004A7791 /* ghcard2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED412CB20246336004A7791 /* ghcard2.jpg */; };
 		1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED412CC20246338004A7791 /* ghcard4.jpg */; };
 		1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */; };
-		1ED412D5202471BB004A7791 /* ghbackground2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED412D3202471B3004A7791 /* ghbackground2.jpg */; };
 		1ED412D6202471BB004A7791 /* ghbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED412D4202471B9004A7791 /* ghbackground.jpg */; };
 		1ED412D820247723004A7791 /* ghcard5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED412D720247722004A7791 /* ghcard5.jpg */; };
 		1ED519C9201B2BD60072F09A /* PerksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED519C8201B2BD60072F09A /* PerksViewController.swift */; };
@@ -142,7 +148,6 @@
 		1EEE7363202D92A000A78C97 /* nightshroudSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE7352202D92A000A78C97 /* nightshroudSymbol.png */; };
 		1EEE7366202D9A2F00A78C97 /* soothsingerSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE7364202D9A2E00A78C97 /* soothsingerSymbol.png */; };
 		1EEE7367202D9A2F00A78C97 /* sunkeeperSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE7365202D9A2F00A78C97 /* sunkeeperSymbol.png */; };
-		1EEE736D202DB19400A78C97 /* scenarioSetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE736C202DB19300A78C97 /* scenarioSetup.png */; };
 		1EF640DA2011AC3F00696393 /* ModelDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF640D92011AC3F00696393 /* ModelDatasource.swift */; };
 		85648DCFFAF6C7B3CA14B3C3 /* Pods_GHPlayerSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */; };
 /* End PBXBuildFile section */
@@ -178,6 +183,13 @@
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1E8690D8202C34DF000A8697 /* lockedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockedIcon.png; sourceTree = "<group>"; };
 		1E8690DA202C34E4000A8697 /* unlockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlockIcon.png; sourceTree = "<group>"; };
+		1E8D3A42202DBC830040E15B /* hvcbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hvcbackground.png; sourceTree = "<group>"; };
+		1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup2.png; sourceTree = "<group>"; };
+		1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scenarioSetup.png; path = ../../../../../Downloads/scenarioSetup.png; sourceTree = "<group>"; };
+		1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup4.png; sourceTree = "<group>"; };
+		1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup3.png; sourceTree = "<group>"; };
+		1E8E3833202DCD43008C2FF4 /* NumPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadView.swift; sourceTree = "<group>"; };
+		1E8E3835202DCD7B008C2FF4 /* NumPadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumPadView.xib; sourceTree = "<group>"; };
 		1E940047202AF50500F913D3 /* bruteCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bruteCard.png; path = ../bruteCard.png; sourceTree = "<group>"; };
 		1E940049202AF50600F913D3 /* cragheartCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cragheartCard.png; path = ../cragheartCard.png; sourceTree = "<group>"; };
 		1E940053202B144D00F913D3 /* brute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brute.png; path = ../brute.png; sourceTree = "<group>"; };
@@ -217,7 +229,6 @@
 		1ED412CB20246336004A7791 /* ghcard2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ghcard2.jpg; sourceTree = "<group>"; };
 		1ED412CC20246338004A7791 /* ghcard4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ghcard4.jpg; sourceTree = "<group>"; };
 		1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Random Scenario Cards - Back.jpg"; sourceTree = "<group>"; };
-		1ED412D3202471B3004A7791 /* ghbackground2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ghbackground2.jpg; sourceTree = "<group>"; };
 		1ED412D4202471B9004A7791 /* ghbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ghbackground.jpg; sourceTree = "<group>"; };
 		1ED412D720247722004A7791 /* ghcard5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ghcard5.jpg; sourceTree = "<group>"; };
 		1ED519C8201B2BD60072F09A /* PerksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerksViewController.swift; sourceTree = "<group>"; };
@@ -286,7 +297,6 @@
 		1EEE7352202D92A000A78C97 /* nightshroudSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightshroudSymbol.png; sourceTree = "<group>"; };
 		1EEE7364202D9A2E00A78C97 /* soothsingerSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soothsingerSymbol.png; path = ../../../../../../Downloads/soothsingerSymbol.png; sourceTree = "<group>"; };
 		1EEE7365202D9A2F00A78C97 /* sunkeeperSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sunkeeperSymbol.png; path = ../../../../../../Downloads/sunkeeperSymbol.png; sourceTree = "<group>"; };
-		1EEE736C202DB19300A78C97 /* scenarioSetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup.png; sourceTree = "<group>"; };
 		1EF640D92011AC3F00696393 /* ModelDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDatasource.swift; sourceTree = "<group>"; };
 		64BA18F0448C778F008F615A /* Pods_GHPlayerSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHPlayerSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99432B21D9551D4B46AA8284 /* Pods-GHPlayerSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHPlayerSheet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GHPlayerSheet/Pods-GHPlayerSheet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -345,6 +355,8 @@
 				1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */,
 				1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */,
 				1E2D861A2029A23B009B51E9 /* CharacterCollectionViewCell.swift */,
+				1E8E3833202DCD43008C2FF4 /* NumPadView.swift */,
+				1E8E3835202DCD7B008C2FF4 /* NumPadView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -386,7 +398,10 @@
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1EEE736C202DB19300A78C97 /* scenarioSetup.png */,
+				1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */,
+				1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */,
+				1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */,
+				1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */,
 				1ED412C2202456B1004A7791 /* Blank Map.jpg */,
 				1E038276201AC5E600C6AB12 /* checkedBox.png */,
 				1E038277201AC5E600C6AB12 /* checkmark.png */,
@@ -397,8 +412,8 @@
 				1E30437D2024B790008D6B07 /* exitSign3.png */,
 				1E30437B2024A4DB008D6B07 /* exitSignV.png */,
 				1E1B82E7200F0947002D6E01 /* experienceStar.png */,
+				1E8D3A42202DBC830040E15B /* hvcbackground.png */,
 				1ED412D4202471B9004A7791 /* ghbackground.jpg */,
-				1ED412D3202471B3004A7791 /* ghbackground2.jpg */,
 				1ED412C92024632E004A7791 /* ghcard1.jpg */,
 				1ED412CB20246336004A7791 /* ghcard2.jpg */,
 				1ED412CA20246334004A7791 /* ghcard3.jpg */,
@@ -607,7 +622,7 @@
 				1E209E442019D4AD00A4986A /* levelCrown.png in Resources */,
 				1EEE733D202D897B00A78C97 /* sunkeeper.png in Resources */,
 				1ED412D820247723004A7791 /* ghcard5.jpg in Resources */,
-				1ED412D5202471BB004A7791 /* ghbackground2.jpg in Resources */,
+				1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */,
 				1EEE731F202D897B00A78C97 /* plagueheraldCard.png in Resources */,
 				1EEE732D202D897B00A78C97 /* sawbonesSymbolCard.png in Resources */,
 				1EEE732A202D897B00A78C97 /* soothsingerCard.png in Resources */,
@@ -627,6 +642,7 @@
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
 				1EEE7354202D92A000A78C97 /* bruteSymbol.png in Resources */,
 				1E94005D202B145000F913D3 /* mindthief.png in Resources */,
+				1E8E3836202DCD7B008C2FF4 /* NumPadView.xib in Resources */,
 				1E30439820273B6C008D6B07 /* AddCharacterView.xib in Resources */,
 				1EEE7324202D897B00A78C97 /* mindthiefCard.png in Resources */,
 				1EEE7366202D9A2F00A78C97 /* soothsingerSymbol.png in Resources */,
@@ -641,10 +657,12 @@
 				1EEE7330202D897B00A78C97 /* tinkerer.png in Resources */,
 				1EEE7359202D92A000A78C97 /* spellweaverSymbol.png in Resources */,
 				1ED412C3202456B2004A7791 /* Blank Map.jpg in Resources */,
+				1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */,
 				1EEE732C202D897B00A78C97 /* sawbones.png in Resources */,
 				1E94004E202AF50800F913D3 /* bruteCard.png in Resources */,
 				1EEE7334202D897B00A78C97 /* sawbonesCard.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
+				1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */,
 				1EEE732F202D897B00A78C97 /* doomstalkerSymbolCard.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1EEE735E202D92A000A78C97 /* berserkerSymbol.png in Resources */,
@@ -657,6 +675,7 @@
 				1E038279201AC5E700C6AB12 /* checkmark.png in Resources */,
 				1EEE7367202D9A2F00A78C97 /* sunkeeperSymbol.png in Resources */,
 				1EEE733C202D897B00A78C97 /* nightshroudCard.png in Resources */,
+				1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */,
 				1EEE7313202D897B00A78C97 /* berserkerSymbolCard.png in Resources */,
 				1EEE7323202D897B00A78C97 /* beasttyrantCard.png in Resources */,
 				1EEE731A202D897B00A78C97 /* quatermasterCard.png in Resources */,
@@ -697,8 +716,8 @@
 				1EEE731E202D897B00A78C97 /* spellweaver.png in Resources */,
 				1EEE7332202D897B00A78C97 /* doomstalker.png in Resources */,
 				1EEE7358202D92A000A78C97 /* tinkererSymbol.png in Resources */,
-				1EEE736D202DB19400A78C97 /* scenarioSetup.png in Resources */,
 				1EEE7355202D92A000A78C97 /* plagueheraldSymbol.png in Resources */,
+				1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */,
 				1EEE7338202D897B00A78C97 /* summonerSymbolCard.png in Resources */,
 				1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */,
 				1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */,
@@ -794,6 +813,7 @@
 				1EB4B2A02017381200BF0AB0 /* MPCService.swift in Sources */,
 				1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */,
 				1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */,
+				1E8E3834202DCD43008C2FF4 /* NumPadView.swift in Sources */,
 				1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */,
 				1ED519CD201B419A0072F09A /* PerkViewModel.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
