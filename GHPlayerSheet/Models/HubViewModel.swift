@@ -50,7 +50,7 @@ class HubViewModel {
     }
     
     func infoForCharacter(character: Character) -> [String]{
-        let charSymbol = CharacterClass.characterLockedImageForClass(charClass: character.characterClass)
+        let charSymbol = CharacterClass.characterSymbolForClass(charClass: character.characterClass)
         return [character.name, character.level, charSymbol]
     }
     
@@ -105,7 +105,7 @@ class HubViewModel {
             } else if c.unlocked && !c.owned {
                 classesString.append(CharacterClass.characterUnlockedImageForClass(charClass: c.classOf))
             } else {
-                classesString.append(CharacterClass.characterLockedImageForClass(charClass: c.classOf))
+                classesString.append(CharacterClass.characterSymbolForClass(charClass: c.classOf))
             }
         }
         return classesString

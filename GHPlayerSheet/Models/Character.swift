@@ -2,6 +2,12 @@ import Foundation
 
 class Character: Codable, ModelProtocol {
 
+    class Constant {
+        static let lowHealth = [6,7,8,9,10,11,12,13,14]
+        static let medHealth = [8,9,11,12,14,15,17,18,20]
+        static let highHealth = [10,12,14,16,18,20,22,24,26]
+    }
+    
     let characterClass: CharacterClass.charClass
     private(set) var name: String
     private let creationDate: Date
@@ -52,19 +58,39 @@ class Character: Codable, ModelProtocol {
         var healthValues: [Int]
         switch characterClass {
         case .cragheart:
-            healthValues = [10,12,14,16,18,20,22,24,26]
+            healthValues = Constant.highHealth
         case .scoundrel:
-            healthValues = [8,9,11,12,14,15,17,18,20]
+            healthValues = Constant.medHealth
         case .tinkerer:
-            healthValues = [8,9,11,12,14,15,17,18,20]
+            healthValues = Constant.medHealth
         case .mindthief:
-            healthValues = [6,7,8,9,10,11,12,13,14]
+            healthValues = Constant.lowHealth
         case .spellweaver:
-            healthValues = [6,7,8,9,10,11,12,13,14]
+            healthValues = Constant.lowHealth
         case .brute:
-            healthValues = [10,12,14,16,18,20,22,24,26]
+            healthValues = Constant.highHealth
         case .quartermaster:
-            healthValues = [10,12,14,16,18,20,22,24,26]
+            healthValues = Constant.highHealth
+        case .sunkeeper:
+            healthValues = Constant.highHealth
+        case .soothsinger:
+            healthValues = Constant.lowHealth
+        case .sawbones:
+            healthValues = Constant.medHealth
+        case .berserker:
+            healthValues = Constant.highHealth
+        case .nightshroud:
+            healthValues = Constant.medHealth
+        case .doomstalker:
+            healthValues = Constant.medHealth
+        case .beasttyrant:
+            healthValues = Constant.lowHealth
+        case .summoner:
+            healthValues = Constant.medHealth
+        case .plagueherald:
+            healthValues = Constant.lowHealth
+        case .elementalist:
+            healthValues = Constant.lowHealth
         }
         return String(healthValues[Int(level)!-1])
     }
@@ -91,6 +117,5 @@ class Character: Codable, ModelProtocol {
             return "9"
         }
     }
-    
     
 }

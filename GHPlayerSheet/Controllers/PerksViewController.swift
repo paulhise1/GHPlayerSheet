@@ -16,9 +16,9 @@ class PerksViewController: UIViewController, PerkToAddTableViewCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         perkViewModel = PerkViewModel()
-        if let characterClass = characterClass {
-            buildPerkList(characterClass: characterClass)
-        }
+//        if let characterClass = characterClass {
+//            buildPerkList(characterClass: characterClass)
+//        }
     }
     
     func perkSelectedForActive(perkAt: Int) {
@@ -29,9 +29,9 @@ class PerksViewController: UIViewController, PerkToAddTableViewCellDelegate {
         self.characterClass = characterClass
     }
   
-    func buildPerkList(characterClass: CharacterClass.charClass) {
-            perks = Perk.perksList(perksFor: characterClass)
-    }
+//    func buildPerkList(characterClass: CharacterClass.charClass) {
+//            perks = Perk.perksList(perksFor: characterClass)
+//    }
     
     func symbolListShouldShow(sender: PerkToAddViewController) {
         delegate?.perkSymbolListRequested()

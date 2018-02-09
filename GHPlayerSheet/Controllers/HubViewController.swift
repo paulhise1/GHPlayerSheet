@@ -8,6 +8,11 @@ class HubViewController: UIViewController {
         static let characterCellID = "CharacterCollectionViewCell"
     }
     
+    @IBOutlet weak var backgroundImage: UIImageView! {
+        didSet {
+            backgroundImage.image = UIImage(named: "ghbackground2")
+        }
+    }
     @IBOutlet weak var characterInfoLabel: UILabel!
     @IBOutlet weak var characterLevelLabel: UILabel!
     @IBOutlet weak var characterSymbolImage: UIImageView!
@@ -51,12 +56,6 @@ class HubViewController: UIViewController {
         super.viewDidLoad()
         
         self.viewModel = HubViewModel()
-
-        partyNameLabel.text = viewModel?.partyName
-        
-        charactersCollectionView.delegate = self
-        charactersCollectionView.dataSource = self
-        
         setupDisplay()
         }
     
@@ -95,6 +94,7 @@ class HubViewController: UIViewController {
     }
     
     private func setupDisplay() {
+        partyNameLabel.text = viewModel?.partyName
         addCharacterContainerView.isHidden = true
         characterInfoLabel.isHidden = true
         characterLevelLabel.isHidden = true
@@ -103,6 +103,8 @@ class HubViewController: UIViewController {
         unlockButtonBackgroundImage.isHidden = true
         addCharacterButton.isHidden = true
         unlockCharacterContainerView.isHidden = true
+        charactersCollectionView.delegate = self
+        charactersCollectionView.dataSource = self
     }
     
     func displayCharacterInfo(character: Character) {
@@ -126,7 +128,7 @@ class HubViewController: UIViewController {
         unlockButtonBackgroundImage.isHidden = true
         unlockCharacterButton.isHidden = true
         addCharacterButton.isHidden = false
-        addCharacterButton.setImage(UIImage(named: CharacterClass.characterLockedImageForClass(charClass: charClass)), for: .normal)
+        addCharacterButton.setBackgroundImage(UIImage(named: CharacterClass.characterSymbolForClass(charClass: charClass)), for: .normal)
     }
 
     func displayUnlockCharacter(charClass: CharacterClass.charClass) {
@@ -137,7 +139,7 @@ class HubViewController: UIViewController {
         unlockButtonBackgroundImage.isHidden = false
         unlockCharacterButton.isHidden = false
         unlockCharacterButton.setImage(UIImage(named: "lockedIcon"), for: .normal)
-        unlockButtonBackgroundImage.image = UIImage(named: CharacterClass.characterLockedImageForClass(charClass: charClass))
+        unlockButtonBackgroundImage.image = UIImage(named: CharacterClass.characterSymbolForClass(charClass: charClass))
     }
     
     func resetCollectionViewWithItemMove() {
@@ -204,7 +206,7 @@ extension HubViewController: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0
+        return 10.0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

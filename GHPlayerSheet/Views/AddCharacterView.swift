@@ -102,6 +102,11 @@ class AddCharacterView: UIView {
             amount = amount + sender.titleLabel!.text!
             amountLabel.text = amount
         }
+        if let amountInt = Int(amount) {
+            if amountInt > 500 {
+                amountLabel.text = "500"
+            }
+        }
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
