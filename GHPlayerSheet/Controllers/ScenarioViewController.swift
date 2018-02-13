@@ -35,27 +35,24 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet weak var player4StatStack: UIStackView!
     
     private var viewModel: ScenarioViewModel?
-    private var partyName: String?
-    private var playerName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         setupCounters()
         updateStackViews()
         setPartyAndPlayerNameLabels()
     }
-    
-    func configure(name: String, health: String, scenerioService: ScenarioService, partyName: String, playerName: String) {
-        self.viewModel = ScenarioViewModel(name: name, maxHealth: health, service: scenerioService)
+   
+    func configure(partyName: String, character: Character, scenario: Scenario, difficulty: Int) {
+        self.viewModel = ScenarioViewModel(partyName: partyName, character: character, scenario: scenario, difficulty: difficulty)
         self.viewModel?.delegate = self
-        self.partyName = partyName
-        self.playerName = playerName
     }
     
     func setPartyAndPlayerNameLabels() {
-        guard let party = partyName, let player = playerName else { return }
-        self.partyNameLabel.text = party
-        self.selfNameLabel.text = player
+        partyNameLabel.text = viewModel?.party
+        selfNameLabel.text = viewModel?.player.name
     }
     
     func counterValueDidChange(value: String, type: CounterType) {
@@ -69,17 +66,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         }
     }
     
-    @IBAction func exitButtonTapped(_ sender: Any) {
-        
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.toHubVCSegueID {
-            viewModel?.removePlayerFromSerivce()
-        }
-    }
-    
     //MARK: - Setup Child Views
     func setupCounters() {
         setupHealthCounterView()
@@ -90,7 +76,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     func setupHealthCounterView() {
         guard let healthCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView, let vm = viewModel else { return }
         healthCounterView.frame = healthTrackerContainerView.bounds
-        healthCounterView.configure(value: vm.currentHealth, counterType: .health, maxValue: vm.maxHealth)
+        healthCounterView.configure(value: vm.player.health, counterType: .health, maxValue: vm.player.maxHealth)
         healthTrackerContainerView.addSubview(healthCounterView)
         healthCounterView.delegate = self
     }
@@ -98,7 +84,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     func setupExperienceCounterView() {
         guard let experienceCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView, let vm = viewModel else { return }
         experienceCounterView.frame = experienceTrackerContainerView.bounds
-        experienceCounterView.configure(value: vm.currentExperience, counterType: CounterType.experience)
+        experienceCounterView.configure(value: vm.player.experience, counterType: CounterType.experience)
         experienceTrackerContainerView.addSubview(experienceCounterView)
         experienceCounterView.delegate = self
     }
@@ -119,16 +105,16 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         player4StatStack.isHidden = !(count > 2)
         noOtherPlayersLabel.isHidden = !(count == 0)
     }
-    
 }
 
 extension ScenarioViewController: ScenarioViewModelDelegate {
-    func didUpdatePlayers(players: [Player]) {
+    
+    func didUpdatePlayers(players: [ScenarioPlayer]) {
         updateStackViews()
         displayPlayersData(players: players)
     }
     
-    func displayPlayersData(players: [Player]) {
+    func displayPlayersData(players: [ScenarioPlayer]) {
         var i = 0
         for player in players {
             playerNameLabels[i].text = player.name
@@ -143,7 +129,3 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
         scenarioGoalLabel.text = goal
     }
 }
-
-
-
-

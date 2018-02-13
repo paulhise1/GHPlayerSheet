@@ -2,7 +2,7 @@ import UIKit
 import DynamicBlurView
 
 
-class CharacterSheetViewController: UIViewController, PerksViewControllerDelegate {
+class CharacterSheetViewController: UIViewController {
     
     //MARK: - Constants
     struct Constants {
@@ -224,10 +224,10 @@ extension CharacterSheetViewController {
             perksNavController.view.frame = perksContainerView.bounds
             perksContainerView.addSubview(perksNavController.view)
             perksNavController.didMove(toParentViewController: self)
-            if let viewModel = viewModel, let perksVC = perksNavController.topViewController as? PerksViewController {
-                perksVC.configure(with: viewModel.characterModel.characterClass)
-                perksVC.delegate = self
-            }
+//            if let viewModel = viewModel, let perksVC = perksNavController.topViewController as? PerksViewController {
+//                perksVC.configure(with: viewModel.characterModel.characterClass)
+//                perksVC.delegate = self
+//            }
         }
     }
     

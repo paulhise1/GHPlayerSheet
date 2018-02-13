@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PirataOne-Gloomhaven.ttf">
+            <string>PirataOne-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rE3-0f-Tez" customClass="AddCharactersView" customModule="GHPlayerSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="n20-QS-yrL">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AX9-Nw-fu1">
+                        <size key="itemSize" width="100" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gG1-D8-J0E">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwd-hp-hE4">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                            <connections>
+                                <action selector="dismissCharacterCreationButtonTapped:" destination="rE3-0f-Tez" eventType="touchUpInside" id="gai-TG-1xi"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-kI-bAn">
+                            <rect key="frame" x="120" y="0.0" width="360" height="250"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="centerY" secondItem="gG1-D8-J0E" secondAttribute="centerY" id="8Ea-2V-lZC"/>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="centerX" secondItem="gG1-D8-J0E" secondAttribute="centerX" id="9Jo-Ec-aet"/>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="height" secondItem="gG1-D8-J0E" secondAttribute="height" id="DUu-eB-MqP"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="width" secondItem="gG1-D8-J0E" secondAttribute="width" multiplier="0.6" id="Gnk-E2-AK8"/>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="width" secondItem="gG1-D8-J0E" secondAttribute="width" id="Myj-TB-b2S"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="centerX" secondItem="gG1-D8-J0E" secondAttribute="centerX" id="VD1-0n-i80"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="height" secondItem="gG1-D8-J0E" secondAttribute="height" id="YSF-ir-X6u"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="centerY" secondItem="gG1-D8-J0E" secondAttribute="centerY" id="Z8p-EX-88v"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9L-a1-Ws4">
+                    <rect key="frame" x="20" y="0.0" width="30" height="77"/>
+                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="50"/>
+                    <state key="normal" title="&gt;">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="backButtonTapped:" destination="rE3-0f-Tez" eventType="touchUpInside" id="0TB-8d-ae9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="gG1-D8-J0E" firstAttribute="centerX" secondItem="n20-QS-yrL" secondAttribute="centerX" id="0V0-uu-qXG"/>
+                <constraint firstItem="gG1-D8-J0E" firstAttribute="centerY" secondItem="n20-QS-yrL" secondAttribute="centerY" id="7BV-3e-C5A"/>
+                <constraint firstItem="n20-QS-yrL" firstAttribute="top" secondItem="E61-VX-HFM" secondAttribute="top" id="Cyt-UD-fgc"/>
+                <constraint firstItem="gG1-D8-J0E" firstAttribute="height" secondItem="n20-QS-yrL" secondAttribute="height" id="I5W-eF-iTJ"/>
+                <constraint firstItem="q9L-a1-Ws4" firstAttribute="leading" secondItem="E61-VX-HFM" secondAttribute="leading" constant="20" id="QPl-lf-sLj"/>
+                <constraint firstItem="q9L-a1-Ws4" firstAttribute="top" secondItem="E61-VX-HFM" secondAttribute="top" id="WgX-p9-Qwn"/>
+                <constraint firstAttribute="bottom" secondItem="n20-QS-yrL" secondAttribute="bottom" id="X6B-h1-beO"/>
+                <constraint firstItem="E61-VX-HFM" firstAttribute="trailing" secondItem="n20-QS-yrL" secondAttribute="trailing" id="bLj-Yn-7pK"/>
+                <constraint firstItem="gG1-D8-J0E" firstAttribute="width" secondItem="n20-QS-yrL" secondAttribute="width" id="bn6-LB-uLM"/>
+                <constraint firstItem="n20-QS-yrL" firstAttribute="leading" secondItem="rE3-0f-Tez" secondAttribute="leading" id="gCW-tM-gr8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="E61-VX-HFM"/>
+            <connections>
+                <outlet property="addCharactersCollectionView" destination="n20-QS-yrL" id="w44-vj-NfJ"/>
+                <outlet property="backButton" destination="q9L-a1-Ws4" id="zNP-dj-yXR"/>
+                <outlet property="characterCreationContainerView" destination="2y0-kI-bAn" id="05V-Uo-2lE"/>
+                <outlet property="characterCreationWithButtonContainerView" destination="gG1-D8-J0E" id="Ocw-KA-J2l"/>
+            </connections>
+            <point key="canvasLocation" x="-128" y="-672"/>
+        </view>
+    </objects>
+</document>

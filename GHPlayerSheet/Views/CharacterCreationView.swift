@@ -1,11 +1,11 @@
 import UIKit
 
-protocol AddCharacterViewDelegate: class {
+protocol CharacterCreationViewDelegate: class {
     func didCancelCharacterCreation()
     func didCreateCharacter(name: String, experience: Int)
 }
 
-class AddCharacterView: UIView {
+class CharacterCreationView: UIView {
 
     struct Constant {
         static let experienceLabel1 = "Enter Your"
@@ -15,7 +15,7 @@ class AddCharacterView: UIView {
         static let acceptButtonCreateTitle = "Create!"
     }
     
-    weak var delegate: AddCharacterViewDelegate?
+    weak var delegate: CharacterCreationViewDelegate?
     
     @IBOutlet weak var characterCreationLabel1: UILabel!
     @IBOutlet weak var characterCreationLabel2: UILabel!
@@ -37,12 +37,11 @@ class AddCharacterView: UIView {
     private var numPadView: NumPadView?
     private var experience: String?
     private var name: String?
-    private var characterClass: CharacterClass.charClass?
+    private var classType: ClassType?
     
-    
-    func configure(charClass: CharacterClass.charClass) {
-        characterClass = charClass
-        classSymbolImageView.image = UIImage(named: CharacterClass.characterSymbolForClass(charClass: charClass))
+    func configure(classType: ClassType) {
+        self.classType = classType
+        classSymbolImageView.image = UIImage(named: ClassTypeData.icon(for: classType))
         nameTextField.isHidden = true
         characterInfoLabel.isHidden = true
         acceptButton.isEnabled = false
@@ -78,7 +77,7 @@ class AddCharacterView: UIView {
             characterCreationLabel2.text = Constant.characterLabel2
             guard let xp = self.experience, let intXp = Int(xp) else { return }
             levelLabel.isHidden = false
-            levelLabel.text = "Level \(Character.levelForExperience(experience: intXp))"
+            levelLabel.text = "Level \(ClassTypeData.level(for: intXp))"
         }
     }
     
@@ -91,22 +90,15 @@ class AddCharacterView: UIView {
         levelLabel.isHidden = true
         nameTextField.isHidden = true
         classSymbolImageView.isHidden = true
-        guard let name = name, let xp = self.experience, let intXp = Int(xp), let charClass = characterClass else { return }
-        classSymbolLargeImageView.image = UIImage(named: CharacterClass.characterSymbolForClass(charClass: charClass))
-        characterInfoLabel.text = "\(name), A level \(Character.levelForExperience(experience: intXp)) \(charClass.rawValue)"
+        guard let name = name, let xp = self.experience, let intXp = Int(xp), let classType = classType else { return }
+        classSymbolLargeImageView.image = UIImage(named: ClassTypeData.icon(for: classType))
+        characterInfoLabel.text = "\(name), A level \(ClassTypeData.level(for: intXp)) \(classType.rawValue)"
         characterInfoLabel.isHidden = false
         acceptButton.setTitle(Constant.acceptButtonCreateTitle, for: .normal)
     }
-
-    
-    
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        delegate?.didCancelCharacterCreation()
-    }
-    
 }
 
-extension AddCharacterView: NumPadViewDelegate, UITextFieldDelegate {
+extension CharacterCreationView: NumPadViewDelegate, UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         name = nameTextField.text
         if name == "" {
@@ -142,6 +134,4 @@ extension AddCharacterView: NumPadViewDelegate, UITextFieldDelegate {
     func showingValidEntry() {
         acceptButton.isEnabled = true
     }
-    
-    
 }

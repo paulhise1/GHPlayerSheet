@@ -2,8 +2,6 @@ import Foundation
 import FirebaseDatabase
 
 class FirebaseService: ScenarioService {
-    
-    
 
     struct Constant {
         static let playerKey = "players"
@@ -37,7 +35,7 @@ class FirebaseService: ScenarioService {
 //        configurePlayersListener()
 //    }
     
-    func pushPlayerToService(player: Player) {
+    func pushPlayerToService(player: ScenarioPlayer) {
         configurePlayersListener()
         let playerName = player.name
         let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth]
@@ -45,7 +43,7 @@ class FirebaseService: ScenarioService {
         database.child(party).child(Constant.playerKey).child(playerName).setValue(playerInfo)
     }
     
-    func removePlayerFromService(player: Player) {
+    func removePlayerFromService(player: ScenarioPlayer) {
         guard let party = partyName else { return }
         database.child(party).child(Constant.playerKey).child(player.name).removeValue()
         addScenarioInfoListener()
@@ -73,10 +71,10 @@ class FirebaseService: ScenarioService {
     
     private func processPlayers(snapshot: DataSnapshot) {
         guard let playerDictFromFirebase = snapshot.value as? [String: [String: String]] else { return }
-        var players = [Player]()
+        var players = [ScenarioPlayer]()
         for (player, stats) in playerDictFromFirebase {
             guard let health = stats[Constant.healthKey], let exp = stats[Constant.experienceKey], let maxHealth = stats[Constant.maxHealthKey] else { return }
-            players.append(Player(name: player, experience: exp, health: health, maxHealth: maxHealth))
+            players.append(ScenarioPlayer(name: player, experience: exp, health: health, maxHealth: maxHealth))
         }
         self.delegate?.didUpdatePlayers(players: players)
     }

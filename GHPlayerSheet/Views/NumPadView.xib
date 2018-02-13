@@ -177,7 +177,19 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="amountLabel" destination="GlF-xC-OY2" id="Ek5-Dj-vjQ"/>
+                <outletCollection property="numberButtons" destination="Fja-PG-qAL" collectionClass="NSMutableArray" id="IdX-RO-H5l"/>
+                <outletCollection property="numberButtons" destination="Qtb-8E-6tl" collectionClass="NSMutableArray" id="tQN-6S-vSU"/>
+                <outletCollection property="numberButtons" destination="tS3-5g-vUS" collectionClass="NSMutableArray" id="wDr-PW-Do4"/>
+                <outletCollection property="numberButtons" destination="zYT-4A-1h8" collectionClass="NSMutableArray" id="WzW-NV-osg"/>
+                <outletCollection property="numberButtons" destination="NYL-V1-rNw" collectionClass="NSMutableArray" id="3be-jn-v28"/>
+                <outletCollection property="numberButtons" destination="ssk-VY-Lo3" collectionClass="NSMutableArray" id="aN0-37-BiE"/>
+                <outletCollection property="numberButtons" destination="Qdb-LO-nCm" collectionClass="NSMutableArray" id="XNt-2n-mPs"/>
+                <outletCollection property="numberButtons" destination="3hq-GC-srS" collectionClass="NSMutableArray" id="NnD-zU-Mhn"/>
+                <outletCollection property="numberButtons" destination="Hft-EI-fJ7" collectionClass="NSMutableArray" id="sOK-2y-YWB"/>
+                <outletCollection property="numberButtons" destination="EEZ-pb-oiZ" collectionClass="NSMutableArray" id="NpS-cd-yEX"/>
+                <outletCollection property="numberButtons" destination="xAh-YS-HfA" collectionClass="NSMutableArray" id="aOf-zk-28W"/>
             </connections>
+            <point key="canvasLocation" x="-197" y="40"/>
         </view>
     </objects>
 </document>

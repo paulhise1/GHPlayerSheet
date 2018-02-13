@@ -11,9 +11,17 @@ class NumPadView: UIView {
     
     @IBOutlet weak var amountLabel: UILabel!
 
+    @IBOutlet var numberButtons: [UIButton]!
+    
     var maxNumber: Int?
     var digitsAllowed: Int?
     
+    func setNumbersColor(color: UIColor) {
+        amountLabel.textColor = color
+        for button in numberButtons {
+            button.setTitleColor(color, for: .normal)
+        }
+    }
     
     @IBAction func numberButtonTapped(_ sender: UIButton) {
         var amount = amountLabel.text!

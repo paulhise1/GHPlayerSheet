@@ -2,61 +2,73 @@ import Foundation
 
 protocol ScenarioService {
     weak var delegate: ScenarioServiceDelegate? {get set}
-    func pushPlayerToService(player: Player)
+    func pushPlayerToService(player: ScenarioPlayer)
     func createScenario(partyName: String, number: String)
     func addScenarioInfoListener()
     //func updatePartyName(partyName: String)
-    func removePlayerFromService(player: Player)
+    func removePlayerFromService(player: ScenarioPlayer)
 }
 
 protocol ScenarioServiceDelegate: class {
-    func didUpdatePlayers(players: [Player])
+    func didUpdatePlayers(players: [ScenarioPlayer])
     func didGetScenarioNumber(scenarioNumber: String)
 }
 
-struct Player: Hashable, Equatable {
+struct ScenarioPlayer: Hashable, Equatable {
     var hashValue: Int {
         return name.hashValue
     }
+    
     var name: String
-    var experience: String
+    var experience = "0"
     var health: String
     var maxHealth: String
     
-    static func ==(lhs: Player, rhs: Player) -> Bool {
+    init(from character: Character) {
+        self.name = character.name
+        self.health = String(character.health)
+        self.maxHealth = String(character.health)
+        self.health = String(character.health)
+    }
+    
+    init(name: String, experience: String, health: String, maxHealth: String) {
+        self.name = name
+        self.experience = experience
+        self.health = health
+        self.maxHealth = maxHealth
+    }
+    
+    static func ==(lhs: ScenarioPlayer, rhs: ScenarioPlayer) -> Bool {
         return lhs.name == rhs.name
     }
 }
 
 protocol ScenarioViewModelDelegate: class {
-    func didUpdatePlayers(players: [Player])
+    func didUpdatePlayers(players: [ScenarioPlayer])
     func setupLabelsForScenario(name: String, goal: String)
 }
 
 class ScenarioViewModel {
     
-    private var players = [Player]()
-    private var service: ScenarioService
-    
     weak var delegate: ScenarioViewModelDelegate?
     
-    private(set) var name: String
-    private(set) var maxHealth: String
-    private(set) var currentHealth: String
-    private(set) var currentExperience = "0"
-    private var player: Player
+    private var players = [ScenarioPlayer]()
+    private var service: ScenarioService
+    
+    private(set) var player: ScenarioPlayer
+    private(set) var party: String
+    let scenario: Scenario
+    
     
     var playerCount: Int {
         return players.count
     }
     
-    init(name: String, maxHealth: String, service: ScenarioService) {
-        // This may not be the values we really want on init
-        self.name = name
-        self.maxHealth = maxHealth
-        self.currentHealth = maxHealth
-        self.service = service
-        self.player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
+    init(partyName: String, character: Character, scenario: Scenario, difficulty: Int) {
+        self.party = partyName
+        self.scenario = scenario
+        self.player = ScenarioPlayer(from: character)
+        self.service = FirebaseService.self as! ScenarioService
         self.service.delegate = self
         addPlayerToService()
     }
@@ -71,21 +83,18 @@ class ScenarioViewModel {
     }
     
     func updateCurrentHealth(value: String) {
-        currentHealth = value
-        let player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
+        player.health = value
         service.pushPlayerToService(player: player)
     }
     
     func updateCurrentExperience(value: String) {
-        currentExperience = value
-        let player = Player(name: name, experience: currentExperience, health: currentHealth, maxHealth: maxHealth)
+        player.experience = value
         service.pushPlayerToService(player: player)
     }
-    
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {
-    func didUpdatePlayers(players: [Player]) {
+    func didUpdatePlayers(players: [ScenarioPlayer]) {
         self.players = players.filter{ $0 != self.player}
         delegate?.didUpdatePlayers(players: self.players)
     }
