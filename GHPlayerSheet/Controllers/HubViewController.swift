@@ -25,6 +25,7 @@ class HubViewController: UIViewController {
         super.viewDidLoad()
         
         self.viewModel = HubViewModel()
+        
         setupDisplay()
     }
     
@@ -32,6 +33,15 @@ class HubViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = UIImage(named: "hvcbackground")
         self.setupAddCharactersView()
+        guard let player = viewModel?.player else {
+            characterInfoLabel.isHidden = true
+            characterLevelLabel.isHidden = true
+            characterImageView.isHidden = true
+            return
+        }
+        characterImageView.image = viewModel?.activeCharacterImage()
+        characterInfoLabel.text = player.activeCharacter.name
+        characterLevelLabel.text = String(player.activeCharacter.level)
     }
     
     @IBAction func addCharacterTapped(_ sender: Any) {
@@ -65,7 +75,12 @@ class HubViewController: UIViewController {
     }
 }
 
-extension HubViewController: AddCharactersViewDelegate {    
+extension HubViewController: AddCharactersViewDelegate {
+    func didRecieveCharacterForCreation(character: Character) {
+        viewModel?.addCharacterToPlayer(character: character)
+        hideAddCharacter()
+    }
+    
     func didTapBackButton() {
         hideAddCharacter()
     }

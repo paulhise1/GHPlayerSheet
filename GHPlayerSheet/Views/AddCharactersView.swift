@@ -2,6 +2,7 @@ import UIKit
 
 protocol AddCharactersViewDelegate: class {
     func didTapBackButton()
+    func didRecieveCharacterForCreation(character: Character)
 }
 
 class AddCharactersView: UIView {
@@ -28,8 +29,7 @@ class AddCharactersView: UIView {
     }
     
     @IBAction func dismissCharacterCreationButtonTapped(_ sender: Any) {
-        characterCreationView?.removeFromSuperview()
-        characterCreationWithButtonContainerView.isHidden = true
+        dismissCharacterCreationView()
     }
     
     private func setupCharacterCreationView(classType: ClassType) {
@@ -39,9 +39,25 @@ class AddCharactersView: UIView {
             ccView.frame = characterCreationContainerView.bounds
             ccView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             ccView.configure(classType: classType)
+            ccView.delegate = self
             characterCreationView = ccView
+            
         }
     }
+    
+    private func dismissCharacterCreationView() {
+        characterCreationView?.removeFromSuperview()
+        characterCreationWithButtonContainerView.isHidden = true
+    }
+    
+}
+
+extension AddCharactersView: CharacterCreationViewDelegate {
+    func didCreateCharacter(character: Character) {
+        dismissCharacterCreationView()
+        delegate?.didRecieveCharacterForCreation(character: character)
+    }
+    
     
 }
 

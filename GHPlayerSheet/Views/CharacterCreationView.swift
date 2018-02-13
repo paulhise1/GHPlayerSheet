@@ -1,8 +1,7 @@
 import UIKit
 
 protocol CharacterCreationViewDelegate: class {
-    func didCancelCharacterCreation()
-    func didCreateCharacter(name: String, experience: Int)
+    func didCreateCharacter(character: Character)
 }
 
 class CharacterCreationView: UIView {
@@ -59,8 +58,9 @@ class CharacterCreationView: UIView {
         } else if characterCreationLabel2.text == Constant.characterLabel2 {
             acceptEnteredName()
         } else if acceptButton.title(for: .normal)! == Constant.acceptButtonCreateTitle {
-            guard let name = name, let xp = experience, let intXp = Int(xp) else { return }
-            delegate?.didCreateCharacter(name: name, experience: intXp)
+            guard let classType = classType, let name = name, let xp = experience, let intXp = Int(xp) else { return }
+            let character = Character(classType: classType, name: name, experience: intXp)
+            delegate?.didCreateCharacter(character: character)
         }
     }
     

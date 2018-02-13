@@ -31,30 +31,6 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gG1-D8-J0E">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwd-hp-hE4">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
-                            <connections>
-                                <action selector="dismissCharacterCreationButtonTapped:" destination="rE3-0f-Tez" eventType="touchUpInside" id="gai-TG-1xi"/>
-                            </connections>
-                        </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-kI-bAn">
-                            <rect key="frame" x="120" y="0.0" width="360" height="250"/>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="centerY" secondItem="gG1-D8-J0E" secondAttribute="centerY" id="8Ea-2V-lZC"/>
-                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="centerX" secondItem="gG1-D8-J0E" secondAttribute="centerX" id="9Jo-Ec-aet"/>
-                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="height" secondItem="gG1-D8-J0E" secondAttribute="height" id="DUu-eB-MqP"/>
-                        <constraint firstItem="2y0-kI-bAn" firstAttribute="width" secondItem="gG1-D8-J0E" secondAttribute="width" multiplier="0.6" id="Gnk-E2-AK8"/>
-                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="width" secondItem="gG1-D8-J0E" secondAttribute="width" id="Myj-TB-b2S"/>
-                        <constraint firstItem="2y0-kI-bAn" firstAttribute="centerX" secondItem="gG1-D8-J0E" secondAttribute="centerX" id="VD1-0n-i80"/>
-                        <constraint firstItem="2y0-kI-bAn" firstAttribute="height" secondItem="gG1-D8-J0E" secondAttribute="height" id="YSF-ir-X6u"/>
-                        <constraint firstItem="2y0-kI-bAn" firstAttribute="centerY" secondItem="gG1-D8-J0E" secondAttribute="centerY" id="Z8p-EX-88v"/>
-                    </constraints>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9L-a1-Ws4">
                     <rect key="frame" x="20" y="0.0" width="30" height="77"/>
                     <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="50"/>
@@ -65,6 +41,30 @@
                         <action selector="backButtonTapped:" destination="rE3-0f-Tez" eventType="touchUpInside" id="0TB-8d-ae9"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gG1-D8-J0E">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwd-hp-hE4">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                            <connections>
+                                <action selector="dismissCharacterCreationButtonTapped:" destination="rE3-0f-Tez" eventType="touchUpInside" id="gai-TG-1xi"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-kI-bAn">
+                            <rect key="frame" x="135" y="25" width="330" height="200"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="centerY" secondItem="gG1-D8-J0E" secondAttribute="centerY" id="8Ea-2V-lZC"/>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="centerX" secondItem="gG1-D8-J0E" secondAttribute="centerX" id="9Jo-Ec-aet"/>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="height" secondItem="gG1-D8-J0E" secondAttribute="height" id="DUu-eB-MqP"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="width" secondItem="gG1-D8-J0E" secondAttribute="width" multiplier="0.55" id="Gnk-E2-AK8"/>
+                        <constraint firstItem="Zwd-hp-hE4" firstAttribute="width" secondItem="gG1-D8-J0E" secondAttribute="width" id="Myj-TB-b2S"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="centerX" secondItem="gG1-D8-J0E" secondAttribute="centerX" id="VD1-0n-i80"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="height" secondItem="gG1-D8-J0E" secondAttribute="height" multiplier="0.8" id="YSF-ir-X6u"/>
+                        <constraint firstItem="2y0-kI-bAn" firstAttribute="centerY" secondItem="gG1-D8-J0E" secondAttribute="centerY" id="Z8p-EX-88v"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
                 <constraint firstItem="gG1-D8-J0E" firstAttribute="centerX" secondItem="n20-QS-yrL" secondAttribute="centerX" id="0V0-uu-qXG"/>
