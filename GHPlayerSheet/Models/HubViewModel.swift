@@ -44,6 +44,11 @@ class HubViewModel {
         playerDatasource?.update(model: player)
     }
     
+    func ownedCharacters() -> [Character] {
+        guard let player = player, let owned = player.ownedCharacters else { return [Character]() }
+        return owned
+    }
+    
     private func loadPlayer() {
         if let playerCheck = playerDatasource?.count() {
             if playerCheck > 0 {

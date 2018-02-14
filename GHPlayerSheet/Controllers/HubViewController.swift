@@ -17,7 +17,11 @@ class HubViewController: UIViewController {
     
     @IBOutlet weak var addCharacterContainerView: UIView!
     @IBOutlet weak var showAddCharacterContainerConstraint: NSLayoutConstraint!
-    @IBOutlet weak var collectionViewContainerView: UIView!
+    @IBOutlet weak var classesCollectionContainerView: UIView!
+    
+    @IBOutlet weak var changeCharacterContainerView: UIView!
+    @IBOutlet weak var ownedCollectionContainerView: UIView!
+    @IBOutlet weak var showChangeCharacterContainerConstraint: NSLayoutConstraint!
     
     private var viewModel: HubViewModel?
     
@@ -32,20 +36,18 @@ class HubViewController: UIViewController {
     private func setupDisplay() {
         self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = UIImage(named: "hvcbackground")
-        self.setupAddCharactersView()
+        setupAddCharactersView()
+        setupChangeCharacterView()
         guard let player = viewModel?.player else {
             characterInfoLabel.isHidden = true
             characterLevelLabel.isHidden = true
             characterImageView.isHidden = true
             return
         }
-        characterImageView.image = viewModel?.activeCharacterImage()
-        characterInfoLabel.text = player.activeCharacter.name
-        characterLevelLabel.text = String(player.activeCharacter.level)
+        displayCharacterInfo(player: player)
     }
     
     @IBAction func addCharacterTapped(_ sender: Any) {
-        view.bringSubview(toFront: backgroundImage)
         view.bringSubview(toFront: addCharacterContainerView)
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
@@ -54,34 +56,83 @@ class HubViewController: UIViewController {
         })
     }
     
+    @IBAction func changeCharacterTapped(_ sender: Any) {
+        view.bringSubview(toFront: changeCharacterContainerView)
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.showChangeCharacterContainerConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     // MARK: Helpers
     private func setupAddCharactersView() {
         let addCharactersView = Bundle.main.loadNibNamed(String(describing: AddCharactersView.self), owner: self, options: nil)?.first as? AddCharactersView
         if let addCharactersView = addCharactersView {
-            collectionViewContainerView.addSubview(addCharactersView)
-            addCharactersView.frame = collectionViewContainerView.bounds
+            classesCollectionContainerView.addSubview(addCharactersView)
+            addCharactersView.frame = classesCollectionContainerView.bounds
             addCharactersView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             addCharactersView.configure()
             addCharactersView.delegate = self
         }
     }
     
-    private func hideAddCharacter(){
+    private func setupChangeCharacterView() {
+        let changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
+        guard let ccView = changeCharacterView else { return }
+        ownedCollectionContainerView.addSubview(ccView)
+        ccView.frame = ownedCollectionContainerView.bounds
+        ccView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        ccView.delegate = self
+        guard let ownedCharacters = viewModel?.ownedCharacters() else { return }
+        ccView.configure(ownedCharacters: ownedCharacters)
+        
+    }
+    
+    private func hideAddCharacter() {
+        self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.showAddCharacterContainerConstraint.priority = UILayoutPriority.defaultLow
             self.view.layoutIfNeeded()
         })
-        self.view.sendSubview(toBack: self.backgroundImage)
+    }
+    
+    private func hideChangeCharacter() {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.showChangeCharacterContainerConstraint.priority = UILayoutPriority.defaultLow
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    private func displayCharacterInfo(player: Player) {
+        characterInfoLabel.isHidden = false
+        characterLevelLabel.isHidden = false
+        characterImageView.isHidden = false
+        characterImageView.image = viewModel?.activeCharacterImage()
+        characterInfoLabel.text = player.activeCharacter.name
+        characterLevelLabel.text = String(player.activeCharacter.level)
     }
 }
 
-extension HubViewController: AddCharactersViewDelegate {
+extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDelegate {
+    
     func didRecieveCharacterForCreation(character: Character) {
         viewModel?.addCharacterToPlayer(character: character)
         hideAddCharacter()
+        guard let player = viewModel?.player else { return }
+        displayCharacterInfo(player: player)
     }
     
-    func didTapBackButton() {
+    func didTapAddCharacterBackButton() {
         hideAddCharacter()
+    }
+    
+    func didTapChangeCharacterBackButton() {
+        hideChangeCharacter()
+    }
+    
+    func didSelectChangeActiveCharacter(character: Character) {
+        
     }
 }

@@ -69,12 +69,12 @@
             <constraints>
                 <constraint firstItem="gG1-D8-J0E" firstAttribute="centerX" secondItem="n20-QS-yrL" secondAttribute="centerX" id="0V0-uu-qXG"/>
                 <constraint firstItem="gG1-D8-J0E" firstAttribute="centerY" secondItem="n20-QS-yrL" secondAttribute="centerY" id="7BV-3e-C5A"/>
-                <constraint firstItem="n20-QS-yrL" firstAttribute="top" secondItem="E61-VX-HFM" secondAttribute="top" id="Cyt-UD-fgc"/>
+                <constraint firstItem="n20-QS-yrL" firstAttribute="top" secondItem="rE3-0f-Tez" secondAttribute="top" id="Cyt-UD-fgc"/>
                 <constraint firstItem="gG1-D8-J0E" firstAttribute="height" secondItem="n20-QS-yrL" secondAttribute="height" id="I5W-eF-iTJ"/>
                 <constraint firstItem="q9L-a1-Ws4" firstAttribute="leading" secondItem="E61-VX-HFM" secondAttribute="leading" constant="20" id="QPl-lf-sLj"/>
                 <constraint firstItem="q9L-a1-Ws4" firstAttribute="top" secondItem="E61-VX-HFM" secondAttribute="top" id="WgX-p9-Qwn"/>
                 <constraint firstAttribute="bottom" secondItem="n20-QS-yrL" secondAttribute="bottom" id="X6B-h1-beO"/>
-                <constraint firstItem="E61-VX-HFM" firstAttribute="trailing" secondItem="n20-QS-yrL" secondAttribute="trailing" id="bLj-Yn-7pK"/>
+                <constraint firstAttribute="trailing" secondItem="n20-QS-yrL" secondAttribute="trailing" id="bLj-Yn-7pK"/>
                 <constraint firstItem="gG1-D8-J0E" firstAttribute="width" secondItem="n20-QS-yrL" secondAttribute="width" id="bn6-LB-uLM"/>
                 <constraint firstItem="n20-QS-yrL" firstAttribute="leading" secondItem="rE3-0f-Tez" secondAttribute="leading" id="gCW-tM-gr8"/>
             </constraints>

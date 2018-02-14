@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AddCharactersViewDelegate: class {
-    func didTapBackButton()
+    func didTapAddCharacterBackButton()
     func didRecieveCharacterForCreation(character: Character)
 }
 
@@ -20,12 +20,12 @@ class AddCharactersView: UIView {
         addCharactersCollectionView.delegate = self
         addCharactersCollectionView.dataSource = self
         addCharactersCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        addCharactersCollectionView.register(UINib(nibName: "CharacterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "addCharacterCell")
+        addCharactersCollectionView.register(UINib(nibName: "CharacterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "characterCell")
         characterCreationWithButtonContainerView.isHidden = true
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.delegate?.didTapBackButton()
+        self.delegate?.didTapAddCharacterBackButton()
     }
     
     @IBAction func dismissCharacterCreationButtonTapped(_ sender: Any) {
@@ -90,7 +90,7 @@ extension AddCharactersView: UICollectionViewDelegateFlowLayout, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCharacterCell", for: indexPath) as? CharacterCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath) as? CharacterCollectionViewCell else {
             return UICollectionViewCell()
         }
         let characterImageName = ClassTypeData.icon(for: ClassTypeData.allClasses[indexPath.row])
