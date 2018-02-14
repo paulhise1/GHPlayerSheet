@@ -42,12 +42,12 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="efZ-jo-H5W" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="46v-xV-AQv"/>
-                <constraint firstItem="efZ-jo-H5W" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="JYC-Xn-67T"/>
-                <constraint firstItem="efZ-jo-H5W" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Y5d-kf-Hjb"/>
-                <constraint firstItem="efZ-jo-H5W" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gZR-Eq-Qdm"/>
+                <constraint firstItem="efZ-jo-H5W" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" priority="700" id="Pl8-nM-VJU"/>
+                <constraint firstItem="efZ-jo-H5W" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="S0Y-wP-X2n"/>
+                <constraint firstItem="efZ-jo-H5W" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Swc-3W-egH"/>
                 <constraint firstAttribute="trailing" secondItem="WeC-rU-G6e" secondAttribute="trailing" constant="20" id="iDY-In-s2P"/>
                 <constraint firstItem="WeC-rU-G6e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p6L-Z5-J5z"/>
+                <constraint firstItem="efZ-jo-H5W" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" priority="700" id="yre-ci-U4x"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

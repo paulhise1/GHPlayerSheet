@@ -2,6 +2,10 @@ import Foundation
 
 class Character: Codable, ModelProtocol {
     
+    static func !=(lhs: Character, rhs: Character) -> Bool {
+        return lhs.identifier != rhs.identifier
+    }
+    
     let classType: ClassType
     private(set) var name: String
     private let creationDate: Date

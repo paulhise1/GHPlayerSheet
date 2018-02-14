@@ -11,17 +11,22 @@ class HubViewController: UIViewController {
     @IBOutlet weak var beginScenarioButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    @IBOutlet weak var characterImageView: UIImageView!
+    @IBOutlet weak var characterImageView: UIImageView! {
+        didSet {
+            characterImageView.layer.cornerRadius = 10
+            characterImageView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var characterInfoLabel: UILabel!
-    @IBOutlet weak var characterLevelLabel: UILabel!
     
-    @IBOutlet weak var addCharacterContainerView: UIView!
-    @IBOutlet weak var showAddCharacterContainerConstraint: NSLayoutConstraint!
     @IBOutlet weak var classesCollectionContainerView: UIView!
+    @IBOutlet weak var showAddCharacterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var hideAddCharacterButtonConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var changeCharacterContainerView: UIView!
     @IBOutlet weak var ownedCollectionContainerView: UIView!
-    @IBOutlet weak var showChangeCharacterContainerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showChangeCharacterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var hideChangeCharacterButtonConstraint: NSLayoutConstraint!
+    private var changeCharacterView: ChangeCharacterView?
     
     private var viewModel: HubViewModel?
     
@@ -38,29 +43,34 @@ class HubViewController: UIViewController {
         backgroundImage.image = UIImage(named: "hvcbackground")
         setupAddCharactersView()
         setupChangeCharacterView()
-        guard let player = viewModel?.player else {
+        guard (viewModel?.player) != nil else {
+            partyNameLabel.text = viewModel?.party
             characterInfoLabel.isHidden = true
-            characterLevelLabel.isHidden = true
             characterImageView.isHidden = true
             return
         }
-        displayCharacterInfo(player: player)
+        displayPlayerInfo()
     }
     
     @IBAction func addCharacterTapped(_ sender: Any) {
-        view.bringSubview(toFront: addCharacterContainerView)
+        view.bringSubview(toFront: classesCollectionContainerView)
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showAddCharacterContainerConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.showAddCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.hideAddCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
             self.view.layoutIfNeeded()
         })
     }
     
     @IBAction func changeCharacterTapped(_ sender: Any) {
-        view.bringSubview(toFront: changeCharacterContainerView)
+        view.bringSubview(toFront: ownedCollectionContainerView)
+        if let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter {
+            self.changeCharacterView?.refreshData(ownedCharacters: ownedCharacters, activeCharacter: active)
+        }
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showChangeCharacterContainerConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.showChangeCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
             self.view.layoutIfNeeded()
         })
     }
@@ -78,21 +88,30 @@ class HubViewController: UIViewController {
     }
     
     private func setupChangeCharacterView() {
-        let changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
+        changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
         guard let ccView = changeCharacterView else { return }
         ownedCollectionContainerView.addSubview(ccView)
         ccView.frame = ownedCollectionContainerView.bounds
         ccView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         ccView.delegate = self
-        guard let ownedCharacters = viewModel?.ownedCharacters() else { return }
-        ccView.configure(ownedCharacters: ownedCharacters)
-        
+        guard let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter else { return }
+        ccView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
     }
     
+    private func displayPlayerInfo() {
+        partyNameLabel.text = viewModel?.party
+        characterInfoLabel.isHidden = false
+        characterImageView.isHidden = false
+        characterImageView.image = viewModel?.activeCharacterImage()
+        guard let player = viewModel?.player else { return }
+        characterInfoLabel.text = "\(String(player.activeCharacter.level)): \(player.activeCharacter.name)"
+    }
+
     private func hideAddCharacter() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showAddCharacterContainerConstraint.priority = UILayoutPriority.defaultLow
+            self.showAddCharacterConstraint.priority = UILayoutPriority.defaultLow
+            self.hideAddCharacterButtonConstraint.priority = UILayoutPriority.defaultLow
             self.view.layoutIfNeeded()
         })
     }
@@ -100,28 +119,18 @@ class HubViewController: UIViewController {
     private func hideChangeCharacter() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showChangeCharacterContainerConstraint.priority = UILayoutPriority.defaultLow
+            self.showChangeCharacterConstraint.priority = UILayoutPriority.defaultLow
+            self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority.defaultLow
             self.view.layoutIfNeeded()
         })
     }
-    
-    private func displayCharacterInfo(player: Player) {
-        characterInfoLabel.isHidden = false
-        characterLevelLabel.isHidden = false
-        characterImageView.isHidden = false
-        characterImageView.image = viewModel?.activeCharacterImage()
-        characterInfoLabel.text = player.activeCharacter.name
-        characterLevelLabel.text = String(player.activeCharacter.level)
-    }
-}
 
+}
 extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDelegate {
-    
     func didRecieveCharacterForCreation(character: Character) {
         viewModel?.addCharacterToPlayer(character: character)
         hideAddCharacter()
-        guard let player = viewModel?.player else { return }
-        displayCharacterInfo(player: player)
+        displayPlayerInfo()
     }
     
     func didTapAddCharacterBackButton() {
@@ -133,6 +142,8 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
     }
     
     func didSelectChangeActiveCharacter(character: Character) {
-        
+        viewModel?.setActiveCharacter(character: character)
+        displayPlayerInfo()
+        hideChangeCharacter()
     }
 }

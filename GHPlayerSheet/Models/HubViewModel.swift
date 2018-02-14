@@ -8,7 +8,7 @@ class HubViewModel {
         static let pathComponent = "Player.plist"
     }
     
-    private let party: String
+    let party: String
     private let playerDatasource: ModelDatasource<Player>?
     private(set) var player: Player?
 
@@ -23,7 +23,7 @@ class HubViewModel {
     }
     
     func activeCharacterImage() -> UIImage {
-        guard let classType = player?.activeCharacter.classType, let playerImage = UIImage(named: ClassTypeData.icon(for: (classType))) else { return UIImage() }
+        guard let classType = player?.activeCharacter.classType, let playerImage = UIImage(named: ClassTypeData.characterCardBackImage(charClass: (classType))) else { return UIImage() }
         return playerImage
     }
     

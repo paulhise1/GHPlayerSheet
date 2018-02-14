@@ -95,6 +95,7 @@ extension AddCharactersView: UICollectionViewDelegateFlowLayout, UICollectionVie
         }
         let characterImageName = ClassTypeData.icon(for: ClassTypeData.allClasses[indexPath.row])
         cell.characterImage = UIImage(named: characterImageName)
+        cell.layoutIfNeeded()
         return cell
     }
     

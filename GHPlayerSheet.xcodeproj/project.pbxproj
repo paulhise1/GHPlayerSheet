@@ -50,6 +50,23 @@
 		1E94005D202B145000F913D3 /* mindthief.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940056202B144E00F913D3 /* mindthief.png */; };
 		1E94005E202B145000F913D3 /* cragheart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940057202B144E00F913D3 /* cragheart.png */; };
 		1E940060202B145000F913D3 /* quartermaster.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940059202B144F00F913D3 /* quartermaster.png */; };
+		1E95EF28203438ED00BB0123 /* soothsingerColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF17203438E400BB0123 /* soothsingerColorSymbol.png */; };
+		1E95EF29203438ED00BB0123 /* summonerColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF18203438E500BB0123 /* summonerColorSymbol.png */; };
+		1E95EF2A203438ED00BB0123 /* doomstalkerColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF19203438E600BB0123 /* doomstalkerColorSymbol.png */; };
+		1E95EF2B203438ED00BB0123 /* elementalistColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1A203438E700BB0123 /* elementalistColorSymbol.png */; };
+		1E95EF2C203438ED00BB0123 /* cragheartColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1B203438E800BB0123 /* cragheartColorSymbol.png */; };
+		1E95EF2D203438ED00BB0123 /* sawbonesColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1C203438E900BB0123 /* sawbonesColorSymbol.png */; };
+		1E95EF2E203438ED00BB0123 /* plagueheraldColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1D203438E900BB0123 /* plagueheraldColorSymbol.png */; };
+		1E95EF2F203438ED00BB0123 /* quatermasterColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1E203438EA00BB0123 /* quatermasterColorSymbol.png */; };
+		1E95EF30203438ED00BB0123 /* nightshroudColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1F203438EB00BB0123 /* nightshroudColorSymbol.png */; };
+		1E95EF31203438ED00BB0123 /* tinkererColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF20203438EB00BB0123 /* tinkererColorSymbol.png */; };
+		1E95EF32203438ED00BB0123 /* BruteColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF21203438EC00BB0123 /* BruteColorSymbol.png */; };
+		1E95EF33203438ED00BB0123 /* berserkerColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF22203438EC00BB0123 /* berserkerColorSymbol.png */; };
+		1E95EF34203438ED00BB0123 /* spellweaverColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF23203438EC00BB0123 /* spellweaverColorSymbol.png */; };
+		1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF24203438ED00BB0123 /* mindthiefColorSymbol.png */; };
+		1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */; };
+		1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */; };
+		1E95EF38203438ED00BB0123 /* scoundrelColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */; };
 		1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */; };
 		1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */; };
 		1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */; };
@@ -187,6 +204,23 @@
 		1E940056202B144E00F913D3 /* mindthief.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mindthief.png; path = ../mindthief.png; sourceTree = "<group>"; };
 		1E940057202B144E00F913D3 /* cragheart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cragheart.png; path = ../cragheart.png; sourceTree = "<group>"; };
 		1E940059202B144F00F913D3 /* quartermaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quartermaster.png; path = ../quartermaster.png; sourceTree = "<group>"; };
+		1E95EF17203438E400BB0123 /* soothsingerColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soothsingerColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF18203438E500BB0123 /* summonerColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = summonerColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF19203438E600BB0123 /* doomstalkerColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doomstalkerColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF1A203438E700BB0123 /* elementalistColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementalistColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF1B203438E800BB0123 /* cragheartColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cragheartColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF1C203438E900BB0123 /* sawbonesColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sawbonesColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF1D203438E900BB0123 /* plagueheraldColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plagueheraldColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF1E203438EA00BB0123 /* quatermasterColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quatermasterColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF1F203438EB00BB0123 /* nightshroudColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightshroudColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF20203438EB00BB0123 /* tinkererColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinkererColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF21203438EC00BB0123 /* BruteColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BruteColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF22203438EC00BB0123 /* berserkerColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = berserkerColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF23203438EC00BB0123 /* spellweaverColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spellweaverColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF24203438ED00BB0123 /* mindthiefColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mindthiefColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beasttyrantColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunkeeperColorSymbol.png; sourceTree = "<group>"; };
+		1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoundrelColorSymbol.png; sourceTree = "<group>"; };
 		1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkSymbolListView.swift; sourceTree = "<group>"; };
 		1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerkSymbolListView.xib; sourceTree = "<group>"; };
 		1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -309,10 +343,10 @@
 		1E0FFCEB200B6719001525F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1EA64A54202AD56A005A525E /* ClassTypeData.swift */,
 				1ED412C42024591F004A7791 /* Fonts */,
 				1EA95A3920188FBA0065A136 /* ColorConstants.swift */,
 				1EB4B2992016E9C100BF0AB0 /* Helpers.swift */,
-				1EA64A54202AD56A005A525E /* ClassTypeData.swift */,
 				1ECF00D72007106400C2E11D /* Assets.xcassets */,
 				1E1B82E1200F07CA002D6E01 /* Images */,
 				1ECF00D92007106400C2E11D /* LaunchScreen.storyboard */,
@@ -486,6 +520,23 @@
 				1EEE734A202D929D00A78C97 /* elementalistSymbol.png */,
 				1E940056202B144E00F913D3 /* mindthief.png */,
 				1EEE72F1202D897400A78C97 /* mindthiefCard.png */,
+				1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */,
+				1E95EF22203438EC00BB0123 /* berserkerColorSymbol.png */,
+				1E95EF21203438EC00BB0123 /* BruteColorSymbol.png */,
+				1E95EF1B203438E800BB0123 /* cragheartColorSymbol.png */,
+				1E95EF19203438E600BB0123 /* doomstalkerColorSymbol.png */,
+				1E95EF1A203438E700BB0123 /* elementalistColorSymbol.png */,
+				1E95EF24203438ED00BB0123 /* mindthiefColorSymbol.png */,
+				1E95EF1F203438EB00BB0123 /* nightshroudColorSymbol.png */,
+				1E95EF1D203438E900BB0123 /* plagueheraldColorSymbol.png */,
+				1E95EF1E203438EA00BB0123 /* quatermasterColorSymbol.png */,
+				1E95EF1C203438E900BB0123 /* sawbonesColorSymbol.png */,
+				1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */,
+				1E95EF17203438E400BB0123 /* soothsingerColorSymbol.png */,
+				1E95EF23203438EC00BB0123 /* spellweaverColorSymbol.png */,
+				1E95EF18203438E500BB0123 /* summonerColorSymbol.png */,
+				1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */,
+				1E95EF20203438EB00BB0123 /* tinkererColorSymbol.png */,
 				1EEE7351202D929F00A78C97 /* mindthiefSymbol.png */,
 				1EEE72E2202D897100A78C97 /* nightshroud.png */,
 				1EEE7309202D897A00A78C97 /* nightshroudCard.png */,
@@ -595,22 +646,29 @@
 				1E209E442019D4AD00A4986A /* levelCrown.png in Resources */,
 				1ED412D820247723004A7791 /* ghcard5.jpg in Resources */,
 				1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */,
+				1E95EF31203438ED00BB0123 /* tinkererColorSymbol.png in Resources */,
 				1EFE3A2F203132F100F94F39 /* CharacterCollectionViewCell.xib in Resources */,
 				1EEE731F202D897B00A78C97 /* plagueheraldCard.png in Resources */,
+				1E95EF29203438ED00BB0123 /* summonerColorSymbol.png in Resources */,
 				1EEE732A202D897B00A78C97 /* soothsingerCard.png in Resources */,
 				1E038278201AC5E700C6AB12 /* checkedBox.png in Resources */,
 				1EEE7357202D92A000A78C97 /* summonerSymbol.png in Resources */,
 				1EEE735F202D92A000A78C97 /* scoundrelSymbol.png in Resources */,
+				1E95EF34203438ED00BB0123 /* spellweaverColorSymbol.png in Resources */,
+				1E95EF2B203438ED00BB0123 /* elementalistColorSymbol.png in Resources */,
 				1E94005E202B145000F913D3 /* cragheart.png in Resources */,
 				1EEE7361202D92A000A78C97 /* beasttyrantSymbol.png in Resources */,
 				1ED412C6202459A6004A7791 /* PirataOne-Gloomhaven.ttf in Resources */,
+				1E95EF2A203438ED00BB0123 /* doomstalkerColorSymbol.png in Resources */,
 				1EB4B28A2015F52700BF0AB0 /* VerticalCounterView.xib in Resources */,
 				1EEE7362202D92A000A78C97 /* mindthiefSymbol.png in Resources */,
+				1E95EF2C203438ED00BB0123 /* cragheartColorSymbol.png in Resources */,
 				1EA436612033CA9800F2B35F /* sunkeeper.png in Resources */,
 				1ED412CD2024633A004A7791 /* ghcard1.jpg in Resources */,
 				1E30437C2024A4DC008D6B07 /* exitSignV.png in Resources */,
 				1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */,
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
+				1E95EF28203438ED00BB0123 /* soothsingerColorSymbol.png in Resources */,
 				1EEE7354202D92A000A78C97 /* bruteSymbol.png in Resources */,
 				1E94005D202B145000F913D3 /* mindthief.png in Resources */,
 				1E8E3836202DCD7B008C2FF4 /* NumPadView.xib in Resources */,
@@ -628,7 +686,9 @@
 				1ED412C3202456B2004A7791 /* Blank Map.jpg in Resources */,
 				1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */,
 				1EEE732C202D897B00A78C97 /* sawbones.png in Resources */,
+				1E95EF2D203438ED00BB0123 /* sawbonesColorSymbol.png in Resources */,
 				1E94004E202AF50800F913D3 /* bruteCard.png in Resources */,
+				1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */,
 				1EEE7334202D897B00A78C97 /* sawbonesCard.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
 				1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */,
@@ -640,6 +700,7 @@
 				1E30439620272F2F008D6B07 /* greenPlus.png in Resources */,
 				1EA4365C2033B98000F2B35F /* levelCrownBlack.png in Resources */,
 				1E038279201AC5E700C6AB12 /* checkmark.png in Resources */,
+				1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */,
 				1EEE733C202D897B00A78C97 /* nightshroudCard.png in Resources */,
 				1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */,
 				1EEE7323202D897B00A78C97 /* beasttyrantCard.png in Resources */,
@@ -651,14 +712,19 @@
 				1EFE3A2B20312F8100F94F39 /* AddCharactersView.xib in Resources */,
 				1E940060202B145000F913D3 /* quartermaster.png in Resources */,
 				1EA436682033CB6400F2B35F /* ChangeCharacterView.xib in Resources */,
+				1E95EF2E203438ED00BB0123 /* plagueheraldColorSymbol.png in Resources */,
 				1EEE7321202D897B00A78C97 /* tinkererCard.png in Resources */,
 				1EEE7311202D897B00A78C97 /* beasttyrant.png in Resources */,
+				1E95EF33203438ED00BB0123 /* berserkerColorSymbol.png in Resources */,
+				1E95EF38203438ED00BB0123 /* scoundrelColorSymbol.png in Resources */,
 				1EA4365820326DA100F2B35F /* rightButtonImg.png in Resources */,
 				1EA436622033CA9800F2B35F /* sunkeeperSymbol.png in Resources */,
 				1EEE730F202D897B00A78C97 /* spellweaverCard.png in Resources */,
 				1E8690D9202C34E1000A8697 /* lockedIcon.png in Resources */,
+				1E95EF32203438ED00BB0123 /* BruteColorSymbol.png in Resources */,
 				1EEE7315202D897B00A78C97 /* nightshroud.png in Resources */,
 				1EEE7319202D897B00A78C97 /* elementalist.png in Resources */,
+				1E95EF30203438ED00BB0123 /* nightshroudColorSymbol.png in Resources */,
 				1E8690DB202C34E6000A8697 /* unlockIcon.png in Resources */,
 				1EEE7317202D897B00A78C97 /* scoundrelCard.png in Resources */,
 				1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */,
@@ -670,10 +736,12 @@
 				1EEE735B202D92A000A78C97 /* elementalistSymbol.png in Resources */,
 				1EA436642033CA9800F2B35F /* soothsingerSymbol.png in Resources */,
 				1E30437E2024B792008D6B07 /* exitSign3.png in Resources */,
+				1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */,
 				1ED412D6202471BB004A7791 /* ghbackground.jpg in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
 				1ED412C820245C28004A7791 /* HTOWERT.TTF in Resources */,
 				1EEE7356202D92A000A78C97 /* sawbonesSymbol.png in Resources */,
+				1E95EF2F203438ED00BB0123 /* quatermasterColorSymbol.png in Resources */,
 				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,
 				1EEE731E202D897B00A78C97 /* spellweaver.png in Resources */,
 				1EEE7332202D897B00A78C97 /* doomstalker.png in Resources */,

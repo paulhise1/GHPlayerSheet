@@ -75,7 +75,7 @@
                 <constraint firstItem="q9L-a1-Ws4" firstAttribute="top" secondItem="E61-VX-HFM" secondAttribute="top" id="WgX-p9-Qwn"/>
                 <constraint firstAttribute="bottom" secondItem="n20-QS-yrL" secondAttribute="bottom" id="X6B-h1-beO"/>
                 <constraint firstAttribute="trailing" secondItem="n20-QS-yrL" secondAttribute="trailing" id="bLj-Yn-7pK"/>
-                <constraint firstItem="gG1-D8-J0E" firstAttribute="width" secondItem="n20-QS-yrL" secondAttribute="width" id="bn6-LB-uLM"/>
+                <constraint firstItem="gG1-D8-J0E" firstAttribute="width" secondItem="n20-QS-yrL" secondAttribute="width" priority="750" id="bn6-LB-uLM"/>
                 <constraint firstItem="n20-QS-yrL" firstAttribute="leading" secondItem="rE3-0f-Tez" secondAttribute="leading" id="gCW-tM-gr8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -131,7 +131,7 @@ class ClassTypeData {
 //        }
 //    }
     
-    static func characterUnlockedImageForClass(charClass: ClassType) -> String {
+    static func characterCardBackImage(charClass: ClassType) -> String {
         switch charClass {
         case .cragheart:
             return "cragheartCard"
@@ -170,7 +170,7 @@ class ClassTypeData {
         }
     }
     
-    static func characterOwnedImageForClass(charClass: ClassType) -> String {
+    static func characterImage(charClass: ClassType) -> String {
         switch charClass {
         case .cragheart:
             return "cragheart"
@@ -245,6 +245,45 @@ class ClassTypeData {
             return "plagueheraldSymbol"
         case .elementalist:
             return "elementalistSymbol"
+        }
+    }
+    
+    static func colorIcon(for classType: ClassType) -> String {
+        switch classType {
+        case .cragheart:
+            return "cragheartColorSymbol"
+        case .brute:
+            return "bruteColorSymbol"
+        case .mindthief:
+            return "mindthiefColorSymbol"
+        case .scoundrel:
+            return "scoundrelColorSymbol"
+        case .spellweaver:
+            return "spellweaverColorSymbol"
+        case .tinkerer:
+            return "tinkererColorSymbol"
+        case .quartermaster:
+            return "quartermasterColorSymbol"
+        case .sunkeeper:
+            return "sunkeeperColorSymbol"
+        case .soothsinger:
+            return "soothsingerColorSymbol"
+        case .sawbones:
+            return "sawbonesColorSymbol"
+        case .berserker:
+            return "berserkerColorSymbol"
+        case .nightshroud:
+            return "nightshroudColorSymbol"
+        case .doomstalker:
+            return "doomstalkerColorSymbol"
+        case .beasttyrant:
+            return "beasttyrantColorSymbol"
+        case .summoner:
+            return "summonerColorSymbol"
+        case .plagueherald:
+            return "plagueheraldColorSymbol"
+        case .elementalist:
+            return "elementalistColorSymbol"
         }
     }
 }
