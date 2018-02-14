@@ -2,7 +2,6 @@ import Foundation
 import FirebaseDatabase
 
 class FirebaseService: ScenarioService {
-
     struct Constant {
         static let playerKey = "players"
         static let scenarioKey = "scenario"
@@ -43,11 +42,11 @@ class FirebaseService: ScenarioService {
         database.child(party).child(Constant.playerKey).child(playerName).setValue(playerInfo)
     }
     
-    func removePlayerFromService(player: ScenarioPlayer) {
-        guard let party = partyName else { return }
-        database.child(party).child(Constant.playerKey).child(player.name).removeValue()
-        addScenarioInfoListener()
-    }
+//    func removePlayerFromService(player: ScenarioPlayer) {
+//        guard let party = partyName else { return }
+//        database.child(party).child(Constant.playerKey).child(player.name).removeValue()
+//        addScenarioInfoListener()
+//    }
     
     func addScenarioInfoListener() {
         configureScenarioListener()

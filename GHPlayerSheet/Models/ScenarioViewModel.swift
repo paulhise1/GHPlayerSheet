@@ -5,8 +5,7 @@ protocol ScenarioService {
     func pushPlayerToService(player: ScenarioPlayer)
     func createScenario(partyName: String, number: String)
     func addScenarioInfoListener()
-    //func updatePartyName(partyName: String)
-    func removePlayerFromService(player: ScenarioPlayer)
+//    func removePlayerFromService(player: ScenarioPlayer)
 }
 
 protocol ScenarioServiceDelegate: class {
@@ -78,9 +77,9 @@ class ScenarioViewModel {
         service.addScenarioInfoListener()
     }
     
-    func removePlayerFromSerivce() {
-        service.removePlayerFromService(player: player)
-    }
+//    func removePlayerFromSerivce() {
+//        service.removePlayerFromService(player: player)
+//    }
     
     func updateCurrentHealth(value: String) {
         player.health = value

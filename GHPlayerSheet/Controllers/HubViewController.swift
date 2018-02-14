@@ -4,6 +4,7 @@ class HubViewController: UIViewController {
     
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
+        static let segueToScenarioLobbyID = "toScenarioLobby"
         static let characterCellID = "CharacterCollectionViewCell"
     }
     
@@ -76,6 +77,14 @@ class HubViewController: UIViewController {
     }
     
     // MARK: Helpers
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.segueToScenarioLobbyID {
+            let destinationVC = segue.destination as! ScenarioLobbyViewController
+            guard let activeCharacter = viewModel?.player?.activeCharacter, let party = viewModel?.party else { return }
+            destinationVC.configure(character: activeCharacter, party: party)
+        }
+    }
+    
     private func setupAddCharactersView() {
         let addCharactersView = Bundle.main.loadNibNamed(String(describing: AddCharactersView.self), owner: self, options: nil)?.first as? AddCharactersView
         if let addCharactersView = addCharactersView {
@@ -104,7 +113,7 @@ class HubViewController: UIViewController {
         characterImageView.isHidden = false
         characterImageView.image = viewModel?.activeCharacterImage()
         guard let player = viewModel?.player else { return }
-        characterInfoLabel.text = "\(String(player.activeCharacter.level)): \(player.activeCharacter.name)"
+        characterInfoLabel.text = "\(player.activeCharacter.name): \(String(player.activeCharacter.level))"
     }
 
     private func hideAddCharacter() {

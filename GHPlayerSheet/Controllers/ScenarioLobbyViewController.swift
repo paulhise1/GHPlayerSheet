@@ -34,9 +34,7 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
 
     func configure(character: Character, party: String) {
         self.party = party
-        //stubb
-        self.character = Character(classType: .brute, name: "Bob Tucket")
-        character.updateExperience(amount: 222)
+        self.character = character
     }
     
     func setupViewsOnLoad() {
@@ -69,8 +67,6 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     @IBAction func joinTheTableTapped(_ sender: Any) {
     }
     
-    @IBAction func ReturnButtonTapped(_ sender: Any) {
-    }
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -101,9 +97,9 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.segueToScenarioID {
-//            let destinationVC = segue.destination as! ScenarioViewController
-//            guard let party = party, let character = character else { return }
-//            destinationVC.configure(partyName: party, character: character, scenario: scenario, difficulty: difficulty)
+            let destinationVC = segue.destination as! ScenarioViewController
+            guard let party = party, let character = character, let scenario = scenario, let difficulty = difficulty else { return }
+            destinationVC.configure(partyName: party, character: character, scenario: scenario, difficulty: difficulty)
         }
     }
 }
