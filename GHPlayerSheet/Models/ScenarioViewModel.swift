@@ -3,7 +3,7 @@ import Foundation
 protocol ScenarioService {
     weak var delegate: ScenarioServiceDelegate? {get set}
     func pushPlayerToService(player: ScenarioPlayer)
-    func createScenario(partyName: String, number: String)
+    func createScenario(party: String, number: String, difficulty: String)
     func addScenarioInfoListener()
 //    func removePlayerFromService(player: ScenarioPlayer)
 }
@@ -56,20 +56,26 @@ class ScenarioViewModel {
     
     private(set) var player: ScenarioPlayer
     private(set) var party: String
-    let scenario: Scenario
+    let scenario: Scenario?
     
     
     var playerCount: Int {
         return players.count
     }
     
-    init(partyName: String, character: Character, scenario: Scenario, difficulty: Int) {
-        self.party = partyName
+    init(party: String, character: Character, scenario: Scenario?) {
+        self.party = party
         self.scenario = scenario
         self.player = ScenarioPlayer(from: character)
-        self.service = FirebaseService.self as! ScenarioService
+        self.service = FirebaseService(party: party) as ScenarioService
         self.service.delegate = self
+        setupScenario()
         addPlayerToService()
+    }
+    
+    func setupScenario() {
+        guard let scenario = scenario, let difficulty = scenario.difficulty else { return }
+        service.createScenario(party: self.party, number: scenario.number, difficulty: difficulty)
     }
     
     func addPlayerToService() {

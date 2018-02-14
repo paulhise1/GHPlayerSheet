@@ -24,7 +24,6 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     private var scenario: Scenario?
     private var party: String?
     private var character: Character?
-    private var difficulty: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +59,8 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     }
     
     @IBAction func difficultyNumberButtonTapped(_ sender: Any) {
-        difficulty = Int(((sender as! UIButton).titleLabel?.text)!)
+        guard let difficulty = Int(((sender as! UIButton).titleLabel?.text)!) else { return }
+        scenario?.difficulty = String(describing: difficulty)
         performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
     }
     
@@ -98,8 +98,8 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.segueToScenarioID {
             let destinationVC = segue.destination as! ScenarioViewController
-            guard let party = party, let character = character, let scenario = scenario, let difficulty = difficulty else { return }
-            destinationVC.configure(partyName: party, character: character, scenario: scenario, difficulty: difficulty)
+            guard let party = party, let character = character, let scenario = scenario else { return }
+            destinationVC.configure(party: party, character: character, scenario: scenario)
         }
     }
 }

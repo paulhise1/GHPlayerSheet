@@ -6,6 +6,7 @@ struct Scenario {
     let name: String
     let requirements: String
     let goal: String
+    var difficulty: String?
     
     init(number: String, name: String, requirements: String, goal: String) {
         self.number = number

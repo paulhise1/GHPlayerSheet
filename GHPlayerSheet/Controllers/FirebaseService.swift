@@ -14,32 +14,31 @@ class FirebaseService: ScenarioService {
 
     private let database: DatabaseReference
     
-    private(set) var partyName: String?
+    private(set) var party: String
     
-    init(partyName: String?) {
-        self.partyName = partyName
+    init(party: String) {
+        self.party = party
         database = Database.database().reference()
         configurePlayersListener()
         configureScenarioListener()
     }
     
-    func createScenario(partyName: String, number: String) {
-        database.child(partyName).setValue(Constant.playerKey)
-        database.child(partyName).setValue([Constant.scenarioKey: number])
+    func createScenario(party: String, number: String, difficulty: String) {
+        database.child(party).child(Constant.scenarioKey).setValue(["number": number, "difficulty": difficulty])
     }
-    
-//    func updatePartyName(partyName: String) {
-//        self.partyName = partyName
-//        addScenarioInfoListener()
-//        configurePlayersListener()
-//    }
     
     func pushPlayerToService(player: ScenarioPlayer) {
         configurePlayersListener()
         let playerName = player.name
         let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth]
-        guard let party = partyName else { return }
+        //        guard let party = party else { return }
         database.child(party).child(Constant.playerKey).child(playerName).setValue(playerInfo)
+    }
+    
+    func updatePartyName(partyName: String) {
+        self.party = partyName
+        addScenarioInfoListener()
+        configurePlayersListener()
     }
     
 //    func removePlayerFromService(player: ScenarioPlayer) {
@@ -53,7 +52,7 @@ class FirebaseService: ScenarioService {
     }
     
     private func configurePlayersListener(){
-        guard let party = partyName else { return }
+//        guard let party = party else { return }
         let playerRef = database.child(party).child(Constant.playerKey)
         playerRef.observe(.value, with: { (snapshot) in
             self.processPlayers(snapshot: snapshot)
@@ -61,7 +60,7 @@ class FirebaseService: ScenarioService {
     }
     
     private func configureScenarioListener() {
-        guard let party = partyName else { return }
+//        guard let party = party else { return }
         let scenarioRef = database.child(party).child(Constant.scenarioKey)
         scenarioRef.observe(.value, with: { (snapshot) in
             self.processScenario(snapshot: snapshot)

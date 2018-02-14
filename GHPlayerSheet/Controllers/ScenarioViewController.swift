@@ -39,14 +39,13 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupCounters()
         updateStackViews()
         setPartyAndPlayerNameLabels()
     }
    
-    func configure(partyName: String, character: Character, scenario: Scenario, difficulty: Int) {
-        self.viewModel = ScenarioViewModel(partyName: partyName, character: character, scenario: scenario, difficulty: difficulty)
+    func configure(party: String, character: Character, scenario: Scenario?) {
+        self.viewModel = ScenarioViewModel(party: party, character: character, scenario: scenario)
         self.viewModel?.delegate = self
     }
     
