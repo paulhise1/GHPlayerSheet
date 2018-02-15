@@ -21,6 +21,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet weak var healthTrackerContainerView: UIView!
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
+    @IBOutlet weak var lootTrackerContainerView: UIView!
     
     @IBOutlet weak var partyNameLabel: UILabel!
     @IBOutlet weak var noOtherPlayersLabel: UILabel!
@@ -41,7 +42,8 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         
         setupCounters()
         updateStackViews()
-        setPartyAndPlayerNameLabels()
+        updateScenario()
+        setInfoOnLabels()
     }
    
     func configure(party: String, character: Character, scenario: Scenario?) {
@@ -49,9 +51,17 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         self.viewModel?.delegate = self
     }
     
-    func setPartyAndPlayerNameLabels() {
+    func updateScenario() {
+        guard let viewModel = viewModel else { return }
+        viewModel.getScenario()
+    }
+    
+    func setInfoOnLabels() {
         partyNameLabel.text = viewModel?.party
         selfNameLabel.text = viewModel?.player.name
+        guard let scenarioNumber = viewModel?.scenario?.number, let scenarioName = viewModel?.scenario?.name else { return }
+        scenarioTitleLabel.text = "\(scenarioNumber): \(scenarioName)"
+        scenarioGoalLabel.text = viewModel?.scenario?.goal
     }
     
     func counterValueDidChange(value: String, type: CounterType) {
@@ -67,50 +77,62 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     //MARK: - Setup Child Views
     func setupCounters() {
-        setupHealthCounterView()
+        guard let viewmodel = self.viewModel else { return }
+        setupHealthCounterView(health: viewmodel.player.maxHealth)
         setupExperienceCounterView()
         setupGenericCounterView()
+        setupLootCounterView()
     }
     
-    func setupHealthCounterView() {
-        guard let healthCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView, let vm = viewModel else { return }
+    func setupHealthCounterView(health: String) {
+        guard let healthCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView else { return }
         healthCounterView.frame = healthTrackerContainerView.bounds
-        healthCounterView.configure(value: vm.player.health, counterType: .health, maxValue: vm.player.maxHealth)
+        healthCounterView.configure(value: health, counterType: .health, maxValue: health)
         healthTrackerContainerView.addSubview(healthCounterView)
         healthCounterView.delegate = self
     }
     
     func setupExperienceCounterView() {
-        guard let experienceCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView, let vm = viewModel else { return }
+        guard let experienceCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView else { return }
         experienceCounterView.frame = experienceTrackerContainerView.bounds
-        experienceCounterView.configure(value: vm.player.experience, counterType: CounterType.experience)
+        experienceCounterView.configure(counterType: .experience)
         experienceTrackerContainerView.addSubview(experienceCounterView)
         experienceCounterView.delegate = self
+    }
+    
+    func setupLootCounterView() {
+        guard let lootCounterView = Bundle.main.loadNibNamed(Constant.verticalCounterNibName, owner: self, options: nil)?.first as? CounterView else { return }
+        lootCounterView.frame = lootTrackerContainerView.bounds
+        lootCounterView.configure(counterType: .loot)
+        lootTrackerContainerView.addSubview(lootCounterView)
+        lootCounterView.delegate = self
     }
     
     func setupGenericCounterView() {
         guard let genericCounterView = Bundle.main.loadNibNamed(Constant.verticalCounterNibName, owner: self, options: nil)?.first as?CounterView else { return }
         genericCounterView.frame = genericTrackerContainerView.bounds
-        genericCounterView.configure(value: "0", counterType: CounterType.generic)
+        genericCounterView.configure(counterType: .generic)
         genericTrackerContainerView.addSubview(genericCounterView)
         genericCounterView.delegate = self
     }
     
     func updateStackViews() {
-        guard let count = viewModel?.playerCount else { return }
-        player2StatStack.isHidden = !(count > 0)
+        guard let viewModel = viewModel else { return }
+        let count = viewModel.playerCount
         playerStatStacksContainerView.isHidden = !(count > 0)
+        player2StatStack.isHidden = !(count > 0)
         player3StatStack.isHidden = !(count > 1)
         player4StatStack.isHidden = !(count > 2)
         noOtherPlayersLabel.isHidden = !(count == 0)
+        displayPlayersData(players: viewModel.players)
     }
 }
 
 extension ScenarioViewController: ScenarioViewModelDelegate {
     
-    func didUpdatePlayers(players: [ScenarioPlayer]) {
+    func didUpdatePlayers() {
+        guard (playerStatStacksContainerView) != nil else { return }
         updateStackViews()
-        displayPlayersData(players: players)
     }
     
     func displayPlayersData(players: [ScenarioPlayer]) {
@@ -121,10 +143,5 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
             playerExperienceLabels[i].text = player.experience
             i = i + 1
         }
-    }
-    
-    func setupLabelsForScenario(name: String, goal: String) {
-        scenarioTitleLabel.text = name
-        scenarioGoalLabel.text = goal
     }
 }

@@ -32,6 +32,8 @@
 		1E30439620272F2F008D6B07 /* greenPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E30439520272F2D008D6B07 /* greenPlus.png */; };
 		1E30439820273B6C008D6B07 /* CharacterCreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E30439720273B6C008D6B07 /* CharacterCreationView.xib */; };
 		1E30439A202740A8008D6B07 /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E304399202740A8008D6B07 /* CharacterCreationView.swift */; };
+		1E4900012035472400DB1F9B /* ScenarioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4900002035472400DB1F9B /* ScenarioPlayer.swift */; };
+		1E49FFFF203546EE00DB1F9B /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */; };
 		1E590FC42021808400D3EE52 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC32021808400D3EE52 /* Scenario.swift */; };
 		1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC720218C7E00D3EE52 /* HubViewModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
@@ -186,6 +188,8 @@
 		1E30439520272F2D008D6B07 /* greenPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenPlus.png; sourceTree = "<group>"; };
 		1E30439720273B6C008D6B07 /* CharacterCreationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCreationView.xib; sourceTree = "<group>"; };
 		1E304399202740A8008D6B07 /* CharacterCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
+		1E4900002035472400DB1F9B /* ScenarioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioPlayer.swift; sourceTree = "<group>"; };
+		1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioService.swift; sourceTree = "<group>"; };
 		1E590FC32021808400D3EE52 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		1E590FC720218C7E00D3EE52 /* HubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +400,8 @@
 				1E2CF329201162AA002335DF /* Note.swift */,
 				1E590FC32021808400D3EE52 /* Scenario.swift */,
 				1E1103AF203104DA004DD502 /* Player.swift */,
+				1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */,
+				1E4900002035472400DB1F9B /* ScenarioPlayer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
+				1E49FFFF203546EE00DB1F9B /* ScenarioService.swift in Sources */,
 				1EF640DA2011AC3F00696393 /* ModelDatasource.swift in Sources */,
 				1EFE3A2D2031306900F94F39 /* AddCharactersView.swift in Sources */,
 				1ED519CF201B64B70072F09A /* PerkToAddTableViewCell.swift in Sources */,
@@ -863,6 +870,7 @@
 				1ED519C9201B2BD60072F09A /* PerksViewController.swift in Sources */,
 				1E590FC42021808400D3EE52 /* Scenario.swift in Sources */,
 				1E2CF32A201162AA002335DF /* Note.swift in Sources */,
+				1E4900012035472400DB1F9B /* ScenarioPlayer.swift in Sources */,
 				1E038273201AC31800C6AB12 /* CheckmarksView.swift in Sources */,
 				1E30439A202740A8008D6B07 /* CharacterCreationView.swift in Sources */,
 			);

@@ -7,6 +7,8 @@ struct ColorConstants {
     static let defaultEnterNameText = UIColor.lightGray
     
     // CounterView Colors for counters
+    static let lootBackgroundColor = UIColor.flatSandColorDark()
+    static let lootCounterColor = UIColor.flatSand()
     static let healthBackgroundColor = UIColor.flatRedColorDark()
     static let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)
     static let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()

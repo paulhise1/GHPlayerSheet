@@ -2,15 +2,21 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 
+protocol HubViewModelDelegate: class {
+    func willCreateScenario(creator: String)
+    func didCreateScenario(_ scenario: Scenario)
+}
+
 class HubViewModel {
     
     struct Constant {
         static let pathComponent = "Player.plist"
     }
-    
+    weak var delegate: HubViewModelDelegate?
     let party: String
     private let playerDatasource: ModelDatasource<Player>?
     private(set) var player: Player?
+    private var service: ScenarioService
 
     init() {
         //stubb
@@ -19,7 +25,14 @@ class HubViewModel {
         let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.playerDatasource = ModelDatasource(with: url)
         
+        self.service = FirebaseService(party: party)
+        self.service.delegate = self
         loadPlayer()
+    }
+    
+    func startScenarioCreation() {
+        guard let player = player?.activeCharacter.name else { return }
+        service.startScenarioCreation(party: party, playerName: player)
     }
     
     func activeCharacterImage() -> UIImage {
@@ -50,10 +63,24 @@ class HubViewModel {
     }
     
     private func loadPlayer() {
-        if let playerCheck = playerDatasource?.count() {
-            if playerCheck > 0 {
-                self.player = playerDatasource?.modelAt(index: 0)
-            }
+        guard let playerCheck = playerDatasource?.count() else { return }
+        if playerCheck > 0 {
+            self.player = playerDatasource?.modelAt(index: 0)
         }
+    }
+}
+
+extension HubViewModel: ScenarioServiceDelegate {
+    func willCreateScenario(hostName: String) {
+        delegate?.willCreateScenario(creator: hostName)
+    }
+        
+    func didCreateScenario(_ scenario: Scenario) {
+        delegate?.didCreateScenario(scenario)
+    }
+    
+    func didUpdatePlayers(players: [ScenarioPlayer]) {
+    }
+    func didGetScenarioNumber(_ scenarioNumber: String) {
     }
 }

@@ -78,7 +78,7 @@
                 <outlet property="decrementButton" destination="BOs-md-DVj" id="34I-t2-arj"/>
                 <outlet property="incrementButton" destination="9PL-Dn-t65" id="U5F-xw-b8D"/>
             </connections>
-            <point key="canvasLocation" x="340" y="-483"/>
+            <point key="canvasLocation" x="342" y="-492"/>
         </view>
     </objects>
     <resources>

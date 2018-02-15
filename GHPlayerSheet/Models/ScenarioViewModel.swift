@@ -1,62 +1,19 @@
 import Foundation
 
-protocol ScenarioService {
-    weak var delegate: ScenarioServiceDelegate? {get set}
-    func pushPlayerToService(player: ScenarioPlayer)
-    func createScenario(party: String, number: String, difficulty: String)
-    func addScenarioInfoListener()
-//    func removePlayerFromService(player: ScenarioPlayer)
-}
-
-protocol ScenarioServiceDelegate: class {
-    func didUpdatePlayers(players: [ScenarioPlayer])
-    func didGetScenarioNumber(scenarioNumber: String)
-}
-
-struct ScenarioPlayer: Hashable, Equatable {
-    var hashValue: Int {
-        return name.hashValue
-    }
-    
-    var name: String
-    var experience = "0"
-    var health: String
-    var maxHealth: String
-    
-    init(from character: Character) {
-        self.name = character.name
-        self.health = String(character.health)
-        self.maxHealth = String(character.health)
-        self.health = String(character.health)
-    }
-    
-    init(name: String, experience: String, health: String, maxHealth: String) {
-        self.name = name
-        self.experience = experience
-        self.health = health
-        self.maxHealth = maxHealth
-    }
-    
-    static func ==(lhs: ScenarioPlayer, rhs: ScenarioPlayer) -> Bool {
-        return lhs.name == rhs.name
-    }
-}
-
 protocol ScenarioViewModelDelegate: class {
-    func didUpdatePlayers(players: [ScenarioPlayer])
-    func setupLabelsForScenario(name: String, goal: String)
+    func didUpdatePlayers()
 }
 
 class ScenarioViewModel {
     
     weak var delegate: ScenarioViewModelDelegate?
     
-    private var players = [ScenarioPlayer]()
+    private(set) var players = [ScenarioPlayer]()
     private var service: ScenarioService
     
     private(set) var player: ScenarioPlayer
     private(set) var party: String
-    let scenario: Scenario?
+    private(set) var scenario: Scenario?
     
     
     var playerCount: Int {
@@ -67,10 +24,14 @@ class ScenarioViewModel {
         self.party = party
         self.scenario = scenario
         self.player = ScenarioPlayer(from: character)
-        self.service = FirebaseService(party: party) as ScenarioService
+        self.service = FirebaseService(party: party)
         self.service.delegate = self
         setupScenario()
         addPlayerToService()
+    }
+ 
+    func getScenario() {
+        service.scenarioInfo()
     }
     
     func setupScenario() {
@@ -80,7 +41,6 @@ class ScenarioViewModel {
     
     func addPlayerToService() {
         service.pushPlayerToService(player: player)
-        service.addScenarioInfoListener()
     }
     
 //    func removePlayerFromSerivce() {
@@ -101,14 +61,16 @@ class ScenarioViewModel {
 extension ScenarioViewModel: ScenarioServiceDelegate {
     func didUpdatePlayers(players: [ScenarioPlayer]) {
         self.players = players.filter{ $0 != self.player}
-        delegate?.didUpdatePlayers(players: self.players)
+        delegate?.didUpdatePlayers()
     }
 
-    func didGetScenarioNumber(scenarioNumber: String) {
-        guard let scenario = Scenario.scenarioFromNumber(scenarioNumber) else { return }
-        let name = "Scenario # \(scenarioNumber): \(scenario.name)"
-        let goal = "Goal: \(scenario.goal)"
-        delegate?.setupLabelsForScenario(name: name, goal: goal)
+    func didGetScenarioNumber(_ scenarioNumber: String) {
+        scenario = Scenario.scenarioFromNumber(scenarioNumber)
+    }
+    
+    func willCreateScenario(hostName: String) {
+    }
+    func didCreateScenario(_ scenario: Scenario) {
     }
 }
 

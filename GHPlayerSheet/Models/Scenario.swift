@@ -8,7 +8,7 @@ struct Scenario {
     let goal: String
     var difficulty: String?
     
-    init(number: String, name: String, requirements: String, goal: String) {
+    private init(number: String, name: String, requirements: String, goal: String) {
         self.number = number
         self.name = name
         self.requirements = requirements
@@ -26,7 +26,7 @@ struct Scenario {
         let scenario8 = Scenario(number: "8", name: "Gloomhaven Warehouse", requirements: "Jekserah's Plan (Party) COMPLETE and The Dead Invade (Global) INCOMPLETE", goal: "Kill both Inox Bodyguards")
         let scenario9 = Scenario(number: "9", name: "Diamond Mine", requirements: "The Merchant Flees (Global) INCOMPLETE", goal: "Kill the Merciless Overseer and loot the treasure tile")
         let scenario10 = Scenario(number: "10", name: "Plane of Elemental Power", requirements: "The Rift Neutralized (Global) INCOMPLETE", goal: "Kill all enemies")
-        let scenario11 = Scenario(number: "11", name: "Gloomhaven Square A", requirements: "End of the Invasion (Global) INCOMPLETE", goal: "Kill the Captiain of the Guard")
+        let scenario11 = Scenario(number: "11", name: "Gloomhaven Square A", requirements: "End of the Invasion (Global) INCOMPLETE", goal: "Kill the Captain of the Guard")
         let scenario12 = Scenario(number: "12", name: "Gloomhaven Square B", requirements: "End of the Invasion (Global) INCOMPLETE", goal: "Kill Jekserah")
         let scenario13 = Scenario(number: "13", name: "Temple of the Seer", requirements: "None", goal: "Kill all enemies")
         let scenario14 = Scenario(number: "14", name: "Frozen Hollow", requirements: "None", goal: "Kill all enemies")

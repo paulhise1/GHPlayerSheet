@@ -5,11 +5,13 @@ class HubViewController: UIViewController {
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
         static let segueToScenarioLobbyID = "toScenarioLobby"
+        static let segueToScenarioID = "toScenarioVC"
         static let characterCellID = "CharacterCollectionViewCell"
+        static let startScenarioText = "Start Scenario"
     }
     
     @IBOutlet weak var partyNameLabel: UILabel!
-    @IBOutlet weak var beginScenarioButton: UIButton!
+    @IBOutlet weak var scenarioButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var characterImageView: UIImageView! {
@@ -35,6 +37,7 @@ class HubViewController: UIViewController {
         super.viewDidLoad()
         
         self.viewModel = HubViewModel()
+        self.viewModel?.delegate = self
         
         setupDisplay()
     }
@@ -42,6 +45,7 @@ class HubViewController: UIViewController {
     private func setupDisplay() {
         self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = UIImage(named: "hvcbackground")
+        scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
         setupAddCharactersView()
         setupChangeCharacterView()
         guard (viewModel?.player) != nil else {
@@ -51,6 +55,15 @@ class HubViewController: UIViewController {
             return
         }
         displayPlayerInfo()
+    }
+    
+    @IBAction func scenarioButtonTapped(_ sender: Any) {
+        if scenarioButton.titleLabel?.text == Constant.startScenarioText {
+            viewModel?.startScenarioCreation()
+            performSegue(withIdentifier: Constant.segueToScenarioLobbyID, sender: self)
+        } else {
+            performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+        }
     }
     
     @IBAction func addCharacterTapped(_ sender: Any) {
@@ -80,8 +93,13 @@ class HubViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.segueToScenarioLobbyID {
             let destinationVC = segue.destination as! ScenarioLobbyViewController
-            guard let activeCharacter = viewModel?.player?.activeCharacter, let party = viewModel?.party else { return }
-            destinationVC.configure(character: activeCharacter, party: party)
+            guard let character = viewModel?.player?.activeCharacter, let party = viewModel?.party else { return }
+            destinationVC.configure(character: character, party: party)
+        }
+        if segue.identifier == Constant.segueToScenarioID {
+            let destinationVC = segue.destination as! ScenarioViewController
+            guard let character = viewModel?.player?.activeCharacter, let party = viewModel?.party else { return }
+            destinationVC.configure(party: party, character: character, scenario: nil)
         }
     }
     
@@ -135,6 +153,19 @@ class HubViewController: UIViewController {
     }
 
 }
+
+extension HubViewController: HubViewModelDelegate {
+    func didCreateScenario(_ scenario: Scenario) {
+        scenarioButton.setTitle("Join \(scenario.name)", for: .normal)
+        scenarioButton.isEnabled = true
+    }
+    
+    func willCreateScenario(creator: String) {
+        scenarioButton.setTitle("\(creator) is setting the table...", for: .normal)
+        scenarioButton.isEnabled = false
+    }
+}
+
 extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDelegate {
     func didRecieveCharacterForCreation(character: Character) {
         viewModel?.addCharacterToPlayer(character: character)
@@ -146,13 +177,13 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
         hideAddCharacter()
     }
     
-    func didTapChangeCharacterBackButton() {
-        hideChangeCharacter()
-    }
-    
     func didSelectChangeActiveCharacter(character: Character) {
         viewModel?.setActiveCharacter(character: character)
         displayPlayerInfo()
+        hideChangeCharacter()
+    }
+    
+    func didTapChangeCharacterBackButton() {
         hideChangeCharacter()
     }
 }

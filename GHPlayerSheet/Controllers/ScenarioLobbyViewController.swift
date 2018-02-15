@@ -14,8 +14,6 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     @IBOutlet weak var numPadContainerView: UIView!
     @IBOutlet weak var setScenarioLabel: UILabel!
     
-    @IBOutlet weak var buttonStackView: UIStackView!
-    
     @IBOutlet weak var createScenarioButton: UIButton!
     
     @IBOutlet weak var setDifficultyLevelContainerView: UIView!
@@ -40,16 +38,11 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
         self.navigationController?.isNavigationBarHidden = true
         let random = Int(arc4random_uniform(4))
         viewBackgroundImage.image = UIImage(named: Constant.backgroundList[random])
-        setScenarioContainerView.isHidden = true
+        setScenarioContainerView.isHidden = false
+        setupNumPadView()
         setDifficultyLevelContainerView.isHidden = true
     }
     
-    @IBAction func setTheTableTapped(_ sender: Any) {
-        buttonStackView.isHidden = true
-        setScenarioContainerView.isHidden = false
-        setScenarioLabel.isHidden = false
-        setupNumPadView()
-    }
     @IBAction func createScenarioButtonTapped(_ sender: Any) {
         if let scenarioNumber = numPadView?.amountLabel.text {
             scenario = Scenario.scenarioFromNumber(scenarioNumber)
@@ -64,8 +57,6 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
         performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
     }
     
-    @IBAction func joinTheTableTapped(_ sender: Any) {
-    }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)

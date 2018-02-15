@@ -5,6 +5,7 @@ enum CounterType {
     case generic
     case health
     case experience
+    case loot
 }
 
 protocol CounterViewDelegate: class {
@@ -71,14 +72,18 @@ class CounterView: UIView {
     }
     
     private func setDefaultColors() {
+        guard let counterType = counterType else { return }
         switch counterType {
-        case .health?:
+        case .loot:
+            backgroundView.backgroundColor = ColorConstants.lootBackgroundColor
+            counterLabel.textColor = ColorConstants.lootCounterColor
+        case .health:
             backgroundView.backgroundColor = ColorConstants.healthBackgroundColor
             counterLabel.textColor = ColorConstants.healthCounterColor
-        case .experience?:
+        case .experience:
             backgroundView.backgroundColor = ColorConstants.experienceBackgroundColor
             counterLabel.textColor = ColorConstants.experienceCounterColor
-        default:
+        case .generic:
             backgroundView.backgroundColor = ColorConstants.genericBackgroundColor
             counterLabel.textColor = ColorConstants.genericCounterColor
         }
