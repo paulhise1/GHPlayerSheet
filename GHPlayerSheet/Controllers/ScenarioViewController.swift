@@ -28,6 +28,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet var playerNameLabels: [UILabel]!
     @IBOutlet var playerHealthLabels: [UILabel]!
     @IBOutlet var playerExperienceLabels: [UILabel]!
+    @IBOutlet var playerLootLabels: [UILabel]!
     private var playerMaxHealths = [String]()
     
     @IBOutlet weak var playerStatStacksContainerView: UIView!
@@ -42,7 +43,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         
         setupCounters()
         updateStackViews()
-//        updateScenario()
         setInfoOnLabels()
     }
    
@@ -50,11 +50,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         self.viewModel = ScenarioViewModel(party: party, character: character, scenario: scenario, hosting: hosting, service: service)
         self.viewModel?.delegate = self
     }
-    
-//    func updateScenario() {
-//        guard let viewModel = viewModel else { return }
-//        viewModel.getScenario()
-//    }
     
     func setInfoOnLabels() {
         guard let viewModel = viewModel else { return }
@@ -70,6 +65,8 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
             viewModel?.updateCurrentHealth(value: value)
         case .experience:
             viewModel?.updateCurrentExperience(value: value)
+        case .loot:
+            viewModel?.updateCurrentLoot(value: value)
         default:
             return
         }
@@ -141,6 +138,7 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
             playerNameLabels[i].text = player.name
             playerHealthLabels[i].text = ("\(player.health)/\(player.maxHealth)")
             playerExperienceLabels[i].text = player.experience
+            playerLootLabels[i].text = "\(player.loot) loot"
             i = i + 1
         }
     }

@@ -31,10 +31,6 @@ class ScenarioViewModel {
         setupScenario()
         addPlayerToService()
     }
- 
-//    func getScenario() {
-//        service.scenarioInfo()
-//    }
     
     func setupScenario() {
         guard hosting else { return }
@@ -46,10 +42,6 @@ class ScenarioViewModel {
         service.pushPlayerToService(player: player)
     }
     
-//    func removePlayerFromSerivce() {
-//        service.removePlayerFromService(player: player)
-//    }
-    
     func updateCurrentHealth(value: String) {
         player.health = value
         service.pushPlayerToService(player: player)
@@ -59,6 +51,11 @@ class ScenarioViewModel {
         player.experience = value
         service.pushPlayerToService(player: player)
     }
+    
+    func updateCurrentLoot(value: String) {
+        player.loot = value
+        service.pushPlayerToService(player: player)
+    }
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {
@@ -66,11 +63,6 @@ extension ScenarioViewModel: ScenarioServiceDelegate {
         self.players = players.filter{ $0 != self.player}
         delegate?.didUpdatePlayers()
     }
-
-//    func didGetScenarioNumber(_ scenarioNumber: String) {
-//        guard let scenarioFromNumber = Scenario.scenarioFromNumber(scenarioNumber) else { return }
-//        scenario = scenarioFromNumber
-//    }
     
     func willCreateScenario(hostName: String) {
     }

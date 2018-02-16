@@ -15,6 +15,7 @@ class FirebaseService: ScenarioService {
         static let healthKey = "health"
         static let experienceKey = "experience"
         static let maxHealthKey = "maxHealth"
+        static let lootKey = "loot"
         static let statusKey = "status"
         static let hostKey = "host"
         static let numberKey = "number"
@@ -49,7 +50,7 @@ class FirebaseService: ScenarioService {
     func pushPlayerToService(player: ScenarioPlayer) {
         configurePlayersListener()
         let playerName = player.name
-        let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth]
+        let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth, Constant.lootKey: player.loot]
         database.child(party).child(Constant.scenarioKey).child(Constant.playerKey).child(playerName).setValue(playerInfo)
     }
     
@@ -64,8 +65,8 @@ class FirebaseService: ScenarioService {
         guard let playerDictFromFirebase = snapshot.value as? [String: [String: String]] else { return }
         var players = [ScenarioPlayer]()
         for (player, stats) in playerDictFromFirebase {
-            guard let health = stats[Constant.healthKey], let exp = stats[Constant.experienceKey], let maxHealth = stats[Constant.maxHealthKey] else { return }
-            players.append(ScenarioPlayer(name: player, experience: exp, health: health, maxHealth: maxHealth))
+            guard let health = stats[Constant.healthKey], let exp = stats[Constant.experienceKey], let maxHealth = stats[Constant.maxHealthKey], let loot = stats[Constant.lootKey] else { return }
+            players.append(ScenarioPlayer(name: player, experience: exp, health: health, maxHealth: maxHealth, loot: loot))
         }
         self.delegate?.didUpdatePlayers(players: players)
     }

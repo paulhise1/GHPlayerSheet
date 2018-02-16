@@ -9,6 +9,7 @@ struct ScenarioPlayer: Hashable, Equatable {
     var experience = "0"
     var health: String
     var maxHealth: String
+    var loot: String = "0"
     
     init(from character: Character) {
         self.name = character.name
@@ -17,11 +18,12 @@ struct ScenarioPlayer: Hashable, Equatable {
         self.health = String(character.health)
     }
     
-    init(name: String, experience: String, health: String, maxHealth: String) {
+    init(name: String, experience: String, health: String, maxHealth: String, loot: String) {
         self.name = name
         self.experience = experience
         self.health = health
         self.maxHealth = maxHealth
+        self.loot = loot
     }
     
     static func ==(lhs: ScenarioPlayer, rhs: ScenarioPlayer) -> Bool {
