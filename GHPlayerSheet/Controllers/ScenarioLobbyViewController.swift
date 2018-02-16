@@ -22,6 +22,7 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     private var scenario: Scenario?
     private var party: String?
     private var character: Character?
+    private var service: ScenarioService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,10 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
         setupViewsOnLoad()
     }
 
-    func configure(character: Character, party: String) {
+    func configure(character: Character, party: String, service: ScenarioService) {
         self.party = party
         self.character = character
+        self.service = service
     }
     
     func setupViewsOnLoad() {
@@ -59,6 +61,8 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        guard let party = party else { return }
+        service?.resetScenarioCreation(party: party)
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -89,8 +93,8 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.segueToScenarioID {
             let destinationVC = segue.destination as! ScenarioViewController
-            guard let party = party, let character = character, let scenario = scenario else { return }
-            destinationVC.configure(party: party, character: character, scenario: scenario)
+            guard let party = party, let character = character, let scenario = scenario, let service = service else { return }
+            destinationVC.configure(party: party, character: character, scenario: scenario, hosting: true, service: service)
         }
     }
 }

@@ -13,29 +13,32 @@ class ScenarioViewModel {
     
     private(set) var player: ScenarioPlayer
     private(set) var party: String
-    private(set) var scenario: Scenario?
+    private(set) var scenario: Scenario
+    var hosting: Bool
     
     
     var playerCount: Int {
         return players.count
     }
     
-    init(party: String, character: Character, scenario: Scenario?) {
+    init(party: String, character: Character, scenario: Scenario, hosting: Bool, service: ScenarioService) {
         self.party = party
         self.scenario = scenario
+        self.hosting = hosting
         self.player = ScenarioPlayer(from: character)
-        self.service = FirebaseService(party: party)
+        self.service = service
         self.service.delegate = self
         setupScenario()
         addPlayerToService()
     }
  
-    func getScenario() {
-        service.scenarioInfo()
-    }
+//    func getScenario() {
+//        service.scenarioInfo()
+//    }
     
     func setupScenario() {
-        guard let scenario = scenario, let difficulty = scenario.difficulty else { return }
+        guard hosting else { return }
+        guard let difficulty = scenario.difficulty else { return }
         service.createScenario(party: self.party, number: scenario.number, difficulty: difficulty)
     }
     
@@ -64,13 +67,16 @@ extension ScenarioViewModel: ScenarioServiceDelegate {
         delegate?.didUpdatePlayers()
     }
 
-    func didGetScenarioNumber(_ scenarioNumber: String) {
-        scenario = Scenario.scenarioFromNumber(scenarioNumber)
-    }
+//    func didGetScenarioNumber(_ scenarioNumber: String) {
+//        guard let scenarioFromNumber = Scenario.scenarioFromNumber(scenarioNumber) else { return }
+//        scenario = scenarioFromNumber
+//    }
     
     func willCreateScenario(hostName: String) {
     }
     func didCreateScenario(_ scenario: Scenario) {
+    }
+    func resetCreateScenario() {
     }
 }
 

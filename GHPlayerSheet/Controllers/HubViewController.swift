@@ -91,15 +91,15 @@ class HubViewController: UIViewController {
     
     // MARK: Helpers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let character = viewModel?.player?.activeCharacter, let party = viewModel?.party, let service = viewModel?.service else { return }
         if segue.identifier == Constant.segueToScenarioLobbyID {
             let destinationVC = segue.destination as! ScenarioLobbyViewController
-            guard let character = viewModel?.player?.activeCharacter, let party = viewModel?.party else { return }
-            destinationVC.configure(character: character, party: party)
+            destinationVC.configure(character: character, party: party, service: service)
         }
         if segue.identifier == Constant.segueToScenarioID {
             let destinationVC = segue.destination as! ScenarioViewController
-            guard let character = viewModel?.player?.activeCharacter, let party = viewModel?.party else { return }
-            destinationVC.configure(party: party, character: character, scenario: nil)
+            guard let scenario = viewModel?.scenario else { return }
+            destinationVC.configure(party: party, character: character, scenario: scenario, hosting: false, service: service)
         }
     }
     
@@ -163,6 +163,11 @@ extension HubViewController: HubViewModelDelegate {
     func willCreateScenario(creator: String) {
         scenarioButton.setTitle("\(creator) is setting the table...", for: .normal)
         scenarioButton.isEnabled = false
+    }
+    
+    func didResetCreateScenario() {
+        scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
+        scenarioButton.isEnabled = true
     }
 }
 

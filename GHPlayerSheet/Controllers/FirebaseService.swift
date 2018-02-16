@@ -6,6 +6,7 @@ class FirebaseService: ScenarioService {
     enum ScenarioStatus: String {
         case creating = "creating"
         case active = "active"
+        case reset = "reset"
     }
     
     struct Constant {
@@ -37,6 +38,10 @@ class FirebaseService: ScenarioService {
         database.child(party).child(Constant.scenarioKey).setValue([Constant.statusKey: ScenarioStatus.creating.rawValue, Constant.hostKey: playerName])
     }
     
+    func resetScenarioCreation(party: String) {
+        database.child(party).child(Constant.scenarioKey).setValue([Constant.statusKey: ScenarioStatus.reset.rawValue, Constant.hostKey: nil])
+    }
+
     func createScenario(party: String, number: String, difficulty: String) {
         database.child(party).child(Constant.scenarioKey).updateChildValues([Constant.statusKey: ScenarioStatus.active.rawValue, Constant.numberKey: number, Constant.difficultyKey: difficulty])
     }
@@ -47,21 +52,6 @@ class FirebaseService: ScenarioService {
         let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth]
         database.child(party).child(Constant.scenarioKey).child(Constant.playerKey).child(playerName).setValue(playerInfo)
     }
-    
-    func scenarioInfo() {
-        configureScenarioStatusListener()
-    }
-    
-    func updatePartyName(partyName: String) {
-        self.party = partyName
-        configurePlayersListener()
-    }
-    
-//    func removePlayerFromService(player: ScenarioPlayer) {
-//        guard let party = partyName else { return }
-//        database.child(party).child(Constant.playerKey).child(player.name).removeValue()
-//        addScenarioInfoListener()
-//    }
     
     private func configurePlayersListener(){
         let playerRef = database.child(party).child(Constant.scenarioKey).child(Constant.playerKey)
@@ -91,12 +81,19 @@ class FirebaseService: ScenarioService {
         guard let statusString = snapshot.value as? String, let status = FirebaseService.ScenarioStatus(rawValue: statusString) else { return }
         switch status {
         case .creating:
-            // Need hostname
-            delegate?.willCreateScenario(hostName: "Host")
+            let hostRef = database.child(party).child(Constant.scenarioKey).child(Constant.hostKey)
+            hostRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                guard let host = snapshot.value as? String else { return }
+                self.delegate?.willCreateScenario(hostName: host)
+            })
         case .active:
-            // Need scenario number to reconstruct scenario model
-            delegate?.didCreateScenario(Scenario.scenarioFromNumber("11")!)
-            delegate?.didGetScenarioNumber("11")
+            let scenarioNumberRef = database.child(party).child(Constant.scenarioKey).child(Constant.numberKey)
+            scenarioNumberRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                guard let scenarioNumber = snapshot.value as? String, let scenario = Scenario.scenarioFromNumber(scenarioNumber) else { return }
+                self.delegate?.didCreateScenario(scenario)
+            })
+        case .reset:
+            delegate?.resetCreateScenario()
         }
     }
 }

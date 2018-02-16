@@ -42,26 +42,26 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         
         setupCounters()
         updateStackViews()
-        updateScenario()
+//        updateScenario()
         setInfoOnLabels()
     }
    
-    func configure(party: String, character: Character, scenario: Scenario?) {
-        self.viewModel = ScenarioViewModel(party: party, character: character, scenario: scenario)
+    func configure(party: String, character: Character, scenario: Scenario, hosting: Bool, service: ScenarioService) {
+        self.viewModel = ScenarioViewModel(party: party, character: character, scenario: scenario, hosting: hosting, service: service)
         self.viewModel?.delegate = self
     }
     
-    func updateScenario() {
-        guard let viewModel = viewModel else { return }
-        viewModel.getScenario()
-    }
+//    func updateScenario() {
+//        guard let viewModel = viewModel else { return }
+//        viewModel.getScenario()
+//    }
     
     func setInfoOnLabels() {
-        partyNameLabel.text = viewModel?.party
-        selfNameLabel.text = viewModel?.player.name
-        guard let scenarioNumber = viewModel?.scenario?.number, let scenarioName = viewModel?.scenario?.name else { return }
-        scenarioTitleLabel.text = "\(scenarioNumber): \(scenarioName)"
-        scenarioGoalLabel.text = viewModel?.scenario?.goal
+        guard let viewModel = viewModel else { return }
+        partyNameLabel.text = viewModel.party
+        selfNameLabel.text = viewModel.player.name
+        scenarioTitleLabel.text = "# \(viewModel.scenario.number): \(viewModel.scenario.name)"
+        scenarioGoalLabel.text = viewModel.scenario.goal
     }
     
     func counterValueDidChange(value: String, type: CounterType) {
