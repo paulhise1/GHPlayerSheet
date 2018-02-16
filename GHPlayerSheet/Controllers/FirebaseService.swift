@@ -89,9 +89,14 @@ class FirebaseService: ScenarioService {
             })
         case .active:
             let scenarioNumberRef = database.child(party).child(Constant.scenarioKey).child(Constant.numberKey)
-            scenarioNumberRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                guard let scenarioNumber = snapshot.value as? String, let scenario = Scenario.scenarioFromNumber(scenarioNumber) else { return }
-                self.delegate?.didCreateScenario(scenario)
+            let scenarioDifficultyRef = database.child(party).child(Constant.scenarioKey).child(Constant.difficultyKey)
+            scenarioDifficultyRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                guard let difficulty = snapshot.value as? String else { return }
+                scenarioNumberRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let scenarioNumber = snapshot.value as? String, var scenario = Scenario.scenarioFromNumber(scenarioNumber) else { return }
+                    scenario.difficulty = difficulty
+                    self.delegate?.didCreateScenario(scenario)
+                })
             })
         case .reset:
             delegate?.resetCreateScenario()

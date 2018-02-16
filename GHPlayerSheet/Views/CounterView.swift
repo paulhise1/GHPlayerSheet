@@ -36,6 +36,7 @@ class CounterView: UIView {
         if let maxValue = maxValue { self.maxValue = Int(maxValue) }
         setDefaultColors()
         counterLabel.text = String(value)
+        counterLabel.font = FontConstants.counterNumberFont
     }
     
     @IBAction func incrementButtonTapped(_ sender: Any) {

@@ -6,13 +6,14 @@ struct Scenario {
     let name: String
     let requirements: String
     let goal: String
-    var difficulty: String?
+    var difficulty: String
     
-    private init(number: String, name: String, requirements: String, goal: String) {
+    private init(number: String, name: String, requirements: String, goal: String, difficulty: String = "0") {
         self.number = number
         self.name = name
         self.requirements = requirements
         self.goal = goal
+        self.difficulty = difficulty
     }
     
     private static func generateScenarios() -> [Scenario] {

@@ -7,14 +7,14 @@ struct ColorConstants {
     static let defaultEnterNameText = UIColor.lightGray
     
     // CounterView Colors for counters
-    static let lootBackgroundColor = UIColor.flatSandColorDark()
-    static let lootCounterColor = UIColor.flatSand()
+    static let lootBackgroundColor = UIColor.flatGrayColorDark()
+    static let lootCounterColor = UIColor.flatWhiteColorDark()
     static let healthBackgroundColor = UIColor.flatRedColorDark()
     static let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)
     static let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()
     static let experienceCounterColor = UIColor.flatPowderBlue()
     static let genericBackgroundColor = UIColor.flatPurpleColorDark()
-    static let genericCounterColor = UIColor.flatMagenta().lighten(byPercentage: 0.8)
+    static let genericCounterColor = UIColor.flatPurple().lighten(byPercentage: 0.8)
     
     // ScenarioVC Colors
     static let disconnectedPlayerBackground = UIColor.flatGray()

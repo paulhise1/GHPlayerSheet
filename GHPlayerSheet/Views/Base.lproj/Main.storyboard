@@ -13,6 +13,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Bold</string>
+        </array>
         <array key="HTOWERT.TTF">
             <string>HighTowerText-Reg</string>
         </array>
@@ -357,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TtH-vc-MzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="-399"/>
+            <point key="canvasLocation" x="24" y="-410"/>
         </scene>
         <!--Character Sheet View Controller-->
         <scene sceneID="fmv-nT-R8k">
@@ -549,33 +552,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Ad-ewk" userLabel="Exit Button">
+                                <rect key="frame" x="678" y="10" width="90" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LRc-J8-Sjf"/>
+                                    <constraint firstAttribute="width" constant="90" id="hTn-S1-ctU"/>
+                                </constraints>
+                                <state key="normal" image="exitSign.png"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-z3-qSs" userLabel="Title container view">
-                                <rect key="frame" x="44" y="0.0" width="724" height="85"/>
+                                <rect key="frame" x="90.000000000000028" y="0.0" width="482.66666666666674" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Scenario Title Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-IO-y3d">
-                                        <rect key="frame" x="20" y="10" width="170.33333333333334" height="32.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
+                                        <rect key="frame" x="5" y="10" width="204.33333333333334" height="38.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                         <color key="textColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Scenario Goal Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s2-Rf-p7M">
-                                        <rect key="frame" x="20" y="42.333333333333336" width="704" height="20"/>
-                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Scenario Goal Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s2-Rf-p7M">
+                                        <rect key="frame" x="5" y="48.666666666666664" width="477.66666666666669" height="21.999999999999993"/>
+                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
                                         <color key="textColor" red="0.97670525312423706" green="0.60546392202377319" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Ad-ewk">
-                                        <rect key="frame" x="636" y="16" width="80" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="LRc-J8-Sjf"/>
-                                            <constraint firstAttribute="width" constant="80" id="hTn-S1-ctU"/>
-                                        </constraints>
-                                        <state key="normal" image="exitSign.png"/>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="6Mu-IO-y3d" firstAttribute="leading" secondItem="iLI-z3-qSs" secondAttribute="leading" constant="20" id="6az-sr-0o8"/>
-                                    <constraint firstAttribute="height" constant="85" id="9MZ-Wh-mLs"/>
+                                    <constraint firstAttribute="height" constant="95" id="9MZ-Wh-mLs"/>
                                     <constraint firstItem="4s2-Rf-p7M" firstAttribute="top" secondItem="6Mu-IO-y3d" secondAttribute="bottom" id="DEZ-Wh-Sf2"/>
                                     <constraint firstItem="4s2-Rf-p7M" firstAttribute="leading" secondItem="6Mu-IO-y3d" secondAttribute="leading" id="U3s-VV-f6e"/>
                                     <constraint firstAttribute="trailing" secondItem="4s2-Rf-p7M" secondAttribute="trailing" id="WUh-h1-0PR"/>
@@ -583,114 +585,110 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Mu-IO-y3d" secondAttribute="trailing" constant="20" symbolic="YES" id="rAx-DF-zAc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NU-sR-40i" userLabel="Stats Stack Border View">
+                                <rect key="frame" x="43.666666666666686" y="94.999999999999986" width="534.33333333333326" height="168.66666666666663"/>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNj-R4-3Er" userLabel="Stats Stack Background View">
+                                <rect key="frame" x="49" y="95" width="523.66666666666663" height="164"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-Pv-g14" userLabel="Stats Stacks Container View">
-                                <rect key="frame" x="44" y="85" width="534" height="154"/>
+                                <rect key="frame" x="49" y="95" width="523.66666666666663" height="164"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Party Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRE-Tf-LAI">
-                                        <rect key="frame" x="-0.66666666666668561" y="0.0" width="534.33333333333348" height="26"/>
-                                        <color key="backgroundColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="20"/>
-                                        <color key="textColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="-0.66666666666668561" y="0.0" width="524" height="28.333333333333332"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                        <color key="textColor" red="0.17257410287857056" green="0.21834245324134827" blue="0.44677489995956421" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="52w-7z-6nl">
-                                        <rect key="frame" x="0.0" y="26" width="534" height="128"/>
+                                        <rect key="frame" x="0.0" y="28.333333333333329" width="523.66666666666663" height="135.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RV5-hZ-5yE" userLabel="Player 2 Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="178" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="135.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-Px-gmZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="34"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                                        <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTm-Ie-oWE">
-                                                        <rect key="frame" x="0.0" y="32" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="34.000000000000014" width="174.66666666666666" height="34"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-m0-bZb">
-                                                        <rect key="frame" x="0.0" y="64" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="68.000000000000014" width="174.66666666666666" height="33.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiU-Ak-L9k">
-                                                        <rect key="frame" x="0.0" y="96" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.79226005077362061" green="0.7181098461151123" blue="0.48854580521583557" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="101.66666666666667" width="174.66666666666666" height="34.000000000000014"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kyi-v6-V3m" userLabel="Player 3 Stack View">
-                                                <rect key="frame" x="178" y="0.0" width="178" height="128"/>
+                                                <rect key="frame" x="174.66666666666663" y="0.0" width="174.33333333333337" height="135.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 3 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmK-ul-nrn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="34"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                                        <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 3 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCa-FO-PIe">
-                                                        <rect key="frame" x="0.0" y="32" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="34.000000000000014" width="174.33333333333334" height="34"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 3 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Oj-FTA">
-                                                        <rect key="frame" x="0.0" y="64" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="68.000000000000014" width="174.33333333333334" height="33.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 3 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-4N-3Uw">
-                                                        <rect key="frame" x="0.0" y="96" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.79226005077362061" green="0.7181098461151123" blue="0.48854580521583557" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.92120724919999997" green="0.84832113980000001" blue="0.62377804520000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="101.66666666666667" width="174.33333333333334" height="34.000000000000014"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="omt-SN-IjF" userLabel="Player 4 Stack View">
-                                                <rect key="frame" x="356" y="0.0" width="178" height="128"/>
+                                                <rect key="frame" x="349" y="0.0" width="174.66666666666663" height="135.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 4 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvV-Qd-xnt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="34"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                                        <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 4 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqm-6l-e0y">
-                                                        <rect key="frame" x="0.0" y="32" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="34.000000000000014" width="174.66666666666666" height="34"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 4 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORF-MP-kRn">
-                                                        <rect key="frame" x="0.0" y="64" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="68.000000000000014" width="174.66666666666666" height="33.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 4 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-rJ-Htv">
-                                                        <rect key="frame" x="0.0" y="96" width="178" height="32"/>
-                                                        <color key="backgroundColor" red="0.79226005077362061" green="0.7181098461151123" blue="0.48854580521583557" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                                        <color key="textColor" red="0.92120724919999997" green="0.84832113980000001" blue="0.62377804520000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="0.0" y="101.66666666666667" width="174.66666666666666" height="34.000000000000014"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                                        <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -698,7 +696,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.52106726169586182" green="0.24050712585449219" blue="0.68248951435089111" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="52w-7z-6nl" firstAttribute="leading" secondItem="Nlq-Pv-g14" secondAttribute="leading" id="5sq-mK-MWS"/>
                                     <constraint firstItem="52w-7z-6nl" firstAttribute="top" secondItem="PRE-Tf-LAI" secondAttribute="bottom" id="Jsd-tF-gqn"/>
@@ -735,50 +732,79 @@
                                 <rect key="frame" x="416" y="273.66666666666669" width="324" height="80.333333333333314"/>
                                 <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucl-vc-Uui">
-                                <rect key="frame" x="330.66666666666669" y="243" width="151" height="26"/>
-                                <color key="backgroundColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="20"/>
-                                <color key="textColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEY-6y-8hS" userLabel="Loot Tracker Container View">
                                 <rect key="frame" x="678" y="79.999999999999986" width="80" height="183.66666666666663"/>
-                                <color key="backgroundColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="1zG-5T-Sbl"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="256" id="UAc-lu-dJS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVH-6n-gV0" userLabel="Level Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenarioDifficultySkull.png" translatesAutoresizingMaskIntoConstraints="NO" id="M4j-00-iIw" userLabel="Scenario Level Skull Image">
+                                        <rect key="frame" x="5" y="10" width="85" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="LVZ-WU-DZQ"/>
+                                            <constraint firstAttribute="width" constant="85" id="bmu-MQ-Fld"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-cV-2zg" userLabel="Scenario Difficulty Label">
+                                        <rect key="frame" x="75" y="40" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
+                                        <color key="textColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="M4j-00-iIw" secondAttribute="trailing" id="OuN-zg-Uj4"/>
+                                    <constraint firstAttribute="bottom" secondItem="M4j-00-iIw" secondAttribute="bottom" id="Pmt-F7-nrA"/>
+                                    <constraint firstItem="IaL-cV-2zg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BVH-6n-gV0" secondAttribute="leading" constant="20" symbolic="YES" id="PoF-C0-0GW"/>
+                                    <constraint firstAttribute="height" constant="70" id="UHf-zA-e5P"/>
+                                    <constraint firstAttribute="width" constant="90" id="Wpb-Xl-Zvx"/>
+                                    <constraint firstAttribute="trailing" secondItem="IaL-cV-2zg" secondAttribute="trailing" constant="15" id="gu0-Fj-u3C"/>
+                                    <constraint firstAttribute="bottom" secondItem="IaL-cV-2zg" secondAttribute="bottom" constant="30" id="vhv-LH-xeV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nlq-Pv-g14" firstAttribute="top" secondItem="iLI-z3-qSs" secondAttribute="bottom" id="089-N8-nBb"/>
+                            <constraint firstAttribute="top" secondItem="BVH-6n-gV0" secondAttribute="top" id="0Id-IT-Lmw"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="top" secondItem="RRX-i4-3cv" secondAttribute="bottom" constant="10" id="1Cl-Mf-XMf"/>
+                            <constraint firstItem="9NU-sR-40i" firstAttribute="width" secondItem="dNj-R4-3Er" secondAttribute="width" multiplier="1.02" id="3Hz-r2-JYh"/>
                             <constraint firstItem="RRX-i4-3cv" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" priority="750" constant="80" id="3rQ-Zf-pq4"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="bottom" secondItem="OOT-yG-uHp" secondAttribute="bottom" id="55f-o6-dx0"/>
-                            <constraint firstItem="ucl-vc-Uui" firstAttribute="centerX" secondItem="Dv6-5b-JJM" secondAttribute="centerX" id="5Dp-fd-qat"/>
                             <constraint firstItem="OOT-yG-uHp" firstAttribute="width" secondItem="xh9-cW-c5f" secondAttribute="width" multiplier="0.4" id="6D7-IP-mPG"/>
+                            <constraint firstItem="6Mu-IO-y3d" firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="trailing" constant="5" id="6fv-qY-6iz"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="height" secondItem="OOT-yG-uHp" secondAttribute="height" id="EAN-K3-H2w"/>
+                            <constraint firstItem="5wZ-Ad-ewk" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" constant="10" id="EIS-c6-sek"/>
+                            <constraint firstItem="dNj-R4-3Er" firstAttribute="width" secondItem="Nlq-Pv-g14" secondAttribute="width" id="EKU-GW-f4V"/>
+                            <constraint firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="leading" id="HEf-NZ-oF2"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" id="Iwr-cY-AND"/>
                             <constraint firstItem="BEY-6y-8hS" firstAttribute="leading" secondItem="RRX-i4-3cv" secondAttribute="trailing" constant="10" id="J9p-8q-0h6"/>
                             <constraint firstItem="BEY-6y-8hS" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" priority="750" constant="80" id="LCg-0c-jX8"/>
                             <constraint firstItem="BEY-6y-8hS" firstAttribute="bottom" secondItem="RRX-i4-3cv" secondAttribute="bottom" id="N1g-yG-7kP"/>
+                            <constraint firstItem="9NU-sR-40i" firstAttribute="top" secondItem="dNj-R4-3Er" secondAttribute="top" id="RfW-5y-kBE"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="bottom" secondItem="OOT-yG-uHp" secondAttribute="bottom" id="Vfg-9j-kFx"/>
-                            <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="5wZ-Ad-ewk" secondAttribute="trailing" constant="8" id="Wnb-PB-3xZ"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="BEY-6y-8hS" secondAttribute="trailing" constant="10" id="Yvn-tQ-1ad"/>
                             <constraint firstItem="MTX-6z-V1f" firstAttribute="centerY" secondItem="Dv6-5b-JJM" secondAttribute="centerY" id="aMy-gZ-Qfj"/>
+                            <constraint firstItem="iLI-z3-qSs" firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="trailing" id="eAd-Iy-3WZ"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="width" secondItem="OOT-yG-uHp" secondAttribute="width" id="fxG-TJ-tIJ"/>
-                            <constraint firstItem="RRX-i4-3cv" firstAttribute="leading" secondItem="Nlq-Pv-g14" secondAttribute="trailing" constant="10" id="gAx-P5-KOv"/>
+                            <constraint firstItem="RRX-i4-3cv" firstAttribute="leading" secondItem="9NU-sR-40i" secondAttribute="trailing" constant="10" id="gAx-P5-KOv"/>
+                            <constraint firstItem="dNj-R4-3Er" firstAttribute="height" secondItem="Nlq-Pv-g14" secondAttribute="height" id="hXx-gz-LsD"/>
+                            <constraint firstItem="9NU-sR-40i" firstAttribute="height" secondItem="dNj-R4-3Er" secondAttribute="height" multiplier="1.03" id="hb0-DC-zsl"/>
                             <constraint firstItem="MTX-6z-V1f" firstAttribute="centerX" secondItem="52w-7z-6nl" secondAttribute="centerX" id="iCo-wp-s7s"/>
-                            <constraint firstItem="OOT-yG-uHp" firstAttribute="top" secondItem="Nlq-Pv-g14" secondAttribute="bottom" constant="35" id="oDe-8q-K4l"/>
+                            <constraint firstItem="9NU-sR-40i" firstAttribute="centerX" secondItem="dNj-R4-3Er" secondAttribute="centerX" id="khl-Lv-4XQ"/>
+                            <constraint firstItem="dNj-R4-3Er" firstAttribute="centerY" secondItem="Nlq-Pv-g14" secondAttribute="centerY" id="nzL-As-UiT"/>
+                            <constraint firstItem="OOT-yG-uHp" firstAttribute="top" secondItem="Nlq-Pv-g14" secondAttribute="bottom" constant="15" id="oDe-8q-K4l"/>
+                            <constraint firstItem="Nlq-Pv-g14" firstAttribute="trailing" secondItem="iLI-z3-qSs" secondAttribute="trailing" id="oOr-vZ-lrh"/>
+                            <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="5wZ-Ad-ewk" secondAttribute="trailing" id="pQ5-EB-iSP"/>
                             <constraint firstItem="KVd-xu-mQG" firstAttribute="leading" secondItem="xh9-cW-c5f" secondAttribute="centerX" constant="10" id="qKe-Q8-8UZ"/>
-                            <constraint firstItem="OOT-yG-uHp" firstAttribute="top" secondItem="ucl-vc-Uui" secondAttribute="bottom" constant="5" id="qZc-nR-tuq"/>
                             <constraint firstAttribute="centerX" secondItem="OOT-yG-uHp" secondAttribute="trailing" constant="10" id="qfH-Mg-toT"/>
-                            <constraint firstItem="iLI-z3-qSs" firstAttribute="width" secondItem="Dv6-5b-JJM" secondAttribute="width" id="u0d-I1-VL3"/>
-                            <constraint firstItem="5wZ-Ad-ewk" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" constant="16" id="wSO-lg-tqs"/>
-                            <constraint firstItem="iLI-z3-qSs" firstAttribute="centerX" secondItem="Dv6-5b-JJM" secondAttribute="centerX" id="wi3-dc-Zqt"/>
-                            <constraint firstItem="Nlq-Pv-g14" firstAttribute="leading" secondItem="Dv6-5b-JJM" secondAttribute="leading" id="zbV-uM-ws9"/>
+                            <constraint firstItem="dNj-R4-3Er" firstAttribute="centerX" secondItem="Nlq-Pv-g14" secondAttribute="centerX" id="tfi-mr-uNb"/>
+                            <constraint firstItem="Nlq-Pv-g14" firstAttribute="leading" secondItem="Dv6-5b-JJM" secondAttribute="leading" constant="5" id="zbV-uM-ws9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dv6-5b-JJM"/>
                     </view>
@@ -793,9 +819,10 @@
                         <outlet property="player3StatStack" destination="kyi-v6-V3m" id="VH2-gr-FDv"/>
                         <outlet property="player4StatStack" destination="omt-SN-IjF" id="WKk-l3-pNQ"/>
                         <outlet property="playerStatStacksContainerView" destination="Nlq-Pv-g14" id="f30-Yy-Mdj"/>
+                        <outlet property="scenarioDifficultyLabel" destination="IaL-cV-2zg" id="FbN-ze-eFE"/>
                         <outlet property="scenarioGoalLabel" destination="4s2-Rf-p7M" id="3Uk-6E-nGU"/>
                         <outlet property="scenarioTitleLabel" destination="6Mu-IO-y3d" id="pAz-Kt-4Qf"/>
-                        <outlet property="selfNameLabel" destination="ucl-vc-Uui" id="yMc-5t-bfB"/>
+                        <outlet property="statsStackBorderView" destination="9NU-sR-40i" id="rXY-TK-NrB"/>
                         <outletCollection property="playerNameLabels" destination="ATW-Px-gmZ" collectionClass="NSMutableArray" id="XRj-62-Tbh"/>
                         <outletCollection property="playerNameLabels" destination="OmK-ul-nrn" collectionClass="NSMutableArray" id="kj4-xL-G1E"/>
                         <outletCollection property="playerNameLabels" destination="GvV-Qd-xnt" collectionClass="NSMutableArray" id="idh-gC-3W5"/>
@@ -909,7 +936,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JMV-q5-LKn">
-                                <rect key="frame" x="44" y="32" width="212" height="247"/>
+                                <rect key="frame" x="44" y="44" width="212" height="235"/>
                                 <color key="backgroundColor" red="1" green="0.95189665010000002" blue="0.84578163920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1254,8 +1281,9 @@
         <image name="exitSign.png" width="1307" height="480"/>
         <image name="levelCrown.png" width="499" height="337"/>
         <image name="levelCrownBlack.png" width="500" height="500"/>
+        <image name="scenarioDifficultySkull.png" width="278" height="209"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eTZ-7x-4PG"/>
+        <segue reference="Te3-AA-ZMl"/>
     </inferredMetricsTieBreakers>
 </document>

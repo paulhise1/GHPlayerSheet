@@ -34,8 +34,7 @@ class ScenarioViewModel {
     
     func setupScenario() {
         guard hosting else { return }
-        guard let difficulty = scenario.difficulty else { return }
-        service.createScenario(party: self.party, number: scenario.number, difficulty: difficulty)
+        service.createScenario(party: self.party, number: scenario.number, difficulty: scenario.difficulty)
     }
     
     func addPlayerToService() {

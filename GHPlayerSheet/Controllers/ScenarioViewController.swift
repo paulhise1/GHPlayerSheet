@@ -14,10 +14,17 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let toHubVCSegueID = "toHubVC"
     }
     
-    @IBOutlet weak var selfNameLabel: UILabel!
+    @IBOutlet weak var statsStackBorderView: UIView! {
+        didSet {
+            statsStackBorderView.layer.cornerRadius = 2
+            statsStackBorderView.layer.masksToBounds = true
+        }
+    }
     
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
+    @IBOutlet weak var scenarioDifficultyLabel: UILabel!
+    
     @IBOutlet weak var healthTrackerContainerView: UIView!
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
@@ -54,9 +61,9 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     func setInfoOnLabels() {
         guard let viewModel = viewModel else { return }
         partyNameLabel.text = viewModel.party
-        selfNameLabel.text = viewModel.player.name
         scenarioTitleLabel.text = "# \(viewModel.scenario.number): \(viewModel.scenario.name)"
         scenarioGoalLabel.text = viewModel.scenario.goal
+        scenarioDifficultyLabel.text = viewModel.scenario.difficulty
     }
     
     func counterValueDidChange(value: String, type: CounterType) {
@@ -136,9 +143,9 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
         var i = 0
         for player in players {
             playerNameLabels[i].text = player.name
-            playerHealthLabels[i].text = ("\(player.health)/\(player.maxHealth)")
+            playerHealthLabels[i].text = ("\(player.health) (\(player.maxHealth))")
             playerExperienceLabels[i].text = player.experience
-            playerLootLabels[i].text = "\(player.loot) loot"
+            playerLootLabels[i].text = player.loot
             i = i + 1
         }
     }
