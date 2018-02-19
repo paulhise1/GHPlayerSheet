@@ -39,9 +39,7 @@ extension ChangeCharacterView: UICollectionViewDelegateFlowLayout, UICollectionV
         ownedCharacterCollectionView.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize = CGSize(width: 150, height: 150)
         return cellSize
     }

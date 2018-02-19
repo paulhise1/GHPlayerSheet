@@ -25,18 +25,26 @@ class CounterView: UIView {
     @IBOutlet private weak var counterLabel: UILabel!
     @IBOutlet private weak var backgroundView: UIView! {
         didSet {
-            backgroundView.layer.cornerRadius = 18
+            backgroundView.layer.cornerRadius = 14
             backgroundView.layer.masksToBounds = true
         }
     }
+    @IBOutlet weak var maxHealthLabel: UILabel!
+    @IBOutlet weak var counterSymbolImageView: UIImageView!
+    @IBOutlet weak var counterSymbolBackgroundImageView: UIImageView!
     
     func configure(value: String = "0", counterType: CounterType = .generic, maxValue: String? = nil) {
         self.value = Int(value)
         self.counterType = counterType
-        if let maxValue = maxValue { self.maxValue = Int(maxValue) }
-        setDefaultColors()
+        setDefaultCounterSettings()
         counterLabel.text = String(value)
         counterLabel.font = FontConstants.counterNumberFont
+        if let maxValue = maxValue {
+            self.maxValue = Int(maxValue)
+            self.maxHealthLabel.text = maxValue
+            self.maxHealthLabel.textColor = ColorConstants.maxHealthLabelColor
+            self.maxHealthLabel.font = FontConstants.counterMaxNumberFont
+        }
     }
     
     @IBAction func incrementButtonTapped(_ sender: Any) {
@@ -59,34 +67,51 @@ class CounterView: UIView {
         } else {
             newValue = newValue + 1
         }
-        counterLabel.text = String(newValue)
+        setCounterValue(value: newValue)
         delegate?.counterValueDidChange(value: String(newValue), type: counterType)
         value = newValue
+        if maxValue == newValue && counterType == .health {
+            maxHealthLabel.isHidden = true
+            counterLabel.textColor = ColorConstants.maxHealthLabelColor
+        }
     }
     
     private func decrementCounter() {
         guard var newValue = value, let counterType = counterType else { return }
         newValue = max(0, newValue - 1)
-        counterLabel.text = String(newValue)
+        setCounterValue(value: newValue)
         delegate?.counterValueDidChange(value: String(newValue), type: counterType)
         value = newValue
+        if counterType == .health {
+            maxHealthLabel.isHidden = false
+            counterLabel.textColor = ColorConstants.healthCounterColor
+        }
     }
-    
-    private func setDefaultColors() {
+
+    private func setDefaultCounterSettings() {
         guard let counterType = counterType else { return }
         switch counterType {
         case .loot:
             backgroundView.backgroundColor = ColorConstants.lootBackgroundColor
             counterLabel.textColor = ColorConstants.lootCounterColor
+            counterSymbolImageView.image = UIImage(named: "lootSymbol")
+            counterSymbolBackgroundImageView.image = UIImage(named: "whiteLootSymbol")
         case .health:
             backgroundView.backgroundColor = ColorConstants.healthBackgroundColor
-            counterLabel.textColor = ColorConstants.healthCounterColor
+            counterLabel.textColor = ColorConstants.maxHealthLabelColor
+            counterSymbolImageView.image = UIImage(named: "healthSymbol")
+            counterSymbolBackgroundImageView.image = UIImage(named: "whiteHealthSymbol")
+            maxHealthLabel.isHidden = true
         case .experience:
             backgroundView.backgroundColor = ColorConstants.experienceBackgroundColor
             counterLabel.textColor = ColorConstants.experienceCounterColor
+            counterSymbolImageView.image = UIImage(named: "experienceStar")
+            counterSymbolBackgroundImageView.image = UIImage(named: "whiteExperienceStar")
         case .generic:
             backgroundView.backgroundColor = ColorConstants.genericBackgroundColor
             counterLabel.textColor = ColorConstants.genericCounterColor
         }
     }
+    
+    
 }

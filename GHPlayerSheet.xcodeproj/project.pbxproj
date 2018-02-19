@@ -40,6 +40,11 @@
 		1E8690D9202C34E1000A8697 /* lockedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8690D8202C34DF000A8697 /* lockedIcon.png */; };
 		1E8690DB202C34E6000A8697 /* unlockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8690DA202C34E4000A8697 /* unlockIcon.png */; };
 		1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D3A42202DBC830040E15B /* hvcbackground.png */; };
+		1E8D6ECB203AD08C004FD293 /* whiteExperienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECA203AD08B004FD293 /* whiteExperienceStar.png */; };
+		1E8D6ECE203ADB9D004FD293 /* healthSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */; };
+		1E8D6ECF203ADB9D004FD293 /* lootSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECD203ADB9D004FD293 /* lootSymbol.png */; };
+		1E8D6ED2203AE3BD004FD293 /* whiteLootSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED0203AE3BC004FD293 /* whiteLootSymbol.png */; };
+		1E8D6ED3203AE3BD004FD293 /* whiteHealthSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED1203AE3BD004FD293 /* whiteHealthSymbol.png */; };
 		1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */; };
 		1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */; };
 		1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */; };
@@ -94,6 +99,8 @@
 		1EB4B2A02017381200BF0AB0 /* MPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B29F2017381200BF0AB0 /* MPCService.swift */; };
 		1EBE015E2036BA60005F4F9F /* scenarioDifficultySkull.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */; };
 		1EBE01602036C32B005F4F9F /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBE015F2036C32B005F4F9F /* FontConstants.swift */; };
+		1EBE01622036E5DF005F4F9F /* changeCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EBE01612036E5DE005F4F9F /* changeCharacter.png */; };
+		1EBE0164203A601C005F4F9F /* quartermasterColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EBE0163203A601B005F4F9F /* quartermasterColorSymbol.png */; };
 		1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF00D02007106400C2E11D /* AppDelegate.swift */; };
 		1ECF00D62007106400C2E11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D42007106400C2E11D /* Main.storyboard */; };
 		1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECF00D72007106400C2E11D /* Assets.xcassets */; };
@@ -123,7 +130,7 @@
 		1EEE7316202D897B00A78C97 /* elementalistCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72E3202D897100A78C97 /* elementalistCard.png */; };
 		1EEE7317202D897B00A78C97 /* scoundrelCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72E4202D897200A78C97 /* scoundrelCard.png */; };
 		1EEE7319202D897B00A78C97 /* elementalist.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72E6202D897200A78C97 /* elementalist.png */; };
-		1EEE731A202D897B00A78C97 /* quatermasterCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72E7202D897200A78C97 /* quatermasterCard.png */; };
+		1EEE731A202D897B00A78C97 /* quartermasterCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72E7202D897200A78C97 /* quartermasterCard.png */; };
 		1EEE731B202D897B00A78C97 /* summoner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72E8202D897300A78C97 /* summoner.png */; };
 		1EEE731E202D897B00A78C97 /* spellweaver.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72EB202D897300A78C97 /* spellweaver.png */; };
 		1EEE731F202D897B00A78C97 /* plagueheraldCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EEE72EC202D897300A78C97 /* plagueheraldCard.png */; };
@@ -198,6 +205,11 @@
 		1E8690D8202C34DF000A8697 /* lockedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockedIcon.png; sourceTree = "<group>"; };
 		1E8690DA202C34E4000A8697 /* unlockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlockIcon.png; sourceTree = "<group>"; };
 		1E8D3A42202DBC830040E15B /* hvcbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hvcbackground.png; sourceTree = "<group>"; };
+		1E8D6ECA203AD08B004FD293 /* whiteExperienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteExperienceStar.png; sourceTree = "<group>"; };
+		1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthSymbol.png; sourceTree = "<group>"; };
+		1E8D6ECD203ADB9D004FD293 /* lootSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lootSymbol.png; sourceTree = "<group>"; };
+		1E8D6ED0203AE3BC004FD293 /* whiteLootSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteLootSymbol.png; sourceTree = "<group>"; };
+		1E8D6ED1203AE3BD004FD293 /* whiteHealthSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteHealthSymbol.png; sourceTree = "<group>"; };
 		1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup2.png; sourceTree = "<group>"; };
 		1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scenarioSetup.png; path = ../../../../../Downloads/scenarioSetup.png; sourceTree = "<group>"; };
 		1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup4.png; sourceTree = "<group>"; };
@@ -252,6 +264,8 @@
 		1EB4B29F2017381200BF0AB0 /* MPCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCService.swift; sourceTree = "<group>"; };
 		1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioDifficultySkull.png; sourceTree = "<group>"; };
 		1EBE015F2036C32B005F4F9F /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
+		1EBE01612036E5DE005F4F9F /* changeCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeCharacter.png; sourceTree = "<group>"; };
+		1EBE0163203A601B005F4F9F /* quartermasterColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = quartermasterColorSymbol.png; path = ../../../../../../Documents/characterImages/quartermasterColorSymbol.png; sourceTree = "<group>"; };
 		1ECB9C8A201041E5002B62C9 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00CD2007106400C2E11D /* GHPlayerSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHPlayerSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECF00D02007106400C2E11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -284,7 +298,7 @@
 		1EEE72E3202D897100A78C97 /* elementalistCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementalistCard.png; sourceTree = "<group>"; };
 		1EEE72E4202D897200A78C97 /* scoundrelCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoundrelCard.png; sourceTree = "<group>"; };
 		1EEE72E6202D897200A78C97 /* elementalist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementalist.png; sourceTree = "<group>"; };
-		1EEE72E7202D897200A78C97 /* quatermasterCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quatermasterCard.png; sourceTree = "<group>"; };
+		1EEE72E7202D897200A78C97 /* quartermasterCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quartermasterCard.png; sourceTree = "<group>"; };
 		1EEE72E8202D897300A78C97 /* summoner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = summoner.png; sourceTree = "<group>"; };
 		1EEE72EB202D897300A78C97 /* spellweaver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spellweaver.png; sourceTree = "<group>"; };
 		1EEE72EC202D897300A78C97 /* plagueheraldCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plagueheraldCard.png; sourceTree = "<group>"; };
@@ -369,8 +383,8 @@
 				1E30439720273B6C008D6B07 /* CharacterCreationView.xib */,
 				1E304399202740A8008D6B07 /* CharacterCreationView.swift */,
 				1E0FFCEF200C409B001525F7 /* StatModifierView.swift */,
-				1EA938D92015A31600B070B4 /* CounterView.swift */,
 				1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */,
+				1EA938D92015A31600B070B4 /* CounterView.swift */,
 				1EA938DB2015A32900B070B4 /* HorizontalCounterView.xib */,
 				1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */,
 				1E038272201AC31800C6AB12 /* CheckmarksView.swift */,
@@ -430,8 +444,8 @@
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */,
 				1ED412C2202456B1004A7791 /* Blank Map.jpg */,
+				1EBE01612036E5DE005F4F9F /* changeCharacter.png */,
 				1E038276201AC5E600C6AB12 /* checkedBox.png */,
 				1E038277201AC5E600C6AB12 /* checkmark.png */,
 				1EEE72DB202D894500A78C97 /* ClassImages */,
@@ -450,19 +464,25 @@
 				1E1B82E2200F080C002D6E01 /* goldBag.png */,
 				1E1B82E4200F0917002D6E01 /* goldbag3.png */,
 				1E30439520272F2D008D6B07 /* greenPlus.png */,
+				1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */,
 				1E8D3A42202DBC830040E15B /* hvcbackground.png */,
 				1E209E432019D4AC00A4986A /* levelCrown.png */,
 				1EA4365B2033B97F00F2B35F /* levelCrownBlack.png */,
 				1E8690D8202C34DF000A8697 /* lockedIcon.png */,
+				1E8D6ECD203ADB9D004FD293 /* lootSymbol.png */,
 				1EA938DD2015A71900B070B4 /* minusImage.png */,
 				1EA938DF2015A71F00B070B4 /* plusImage.png */,
 				1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */,
 				1EA4365720326DA000F2B35F /* rightButtonImg.png */,
+				1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */,
 				1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */,
 				1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */,
 				1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */,
 				1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */,
 				1E8690DA202C34E4000A8697 /* unlockIcon.png */,
+				1E8D6ECA203AD08B004FD293 /* whiteExperienceStar.png */,
+				1E8D6ED1203AE3BD004FD293 /* whiteHealthSymbol.png */,
+				1E8D6ED0203AE3BC004FD293 /* whiteLootSymbol.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -502,9 +522,9 @@
 		1ED412C42024591F004A7791 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1EBE015F2036C32B005F4F9F /* FontConstants.swift */,
 				1ED412C720245C16004A7791 /* HTOWERT.TTF */,
 				1ED412C52024592D004A7791 /* PirataOne-Gloomhaven.ttf */,
-				1EBE015F2036C32B005F4F9F /* FontConstants.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -558,7 +578,8 @@
 				1EEE7344202D929A00A78C97 /* plagueheraldSymbol.png */,
 				1E940059202B144F00F913D3 /* quartermaster.png */,
 				1EEE734C202D929D00A78C97 /* quartermasterSymbol.png */,
-				1EEE72E7202D897200A78C97 /* quatermasterCard.png */,
+				1EBE0163203A601B005F4F9F /* quartermasterColorSymbol.png */,
+				1EEE72E7202D897200A78C97 /* quartermasterCard.png */,
 				1EEE72F9202D897600A78C97 /* sawbones.png */,
 				1EA4365F2033CA9700F2B35F /* soothsinger.png */,
 				1EA436602033CA9800F2B35F /* soothsingerSymbol.png */,
@@ -702,27 +723,31 @@
 				1E94004E202AF50800F913D3 /* bruteCard.png in Resources */,
 				1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */,
 				1EEE7334202D897B00A78C97 /* sawbonesCard.png in Resources */,
+				1EBE01622036E5DF005F4F9F /* changeCharacter.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
 				1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1EEE735E202D92A000A78C97 /* berserkerSymbol.png in Resources */,
 				1E940050202AF50800F913D3 /* cragheartCard.png in Resources */,
+				1E8D6ECF203ADB9D004FD293 /* lootSymbol.png in Resources */,
 				1EEE7320202D897B00A78C97 /* doomstalkerCard.png in Resources */,
 				1ED412CF2024633A004A7791 /* ghcard2.jpg in Resources */,
 				1E30439620272F2F008D6B07 /* greenPlus.png in Resources */,
 				1EA4365C2033B98000F2B35F /* levelCrownBlack.png in Resources */,
 				1E038279201AC5E700C6AB12 /* checkmark.png in Resources */,
+				1E8D6ED3203AE3BD004FD293 /* whiteHealthSymbol.png in Resources */,
 				1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */,
 				1EEE733C202D897B00A78C97 /* nightshroudCard.png in Resources */,
 				1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */,
 				1EEE7323202D897B00A78C97 /* beasttyrantCard.png in Resources */,
-				1EEE731A202D897B00A78C97 /* quatermasterCard.png in Resources */,
+				1EEE731A202D897B00A78C97 /* quartermasterCard.png in Resources */,
 				1EEE7316202D897B00A78C97 /* elementalistCard.png in Resources */,
 				1E03827B201AC6ED00C6AB12 /* emptyCheckBox.png in Resources */,
 				1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */,
 				1EA436632033CA9800F2B35F /* soothsinger.png in Resources */,
 				1EFE3A2B20312F8100F94F39 /* AddCharactersView.xib in Resources */,
 				1E940060202B145000F913D3 /* quartermaster.png in Resources */,
+				1EBE0164203A601C005F4F9F /* quartermasterColorSymbol.png in Resources */,
 				1EA436682033CB6400F2B35F /* ChangeCharacterView.xib in Resources */,
 				1E95EF2E203438ED00BB0123 /* plagueheraldColorSymbol.png in Resources */,
 				1EEE7321202D897B00A78C97 /* tinkererCard.png in Resources */,
@@ -739,6 +764,7 @@
 				1EEE7319202D897B00A78C97 /* elementalist.png in Resources */,
 				1E95EF30203438ED00BB0123 /* nightshroudColorSymbol.png in Resources */,
 				1E8690DB202C34E6000A8697 /* unlockIcon.png in Resources */,
+				1E8D6ED2203AE3BD004FD293 /* whiteLootSymbol.png in Resources */,
 				1EEE7317202D897B00A78C97 /* scoundrelCard.png in Resources */,
 				1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */,
 				1E94005A202B145000F913D3 /* brute.png in Resources */,
@@ -756,6 +782,7 @@
 				1EEE7356202D92A000A78C97 /* sawbonesSymbol.png in Resources */,
 				1E95EF2F203438ED00BB0123 /* quatermasterColorSymbol.png in Resources */,
 				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,
+				1E8D6ECE203ADB9D004FD293 /* healthSymbol.png in Resources */,
 				1EEE731E202D897B00A78C97 /* spellweaver.png in Resources */,
 				1EEE7332202D897B00A78C97 /* doomstalker.png in Resources */,
 				1EEE7358202D92A000A78C97 /* tinkererSymbol.png in Resources */,
@@ -764,6 +791,7 @@
 				1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */,
 				1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */,
 				1E30437A2024A28C008D6B07 /* exitsign2.png in Resources */,
+				1E8D6ECB203AD08C004FD293 /* whiteExperienceStar.png in Resources */,
 				1EEE7310202D897B00A78C97 /* plagueherald.png in Resources */,
 				1EEE7339202D897B00A78C97 /* summonerCard.png in Resources */,
 				1EEE7353202D92A000A78C97 /* doomstalkerSymbol.png in Resources */,
@@ -1029,7 +1057,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BC6278S7RY;
 				INFOPLIST_FILE = GHPlayerSheet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hisehouse.GHPlayerSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1046,7 +1074,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BC6278S7RY;
 				INFOPLIST_FILE = GHPlayerSheet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hisehouse.GHPlayerSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

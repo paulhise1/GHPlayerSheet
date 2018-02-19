@@ -67,7 +67,7 @@
                     <rect key="frame" x="199.5" y="50" width="186" height="43"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-GT-Tem" userLabel="Accept">
                     <rect key="frame" x="72.5" y="222.5" width="125" height="45"/>

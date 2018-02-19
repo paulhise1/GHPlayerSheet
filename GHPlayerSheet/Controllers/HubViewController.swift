@@ -2,6 +2,22 @@ import UIKit
 
 class HubViewController: UIViewController {
     
+    enum Blah {
+        case some
+        case error
+        case `nil`
+    }
+    
+    func blah() {
+        let doStuff: (Int) -> Void = { int in
+            print(int)
+        }
+        
+        let int = 6
+        
+        doStuff(int)
+    }
+    
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
         static let segueToScenarioLobbyID = "toScenarioLobby"
@@ -9,10 +25,12 @@ class HubViewController: UIViewController {
         static let characterCellID = "CharacterCollectionViewCell"
         static let startScenarioText = "Start Scenario"
     }
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var partyNameLabel: UILabel!
+    
     @IBOutlet weak var scenarioButton: UIButton!
-    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var hostedByLabel: UILabel!
     
     @IBOutlet weak var characterImageView: UIImageView! {
         didSet {
@@ -22,11 +40,12 @@ class HubViewController: UIViewController {
     }
     @IBOutlet weak var characterInfoLabel: UILabel!
     
-    @IBOutlet weak var classesCollectionContainerView: UIView!
+    @IBOutlet weak var addCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showAddCharacterConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideAddCharacterButtonConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var ownedCollectionContainerView: UIView!
+    @IBOutlet weak var changeCharacterButton: UIButton!
+    @IBOutlet weak var changeCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showChangeCharacterConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideChangeCharacterButtonConstraint: NSLayoutConstraint!
     private var changeCharacterView: ChangeCharacterView?
@@ -46,12 +65,14 @@ class HubViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = UIImage(named: "hvcbackground")
         scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
+        hostedByLabel.isHidden = true
         setupAddCharactersView()
-        setupChangeCharacterView()
+        showingChangeCharacterButton()
         guard (viewModel?.player) != nil else {
             partyNameLabel.text = viewModel?.party
             characterInfoLabel.isHidden = true
             characterImageView.isHidden = true
+            scenarioButton.isHidden = true
             return
         }
         displayPlayerInfo()
@@ -67,26 +88,11 @@ class HubViewController: UIViewController {
     }
     
     @IBAction func addCharacterTapped(_ sender: Any) {
-        view.bringSubview(toFront: classesCollectionContainerView)
-        self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showAddCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.hideAddCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.view.layoutIfNeeded()
-        })
+        showAddCharacter()
     }
     
     @IBAction func changeCharacterTapped(_ sender: Any) {
-        view.bringSubview(toFront: ownedCollectionContainerView)
-        if let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter {
-            self.changeCharacterView?.refreshData(ownedCharacters: ownedCharacters, activeCharacter: active)
-        }
-        self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showChangeCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.view.layoutIfNeeded()
-        })
+        showChangeCharacter()
     }
     
     // MARK: Helpers
@@ -103,26 +109,22 @@ class HubViewController: UIViewController {
         }
     }
     
-    private func setupAddCharactersView() {
-        let addCharactersView = Bundle.main.loadNibNamed(String(describing: AddCharactersView.self), owner: self, options: nil)?.first as? AddCharactersView
-        if let addCharactersView = addCharactersView {
-            classesCollectionContainerView.addSubview(addCharactersView)
-            addCharactersView.frame = classesCollectionContainerView.bounds
-            addCharactersView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            addCharactersView.configure()
-            addCharactersView.delegate = self
+    private func lengthOfChangeCharacterView() -> CGFloat {
+        guard let characterCount = viewModel?.ownedCharacters().count else { return 0 }
+        switch characterCount - 1 {
+        case 1:
+            return 190
+        case 2:
+            return 350
+        case 3:
+            return 510
+        case 4:
+            return 670
+        case 5:
+            return 830
+        default:
+            return 990
         }
-    }
-    
-    private func setupChangeCharacterView() {
-        changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
-        guard let ccView = changeCharacterView else { return }
-        ownedCollectionContainerView.addSubview(ccView)
-        ccView.frame = ownedCollectionContainerView.bounds
-        ccView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        ccView.delegate = self
-        guard let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter else { return }
-        ccView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
     }
     
     private func displayPlayerInfo() {
@@ -130,15 +132,38 @@ class HubViewController: UIViewController {
         characterInfoLabel.isHidden = false
         characterImageView.isHidden = false
         characterImageView.image = viewModel?.activeCharacterImage()
+        scenarioButton.isHidden = false
         guard let player = viewModel?.player else { return }
         characterInfoLabel.text = "\(player.activeCharacter.name): \(String(player.activeCharacter.level))"
     }
 
+    private func showAddCharacter() {
+        view.bringSubview(toFront: addCharacterCollectionViewContainer)
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.showAddCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.hideAddCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     private func hideAddCharacter() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.showAddCharacterConstraint.priority = UILayoutPriority.defaultLow
             self.hideAddCharacterButtonConstraint.priority = UILayoutPriority.defaultLow
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    private func showChangeCharacter() {
+        view.bringSubview(toFront: changeCharacterCollectionViewContainer)
+        setupChangeCharacterView()
+        showChangeCharacterConstraint.constant = lengthOfChangeCharacterView()
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.showChangeCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
             self.view.layoutIfNeeded()
         })
     }
@@ -150,24 +175,61 @@ class HubViewController: UIViewController {
             self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority.defaultLow
             self.view.layoutIfNeeded()
         })
+        changeCharacterView?.removeFromSuperview()
     }
-
+    
+    func showingChangeCharacterButton() {
+        guard let ownedCharacters = viewModel?.ownedCharacters() else {
+            self.changeCharacterButton.isHidden = true
+            return
+        }
+        if ownedCharacters.count >= 2 {
+            self.changeCharacterButton.isHidden = false
+        } else {
+            self.changeCharacterButton.isHidden = true
+        }
+    }
+    
+    //MARK: - setup view methods
+    private func setupAddCharactersView() {
+        guard let addCharactersView = Bundle.main.loadNibNamed(String(describing: AddCharactersView.self), owner: self, options: nil)?.first as? AddCharactersView else { return }
+        addCharacterCollectionViewContainer.addSubview(addCharactersView)
+        addCharactersView.frame = addCharacterCollectionViewContainer.bounds
+        addCharactersView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addCharactersView.configure()
+        addCharactersView.delegate = self
+    }
+    
+    private func setupChangeCharacterView() {
+        changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
+        guard let changeCharacterView = changeCharacterView else { return }
+        changeCharacterCollectionViewContainer.addSubview(changeCharacterView)
+        changeCharacterView.frame = changeCharacterCollectionViewContainer.bounds
+        changeCharacterView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        changeCharacterView.delegate = self
+        guard let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter else { return }
+        changeCharacterView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
+    }
 }
 
 extension HubViewController: HubViewModelDelegate {
     func didCreateScenario(_ scenario: Scenario) {
         scenarioButton.setTitle("Join \(scenario.name)", for: .normal)
         scenarioButton.isEnabled = true
+        hostedByLabel.isHidden = true
     }
     
     func willCreateScenario(creator: String) {
-        scenarioButton.setTitle("\(creator) is setting the table...", for: .normal)
+        hostedByLabel.isHidden = false
+        scenarioButton.setTitle("Scenario being prepared ", for: .normal)
+        hostedByLabel.text = "by: \(creator)"
         scenarioButton.isEnabled = false
     }
     
     func didResetCreateScenario() {
         scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
         scenarioButton.isEnabled = true
+        hostedByLabel.isHidden = true
     }
 }
 
@@ -176,6 +238,7 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
         viewModel?.addCharacterToPlayer(character: character)
         hideAddCharacter()
         displayPlayerInfo()
+        showingChangeCharacterButton()
     }
     
     func didTapAddCharacterBackButton() {

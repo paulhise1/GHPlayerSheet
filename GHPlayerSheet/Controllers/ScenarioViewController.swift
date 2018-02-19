@@ -14,39 +14,39 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let toHubVCSegueID = "toHubVC"
     }
     
-    @IBOutlet weak var statsStackBorderView: UIView! {
-        didSet {
-            statsStackBorderView.layer.cornerRadius = 2
-            statsStackBorderView.layer.masksToBounds = true
-        }
-    }
     
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
     @IBOutlet weak var scenarioDifficultyLabel: UILabel!
     
-    @IBOutlet weak var healthTrackerContainerView: UIView!
-    @IBOutlet weak var experienceTrackerContainerView: UIView!
-    @IBOutlet weak var genericTrackerContainerView: UIView!
-    @IBOutlet weak var lootTrackerContainerView: UIView!
-    
+    @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var partyNameLabel: UILabel!
-    @IBOutlet weak var noOtherPlayersLabel: UILabel!
     @IBOutlet var playerNameLabels: [UILabel]!
     @IBOutlet var playerHealthLabels: [UILabel]!
+    @IBOutlet var playerMaxHealthLabels: [UILabel]!
+    
     @IBOutlet var playerExperienceLabels: [UILabel]!
     @IBOutlet var playerLootLabels: [UILabel]!
     private var playerMaxHealths = [String]()
     
-    @IBOutlet weak var playerStatStacksContainerView: UIView!
     @IBOutlet weak var player2StatStack: UIStackView!
     @IBOutlet weak var player3StatStack: UIStackView!
     @IBOutlet weak var player4StatStack: UIStackView!
+    
+    @IBOutlet weak var healthTrackerContainerView: UIView!
+    @IBOutlet weak var experienceTrackerContainerView: UIView!
+    @IBOutlet weak var lootTrackerContainerView: UIView!
+    @IBOutlet weak var genericTrackerContainerView: UIView!
+    
+    
+    @IBOutlet weak var exitButton: UIButton!
     
     private var viewModel: ScenarioViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        exitButton.isHidden = true
         
         setupCounters()
         updateStackViews()
@@ -60,7 +60,8 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     func setInfoOnLabels() {
         guard let viewModel = viewModel else { return }
-        partyNameLabel.text = viewModel.party
+        partyNameLabel.text = " \(viewModel.party) "
+        playerNameLabel.text = viewModel.player.name
         scenarioTitleLabel.text = "# \(viewModel.scenario.number): \(viewModel.scenario.name)"
         scenarioGoalLabel.text = viewModel.scenario.goal
         scenarioDifficultyLabel.text = viewModel.scenario.difficulty
@@ -77,6 +78,9 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         default:
             return
         }
+    }
+    @IBAction func scenarioButtonTapped(_ sender: Any) {
+    self.navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: - Setup Child Views
@@ -105,7 +109,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     }
     
     func setupLootCounterView() {
-        guard let lootCounterView = Bundle.main.loadNibNamed(Constant.verticalCounterNibName, owner: self, options: nil)?.first as? CounterView else { return }
+        guard let lootCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView else { return }
         lootCounterView.frame = lootTrackerContainerView.bounds
         lootCounterView.configure(counterType: .loot)
         lootTrackerContainerView.addSubview(lootCounterView)
@@ -113,7 +117,7 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     }
     
     func setupGenericCounterView() {
-        guard let genericCounterView = Bundle.main.loadNibNamed(Constant.verticalCounterNibName, owner: self, options: nil)?.first as?CounterView else { return }
+        guard let genericCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as?CounterView else { return }
         genericCounterView.frame = genericTrackerContainerView.bounds
         genericCounterView.configure(counterType: .generic)
         genericTrackerContainerView.addSubview(genericCounterView)
@@ -123,11 +127,9 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     func updateStackViews() {
         guard let viewModel = viewModel else { return }
         let count = viewModel.playerCount
-        playerStatStacksContainerView.isHidden = !(count > 0)
         player2StatStack.isHidden = !(count > 0)
         player3StatStack.isHidden = !(count > 1)
         player4StatStack.isHidden = !(count > 2)
-        noOtherPlayersLabel.isHidden = !(count == 0)
         displayPlayersData(players: viewModel.players)
     }
 }
@@ -135,18 +137,25 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
 extension ScenarioViewController: ScenarioViewModelDelegate {
     
     func didUpdatePlayers() {
-        guard (playerStatStacksContainerView) != nil else { return }
-        updateStackViews()
+        if player2StatStack != nil {
+            updateStackViews()
+        }
     }
     
     func displayPlayersData(players: [ScenarioPlayer]) {
-        var i = 0
-        for player in players {
+        for (i, player) in players.enumerated() {
             playerNameLabels[i].text = player.name
-            playerHealthLabels[i].text = ("\(player.health) (\(player.maxHealth))")
+            playerHealthLabels[i].text = player.health
             playerExperienceLabels[i].text = player.experience
             playerLootLabels[i].text = player.loot
-            i = i + 1
+            if player.health == player.maxHealth {
+                playerMaxHealthLabels[i].isHidden = true
+                playerHealthLabels[i].textColor = ColorConstants.healthBackgroundColor
+            } else {
+                playerMaxHealthLabels[i].isHidden = false
+                playerHealthLabels[i].textColor = ColorConstants.healthCounterColor
+                playerMaxHealthLabels[i].text = player.maxHealth
+            }
         }
     }
 }

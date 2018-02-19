@@ -11,6 +11,7 @@ struct ColorConstants {
     static let lootCounterColor = UIColor.flatWhiteColorDark()
     static let healthBackgroundColor = UIColor.flatRedColorDark()
     static let healthCounterColor = UIColor.flatWatermelon().lighten(byPercentage: 0.9)
+    static let maxHealthLabelColor = UIColor(white: 0, alpha: 0.5)
     static let experienceBackgroundColor = UIColor.flatSkyBlueColorDark()
     static let experienceCounterColor = UIColor.flatPowderBlue()
     static let genericBackgroundColor = UIColor.flatPurpleColorDark()

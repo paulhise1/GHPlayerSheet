@@ -22,7 +22,7 @@ class HubViewModel {
 
     init() {
         //stubb
-        party = "The Funk Hunters"
+        party = "The Bridge Burners"
         
         let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.playerDatasource = ModelDatasource(with: url)
@@ -38,7 +38,7 @@ class HubViewModel {
     }
     
     func activeCharacterImage() -> UIImage {
-        guard let classType = player?.activeCharacter.classType, let playerImage = UIImage(named: ClassTypeData.characterCardBackImage(charClass: (classType))) else { return UIImage() }
+        guard let classType = player?.activeCharacter.classType, let playerImage = UIImage(named: ClassTypeData.characterImage(charClass: (classType))) else { return UIImage() }
         return playerImage
     }
     
