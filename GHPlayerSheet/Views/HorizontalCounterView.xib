@@ -57,13 +57,13 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0A-YW-0Ae" userLabel="Counter Symbol Container">
-                    <rect key="frame" x="90" y="20" width="80" height="60"/>
+                    <rect key="frame" x="90" y="15" width="80" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQf-Ne-jDj" userLabel="Symbol Background Image">
-                            <rect key="frame" x="11" y="1" width="60" height="60"/>
+                            <rect key="frame" x="6" y="1" width="70" height="70"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TVy-Ae-Nvo">
-                            <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                            <rect key="frame" x="5" y="0.0" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="TVy-Ae-Nvo" secondAttribute="height" multiplier="1:1" id="bV6-Bh-Ajj"/>
                             </constraints>
@@ -107,7 +107,7 @@
                 <constraint firstItem="zD6-jx-e1t" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Hdi-pG-0Ll"/>
                 <constraint firstItem="KWD-zE-ZlT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NIX-an-X7L"/>
                 <constraint firstItem="VDX-0z-CIi" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="R17-3d-nhx"/>
-                <constraint firstItem="F0A-YW-0Ae" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="Rfr-bF-TlK"/>
+                <constraint firstItem="F0A-YW-0Ae" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.7" id="Rfr-bF-TlK"/>
                 <constraint firstItem="Nkm-m6-R02" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="SNb-Nj-CsB"/>
                 <constraint firstItem="Nkm-m6-R02" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SlM-hL-A6Q"/>
                 <constraint firstAttribute="trailing" secondItem="KWD-zE-ZlT" secondAttribute="trailing" constant="10" id="XbW-a4-Qd2"/>

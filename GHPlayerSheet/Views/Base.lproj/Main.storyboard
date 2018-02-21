@@ -610,70 +610,70 @@
                                     <constraint firstItem="PRE-Tf-LAI" firstAttribute="top" secondItem="iLI-z3-qSs" secondAttribute="top" constant="8" id="gas-1p-Bka"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-oc-mxr" userLabel="Player Stack View">
-                                <rect key="frame" x="43.999999999999986" y="95" width="243.66666666666663" height="249"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="52w-7z-6nl">
+                                <rect key="frame" x="44" y="94.999999999999986" width="724.66666666666663" height="250.66666666666663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Vub-Yx-6Ea">
-                                        <rect key="frame" x="0.0" y="0.0" width="243.66666666666666" height="38.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
-                                        <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pim-Ie-4ls">
-                                        <rect key="frame" x="0.0" y="46.333333333333343" width="243.66666666666666" height="45"/>
-                                        <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-oc-mxr" userLabel="Player Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="253.66666666666666" height="250.66666666666666"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Vub-Yx-6Ea">
+                                                <rect key="frame" x="0.0" y="0.0" width="253.66666666666666" height="38.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
+                                                <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pim-Ie-4ls">
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="253.66666666666666" height="45"/>
+                                                <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="yaS-xK-ijF"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-JS-kTa">
+                                                <rect key="frame" x="0.0" y="99.666666666666657" width="253.66666666666666" height="45"/>
+                                                <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-tV-EZX">
+                                                <rect key="frame" x="0.0" y="152.66666666666666" width="253.66666666666666" height="45"/>
+                                                <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-Ve-gOZ" userLabel="Generic Counter View">
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="253.66666666666666" height="45"/>
+                                                <color key="backgroundColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="yaS-xK-ijF"/>
+                                            <constraint firstItem="ibh-JS-kTa" firstAttribute="width" secondItem="Pim-Ie-4ls" secondAttribute="width" id="0Dz-z3-oYL"/>
+                                            <constraint firstItem="Vog-tV-EZX" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="Ctt-aa-wCm"/>
+                                            <constraint firstItem="aA6-Ve-gOZ" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="L9r-Vs-Dpf"/>
+                                            <constraint firstItem="ibh-JS-kTa" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="Ove-vv-AQz"/>
+                                            <constraint firstItem="Vog-tV-EZX" firstAttribute="width" secondItem="Pim-Ie-4ls" secondAttribute="width" id="R7d-eW-E1O"/>
+                                            <constraint firstItem="Pim-Ie-4ls" firstAttribute="width" secondItem="Psm-oc-mxr" secondAttribute="width" id="aDc-JC-won"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-JS-kTa">
-                                        <rect key="frame" x="0.0" y="99" width="243.66666666666666" height="45"/>
-                                        <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-tV-EZX">
-                                        <rect key="frame" x="0.0" y="151.33333333333334" width="243.66666666666666" height="45"/>
-                                        <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-Ve-gOZ" userLabel="Generic Counter View">
-                                        <rect key="frame" x="0.0" y="204" width="243.66666666666666" height="45"/>
-                                        <color key="backgroundColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ibh-JS-kTa" firstAttribute="width" secondItem="Pim-Ie-4ls" secondAttribute="width" id="0Dz-z3-oYL"/>
-                                    <constraint firstItem="Vog-tV-EZX" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="Ctt-aa-wCm"/>
-                                    <constraint firstItem="aA6-Ve-gOZ" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="L9r-Vs-Dpf"/>
-                                    <constraint firstItem="ibh-JS-kTa" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="Ove-vv-AQz"/>
-                                    <constraint firstItem="Vog-tV-EZX" firstAttribute="width" secondItem="Pim-Ie-4ls" secondAttribute="width" id="R7d-eW-E1O"/>
-                                    <constraint firstItem="Pim-Ie-4ls" firstAttribute="width" secondItem="Psm-oc-mxr" secondAttribute="width" id="aDc-JC-won"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="52w-7z-6nl">
-                                <rect key="frame" x="287.66666666666674" y="95.000000000000014" width="481" height="196.33333333333337"/>
-                                <subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RV5-hZ-5yE" userLabel="Player 2 Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="196.33333333333334"/>
+                                        <rect key="frame" x="253.66666666666669" y="0.0" width="157" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player 2 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-Px-gmZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="38.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AU2-C1-zTS" userLabel="Player 2 HP Container">
-                                                <rect key="frame" x="0.0" y="41.666666666666657" width="160.33333333333334" height="49.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="157" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="awu-Qx-YGu">
-                                                        <rect key="frame" x="21.666666666666629" y="12.333333333333345" width="17" height="24.666666666666671"/>
+                                                        <rect key="frame" x="19.333333333333314" y="9" width="18" height="27"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTm-Ie-oWE">
-                                                        <rect key="frame" x="42.666666666666636" y="4.6666666666666856" width="75.666666666666686" height="40.666666666666664"/>
+                                                        <rect key="frame" x="41.333333333333321" y="2" width="75.666666666666686" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSI-GL-6Bo" userLabel="2 Max">
-                                                        <rect key="frame" x="133.33333333333331" y="9.6666666666666838" width="68" height="29.333333333333329"/>
+                                                        <rect key="frame" x="127" y="7.6666666666666838" width="68" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -681,26 +681,27 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="awu-Qx-YGu" firstAttribute="width" secondItem="awu-Qx-YGu" secondAttribute="height" multiplier="2:3" id="1QC-Fl-nPP"/>
-                                                    <constraint firstItem="awu-Qx-YGu" firstAttribute="height" secondItem="AU2-C1-zTS" secondAttribute="height" multiplier="0.5" id="9k3-K9-7RL"/>
+                                                    <constraint firstItem="awu-Qx-YGu" firstAttribute="height" secondItem="AU2-C1-zTS" secondAttribute="height" multiplier="0.6" id="9k3-K9-7RL"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FSI-GL-6Bo" secondAttribute="trailing" constant="-42.333333333333343" id="Ahr-kM-3Js"/>
                                                     <constraint firstAttribute="centerX" secondItem="awu-Qx-YGu" secondAttribute="centerX" constant="50" id="F0L-QA-g7M"/>
                                                     <constraint firstItem="awu-Qx-YGu" firstAttribute="centerY" secondItem="AU2-C1-zTS" secondAttribute="centerY" id="IuI-hI-JSi"/>
                                                     <constraint firstItem="FSI-GL-6Bo" firstAttribute="centerY" secondItem="AU2-C1-zTS" secondAttribute="centerY" id="JDI-6o-rpn"/>
-                                                    <constraint firstItem="FSI-GL-6Bo" firstAttribute="leading" secondItem="tTm-Ie-oWE" secondAttribute="trailing" constant="15" id="bGw-mW-po0"/>
+                                                    <constraint firstItem="FSI-GL-6Bo" firstAttribute="leading" secondItem="tTm-Ie-oWE" secondAttribute="trailing" constant="10" id="bGw-mW-po0"/>
                                                     <constraint firstItem="tTm-Ie-oWE" firstAttribute="centerY" secondItem="AU2-C1-zTS" secondAttribute="centerY" id="eyq-Gi-ukb"/>
                                                     <constraint firstItem="tTm-Ie-oWE" firstAttribute="centerX" secondItem="AU2-C1-zTS" secondAttribute="centerX" id="nDP-gP-m2F"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-FQ-vh7" userLabel="Player 2 XP Container">
-                                                <rect key="frame" x="0.0" y="94.333333333333343" width="160.33333333333334" height="49.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="99.666666666666657" width="157" height="45.666666666666657"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-mC-sQd" userLabel="Experience Symbol Image">
-                                                        <rect key="frame" x="17.666666666666629" y="12.000000000000002" width="25" height="24.666666666666671"/>
+                                                        <rect key="frame" x="15.333333333333316" y="9.6666666666666856" width="26.666666666666671" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="jOy-mC-sQd" secondAttribute="height" multiplier="1:1" id="rJs-fL-hp6"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-m0-bZb">
-                                                        <rect key="frame" x="43.333333333333321" y="4.3333333333333144" width="72.666666666666686" height="40.666666666666664"/>
+                                                        <rect key="frame" x="42.000000000000007" y="3" width="72.666666666666686" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -709,21 +710,20 @@
                                                 <constraints>
                                                     <constraint firstItem="jOy-mC-sQd" firstAttribute="centerY" secondItem="3f2-FQ-vh7" secondAttribute="centerY" id="gag-Xz-XFN"/>
                                                     <constraint firstItem="MdN-m0-bZb" firstAttribute="centerY" secondItem="3f2-FQ-vh7" secondAttribute="centerY" id="haA-73-bNm"/>
-                                                    <constraint firstItem="jOy-mC-sQd" firstAttribute="height" secondItem="3f2-FQ-vh7" secondAttribute="height" multiplier="0.5" id="svB-EN-8Zv"/>
                                                     <constraint firstItem="MdN-m0-bZb" firstAttribute="centerX" secondItem="3f2-FQ-vh7" secondAttribute="centerX" id="yBg-n2-TfI"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XE-fH-l9Y" userLabel="Player 2 Loot Container">
-                                                <rect key="frame" x="0.0" y="147" width="160.33333333333334" height="49.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="153" width="157" height="44.666666666666657"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="GFR-82-7SF">
-                                                        <rect key="frame" x="17.666666666666629" y="11.666666666666659" width="25" height="24.666666666666671"/>
+                                                        <rect key="frame" x="15.333333333333313" y="9.3333333333333144" width="26.333333333333329" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GFR-82-7SF" secondAttribute="height" multiplier="1:1" id="XB9-aL-K4D"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiU-Ak-L9k">
-                                                        <rect key="frame" x="27.333333333333314" y="3.6666666666666572" width="104" height="40.666666666666664"/>
+                                                        <rect key="frame" x="27" y="2.6666666666666572" width="104" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -731,67 +731,73 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="GFR-82-7SF" firstAttribute="centerY" secondItem="1XE-fH-l9Y" secondAttribute="centerY" id="JYL-Cd-sgF"/>
-                                                    <constraint firstItem="GFR-82-7SF" firstAttribute="height" secondItem="1XE-fH-l9Y" secondAttribute="height" multiplier="0.5" id="Phz-45-lht"/>
                                                     <constraint firstItem="YiU-Ak-L9k" firstAttribute="centerY" secondItem="1XE-fH-l9Y" secondAttribute="centerY" id="hCa-Sc-t2D"/>
                                                     <constraint firstItem="YiU-Ak-L9k" firstAttribute="centerX" secondItem="1XE-fH-l9Y" secondAttribute="centerX" id="yx8-VV-lRv"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Cf-dO-B5I" userLabel="Stack 2 Spacer View">
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="157" height="45"/>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="GFR-82-7SF" firstAttribute="centerX" secondItem="awu-Qx-YGu" secondAttribute="centerX" id="497-9D-rNU"/>
-                                            <constraint firstItem="1XE-fH-l9Y" firstAttribute="height" secondItem="3f2-FQ-vh7" secondAttribute="height" id="6cQ-fm-1il"/>
                                             <constraint firstItem="jOy-mC-sQd" firstAttribute="centerX" secondItem="awu-Qx-YGu" secondAttribute="centerX" id="GFX-KQ-ZaJ"/>
                                             <constraint firstItem="3f2-FQ-vh7" firstAttribute="height" secondItem="AU2-C1-zTS" secondAttribute="height" id="HUZ-bC-gDt"/>
+                                            <constraint firstItem="1XE-fH-l9Y" firstAttribute="height" secondItem="AU2-C1-zTS" secondAttribute="height" id="MxY-TO-AcV"/>
+                                            <constraint firstItem="jOy-mC-sQd" firstAttribute="height" secondItem="awu-Qx-YGu" secondAttribute="height" id="WJ8-v0-OMm"/>
+                                            <constraint firstItem="GFR-82-7SF" firstAttribute="height" secondItem="awu-Qx-YGu" secondAttribute="height" id="WUB-r4-PFY"/>
+                                            <constraint firstItem="7Cf-dO-B5I" firstAttribute="height" secondItem="AU2-C1-zTS" secondAttribute="height" id="uqM-XM-rbn"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kyi-v6-V3m" userLabel="Player 3 Stack View">
-                                        <rect key="frame" x="160.33333333333331" y="0.0" width="160.33333333333331" height="196.33333333333334"/>
+                                        <rect key="frame" x="410.66666666666669" y="0.0" width="157.00000000000006" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player 3 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmK-ul-nrn">
-                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="38.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoP-x5-z9e" userLabel="Player 3 HP Container">
-                                                <rect key="frame" x="0.0" y="41.666666666666657" width="160.33333333333334" height="49.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="46.333333333333343" width="157" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCa-FO-PIe">
-                                                        <rect key="frame" x="42.333333333333321" y="4.3333333333333428" width="75.666666666666686" height="40.666666666666664"/>
+                                                        <rect key="frame" x="41.333333333333321" y="2.3333333333333144" width="75.666666666666686" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDX-lT-jfw">
-                                                        <rect key="frame" x="133" y="9.333333333333341" width="68" height="29.333333333333329"/>
+                                                        <rect key="frame" x="126.99999999999994" y="7.9999999999999982" width="68" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="nDL-F8-4sJ">
-                                                        <rect key="frame" x="21.666666666666686" y="12.333333333333345" width="17" height="24.666666666666671"/>
+                                                        <rect key="frame" x="19.666666666666629" y="8.9999999999999982" width="18" height="27.333333333333329"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="oDX-lT-jfw" firstAttribute="leading" secondItem="uCa-FO-PIe" secondAttribute="trailing" constant="15" id="Fnz-ND-jse"/>
+                                                    <constraint firstItem="oDX-lT-jfw" firstAttribute="leading" secondItem="uCa-FO-PIe" secondAttribute="trailing" constant="10" id="Fnz-ND-jse"/>
                                                     <constraint firstItem="uCa-FO-PIe" firstAttribute="centerX" secondItem="hoP-x5-z9e" secondAttribute="centerX" id="JAD-fl-8uX"/>
                                                     <constraint firstAttribute="centerX" secondItem="nDL-F8-4sJ" secondAttribute="centerX" constant="50" id="Viu-eB-f2l"/>
                                                     <constraint firstItem="nDL-F8-4sJ" firstAttribute="centerY" secondItem="hoP-x5-z9e" secondAttribute="centerY" id="amc-NK-8co"/>
                                                     <constraint firstItem="uCa-FO-PIe" firstAttribute="centerY" secondItem="hoP-x5-z9e" secondAttribute="centerY" id="h5v-Ce-6uB"/>
                                                     <constraint firstItem="oDX-lT-jfw" firstAttribute="centerY" secondItem="hoP-x5-z9e" secondAttribute="centerY" id="kBB-gE-42i"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oDX-lT-jfw" secondAttribute="trailing" constant="-38.666666666666657" id="s1K-Rj-0AT"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgm-Pt-141" userLabel="Player 3 XP Container">
-                                                <rect key="frame" x="0.0" y="94" width="160.33333333333334" height="49.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="99" width="157" height="45.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Oj-FTA">
-                                                        <rect key="frame" x="43.333333333333321" y="4" width="72.666666666666686" height="40.666666666666664"/>
+                                                        <rect key="frame" x="42.333333333333321" y="2.3333333333333428" width="72.666666666666686" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZKz-CJ-zL3" userLabel="Experience Symbol Image">
-                                                        <rect key="frame" x="17.666666666666686" y="12.000000000000002" width="25" height="24.666666666666671"/>
+                                                        <rect key="frame" x="15.666666666666631" y="9.3333333333333446" width="26.666666666666671" height="26.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ZKz-CJ-zL3" secondAttribute="height" multiplier="1:1" id="JP3-mj-lka"/>
                                                         </constraints>
@@ -804,13 +810,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufw-bP-8ID" userLabel="Player 3 Loot Container">
-                                                <rect key="frame" x="0.0" y="146.33333333333334" width="160.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="152.33333333333334" width="157" height="45.666666666666657"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="sGb-Pi-nhw">
-                                                        <rect key="frame" x="17.333333333333314" y="12.666666666666659" width="25" height="24.666666666666671"/>
+                                                        <rect key="frame" x="15.333333333333313" y="9.3333333333333428" width="26.333333333333329" height="27"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-4N-3Uw">
-                                                        <rect key="frame" x="27.666666666666686" y="4.3333333333333144" width="104" height="40.666666666666664"/>
+                                                        <rect key="frame" x="26.666666666666629" y="2.3333333333333144" width="104" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -822,38 +828,41 @@
                                                     <constraint firstItem="sGb-Pi-nhw" firstAttribute="centerY" secondItem="ufw-bP-8ID" secondAttribute="centerY" id="loj-3v-2w3"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RG7-eg-BJ1" userLabel="Stack 3 Spacer View">
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="157" height="45"/>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Zgm-Pt-141" firstAttribute="height" secondItem="hoP-x5-z9e" secondAttribute="height" id="LKc-0O-YRI"/>
+                                            <constraint firstItem="ufw-bP-8ID" firstAttribute="height" secondItem="hoP-x5-z9e" secondAttribute="height" id="X4R-ID-bbx"/>
                                             <constraint firstItem="ZKz-CJ-zL3" firstAttribute="centerX" secondItem="nDL-F8-4sJ" secondAttribute="centerX" id="YLc-pv-g9q"/>
                                             <constraint firstItem="sGb-Pi-nhw" firstAttribute="centerX" secondItem="nDL-F8-4sJ" secondAttribute="centerX" id="eZe-U6-evP"/>
-                                            <constraint firstItem="hoP-x5-z9e" firstAttribute="height" secondItem="kyi-v6-V3m" secondAttribute="height" multiplier="0.25" id="qzd-dw-JQX"/>
-                                            <constraint firstItem="ufw-bP-8ID" firstAttribute="height" secondItem="Zgm-Pt-141" secondAttribute="height" id="v9y-tn-nx5"/>
+                                            <constraint firstItem="RG7-eg-BJ1" firstAttribute="height" secondItem="hoP-x5-z9e" secondAttribute="height" id="zDk-Je-7f9"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="omt-SN-IjF" userLabel="Player 4 Stack View">
-                                        <rect key="frame" x="320.66666666666669" y="0.0" width="160.33333333333331" height="196.33333333333334"/>
+                                        <rect key="frame" x="567.66666666666663" y="0.0" width="157" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player 4 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvV-Qd-xnt">
-                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="38.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9LA-2k-5oh" userLabel="Player 4 HP Container">
-                                                <rect key="frame" x="0.0" y="41.666666666666657" width="160.33333333333334" height="49.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="157" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="kbZ-YD-X3w">
-                                                        <rect key="frame" x="21.666666666666629" y="12.333333333333345" width="17" height="24.666666666666671"/>
+                                                        <rect key="frame" x="19" y="8.9999999999999982" width="18" height="27.333333333333329"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqm-6l-e0y">
-                                                        <rect key="frame" x="42.333333333333265" y="4.3333333333333428" width="75.666666666666686" height="40.666666666666664"/>
+                                                        <rect key="frame" x="40.66666666666675" y="2" width="75.666666666666686" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmD-9d-hZr">
-                                                        <rect key="frame" x="133" y="9.333333333333341" width="68" height="29.333333333333329"/>
+                                                        <rect key="frame" x="126.33333333333336" y="8.333333333333341" width="63.333333333333329" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -862,20 +871,21 @@
                                                 <constraints>
                                                     <constraint firstItem="zqm-6l-e0y" firstAttribute="centerX" secondItem="9LA-2k-5oh" secondAttribute="centerX" id="Bze-z0-xXX"/>
                                                     <constraint firstAttribute="centerX" secondItem="kbZ-YD-X3w" secondAttribute="centerX" constant="50" id="j8d-rM-kxQ"/>
-                                                    <constraint firstItem="wmD-9d-hZr" firstAttribute="leading" secondItem="zqm-6l-e0y" secondAttribute="trailing" constant="15" id="kIg-AI-pa6"/>
+                                                    <constraint firstItem="wmD-9d-hZr" firstAttribute="leading" secondItem="zqm-6l-e0y" secondAttribute="trailing" constant="10" id="kIg-AI-pa6"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wmD-9d-hZr" secondAttribute="trailing" constant="-32.666666666666657" id="mv4-5T-NWc"/>
                                                     <constraint firstItem="kbZ-YD-X3w" firstAttribute="centerY" secondItem="9LA-2k-5oh" secondAttribute="centerY" id="w1O-8w-gN8"/>
                                                     <constraint firstItem="zqm-6l-e0y" firstAttribute="centerY" secondItem="9LA-2k-5oh" secondAttribute="centerY" id="wST-UC-yg4"/>
                                                     <constraint firstItem="wmD-9d-hZr" firstAttribute="centerY" secondItem="9LA-2k-5oh" secondAttribute="centerY" id="ydc-Pb-1TV"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-6g-dnX" userLabel="Player 4 XP Container">
-                                                <rect key="frame" x="0.0" y="94" width="160.33333333333334" height="49.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="99.666666666666657" width="157" height="45.333333333333343"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-Wx-m7f" userLabel="Experience Symbol Image">
-                                                        <rect key="frame" x="17.333333333333258" y="12.000000000000002" width="25.333333333333329" height="24.666666666666671"/>
+                                                        <rect key="frame" x="14.666666666666744" y="9.3333333333333428" width="26.666666666666671" height="27"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORF-MP-kRn">
-                                                        <rect key="frame" x="44.000000000000007" y="4.3333333333333428" width="72.666666666666686" height="40.666666666666664"/>
+                                                        <rect key="frame" x="42.333333333333378" y="2.3333333333333428" width="72.666666666666686" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -889,16 +899,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIb-ZZ-EFb" userLabel="Player 4 Loot Container">
-                                                <rect key="frame" x="0.0" y="146.33333333333334" width="160.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="152.66666666666666" width="157" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-rJ-Htv">
-                                                        <rect key="frame" x="28" y="4.3333333333333144" width="104" height="40.666666666666664"/>
+                                                        <rect key="frame" x="26.333333333333371" y="2.6666666666666856" width="104" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-Mf-mm0">
-                                                        <rect key="frame" x="17.333333333333258" y="12.666666666666659" width="25" height="24.666666666666671"/>
+                                                        <rect key="frame" x="14.666666666666741" y="9.0000000000000284" width="26.333333333333329" height="27"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -907,28 +917,36 @@
                                                     <constraint firstItem="Orc-Mf-mm0" firstAttribute="centerY" secondItem="bIb-ZZ-EFb" secondAttribute="centerY" id="TE1-vV-K6D"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTX-nO-t6G" userLabel="Stack 4 Spacer View">
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="157" height="45"/>
+                                            </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="bIb-ZZ-EFb" firstAttribute="height" secondItem="9LA-2k-5oh" secondAttribute="height" id="3BP-wK-ocJ"/>
+                                            <constraint firstItem="UTX-nO-t6G" firstAttribute="height" secondItem="9LA-2k-5oh" secondAttribute="height" id="7Df-wr-fgd"/>
                                             <constraint firstItem="MOa-6g-dnX" firstAttribute="height" secondItem="9LA-2k-5oh" secondAttribute="height" id="Gmu-rF-on0"/>
-                                            <constraint firstItem="9LA-2k-5oh" firstAttribute="height" secondItem="omt-SN-IjF" secondAttribute="height" multiplier="0.25" id="akC-Ra-Jbm"/>
                                             <constraint firstItem="Orc-Mf-mm0" firstAttribute="centerX" secondItem="kbZ-YD-X3w" secondAttribute="centerX" id="qBE-hg-Trk"/>
-                                            <constraint firstItem="bIb-ZZ-EFb" firstAttribute="height" secondItem="MOa-6g-dnX" secondAttribute="height" id="spT-U1-rSe"/>
                                             <constraint firstItem="1UW-Wx-m7f" firstAttribute="centerX" secondItem="kbZ-YD-X3w" secondAttribute="centerX" id="wte-T5-GwB"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="hoP-x5-z9e" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="6HJ-AP-tyq"/>
                                     <constraint firstItem="kbZ-YD-X3w" firstAttribute="height" secondItem="awu-Qx-YGu" secondAttribute="height" id="7Ez-Y7-ej3"/>
                                     <constraint firstItem="jOy-mC-sQd" firstAttribute="height" secondItem="ZKz-CJ-zL3" secondAttribute="height" id="9eL-qi-eo2"/>
+                                    <constraint firstItem="9LA-2k-5oh" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="DKY-7d-QcF"/>
                                     <constraint firstItem="sGb-Pi-nhw" firstAttribute="height" secondItem="GFR-82-7SF" secondAttribute="height" id="FoO-1c-emD"/>
+                                    <constraint firstItem="AU2-C1-zTS" firstAttribute="height" secondItem="Pim-Ie-4ls" secondAttribute="height" id="H4w-XG-A7k"/>
+                                    <constraint firstItem="OmK-ul-nrn" firstAttribute="width" secondItem="ATW-Px-gmZ" secondAttribute="width" id="HlI-SI-MKj"/>
+                                    <constraint firstItem="Psm-oc-mxr" firstAttribute="width" secondItem="52w-7z-6nl" secondAttribute="width" multiplier="0.35" id="UKW-55-dVe"/>
                                     <constraint firstItem="1UW-Wx-m7f" firstAttribute="height" secondItem="jOy-mC-sQd" secondAttribute="height" id="Wi6-QR-6kL"/>
                                     <constraint firstItem="Orc-Mf-mm0" firstAttribute="width" secondItem="GFR-82-7SF" secondAttribute="width" id="a60-FI-aID"/>
-                                    <constraint firstItem="AU2-C1-zTS" firstAttribute="height" secondItem="52w-7z-6nl" secondAttribute="height" multiplier="0.25" id="cEF-5n-hdz"/>
                                     <constraint firstItem="sGb-Pi-nhw" firstAttribute="width" secondItem="GFR-82-7SF" secondAttribute="width" id="kbn-WA-fKp"/>
                                     <constraint firstItem="kbZ-YD-X3w" firstAttribute="width" secondItem="awu-Qx-YGu" secondAttribute="width" id="nkC-H5-0yw"/>
                                     <constraint firstItem="nDL-F8-4sJ" firstAttribute="height" secondItem="awu-Qx-YGu" secondAttribute="height" id="qxq-OW-A6O"/>
                                     <constraint firstItem="Orc-Mf-mm0" firstAttribute="height" secondItem="GFR-82-7SF" secondAttribute="height" id="wTF-sg-Yfx"/>
                                     <constraint firstItem="nDL-F8-4sJ" firstAttribute="width" secondItem="awu-Qx-YGu" secondAttribute="width" id="xuN-MY-cxe"/>
+                                    <constraint firstItem="GvV-Qd-xnt" firstAttribute="width" secondItem="ATW-Px-gmZ" secondAttribute="width" id="zCu-nq-auv"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVH-6n-gV0" userLabel="Level Container View">
@@ -962,19 +980,14 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="top" secondItem="BVH-6n-gV0" secondAttribute="top" id="0Id-IT-Lmw"/>
-                            <constraint firstItem="Psm-oc-mxr" firstAttribute="leading" secondItem="Dv6-5b-JJM" secondAttribute="leading" id="1w0-vL-Tle"/>
-                            <constraint firstItem="52w-7z-6nl" firstAttribute="leading" secondItem="Psm-oc-mxr" secondAttribute="trailing" id="B34-rb-b3Z"/>
-                            <constraint firstItem="Dv6-5b-JJM" firstAttribute="bottom" secondItem="Psm-oc-mxr" secondAttribute="bottom" constant="10" id="Dfp-ms-mSL"/>
-                            <constraint firstItem="Psm-oc-mxr" firstAttribute="top" secondItem="iLI-z3-qSs" secondAttribute="bottom" id="GLb-sZ-sb0"/>
                             <constraint firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="leading" id="HEf-NZ-oF2"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="top" secondItem="iLI-z3-qSs" secondAttribute="bottom" id="HFY-Ym-mFN"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" id="Iwr-cY-AND"/>
-                            <constraint firstItem="Psm-oc-mxr" firstAttribute="width" secondItem="xh9-cW-c5f" secondAttribute="width" multiplier="0.3" id="SLF-O2-yYq"/>
+                            <constraint firstItem="52w-7z-6nl" firstAttribute="leading" secondItem="Dv6-5b-JJM" secondAttribute="leading" id="a4Z-0e-zYt"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="trailing" constant="20" id="eAd-Iy-3WZ"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="bottom" secondItem="5wZ-Ad-ewk" secondAttribute="bottom" constant="10" id="mtI-W5-utf"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="5wZ-Ad-ewk" secondAttribute="trailing" id="pQ5-EB-iSP"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="iLI-z3-qSs" secondAttribute="trailing" id="twa-uD-7es"/>
-                            <constraint firstItem="52w-7z-6nl" firstAttribute="bottom" secondItem="Vog-tV-EZX" secondAttribute="bottom" id="uhF-TJ-0Mj"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="trailing" secondItem="Dv6-5b-JJM" secondAttribute="trailing" id="vPw-II-a6f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dv6-5b-JJM"/>
