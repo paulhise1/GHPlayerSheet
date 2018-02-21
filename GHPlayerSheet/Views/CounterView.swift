@@ -95,18 +95,18 @@ class CounterView: UIView {
             backgroundView.backgroundColor = ColorConstants.lootBackgroundColor
             counterLabel.textColor = ColorConstants.lootCounterColor
             counterSymbolImageView.image = UIImage(named: "lootSymbol")
-            counterSymbolBackgroundImageView.image = UIImage(named: "whiteLootSymbol")
+            counterSymbolBackgroundImageView.image = UIImage(named: "lootSymbolShadow")
         case .health:
             backgroundView.backgroundColor = ColorConstants.healthBackgroundColor
             counterLabel.textColor = ColorConstants.maxHealthLabelColor
             counterSymbolImageView.image = UIImage(named: "healthSymbol")
-            counterSymbolBackgroundImageView.image = UIImage(named: "whiteHealthSymbol")
+            counterSymbolBackgroundImageView.image = UIImage(named: "healthSymbolShadow")
             maxHealthLabel.isHidden = true
         case .experience:
             backgroundView.backgroundColor = ColorConstants.experienceBackgroundColor
             counterLabel.textColor = ColorConstants.experienceCounterColor
-            counterSymbolImageView.image = UIImage(named: "experienceStar")
-            counterSymbolBackgroundImageView.image = UIImage(named: "whiteExperienceStar")
+            counterSymbolImageView.image = UIImage(named: "experienceSymbol")
+            counterSymbolBackgroundImageView.image = UIImage(named: "experienceSymbolShadow")
         case .generic:
             backgroundView.backgroundColor = ColorConstants.genericBackgroundColor
             counterLabel.textColor = ColorConstants.genericCounterColor

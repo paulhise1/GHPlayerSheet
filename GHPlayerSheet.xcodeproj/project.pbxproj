@@ -18,7 +18,6 @@
 		1E1103B0203104DB004DD502 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1103AF203104DA004DD502 /* Player.swift */; };
 		1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E2200F080C002D6E01 /* goldBag.png */; };
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
-		1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E7200F0947002D6E01 /* experienceStar.png */; };
 		1E209E442019D4AD00A4986A /* levelCrown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E209E432019D4AC00A4986A /* levelCrown.png */; };
 		1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */; };
 		1E209E482019FF8400A4986A /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E472019FF8400A4986A /* HubViewController.swift */; };
@@ -40,11 +39,12 @@
 		1E8690D9202C34E1000A8697 /* lockedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8690D8202C34DF000A8697 /* lockedIcon.png */; };
 		1E8690DB202C34E6000A8697 /* unlockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8690DA202C34E4000A8697 /* unlockIcon.png */; };
 		1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D3A42202DBC830040E15B /* hvcbackground.png */; };
-		1E8D6ECB203AD08C004FD293 /* whiteExperienceStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECA203AD08B004FD293 /* whiteExperienceStar.png */; };
 		1E8D6ECE203ADB9D004FD293 /* healthSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */; };
-		1E8D6ECF203ADB9D004FD293 /* lootSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECD203ADB9D004FD293 /* lootSymbol.png */; };
-		1E8D6ED2203AE3BD004FD293 /* whiteLootSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED0203AE3BC004FD293 /* whiteLootSymbol.png */; };
-		1E8D6ED3203AE3BD004FD293 /* whiteHealthSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED1203AE3BD004FD293 /* whiteHealthSymbol.png */; };
+		1E8D6ED5203CF40B004FD293 /* experienceSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED4203CF40A004FD293 /* experienceSymbol.png */; };
+		1E8D6ED7203CF5F5004FD293 /* healthSymbolShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED6203CF5F5004FD293 /* healthSymbolShadow.png */; };
+		1E8D6ED9203CF795004FD293 /* lootSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED8203CF795004FD293 /* lootSymbol.png */; };
+		1E8D6EDB203CF79B004FD293 /* lootSymbolShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */; };
+		1E8D6EDD203CF92E004FD293 /* experienceSymbolShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */; };
 		1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */; };
 		1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */; };
 		1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */; };
@@ -183,7 +183,6 @@
 		1E1103AF203104DA004DD502 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1E1B82E2200F080C002D6E01 /* goldBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldBag.png; sourceTree = "<group>"; };
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
-		1E1B82E7200F0947002D6E01 /* experienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceStar.png; sourceTree = "<group>"; };
 		1E209E432019D4AC00A4986A /* levelCrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrown.png; sourceTree = "<group>"; };
 		1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewModel.swift; sourceTree = "<group>"; };
 		1E209E472019FF8400A4986A /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
@@ -205,11 +204,12 @@
 		1E8690D8202C34DF000A8697 /* lockedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockedIcon.png; sourceTree = "<group>"; };
 		1E8690DA202C34E4000A8697 /* unlockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlockIcon.png; sourceTree = "<group>"; };
 		1E8D3A42202DBC830040E15B /* hvcbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hvcbackground.png; sourceTree = "<group>"; };
-		1E8D6ECA203AD08B004FD293 /* whiteExperienceStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteExperienceStar.png; sourceTree = "<group>"; };
 		1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthSymbol.png; sourceTree = "<group>"; };
-		1E8D6ECD203ADB9D004FD293 /* lootSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lootSymbol.png; sourceTree = "<group>"; };
-		1E8D6ED0203AE3BC004FD293 /* whiteLootSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteLootSymbol.png; sourceTree = "<group>"; };
-		1E8D6ED1203AE3BD004FD293 /* whiteHealthSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteHealthSymbol.png; sourceTree = "<group>"; };
+		1E8D6ED4203CF40A004FD293 /* experienceSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceSymbol.png; sourceTree = "<group>"; };
+		1E8D6ED6203CF5F5004FD293 /* healthSymbolShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthSymbolShadow.png; sourceTree = "<group>"; };
+		1E8D6ED8203CF795004FD293 /* lootSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lootSymbol.png; sourceTree = "<group>"; };
+		1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lootSymbolShadow.png; sourceTree = "<group>"; };
+		1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceSymbolShadow.png; sourceTree = "<group>"; };
 		1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup2.png; sourceTree = "<group>"; };
 		1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scenarioSetup.png; path = ../../../../../Downloads/scenarioSetup.png; sourceTree = "<group>"; };
 		1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup4.png; sourceTree = "<group>"; };
@@ -454,7 +454,8 @@
 				1E3043792024A28B008D6B07 /* exitsign2.png */,
 				1E30437D2024B790008D6B07 /* exitSign3.png */,
 				1E30437B2024A4DB008D6B07 /* exitSignV.png */,
-				1E1B82E7200F0947002D6E01 /* experienceStar.png */,
+				1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */,
+				1E8D6ED4203CF40A004FD293 /* experienceSymbol.png */,
 				1ED412D4202471B9004A7791 /* ghbackground.jpg */,
 				1ED412C92024632E004A7791 /* ghcard1.jpg */,
 				1ED412CB20246336004A7791 /* ghcard2.jpg */,
@@ -465,11 +466,13 @@
 				1E1B82E4200F0917002D6E01 /* goldbag3.png */,
 				1E30439520272F2D008D6B07 /* greenPlus.png */,
 				1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */,
+				1E8D6ED6203CF5F5004FD293 /* healthSymbolShadow.png */,
 				1E8D3A42202DBC830040E15B /* hvcbackground.png */,
 				1E209E432019D4AC00A4986A /* levelCrown.png */,
 				1EA4365B2033B97F00F2B35F /* levelCrownBlack.png */,
 				1E8690D8202C34DF000A8697 /* lockedIcon.png */,
-				1E8D6ECD203ADB9D004FD293 /* lootSymbol.png */,
+				1E8D6ED8203CF795004FD293 /* lootSymbol.png */,
+				1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */,
 				1EA938DD2015A71900B070B4 /* minusImage.png */,
 				1EA938DF2015A71F00B070B4 /* plusImage.png */,
 				1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */,
@@ -480,9 +483,6 @@
 				1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */,
 				1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */,
 				1E8690DA202C34E4000A8697 /* unlockIcon.png */,
-				1E8D6ECA203AD08B004FD293 /* whiteExperienceStar.png */,
-				1E8D6ED1203AE3BD004FD293 /* whiteHealthSymbol.png */,
-				1E8D6ED0203AE3BC004FD293 /* whiteLootSymbol.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -705,6 +705,7 @@
 				1EEE7354202D92A000A78C97 /* bruteSymbol.png in Resources */,
 				1E94005D202B145000F913D3 /* mindthief.png in Resources */,
 				1E8E3836202DCD7B008C2FF4 /* NumPadView.xib in Resources */,
+				1E8D6EDD203CF92E004FD293 /* experienceSymbolShadow.png in Resources */,
 				1E30439820273B6C008D6B07 /* CharacterCreationView.xib in Resources */,
 				1EEE7324202D897B00A78C97 /* mindthiefCard.png in Resources */,
 				1EEE7363202D92A000A78C97 /* nightshroudSymbol.png in Resources */,
@@ -724,21 +725,21 @@
 				1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */,
 				1EEE7334202D897B00A78C97 /* sawbonesCard.png in Resources */,
 				1EBE01622036E5DF005F4F9F /* changeCharacter.png in Resources */,
+				1E8D6EDB203CF79B004FD293 /* lootSymbolShadow.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
 				1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1EEE735E202D92A000A78C97 /* berserkerSymbol.png in Resources */,
 				1E940050202AF50800F913D3 /* cragheartCard.png in Resources */,
-				1E8D6ECF203ADB9D004FD293 /* lootSymbol.png in Resources */,
 				1EEE7320202D897B00A78C97 /* doomstalkerCard.png in Resources */,
 				1ED412CF2024633A004A7791 /* ghcard2.jpg in Resources */,
 				1E30439620272F2F008D6B07 /* greenPlus.png in Resources */,
 				1EA4365C2033B98000F2B35F /* levelCrownBlack.png in Resources */,
 				1E038279201AC5E700C6AB12 /* checkmark.png in Resources */,
-				1E8D6ED3203AE3BD004FD293 /* whiteHealthSymbol.png in Resources */,
 				1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */,
 				1EEE733C202D897B00A78C97 /* nightshroudCard.png in Resources */,
 				1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */,
+				1E8D6ED7203CF5F5004FD293 /* healthSymbolShadow.png in Resources */,
 				1EEE7323202D897B00A78C97 /* beasttyrantCard.png in Resources */,
 				1EEE731A202D897B00A78C97 /* quartermasterCard.png in Resources */,
 				1EEE7316202D897B00A78C97 /* elementalistCard.png in Resources */,
@@ -764,7 +765,7 @@
 				1EEE7319202D897B00A78C97 /* elementalist.png in Resources */,
 				1E95EF30203438ED00BB0123 /* nightshroudColorSymbol.png in Resources */,
 				1E8690DB202C34E6000A8697 /* unlockIcon.png in Resources */,
-				1E8D6ED2203AE3BD004FD293 /* whiteLootSymbol.png in Resources */,
+				1E8D6ED9203CF795004FD293 /* lootSymbol.png in Resources */,
 				1EEE7317202D897B00A78C97 /* scoundrelCard.png in Resources */,
 				1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */,
 				1E94005A202B145000F913D3 /* brute.png in Resources */,
@@ -789,15 +790,14 @@
 				1EEE7355202D92A000A78C97 /* plagueheraldSymbol.png in Resources */,
 				1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */,
 				1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */,
+				1E8D6ED5203CF40B004FD293 /* experienceSymbol.png in Resources */,
 				1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */,
 				1E30437A2024A28C008D6B07 /* exitsign2.png in Resources */,
-				1E8D6ECB203AD08C004FD293 /* whiteExperienceStar.png in Resources */,
 				1EEE7310202D897B00A78C97 /* plagueherald.png in Resources */,
 				1EEE7339202D897B00A78C97 /* summonerCard.png in Resources */,
 				1EEE7353202D92A000A78C97 /* doomstalkerSymbol.png in Resources */,
 				1ED412C1202312F7004A7791 /* exitSign.png in Resources */,
 				1EEE7322202D897B00A78C97 /* berserker.png in Resources */,
-				1E1B82E8200F0947002D6E01 /* experienceStar.png in Resources */,
 				1EEE731B202D897B00A78C97 /* summoner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

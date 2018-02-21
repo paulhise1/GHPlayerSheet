@@ -592,9 +592,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Party Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRE-Tf-LAI">
-                                        <rect key="frame" x="496.66666666666663" y="8" width="162" height="35"/>
-                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="27"/>
-                                        <color key="textColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="473.33333333333331" y="8" width="180.33333333333331" height="38.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
+                                        <color key="textColor" red="0.38526773452758789" green="0.13679999113082886" blue="0.1175478994846344" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -602,7 +602,7 @@
                                     <constraint firstItem="PRE-Tf-LAI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Mu-IO-y3d" secondAttribute="trailing" constant="8" symbolic="YES" id="3YB-oC-DXw"/>
                                     <constraint firstAttribute="height" constant="95" id="9MZ-Wh-mLs"/>
                                     <constraint firstItem="4s2-Rf-p7M" firstAttribute="top" secondItem="6Mu-IO-y3d" secondAttribute="bottom" id="DEZ-Wh-Sf2"/>
-                                    <constraint firstAttribute="trailing" secondItem="PRE-Tf-LAI" secondAttribute="trailing" id="HhV-ho-wBU"/>
+                                    <constraint firstAttribute="trailing" secondItem="PRE-Tf-LAI" secondAttribute="trailing" constant="5" id="HhV-ho-wBU"/>
                                     <constraint firstItem="6Mu-IO-y3d" firstAttribute="leading" secondItem="iLI-z3-qSs" secondAttribute="leading" id="KwW-41-xzk"/>
                                     <constraint firstItem="4s2-Rf-p7M" firstAttribute="leading" secondItem="6Mu-IO-y3d" secondAttribute="leading" constant="20" id="U3s-VV-f6e"/>
                                     <constraint firstAttribute="trailing" secondItem="4s2-Rf-p7M" secondAttribute="trailing" id="WUh-h1-0PR"/>
@@ -664,7 +664,7 @@
                                                 <rect key="frame" x="0.0" y="41.666666666666657" width="160.33333333333334" height="49.333333333333343"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="awu-Qx-YGu">
-                                                        <rect key="frame" x="1" y="12.333333333333345" width="16.666666666666668" height="24.666666666666671"/>
+                                                        <rect key="frame" x="21.666666666666629" y="12.333333333333345" width="17" height="24.666666666666671"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTm-Ie-oWE">
                                                         <rect key="frame" x="42.666666666666636" y="4.6666666666666856" width="75.666666666666686" height="40.666666666666664"/>
@@ -673,7 +673,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSI-GL-6Bo" userLabel="2 Max">
-                                                        <rect key="frame" x="128.33333333333331" y="9.6666666666666838" width="62" height="29.333333333333329"/>
+                                                        <rect key="frame" x="133.33333333333331" y="9.6666666666666838" width="68" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -682,20 +682,19 @@
                                                 <constraints>
                                                     <constraint firstItem="awu-Qx-YGu" firstAttribute="width" secondItem="awu-Qx-YGu" secondAttribute="height" multiplier="2:3" id="1QC-Fl-nPP"/>
                                                     <constraint firstItem="awu-Qx-YGu" firstAttribute="height" secondItem="AU2-C1-zTS" secondAttribute="height" multiplier="0.5" id="9k3-K9-7RL"/>
-                                                    <constraint firstItem="tTm-Ie-oWE" firstAttribute="leading" secondItem="awu-Qx-YGu" secondAttribute="trailing" constant="25" id="F0L-QA-g7M"/>
+                                                    <constraint firstAttribute="centerX" secondItem="awu-Qx-YGu" secondAttribute="centerX" constant="50" id="F0L-QA-g7M"/>
                                                     <constraint firstItem="awu-Qx-YGu" firstAttribute="centerY" secondItem="AU2-C1-zTS" secondAttribute="centerY" id="IuI-hI-JSi"/>
                                                     <constraint firstItem="FSI-GL-6Bo" firstAttribute="centerY" secondItem="AU2-C1-zTS" secondAttribute="centerY" id="JDI-6o-rpn"/>
-                                                    <constraint firstItem="FSI-GL-6Bo" firstAttribute="leading" secondItem="tTm-Ie-oWE" secondAttribute="trailing" constant="10" id="bGw-mW-po0"/>
+                                                    <constraint firstItem="FSI-GL-6Bo" firstAttribute="leading" secondItem="tTm-Ie-oWE" secondAttribute="trailing" constant="15" id="bGw-mW-po0"/>
                                                     <constraint firstItem="tTm-Ie-oWE" firstAttribute="centerY" secondItem="AU2-C1-zTS" secondAttribute="centerY" id="eyq-Gi-ukb"/>
                                                     <constraint firstItem="tTm-Ie-oWE" firstAttribute="centerX" secondItem="AU2-C1-zTS" secondAttribute="centerX" id="nDP-gP-m2F"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FSI-GL-6Bo" secondAttribute="trailing" constant="-30" id="u3g-S8-VzB"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-FQ-vh7" userLabel="Player 2 XP Container">
                                                 <rect key="frame" x="0.0" y="94.333333333333343" width="160.33333333333334" height="49.666666666666657"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-mC-sQd">
-                                                        <rect key="frame" x="-3" y="12.000000000000002" width="25" height="24.666666666666671"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-mC-sQd" userLabel="Experience Symbol Image">
+                                                        <rect key="frame" x="17.666666666666629" y="12.000000000000002" width="25" height="24.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="jOy-mC-sQd" secondAttribute="height" multiplier="1:1" id="rJs-fL-hp6"/>
                                                         </constraints>
@@ -718,7 +717,7 @@
                                                 <rect key="frame" x="0.0" y="147" width="160.33333333333334" height="49.333333333333343"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="GFR-82-7SF">
-                                                        <rect key="frame" x="-3" y="11.666666666666659" width="24.666666666666668" height="24.666666666666671"/>
+                                                        <rect key="frame" x="17.666666666666629" y="11.666666666666659" width="25" height="24.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GFR-82-7SF" secondAttribute="height" multiplier="1:1" id="XB9-aL-K4D"/>
                                                         </constraints>
@@ -764,22 +763,21 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDX-lT-jfw">
-                                                        <rect key="frame" x="128" y="9.333333333333341" width="62" height="29.333333333333329"/>
+                                                        <rect key="frame" x="133" y="9.333333333333341" width="68" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="nDL-F8-4sJ">
-                                                        <rect key="frame" x="1" y="12.333333333333345" width="16.333333333333332" height="24.666666666666671"/>
+                                                        <rect key="frame" x="21.666666666666686" y="12.333333333333345" width="17" height="24.666666666666671"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="oDX-lT-jfw" firstAttribute="leading" secondItem="uCa-FO-PIe" secondAttribute="trailing" constant="10" id="Fnz-ND-jse"/>
+                                                    <constraint firstItem="oDX-lT-jfw" firstAttribute="leading" secondItem="uCa-FO-PIe" secondAttribute="trailing" constant="15" id="Fnz-ND-jse"/>
                                                     <constraint firstItem="uCa-FO-PIe" firstAttribute="centerX" secondItem="hoP-x5-z9e" secondAttribute="centerX" id="JAD-fl-8uX"/>
-                                                    <constraint firstItem="uCa-FO-PIe" firstAttribute="leading" secondItem="nDL-F8-4sJ" secondAttribute="trailing" constant="25" id="Viu-eB-f2l"/>
+                                                    <constraint firstAttribute="centerX" secondItem="nDL-F8-4sJ" secondAttribute="centerX" constant="50" id="Viu-eB-f2l"/>
                                                     <constraint firstItem="nDL-F8-4sJ" firstAttribute="centerY" secondItem="hoP-x5-z9e" secondAttribute="centerY" id="amc-NK-8co"/>
                                                     <constraint firstItem="uCa-FO-PIe" firstAttribute="centerY" secondItem="hoP-x5-z9e" secondAttribute="centerY" id="h5v-Ce-6uB"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oDX-lT-jfw" secondAttribute="trailing" constant="-29.6666666666666" id="i8U-BW-LKC"/>
                                                     <constraint firstItem="oDX-lT-jfw" firstAttribute="centerY" secondItem="hoP-x5-z9e" secondAttribute="centerY" id="kBB-gE-42i"/>
                                                 </constraints>
                                             </view>
@@ -792,8 +790,8 @@
                                                         <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZKz-CJ-zL3">
-                                                        <rect key="frame" x="-3.3333333333333144" y="12.000000000000002" width="25" height="24.666666666666671"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZKz-CJ-zL3" userLabel="Experience Symbol Image">
+                                                        <rect key="frame" x="17.666666666666686" y="12.000000000000002" width="25" height="24.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ZKz-CJ-zL3" secondAttribute="height" multiplier="1:1" id="JP3-mj-lka"/>
                                                         </constraints>
@@ -809,7 +807,7 @@
                                                 <rect key="frame" x="0.0" y="146.33333333333334" width="160.33333333333334" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="sGb-Pi-nhw">
-                                                        <rect key="frame" x="-3.3333333333333144" y="12.666666666666659" width="25" height="24.666666666666671"/>
+                                                        <rect key="frame" x="17.333333333333314" y="12.666666666666659" width="25" height="24.666666666666671"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Loot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-4N-3Uw">
                                                         <rect key="frame" x="27.666666666666686" y="4.3333333333333144" width="104" height="40.666666666666664"/>
@@ -846,7 +844,7 @@
                                                 <rect key="frame" x="0.0" y="41.666666666666657" width="160.33333333333334" height="49.333333333333343"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="kbZ-YD-X3w">
-                                                        <rect key="frame" x="0.66666666666662877" y="12.333333333333345" width="16.666666666666668" height="24.666666666666671"/>
+                                                        <rect key="frame" x="21.666666666666629" y="12.333333333333345" width="17" height="24.666666666666671"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqm-6l-e0y">
                                                         <rect key="frame" x="42.333333333333265" y="4.3333333333333428" width="75.666666666666686" height="40.666666666666664"/>
@@ -855,7 +853,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmD-9d-hZr">
-                                                        <rect key="frame" x="128" y="9.333333333333341" width="62" height="29.333333333333329"/>
+                                                        <rect key="frame" x="133" y="9.333333333333341" width="68" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -863,9 +861,8 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="zqm-6l-e0y" firstAttribute="centerX" secondItem="9LA-2k-5oh" secondAttribute="centerX" id="Bze-z0-xXX"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wmD-9d-hZr" secondAttribute="trailing" constant="-29.670000000000002" id="KDo-Cs-Yc4"/>
-                                                    <constraint firstItem="zqm-6l-e0y" firstAttribute="leading" secondItem="kbZ-YD-X3w" secondAttribute="trailing" constant="25" id="j8d-rM-kxQ"/>
-                                                    <constraint firstItem="wmD-9d-hZr" firstAttribute="leading" secondItem="zqm-6l-e0y" secondAttribute="trailing" constant="10" id="kIg-AI-pa6"/>
+                                                    <constraint firstAttribute="centerX" secondItem="kbZ-YD-X3w" secondAttribute="centerX" constant="50" id="j8d-rM-kxQ"/>
+                                                    <constraint firstItem="wmD-9d-hZr" firstAttribute="leading" secondItem="zqm-6l-e0y" secondAttribute="trailing" constant="15" id="kIg-AI-pa6"/>
                                                     <constraint firstItem="kbZ-YD-X3w" firstAttribute="centerY" secondItem="9LA-2k-5oh" secondAttribute="centerY" id="w1O-8w-gN8"/>
                                                     <constraint firstItem="zqm-6l-e0y" firstAttribute="centerY" secondItem="9LA-2k-5oh" secondAttribute="centerY" id="wST-UC-yg4"/>
                                                     <constraint firstItem="wmD-9d-hZr" firstAttribute="centerY" secondItem="9LA-2k-5oh" secondAttribute="centerY" id="ydc-Pb-1TV"/>
@@ -874,8 +871,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-6g-dnX" userLabel="Player 4 XP Container">
                                                 <rect key="frame" x="0.0" y="94" width="160.33333333333334" height="49.333333333333343"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceStar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-Wx-m7f">
-                                                        <rect key="frame" x="-3.6666666666667425" y="12.000000000000002" width="25" height="24.666666666666671"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-Wx-m7f" userLabel="Experience Symbol Image">
+                                                        <rect key="frame" x="17.333333333333258" y="12.000000000000002" width="25.333333333333329" height="24.666666666666671"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 XP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORF-MP-kRn">
                                                         <rect key="frame" x="44.000000000000007" y="4.3333333333333428" width="72.666666666666686" height="40.666666666666664"/>
@@ -901,7 +898,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-Mf-mm0">
-                                                        <rect key="frame" x="-3.6666666666667425" y="12.666666666666659" width="25.333333333333332" height="24.666666666666671"/>
+                                                        <rect key="frame" x="17.333333333333258" y="12.666666666666659" width="25" height="24.666666666666671"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -1456,10 +1453,10 @@
         <image name="bruteSymbol.png" width="920" height="920"/>
         <image name="changeCharacter.png" width="128" height="128"/>
         <image name="exitSign.png" width="1307" height="480"/>
-        <image name="experienceStar.png" width="200" height="200"/>
+        <image name="experienceSymbol.png" width="146" height="144"/>
         <image name="healthSymbol.png" width="106" height="160"/>
         <image name="levelCrown.png" width="499" height="337"/>
-        <image name="lootSymbol.png" width="258" height="264"/>
+        <image name="lootSymbol.png" width="243" height="225"/>
         <image name="scenarioDifficultySkull.png" width="278" height="209"/>
     </resources>
     <inferredMetricsTieBreakers>
