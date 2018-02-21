@@ -65,7 +65,8 @@ extension AddCharactersView: UICollectionViewDelegateFlowLayout, UICollectionVie
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = CGSize(width: 150, height: 150)
+        let height = self.frame.size.height/2
+        let cellSize = CGSize(width: height, height: height)
         return cellSize
     }
     

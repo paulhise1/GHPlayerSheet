@@ -14,6 +14,17 @@ class ChangeCharacterView: UIView {
     weak var delegate: ChangeCharacterViewDelegate?
     
     private var inactiveCharacters: [Character]?
+    
+    private var cellSize: CGSize {
+        let side = self.frame.size.height/2
+        return CGSize(width: side, height: side)
+    }
+    
+    private let padding: CGFloat = 10.0
+    
+    var itemsWidth: CGFloat {
+        return CGFloat(inactiveCharacters?.count ?? 0) * (cellSize.width + padding)
+    }
  
     func configure(ownedCharacters: [Character], activeCharacter: Character) {
         buildInactiveCharacterList(ownedCharacters: ownedCharacters, activeCharacter: activeCharacter)
@@ -40,7 +51,6 @@ extension ChangeCharacterView: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = CGSize(width: 150, height: 150)
         return cellSize
     }
     
@@ -53,7 +63,7 @@ extension ChangeCharacterView: UICollectionViewDelegateFlowLayout, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout
         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return padding
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -61,8 +71,7 @@ extension ChangeCharacterView: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let inactiveCharacters = inactiveCharacters else { return 0 }
-        return inactiveCharacters.count
+        return inactiveCharacters?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

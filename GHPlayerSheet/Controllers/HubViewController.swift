@@ -2,22 +2,6 @@ import UIKit
 
 class HubViewController: UIViewController {
     
-    enum Blah {
-        case some
-        case error
-        case `nil`
-    }
-    
-    func blah() {
-        let doStuff: (Int) -> Void = { int in
-            print(int)
-        }
-        
-        let int = 6
-        
-        doStuff(int)
-    }
-    
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
         static let segueToScenarioLobbyID = "toScenarioLobby"
@@ -25,6 +9,7 @@ class HubViewController: UIViewController {
         static let characterCellID = "CharacterCollectionViewCell"
         static let startScenarioText = "Start Scenario"
     }
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var partyNameLabel: UILabel!
@@ -109,24 +94,6 @@ class HubViewController: UIViewController {
         }
     }
     
-    private func lengthOfChangeCharacterView() -> CGFloat {
-        guard let characterCount = viewModel?.ownedCharacters().count else { return 0 }
-        switch characterCount - 1 {
-        case 1:
-            return 190
-        case 2:
-            return 350
-        case 3:
-            return 510
-        case 4:
-            return 670
-        case 5:
-            return 830
-        default:
-            return 990
-        }
-    }
-    
     private func displayPlayerInfo() {
         partyNameLabel.text = viewModel?.party
         characterInfoLabel.isHidden = false
@@ -190,6 +157,13 @@ class HubViewController: UIViewController {
         }
     }
     
+    private func lengthOfChangeCharacterView() -> CGFloat {
+        let maxWidth = view.frame.size.width * 0.9
+        let ccViewWidth = changeCharacterView?.itemsWidth ?? 0.0
+        let padding: CGFloat = 10.0
+        return min(maxWidth, ccViewWidth) + padding
+    }
+    /
     //MARK: - setup view methods
     private func setupAddCharactersView() {
         guard let addCharactersView = Bundle.main.loadNibNamed(String(describing: AddCharactersView.self), owner: self, options: nil)?.first as? AddCharactersView else { return }
