@@ -8,6 +8,7 @@ class HubViewController: UIViewController {
         static let segueToScenarioID = "toScenarioVC"
         static let characterCellID = "CharacterCollectionViewCell"
         static let startScenarioText = "Start Scenario"
+        static let viewBackgroundImage = "hvcbackground"
     }
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -19,7 +20,7 @@ class HubViewController: UIViewController {
     
     @IBOutlet weak var characterImageView: UIImageView! {
         didSet {
-            characterImageView.layer.cornerRadius = 10
+            characterImageView.layer.cornerRadius = 8
             characterImageView.layer.masksToBounds = true
         }
     }
@@ -48,19 +49,12 @@ class HubViewController: UIViewController {
     
     private func setupDisplay() {
         self.navigationController?.isNavigationBarHidden = true
-        backgroundImage.image = UIImage(named: "hvcbackground")
+        backgroundImage.image = UIImage(named: Constant.viewBackgroundImage)
         scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
         hostedByLabel.isHidden = true
-        setupAddCharactersView()
-        showingChangeCharacterButton()
-        guard (viewModel?.player) != nil else {
-            partyNameLabel.text = viewModel?.party
-            characterInfoLabel.isHidden = true
-            characterImageView.isHidden = true
-            scenarioButton.isHidden = true
-            return
-        }
         displayPlayerInfo()
+        setupAddCharactersView()
+        displayChangeCharacterButton()
     }
     
     @IBAction func scenarioButtonTapped(_ sender: Any) {
@@ -95,6 +89,13 @@ class HubViewController: UIViewController {
     }
     
     private func displayPlayerInfo() {
+        guard (viewModel?.player) != nil
+            else {
+            partyNameLabel.text = viewModel?.party
+            characterInfoLabel.isHidden = true
+            characterImageView.isHidden = true
+            scenarioButton.isHidden = true
+            return }
         partyNameLabel.text = viewModel?.party
         characterInfoLabel.isHidden = false
         characterImageView.isHidden = false
@@ -145,7 +146,7 @@ class HubViewController: UIViewController {
         changeCharacterView?.removeFromSuperview()
     }
     
-    func showingChangeCharacterButton() {
+    func displayChangeCharacterButton() {
         guard let ownedCharacters = viewModel?.ownedCharacters() else {
             self.changeCharacterButton.isHidden = true
             return
@@ -176,12 +177,11 @@ class HubViewController: UIViewController {
     
     private func setupChangeCharacterView() {
         changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
-        guard let changeCharacterView = changeCharacterView else { return }
+        guard let changeCharacterView = changeCharacterView, let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter else { return }
         changeCharacterCollectionViewContainer.addSubview(changeCharacterView)
         changeCharacterView.frame = changeCharacterCollectionViewContainer.bounds
         changeCharacterView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         changeCharacterView.delegate = self
-        guard let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter else { return }
         changeCharacterView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
     }
 }
@@ -212,7 +212,7 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
         viewModel?.addCharacterToPlayer(character: character)
         hideAddCharacter()
         displayPlayerInfo()
-        showingChangeCharacterButton()
+        displayChangeCharacterButton()
     }
     
     func didTapAddCharacterBackButton() {

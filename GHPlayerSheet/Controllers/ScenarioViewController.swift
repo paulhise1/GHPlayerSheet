@@ -14,7 +14,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let toHubVCSegueID = "toHubVC"
     }
     
-    
     @IBOutlet weak var scenarioTitleLabel: UILabel!
     @IBOutlet weak var scenarioGoalLabel: UILabel!
     @IBOutlet weak var scenarioDifficultyLabel: UILabel!
@@ -37,16 +36,12 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var lootTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
-    
-    
-    @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var endScenarioViewContainer: UIView!
     
     private var viewModel: ScenarioViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        exitButton.isHidden = true
         
         setupCounters()
         updateStackViews()
@@ -79,9 +74,11 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
             return
         }
     }
-    @IBAction func scenarioButtonTapped(_ sender: Any) {
-    self.navigationController?.popToRootViewController(animated: true)
+    @IBAction func endScenarioButtonTapped(_ sender: Any) {
+        setupEndScenarioView()
     }
+    
+    
     
     //MARK: - Setup Child Views
     func setupCounters() {
@@ -117,11 +114,19 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     }
     
     func setupGenericCounterView() {
-        guard let genericCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as?CounterView else { return }
+        guard let genericCounterView = Bundle.main.loadNibNamed(Constant.horizontalCounterNibName, owner: self, options: nil)?.first as? CounterView else { return }
         genericCounterView.frame = genericTrackerContainerView.bounds
         genericCounterView.configure(counterType: .generic)
         genericTrackerContainerView.addSubview(genericCounterView)
         genericCounterView.delegate = self
+    }
+    
+    func setupEndScenarioView() {
+        view.bringSubview(toFront: endScenarioViewContainer)
+        guard let endScenarioView = Bundle.main.loadNibNamed(String(describing: EndScenarioView.self), owner: self, options: nil)?.first as? EndScenarioView, let loot = viewModel?.player.loot, let experience = viewModel?.player.experience, let difficulty = viewModel?.scenario.difficulty else { return }
+        endScenarioView.frame = endScenarioViewContainer.bounds
+        endScenarioViewContainer.addSubview(endScenarioView)
+        endScenarioView.configure(lootCount: loot, experienceCount: experience, difficulty: difficulty)
     }
     
     func updateStackViews() {

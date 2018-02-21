@@ -10,13 +10,13 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     
     @IBOutlet weak var viewBackgroundImage: UIImageView!
     
-    @IBOutlet weak var setScenarioContainerView: UIView!
+    @IBOutlet weak var setScenarioNumberContainerView: UIView!
     @IBOutlet weak var numPadContainerView: UIView!
     @IBOutlet weak var setScenarioLabel: UILabel!
     
     @IBOutlet weak var createScenarioButton: UIButton!
     
-    @IBOutlet weak var setDifficultyLevelContainerView: UIView!
+    @IBOutlet weak var setScenarioDifficultyContainerView: UIView!
     
     private var numPadView: NumPadView?
     private var scenario: Scenario?
@@ -40,17 +40,17 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
         self.navigationController?.isNavigationBarHidden = true
         let random = Int(arc4random_uniform(4))
         viewBackgroundImage.image = UIImage(named: Constant.backgroundList[random])
-        setScenarioContainerView.isHidden = false
+        setScenarioNumberContainerView.isHidden = false
         setupNumPadView()
-        setDifficultyLevelContainerView.isHidden = true
+        setScenarioDifficultyContainerView.isHidden = true
     }
     
     @IBAction func createScenarioButtonTapped(_ sender: Any) {
         if let scenarioNumber = numPadView?.amountLabel.text {
             scenario = Scenario.scenarioFromNumber(scenarioNumber)
         }
-        setScenarioContainerView.isHidden = true
-        setDifficultyLevelContainerView.isHidden = false
+        setScenarioNumberContainerView.isHidden = true
+        setScenarioDifficultyContainerView.isHidden = false
     }
     
     @IBAction func difficultyNumberButtonTapped(_ sender: Any) {

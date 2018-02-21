@@ -18,6 +18,9 @@
 		1E1103B0203104DB004DD502 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1103AF203104DA004DD502 /* Player.swift */; };
 		1E1B82E3200F080C002D6E01 /* goldBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E2200F080C002D6E01 /* goldBag.png */; };
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
+		1E1F61CE203D58E1002B7A09 /* EndScenarioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61CD203D58E1002B7A09 /* EndScenarioView.xib */; };
+		1E1F61D0203D629F002B7A09 /* EndScenarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */; };
+		1E1F61D2203D90C7002B7A09 /* canvasBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61D1203D90C6002B7A09 /* canvasBackground.png */; };
 		1E209E442019D4AD00A4986A /* levelCrown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E209E432019D4AC00A4986A /* levelCrown.png */; };
 		1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */; };
 		1E209E482019FF8400A4986A /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E472019FF8400A4986A /* HubViewController.swift */; };
@@ -183,6 +186,9 @@
 		1E1103AF203104DA004DD502 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1E1B82E2200F080C002D6E01 /* goldBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldBag.png; sourceTree = "<group>"; };
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
+		1E1F61CD203D58E1002B7A09 /* EndScenarioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndScenarioView.xib; sourceTree = "<group>"; };
+		1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScenarioView.swift; sourceTree = "<group>"; };
+		1E1F61D1203D90C6002B7A09 /* canvasBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvasBackground.png; sourceTree = "<group>"; };
 		1E209E432019D4AC00A4986A /* levelCrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrown.png; sourceTree = "<group>"; };
 		1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewModel.swift; sourceTree = "<group>"; };
 		1E209E472019FF8400A4986A /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +407,8 @@
 				1EFE3A302031334B00F94F39 /* CharacterCollectionViewCell.swift */,
 				1EA436652033CB5300F2B35F /* ChangeCharacterView.swift */,
 				1EA436672033CB6400F2B35F /* ChangeCharacterView.xib */,
+				1E1F61CD203D58E1002B7A09 /* EndScenarioView.xib */,
+				1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 				1EA4365B2033B97F00F2B35F /* levelCrownBlack.png */,
 				1E8690D8202C34DF000A8697 /* lockedIcon.png */,
 				1E8D6ED8203CF795004FD293 /* lootSymbol.png */,
+				1E1F61D1203D90C6002B7A09 /* canvasBackground.png */,
 				1E8D6EE6203D34D9004FD293 /* scenarioSetup.png */,
 				1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */,
 				1E8D6EE0203D33B9004FD293 /* scenarioSetup2.png */,
@@ -718,6 +727,7 @@
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
 				1EEE7330202D897B00A78C97 /* tinkerer.png in Resources */,
 				1EEE7359202D92A000A78C97 /* spellweaverSymbol.png in Resources */,
+				1E1F61CE203D58E1002B7A09 /* EndScenarioView.xib in Resources */,
 				1ED412C3202456B2004A7791 /* Blank Map.jpg in Resources */,
 				1EEE732C202D897B00A78C97 /* sawbones.png in Resources */,
 				1E95EF2D203438ED00BB0123 /* sawbonesColorSymbol.png in Resources */,
@@ -747,6 +757,7 @@
 				1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */,
 				1EA436632033CA9800F2B35F /* soothsinger.png in Resources */,
 				1EFE3A2B20312F8100F94F39 /* AddCharactersView.xib in Resources */,
+				1E1F61D2203D90C7002B7A09 /* canvasBackground.png in Resources */,
 				1E940060202B145000F913D3 /* quartermaster.png in Resources */,
 				1EBE0164203A601C005F4F9F /* quartermasterColorSymbol.png in Resources */,
 				1EA436682033CB6400F2B35F /* ChangeCharacterView.xib in Resources */,
@@ -890,6 +901,7 @@
 				1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */,
 				1ED519CD201B419A0072F09A /* PerkViewModel.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
+				1E1F61D0203D629F002B7A09 /* EndScenarioView.swift in Sources */,
 				1E30438020271E7C008D6B07 /* ScenarioLobbyViewController.swift in Sources */,
 				1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */,
 				1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */,

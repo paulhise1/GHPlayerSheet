@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HTOWERT.TTF">
+            <string>HighTowerText-Reg</string>
+        </array>
+        <array key="PirataOne-Gloomhaven.ttf">
+            <string>PirataOne-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EndScenarioView" customModule="GHPlayerSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-VY-hVb" userLabel="End Scenario Background View">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct9-AU-NcE" userLabel="End Button Container">
+                    <rect key="frame" x="93" y="50" width="315" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg2-9P-ffg">
+                            <rect key="frame" x="0.0" y="0.0" width="157.5" height="70"/>
+                            <color key="backgroundColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                            <state key="normal" title="Failure">
+                                <color key="titleColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="failureButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="b2m-tV-nQe"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GI-ZU-Cyj">
+                            <rect key="frame" x="157" y="0.0" width="158" height="70"/>
+                            <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                            <state key="normal" title="Success">
+                                <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="successButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="9jv-KB-tsd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Sg2-9P-ffg" firstAttribute="centerY" secondItem="ct9-AU-NcE" secondAttribute="centerY" id="2MI-nn-tOd"/>
+                        <constraint firstItem="0GI-ZU-Cyj" firstAttribute="centerY" secondItem="Sg2-9P-ffg" secondAttribute="centerY" id="5dJ-mB-HPn"/>
+                        <constraint firstItem="0GI-ZU-Cyj" firstAttribute="width" secondItem="Sg2-9P-ffg" secondAttribute="width" id="8FE-4Z-n1G"/>
+                        <constraint firstItem="0GI-ZU-Cyj" firstAttribute="height" secondItem="Sg2-9P-ffg" secondAttribute="height" id="B8Y-zo-g4c"/>
+                        <constraint firstAttribute="trailing" secondItem="0GI-ZU-Cyj" secondAttribute="trailing" id="MZ8-8x-OsH"/>
+                        <constraint firstItem="Sg2-9P-ffg" firstAttribute="width" secondItem="ct9-AU-NcE" secondAttribute="width" multiplier="0.5" id="VOP-1E-NP9"/>
+                        <constraint firstItem="Sg2-9P-ffg" firstAttribute="height" secondItem="ct9-AU-NcE" secondAttribute="height" id="WZW-aS-DCu"/>
+                        <constraint firstItem="Sg2-9P-ffg" firstAttribute="leading" secondItem="ct9-AU-NcE" secondAttribute="leading" id="mZ6-tC-XpV"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tt-tx-4AS">
+                    <rect key="frame" x="137.5" y="50" width="225" height="70"/>
+                    <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="225" id="DRs-1B-vj9"/>
+                        <constraint firstAttribute="height" constant="70" id="yAp-2A-SOH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="50"/>
+                    <state key="normal" title="End">
+                        <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="endButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="bah-ax-MdG"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgS-Tm-9ID" userLabel="Conclusion Container">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenarioDifficultySkull.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-bk-T3s">
+                            <rect key="frame" x="-1" y="0.0" width="90" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="JeD-2W-WLi"/>
+                                <constraint firstAttribute="width" constant="90" id="Nd1-zN-O3D"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzN-gk-ZyE" userLabel="Difficulty Level Label">
+                            <rect key="frame" x="59" y="0.0" width="11" height="32.5"/>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
+                            <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congatulations! You have earned:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1n-hZ-Mpp">
+                            <rect key="frame" x="89" y="20" width="407" height="28"/>
+                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="28"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Haa-JY-Ycu">
+                            <rect key="frame" x="25" y="56" width="450" height="150"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4E-8j-JfD">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fof-tP-Y62">
+                                            <rect key="frame" x="0.0" y="0.0" width="112.5" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 X " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-yD-hQF">
+                                                    <rect key="frame" x="0.0" y="5.5" width="37.5" height="39"/>
+                                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="rem-S5-S6a">
+                                                    <rect key="frame" x="47.5" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="rem-S5-S6a" secondAttribute="height" multiplier="1:1" id="o1w-Pt-2oi"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ULg-yD-hQF" firstAttribute="centerY" secondItem="Fof-tP-Y62" secondAttribute="centerY" id="0om-pr-GET"/>
+                                                <constraint firstItem="rem-S5-S6a" firstAttribute="height" secondItem="Fof-tP-Y62" secondAttribute="height" id="8IF-sr-isC"/>
+                                                <constraint firstItem="rem-S5-S6a" firstAttribute="centerY" secondItem="Fof-tP-Y62" secondAttribute="centerY" id="TQ9-VD-1Oj"/>
+                                                <constraint firstItem="rem-S5-S6a" firstAttribute="leading" secondItem="ULg-yD-hQF" secondAttribute="trailing" constant="10" id="ao1-a0-bTf"/>
+                                                <constraint firstItem="ULg-yD-hQF" firstAttribute="leading" secondItem="Fof-tP-Y62" secondAttribute="leading" id="l0R-Kw-F0X"/>
+                                                <constraint firstAttribute="height" constant="50" id="nGD-0Z-hII"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="converts to 15 gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMm-2X-LyB">
+                                            <rect key="frame" x="112.5" y="0.0" width="337.5" height="50"/>
+                                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AD-Bu-VCI">
+                                    <rect key="frame" x="0.0" y="50" width="450" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6V-jS-V4I">
+                                            <rect key="frame" x="0.0" y="0.0" width="112.5" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAs-T5-sGh">
+                                                    <rect key="frame" x="0.0" y="5.5" width="25" height="39"/>
+                                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-dh-qox">
+                                                    <rect key="frame" x="35" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="3B8-dh-qox" secondAttribute="height" multiplier="1:1" id="g8D-Wv-oRf"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZAs-T5-sGh" firstAttribute="leading" secondItem="T6V-jS-V4I" secondAttribute="leading" id="Q1Z-AM-NP0"/>
+                                                <constraint firstItem="ZAs-T5-sGh" firstAttribute="centerY" secondItem="T6V-jS-V4I" secondAttribute="centerY" id="ZdJ-YT-2FT"/>
+                                                <constraint firstItem="3B8-dh-qox" firstAttribute="centerY" secondItem="T6V-jS-V4I" secondAttribute="centerY" id="etv-GG-aXT"/>
+                                                <constraint firstItem="3B8-dh-qox" firstAttribute="height" secondItem="T6V-jS-V4I" secondAttribute="height" id="sXg-vQ-WKT"/>
+                                                <constraint firstItem="3B8-dh-qox" firstAttribute="leading" secondItem="ZAs-T5-sGh" secondAttribute="trailing" constant="10" id="t5w-Fg-Pv3"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="acquired in scenario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jca-Uj-2oD">
+                                            <rect key="frame" x="112.5" y="0.0" width="337.5" height="50"/>
+                                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="T6V-jS-V4I" firstAttribute="width" secondItem="0AD-Bu-VCI" secondAttribute="width" multiplier="0.25" id="g5E-MZ-6cc"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsK-g6-Yjy" userLabel="Bonus Experience Stack View">
+                                    <rect key="frame" x="0.0" y="100" width="450" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCz-xo-YAe">
+                                            <rect key="frame" x="0.0" y="0.0" width="112.5" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqF-eF-7in">
+                                                    <rect key="frame" x="0.0" y="5.5" width="25" height="39"/>
+                                                    <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="sjt-4C-uaD">
+                                                    <rect key="frame" x="35" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="sjt-4C-uaD" secondAttribute="height" multiplier="1:1" id="phe-1H-9t3"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xqF-eF-7in" firstAttribute="leading" secondItem="MCz-xo-YAe" secondAttribute="leading" id="5Dx-5L-ML0"/>
+                                                <constraint firstItem="xqF-eF-7in" firstAttribute="centerY" secondItem="MCz-xo-YAe" secondAttribute="centerY" id="Nff-UY-dRk"/>
+                                                <constraint firstItem="sjt-4C-uaD" firstAttribute="height" secondItem="MCz-xo-YAe" secondAttribute="height" id="SM7-zz-43J"/>
+                                                <constraint firstItem="sjt-4C-uaD" firstAttribute="centerY" secondItem="MCz-xo-YAe" secondAttribute="centerY" id="Y7k-qi-P4N"/>
+                                                <constraint firstItem="sjt-4C-uaD" firstAttribute="leading" secondItem="xqF-eF-7in" secondAttribute="trailing" constant="10" id="a0g-mF-dYw"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="for succesful completion!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MU-aT-gpd">
+                                            <rect key="frame" x="112.5" y="0.0" width="337.5" height="50"/>
+                                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MCz-xo-YAe" firstAttribute="width" secondItem="gsK-g6-Yjy" secondAttribute="width" multiplier="0.25" id="icz-cD-iLT"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Fof-tP-Y62" firstAttribute="width" secondItem="Haa-JY-Ycu" secondAttribute="width" multiplier="0.25" id="Pfb-gG-4dm"/>
+                            </constraints>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vq-nL-aps">
+                            <rect key="frame" x="286" y="247" width="210" height="45"/>
+                            <color key="backgroundColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
+                            <state key="normal" title=" Add To Character Sheet ">
+                                <color key="titleColor" red="0.9212072491645813" green="0.84832113981246948" blue="0.62377804517745972" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="recordStatsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="mYk-qm-K45"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="b1n-hZ-Mpp" firstAttribute="leading" secondItem="Qyb-bk-T3s" secondAttribute="trailing" id="2R9-xj-OoK"/>
+                        <constraint firstItem="6Vq-nL-aps" firstAttribute="trailing" secondItem="b1n-hZ-Mpp" secondAttribute="trailing" id="3EK-I2-IYB"/>
+                        <constraint firstItem="Haa-JY-Ycu" firstAttribute="centerX" secondItem="HgS-Tm-9ID" secondAttribute="centerX" id="9Gm-6W-goD"/>
+                        <constraint firstItem="Haa-JY-Ycu" firstAttribute="width" secondItem="HgS-Tm-9ID" secondAttribute="width" multiplier="0.9" id="G7v-T3-ena"/>
+                        <constraint firstItem="mzN-gk-ZyE" firstAttribute="top" secondItem="Qyb-bk-T3s" secondAttribute="top" id="HOr-b3-pj4"/>
+                        <constraint firstItem="mzN-gk-ZyE" firstAttribute="leading" secondItem="Qyb-bk-T3s" secondAttribute="leading" constant="60" id="QlI-bU-sxh"/>
+                        <constraint firstAttribute="trailing" secondItem="b1n-hZ-Mpp" secondAttribute="trailing" constant="4" id="TEc-Xd-fii"/>
+                        <constraint firstItem="Qyb-bk-T3s" firstAttribute="top" secondItem="HgS-Tm-9ID" secondAttribute="top" id="XCW-AR-IpZ"/>
+                        <constraint firstItem="Qyb-bk-T3s" firstAttribute="leading" secondItem="HgS-Tm-9ID" secondAttribute="leading" constant="-1" id="jJt-XT-Ugt"/>
+                        <constraint firstItem="Haa-JY-Ycu" firstAttribute="top" secondItem="b1n-hZ-Mpp" secondAttribute="bottom" constant="8" id="tbF-iA-p3a"/>
+                        <constraint firstItem="b1n-hZ-Mpp" firstAttribute="top" secondItem="HgS-Tm-9ID" secondAttribute="top" constant="20" id="v9c-Uu-tDq"/>
+                        <constraint firstAttribute="bottom" secondItem="6Vq-nL-aps" secondAttribute="bottom" constant="8" id="zTh-91-uyr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="eiv-VY-hVb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="100-Bt-Es2"/>
+                <constraint firstItem="HgS-Tm-9ID" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="2At-cC-IZB"/>
+                <constraint firstItem="3Tt-tx-4AS" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5S7-wj-1M8"/>
+                <constraint firstItem="ct9-AU-NcE" firstAttribute="centerY" secondItem="3Tt-tx-4AS" secondAttribute="centerY" id="ANI-d6-FqP"/>
+                <constraint firstItem="ct9-AU-NcE" firstAttribute="width" secondItem="3Tt-tx-4AS" secondAttribute="width" multiplier="1.4" id="CQl-E1-dlJ"/>
+                <constraint firstItem="ct9-AU-NcE" firstAttribute="centerX" secondItem="3Tt-tx-4AS" secondAttribute="centerX" id="CRt-0h-aLH"/>
+                <constraint firstItem="eiv-VY-hVb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="M7P-jA-uwG"/>
+                <constraint firstItem="HgS-Tm-9ID" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="YWb-Vy-TpA"/>
+                <constraint firstItem="ct9-AU-NcE" firstAttribute="height" secondItem="3Tt-tx-4AS" secondAttribute="height" id="p8s-ZM-9eJ"/>
+                <constraint firstItem="HgS-Tm-9ID" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="sbZ-5r-BY5"/>
+                <constraint firstItem="eiv-VY-hVb" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="tEB-ZX-orF"/>
+                <constraint firstItem="eiv-VY-hVb" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="vho-11-UKM"/>
+                <constraint firstItem="3Tt-tx-4AS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="wJf-zX-P4i"/>
+                <constraint firstItem="HgS-Tm-9ID" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="yQS-U0-U7E"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backgroundView" destination="eiv-VY-hVb" id="ypf-07-veu"/>
+                <outlet property="bonusExperienceNumberLabel" destination="xqF-eF-7in" id="AN3-js-yUF"/>
+                <outlet property="bonusExperienceStack" destination="gsK-g6-Yjy" id="VZa-61-CWx"/>
+                <outlet property="conclusionContainer" destination="HgS-Tm-9ID" id="gWG-6f-xjT"/>
+                <outlet property="conclusionTitleLabel" destination="b1n-hZ-Mpp" id="iLF-IX-XgV"/>
+                <outlet property="difficultyLevelLabel" destination="mzN-gk-ZyE" id="Oxr-ki-xNs"/>
+                <outlet property="endScenarioButton" destination="3Tt-tx-4AS" id="mdG-xE-yYT"/>
+                <outlet property="experienceNumberLabel" destination="ZAs-T5-sGh" id="0VI-dP-Td3"/>
+                <outlet property="lootEarnedLabel" destination="WMm-2X-LyB" id="gVD-La-wvl"/>
+                <outlet property="lootNumberLabel" destination="ULg-yD-hQF" id="qfJ-Ly-P4o"/>
+                <outlet property="resultButtonContainer" destination="ct9-AU-NcE" id="74a-wn-5Pd"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="64"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="experienceSymbol.png" width="146" height="144"/>
+        <image name="lootSymbol.png" width="243" height="225"/>
+        <image name="scenarioDifficultySkull.png" width="278" height="209"/>
+    </resources>
+</document>
