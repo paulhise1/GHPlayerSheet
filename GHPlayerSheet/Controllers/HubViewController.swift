@@ -163,7 +163,7 @@ class HubViewController: UIViewController {
         let padding: CGFloat = 10.0
         return min(maxWidth, ccViewWidth) + padding
     }
-    /
+    
     //MARK: - setup view methods
     private func setupAddCharactersView() {
         guard let addCharactersView = Bundle.main.loadNibNamed(String(describing: AddCharactersView.self), owner: self, options: nil)?.first as? AddCharactersView else { return }

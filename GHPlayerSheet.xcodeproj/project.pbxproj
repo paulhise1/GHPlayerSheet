@@ -45,10 +45,10 @@
 		1E8D6ED9203CF795004FD293 /* lootSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ED8203CF795004FD293 /* lootSymbol.png */; };
 		1E8D6EDB203CF79B004FD293 /* lootSymbolShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */; };
 		1E8D6EDD203CF92E004FD293 /* experienceSymbolShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */; };
-		1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */; };
-		1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */; };
-		1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */; };
-		1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */; };
+		1E8D6EE3203D33BB004FD293 /* scenarioSetup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EE0203D33B9004FD293 /* scenarioSetup2.png */; };
+		1E8D6EE4203D33BB004FD293 /* scenarioSetup4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EE1203D33B9004FD293 /* scenarioSetup4.png */; };
+		1E8D6EE5203D33BB004FD293 /* scenarioSetup3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EE2203D33BA004FD293 /* scenarioSetup3.png */; };
+		1E8D6EE7203D34D9004FD293 /* scenarioSetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6EE6203D34D9004FD293 /* scenarioSetup.png */; };
 		1E8E3834202DCD43008C2FF4 /* NumPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E3833202DCD43008C2FF4 /* NumPadView.swift */; };
 		1E8E3836202DCD7B008C2FF4 /* NumPadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8E3835202DCD7B008C2FF4 /* NumPadView.xib */; };
 		1E94004E202AF50800F913D3 /* bruteCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E940047202AF50500F913D3 /* bruteCard.png */; };
@@ -210,10 +210,10 @@
 		1E8D6ED8203CF795004FD293 /* lootSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lootSymbol.png; sourceTree = "<group>"; };
 		1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lootSymbolShadow.png; sourceTree = "<group>"; };
 		1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experienceSymbolShadow.png; sourceTree = "<group>"; };
-		1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup2.png; sourceTree = "<group>"; };
-		1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scenarioSetup.png; path = ../../../../../Downloads/scenarioSetup.png; sourceTree = "<group>"; };
-		1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup4.png; sourceTree = "<group>"; };
-		1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup3.png; sourceTree = "<group>"; };
+		1E8D6EE0203D33B9004FD293 /* scenarioSetup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup2.png; sourceTree = "<group>"; };
+		1E8D6EE1203D33B9004FD293 /* scenarioSetup4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup4.png; sourceTree = "<group>"; };
+		1E8D6EE2203D33BA004FD293 /* scenarioSetup3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup3.png; sourceTree = "<group>"; };
+		1E8D6EE6203D34D9004FD293 /* scenarioSetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenarioSetup.png; sourceTree = "<group>"; };
 		1E8E3833202DCD43008C2FF4 /* NumPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadView.swift; sourceTree = "<group>"; };
 		1E8E3835202DCD7B008C2FF4 /* NumPadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumPadView.xib; sourceTree = "<group>"; };
 		1E940047202AF50500F913D3 /* bruteCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bruteCard.png; path = ../bruteCard.png; sourceTree = "<group>"; };
@@ -472,16 +472,16 @@
 				1EA4365B2033B97F00F2B35F /* levelCrownBlack.png */,
 				1E8690D8202C34DF000A8697 /* lockedIcon.png */,
 				1E8D6ED8203CF795004FD293 /* lootSymbol.png */,
+				1E8D6EE6203D34D9004FD293 /* scenarioSetup.png */,
 				1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */,
+				1E8D6EE0203D33B9004FD293 /* scenarioSetup2.png */,
+				1E8D6EE2203D33BA004FD293 /* scenarioSetup3.png */,
+				1E8D6EE1203D33B9004FD293 /* scenarioSetup4.png */,
 				1EA938DD2015A71900B070B4 /* minusImage.png */,
 				1EA938DF2015A71F00B070B4 /* plusImage.png */,
 				1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */,
 				1EA4365720326DA000F2B35F /* rightButtonImg.png */,
 				1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */,
-				1E8E382A202DC5E0008C2FF4 /* scenarioSetup.png */,
-				1E8E3827202DC5DF008C2FF4 /* scenarioSetup2.png */,
-				1E8E3830202DC96B008C2FF4 /* scenarioSetup3.png */,
-				1E8E382F202DC96B008C2FF4 /* scenarioSetup4.png */,
 				1E8690DA202C34E4000A8697 /* unlockIcon.png */,
 			);
 			path = Images;
@@ -678,7 +678,6 @@
 			files = (
 				1E209E442019D4AD00A4986A /* levelCrown.png in Resources */,
 				1ED412D820247723004A7791 /* ghcard5.jpg in Resources */,
-				1E8E382E202DC5E1008C2FF4 /* scenarioSetup.png in Resources */,
 				1E95EF31203438ED00BB0123 /* tinkererColorSymbol.png in Resources */,
 				1EFE3A2F203132F100F94F39 /* CharacterCollectionViewCell.xib in Resources */,
 				1EEE731F202D897B00A78C97 /* plagueheraldCard.png in Resources */,
@@ -697,7 +696,9 @@
 				1EEE7362202D92A000A78C97 /* mindthiefSymbol.png in Resources */,
 				1E95EF2C203438ED00BB0123 /* cragheartColorSymbol.png in Resources */,
 				1EA436612033CA9800F2B35F /* sunkeeper.png in Resources */,
+				1E8D6EE4203D33BB004FD293 /* scenarioSetup4.png in Resources */,
 				1ED412CD2024633A004A7791 /* ghcard1.jpg in Resources */,
+				1E8D6EE7203D34D9004FD293 /* scenarioSetup.png in Resources */,
 				1E30437C2024A4DC008D6B07 /* exitSignV.png in Resources */,
 				1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */,
 				1ECF00DB2007106400C2E11D /* LaunchScreen.storyboard in Resources */,
@@ -718,16 +719,15 @@
 				1EEE7330202D897B00A78C97 /* tinkerer.png in Resources */,
 				1EEE7359202D92A000A78C97 /* spellweaverSymbol.png in Resources */,
 				1ED412C3202456B2004A7791 /* Blank Map.jpg in Resources */,
-				1E8E382B202DC5E1008C2FF4 /* scenarioSetup2.png in Resources */,
 				1EEE732C202D897B00A78C97 /* sawbones.png in Resources */,
 				1E95EF2D203438ED00BB0123 /* sawbonesColorSymbol.png in Resources */,
 				1E94004E202AF50800F913D3 /* bruteCard.png in Resources */,
+				1E8D6EE3203D33BB004FD293 /* scenarioSetup2.png in Resources */,
 				1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */,
 				1EEE7334202D897B00A78C97 /* sawbonesCard.png in Resources */,
 				1EBE01622036E5DF005F4F9F /* changeCharacter.png in Resources */,
 				1E8D6EDB203CF79B004FD293 /* lootSymbolShadow.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
-				1E8E3831202DC96C008C2FF4 /* scenarioSetup4.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1EEE735E202D92A000A78C97 /* berserkerSymbol.png in Resources */,
 				1E940050202AF50800F913D3 /* cragheartCard.png in Resources */,
@@ -738,7 +738,7 @@
 				1E038279201AC5E700C6AB12 /* checkmark.png in Resources */,
 				1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */,
 				1EEE733C202D897B00A78C97 /* nightshroudCard.png in Resources */,
-				1E8E3832202DC96C008C2FF4 /* scenarioSetup3.png in Resources */,
+				1E8D6EE5203D33BB004FD293 /* scenarioSetup3.png in Resources */,
 				1E8D6ED7203CF5F5004FD293 /* healthSymbolShadow.png in Resources */,
 				1EEE7323202D897B00A78C97 /* beasttyrantCard.png in Resources */,
 				1EEE731A202D897B00A78C97 /* quartermasterCard.png in Resources */,
