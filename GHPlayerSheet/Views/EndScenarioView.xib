@@ -86,26 +86,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenarioDifficultySkull.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-bk-T3s">
-                            <rect key="frame" x="-1" y="0.0" width="90" height="60"/>
+                            <rect key="frame" x="-1" y="0.0" width="80" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="JeD-2W-WLi"/>
-                                <constraint firstAttribute="width" constant="90" id="Nd1-zN-O3D"/>
+                                <constraint firstAttribute="height" constant="50" id="JeD-2W-WLi"/>
+                                <constraint firstAttribute="width" constant="80" id="Nd1-zN-O3D"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzN-gk-ZyE" userLabel="Difficulty Level Label">
-                            <rect key="frame" x="59" y="0.0" width="11" height="32.5"/>
-                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
+                            <rect key="frame" x="54" y="0.0" width="9.5" height="27"/>
+                            <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="21"/>
                             <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congatulations! You have earned:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1n-hZ-Mpp">
-                            <rect key="frame" x="89" y="20" width="407" height="28"/>
+                            <rect key="frame" x="79" y="20" width="417" height="28"/>
                             <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="28"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Haa-JY-Ycu">
-                            <rect key="frame" x="25" y="56" width="450" height="150"/>
+                            <rect key="frame" x="25" y="50" width="450" height="200"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4E-8j-JfD">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
@@ -113,14 +113,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fof-tP-Y62">
                                             <rect key="frame" x="0.0" y="0.0" width="112.5" height="50"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 X " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-yD-hQF">
-                                                    <rect key="frame" x="0.0" y="5.5" width="37.5" height="39"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-yD-hQF">
+                                                    <rect key="frame" x="0.0" y="5.5" width="12.5" height="39"/>
                                                     <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="rem-S5-S6a">
-                                                    <rect key="frame" x="47.5" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="31.5" y="0.0" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="rem-S5-S6a" secondAttribute="height" multiplier="1:1" id="o1w-Pt-2oi"/>
                                                     </constraints>
@@ -128,9 +128,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ULg-yD-hQF" firstAttribute="centerY" secondItem="Fof-tP-Y62" secondAttribute="centerY" id="0om-pr-GET"/>
+                                                <constraint firstItem="rem-S5-S6a" firstAttribute="centerX" secondItem="Fof-tP-Y62" secondAttribute="centerX" id="7Mb-3i-ige"/>
                                                 <constraint firstItem="rem-S5-S6a" firstAttribute="height" secondItem="Fof-tP-Y62" secondAttribute="height" id="8IF-sr-isC"/>
                                                 <constraint firstItem="rem-S5-S6a" firstAttribute="centerY" secondItem="Fof-tP-Y62" secondAttribute="centerY" id="TQ9-VD-1Oj"/>
-                                                <constraint firstItem="rem-S5-S6a" firstAttribute="leading" secondItem="ULg-yD-hQF" secondAttribute="trailing" constant="10" id="ao1-a0-bTf"/>
                                                 <constraint firstItem="ULg-yD-hQF" firstAttribute="leading" secondItem="Fof-tP-Y62" secondAttribute="leading" id="l0R-Kw-F0X"/>
                                                 <constraint firstAttribute="height" constant="50" id="nGD-0Z-hII"/>
                                             </constraints>
@@ -156,7 +156,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-dh-qox">
-                                                    <rect key="frame" x="35" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="31.5" y="0.0" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="3B8-dh-qox" secondAttribute="height" multiplier="1:1" id="g8D-Wv-oRf"/>
                                                     </constraints>
@@ -166,8 +166,8 @@
                                                 <constraint firstItem="ZAs-T5-sGh" firstAttribute="leading" secondItem="T6V-jS-V4I" secondAttribute="leading" id="Q1Z-AM-NP0"/>
                                                 <constraint firstItem="ZAs-T5-sGh" firstAttribute="centerY" secondItem="T6V-jS-V4I" secondAttribute="centerY" id="ZdJ-YT-2FT"/>
                                                 <constraint firstItem="3B8-dh-qox" firstAttribute="centerY" secondItem="T6V-jS-V4I" secondAttribute="centerY" id="etv-GG-aXT"/>
+                                                <constraint firstItem="3B8-dh-qox" firstAttribute="centerX" secondItem="T6V-jS-V4I" secondAttribute="centerX" id="lQn-94-7Bl"/>
                                                 <constraint firstItem="3B8-dh-qox" firstAttribute="height" secondItem="T6V-jS-V4I" secondAttribute="height" id="sXg-vQ-WKT"/>
-                                                <constraint firstItem="3B8-dh-qox" firstAttribute="leading" secondItem="ZAs-T5-sGh" secondAttribute="trailing" constant="10" id="t5w-Fg-Pv3"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="acquired in scenario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jca-Uj-2oD">
@@ -194,7 +194,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="sjt-4C-uaD">
-                                                    <rect key="frame" x="35" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="31.5" y="0.0" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="sjt-4C-uaD" secondAttribute="height" multiplier="1:1" id="phe-1H-9t3"/>
                                                     </constraints>
@@ -202,10 +202,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xqF-eF-7in" firstAttribute="leading" secondItem="MCz-xo-YAe" secondAttribute="leading" id="5Dx-5L-ML0"/>
+                                                <constraint firstItem="sjt-4C-uaD" firstAttribute="centerX" secondItem="MCz-xo-YAe" secondAttribute="centerX" id="JdI-ig-46d"/>
                                                 <constraint firstItem="xqF-eF-7in" firstAttribute="centerY" secondItem="MCz-xo-YAe" secondAttribute="centerY" id="Nff-UY-dRk"/>
                                                 <constraint firstItem="sjt-4C-uaD" firstAttribute="height" secondItem="MCz-xo-YAe" secondAttribute="height" id="SM7-zz-43J"/>
                                                 <constraint firstItem="sjt-4C-uaD" firstAttribute="centerY" secondItem="MCz-xo-YAe" secondAttribute="centerY" id="Y7k-qi-P4N"/>
-                                                <constraint firstItem="sjt-4C-uaD" firstAttribute="leading" secondItem="xqF-eF-7in" secondAttribute="trailing" constant="10" id="a0g-mF-dYw"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="for succesful completion!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MU-aT-gpd">
@@ -219,13 +219,58 @@
                                         <constraint firstItem="MCz-xo-YAe" firstAttribute="width" secondItem="gsK-g6-Yjy" secondAttribute="width" multiplier="0.25" id="icz-cD-iLT"/>
                                     </constraints>
                                 </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFh-ji-ey2" userLabel="BattleMark Stack View">
+                                    <rect key="frame" x="0.0" y="150" width="450" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBu-Rt-T6g">
+                                            <rect key="frame" x="0.0" y="0.0" width="112.5" height="50"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpv-we-bF7">
+                                                    <rect key="frame" x="6" y="2.5" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Bpv-we-bF7" secondAttribute="height" id="5fm-sl-D7v"/>
+                                                    </constraints>
+                                                    <state key="normal" image="emptyBox.png"/>
+                                                    <connections>
+                                                        <action selector="battlemarkLeftButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ebk-2F-asS"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCb-19-q4p">
+                                                    <rect key="frame" x="62" y="2.5" width="45" height="45"/>
+                                                    <state key="normal" image="emptyBox.png"/>
+                                                    <connections>
+                                                        <action selector="battlemarkRightButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ict-qB-slv"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bCb-19-q4p" firstAttribute="centerY" secondItem="FBu-Rt-T6g" secondAttribute="centerY" id="Edi-ko-83g"/>
+                                                <constraint firstItem="bCb-19-q4p" firstAttribute="height" secondItem="Bpv-we-bF7" secondAttribute="height" id="IJG-DQ-5WA"/>
+                                                <constraint firstItem="bCb-19-q4p" firstAttribute="width" secondItem="Bpv-we-bF7" secondAttribute="width" id="Yr2-zf-HCp"/>
+                                                <constraint firstItem="Bpv-we-bF7" firstAttribute="width" secondItem="FBu-Rt-T6g" secondAttribute="width" multiplier="0.4" id="ibd-2a-IMk"/>
+                                                <constraint firstItem="bCb-19-q4p" firstAttribute="centerX" secondItem="FBu-Rt-T6g" secondAttribute="centerX" multiplier="1.5" id="inH-ML-YGO"/>
+                                                <constraint firstItem="Bpv-we-bF7" firstAttribute="centerY" secondItem="FBu-Rt-T6g" secondAttribute="centerY" id="js1-Vi-ZhA"/>
+                                                <constraint firstItem="Bpv-we-bF7" firstAttribute="centerX" secondItem="FBu-Rt-T6g" secondAttribute="centerX" multiplier="0.5" id="zI1-E5-Ach"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="no battlemarks recorded" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMS-yR-hDh">
+                                            <rect key="frame" x="112.5" y="0.0" width="337.5" height="50"/>
+                                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FBu-Rt-T6g" firstAttribute="width" secondItem="zFh-ji-ey2" secondAttribute="width" multiplier="0.25" id="xgA-04-gr4"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Fof-tP-Y62" firstAttribute="width" secondItem="Haa-JY-Ycu" secondAttribute="width" multiplier="0.25" id="Pfb-gG-4dm"/>
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vq-nL-aps">
-                            <rect key="frame" x="286" y="247" width="210" height="45"/>
+                            <rect key="frame" x="145" y="255" width="210" height="45"/>
                             <color key="backgroundColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
                             <state key="normal" title=" Add To Character Sheet ">
@@ -237,18 +282,18 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="6Vq-nL-aps" secondAttribute="bottom" id="0Ur-ob-Ei3"/>
                         <constraint firstItem="b1n-hZ-Mpp" firstAttribute="leading" secondItem="Qyb-bk-T3s" secondAttribute="trailing" id="2R9-xj-OoK"/>
-                        <constraint firstItem="6Vq-nL-aps" firstAttribute="trailing" secondItem="b1n-hZ-Mpp" secondAttribute="trailing" id="3EK-I2-IYB"/>
                         <constraint firstItem="Haa-JY-Ycu" firstAttribute="centerX" secondItem="HgS-Tm-9ID" secondAttribute="centerX" id="9Gm-6W-goD"/>
                         <constraint firstItem="Haa-JY-Ycu" firstAttribute="width" secondItem="HgS-Tm-9ID" secondAttribute="width" multiplier="0.9" id="G7v-T3-ena"/>
                         <constraint firstItem="mzN-gk-ZyE" firstAttribute="top" secondItem="Qyb-bk-T3s" secondAttribute="top" id="HOr-b3-pj4"/>
-                        <constraint firstItem="mzN-gk-ZyE" firstAttribute="leading" secondItem="Qyb-bk-T3s" secondAttribute="leading" constant="60" id="QlI-bU-sxh"/>
+                        <constraint firstItem="mzN-gk-ZyE" firstAttribute="leading" secondItem="Qyb-bk-T3s" secondAttribute="leading" constant="55" id="QlI-bU-sxh"/>
                         <constraint firstAttribute="trailing" secondItem="b1n-hZ-Mpp" secondAttribute="trailing" constant="4" id="TEc-Xd-fii"/>
+                        <constraint firstItem="Haa-JY-Ycu" firstAttribute="centerY" secondItem="HgS-Tm-9ID" secondAttribute="centerY" id="VPr-RU-4RV"/>
                         <constraint firstItem="Qyb-bk-T3s" firstAttribute="top" secondItem="HgS-Tm-9ID" secondAttribute="top" id="XCW-AR-IpZ"/>
                         <constraint firstItem="Qyb-bk-T3s" firstAttribute="leading" secondItem="HgS-Tm-9ID" secondAttribute="leading" constant="-1" id="jJt-XT-Ugt"/>
-                        <constraint firstItem="Haa-JY-Ycu" firstAttribute="top" secondItem="b1n-hZ-Mpp" secondAttribute="bottom" constant="8" id="tbF-iA-p3a"/>
                         <constraint firstItem="b1n-hZ-Mpp" firstAttribute="top" secondItem="HgS-Tm-9ID" secondAttribute="top" constant="20" id="v9c-Uu-tDq"/>
-                        <constraint firstAttribute="bottom" secondItem="6Vq-nL-aps" secondAttribute="bottom" constant="8" id="zTh-91-uyr"/>
+                        <constraint firstItem="6Vq-nL-aps" firstAttribute="centerX" secondItem="HgS-Tm-9ID" secondAttribute="centerX" id="x6f-Q6-mUc"/>
                     </constraints>
                 </view>
             </subviews>
@@ -272,6 +317,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="backgroundView" destination="eiv-VY-hVb" id="ypf-07-veu"/>
+                <outlet property="battlemarkLeftButton" destination="Bpv-we-bF7" id="7fS-nV-iiK"/>
+                <outlet property="battlemarkRightButton" destination="bCb-19-q4p" id="reL-8H-muK"/>
+                <outlet property="battlemarkStack" destination="zFh-ji-ey2" id="0sU-av-EUO"/>
+                <outlet property="battlemarksEarnedLabel" destination="gMS-yR-hDh" id="wwN-j6-3db"/>
                 <outlet property="bonusExperienceNumberLabel" destination="xqF-eF-7in" id="AN3-js-yUF"/>
                 <outlet property="bonusExperienceStack" destination="gsK-g6-Yjy" id="VZa-61-CWx"/>
                 <outlet property="conclusionContainer" destination="HgS-Tm-9ID" id="gWG-6f-xjT"/>
@@ -287,6 +336,7 @@
         </view>
     </objects>
     <resources>
+        <image name="emptyBox.png" width="469" height="469"/>
         <image name="experienceSymbol.png" width="146" height="144"/>
         <image name="lootSymbol.png" width="243" height="225"/>
         <image name="scenarioDifficultySkull.png" width="278" height="209"/>

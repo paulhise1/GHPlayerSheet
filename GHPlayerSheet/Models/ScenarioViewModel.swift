@@ -55,6 +55,12 @@ class ScenarioViewModel {
         player.loot = value
         service.pushPlayerToService(player: player)
     }
+    
+    func updateBattlemarkCount(_ count: String) {
+        player.battlemarks = count
+        service.pushPlayerToService(player: player)
+    }
+
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {

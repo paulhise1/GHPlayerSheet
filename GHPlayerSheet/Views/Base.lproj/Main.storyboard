@@ -576,19 +576,19 @@
                                 <rect key="frame" x="110" y="0.0" width="658" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Scenario Title Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mu-IO-y3d">
-                                        <rect key="frame" x="0.0" y="10" width="264.66666666666669" height="35"/>
+                                        <rect key="frame" x="0.0" y="10" width="204.33333333333334" height="38.666666666666664"/>
                                         <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                         <color key="textColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Scenario Goal Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s2-Rf-p7M">
-                                        <rect key="frame" x="20" y="45" width="638" height="28"/>
+                                        <rect key="frame" x="20" y="48.666666666666664" width="638" height="23.999999999999993"/>
                                         <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="24"/>
                                         <color key="textColor" red="0.97670525312423706" green="0.60546392202377319" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Party Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRE-Tf-LAI">
-                                        <rect key="frame" x="413.33333333333343" y="8" width="239.66666666666669" height="35"/>
+                                        <rect key="frame" x="472.66666666666657" y="8" width="180.33333333333331" height="38.666666666666664"/>
                                         <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                         <color key="textColor" red="0.38526773452758789" green="0.13679999113082886" blue="0.1175478994846344" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -607,34 +607,34 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="52w-7z-6nl">
-                                <rect key="frame" x="44" y="95" width="724" height="247"/>
+                                <rect key="frame" x="44" y="94.999999999999986" width="724" height="250.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-oc-mxr" userLabel="Player Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="217" height="247"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="217" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Vub-Yx-6Ea">
-                                                <rect key="frame" x="0.0" y="0.0" width="217" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="217" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pim-Ie-4ls">
-                                                <rect key="frame" x="0.0" y="43" width="217" height="45"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="217" height="45"/>
                                                 <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="yaS-xK-ijF"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-JS-kTa">
-                                                <rect key="frame" x="0.0" y="96" width="217" height="45"/>
+                                                <rect key="frame" x="0.0" y="99.666666666666657" width="217" height="45"/>
                                                 <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-tV-EZX">
-                                                <rect key="frame" x="0.0" y="149" width="217" height="45"/>
+                                                <rect key="frame" x="0.0" y="152.66666666666666" width="217" height="45"/>
                                                 <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-Ve-gOZ" userLabel="Generic Counter View">
-                                                <rect key="frame" x="0.0" y="202" width="217" height="45"/>
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="217" height="45"/>
                                                 <color key="backgroundColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </subviews>
@@ -648,16 +648,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RV5-hZ-5yE" userLabel="Player 2 Stack View">
-                                        <rect key="frame" x="217" y="0.0" width="169" height="247"/>
+                                        <rect key="frame" x="217" y="0.0" width="169" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player 2 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATW-Px-gmZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="169" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AU2-C1-zTS" userLabel="Player 2 HP Container">
-                                                <rect key="frame" x="0.0" y="43" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="169" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="awu-Qx-YGu">
                                                         <rect key="frame" x="25.333333333333314" y="9" width="18" height="27"/>
@@ -688,16 +688,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-FQ-vh7" userLabel="Player 2 XP Container">
-                                                <rect key="frame" x="0.0" y="96" width="169" height="45.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="99.666666666666657" width="169" height="45.666666666666657"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="jOy-mC-sQd" userLabel="Experience Symbol Image">
-                                                        <rect key="frame" x="21.333333333333314" y="9.6666666666666572" width="27" height="27"/>
+                                                        <rect key="frame" x="21.333333333333314" y="9.6666666666666856" width="27" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="jOy-mC-sQd" secondAttribute="height" multiplier="1:1" id="rJs-fL-hp6"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-m0-bZb">
-                                                        <rect key="frame" x="74" y="2.6666666666666572" width="20.666666666666671" height="40.666666666666664"/>
+                                                        <rect key="frame" x="74" y="2.6666666666666856" width="20.666666666666671" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -710,7 +710,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XE-fH-l9Y" userLabel="Player 2 Loot Container">
-                                                <rect key="frame" x="0.0" y="149.66666666666666" width="169" height="44.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="153.33333333333334" width="169" height="44.333333333333343"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="GFR-82-7SF">
                                                         <rect key="frame" x="21.333333333333314" y="9.3333333333333428" width="26.333333333333329" height="27"/>
@@ -732,7 +732,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Cf-dO-B5I" userLabel="Stack 2 Spacer View">
-                                                <rect key="frame" x="0.0" y="202" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="169" height="45"/>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -746,19 +746,19 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kyi-v6-V3m" userLabel="Player 3 Stack View">
-                                        <rect key="frame" x="386" y="0.0" width="169" height="247"/>
+                                        <rect key="frame" x="386" y="0.0" width="169" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player 3 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmK-ul-nrn">
-                                                <rect key="frame" x="0.0" y="0.0" width="169" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoP-x5-z9e" userLabel="Player 3 HP Container">
-                                                <rect key="frame" x="0.0" y="43" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="169" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCa-FO-PIe">
-                                                        <rect key="frame" x="63.333333333333314" y="2.6666666666666572" width="41.333333333333343" height="40.666666666666664"/>
+                                                        <rect key="frame" x="63.333333333333314" y="2.6666666666666856" width="41.333333333333343" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -784,10 +784,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgm-Pt-141" userLabel="Player 3 XP Container">
-                                                <rect key="frame" x="0.0" y="95.666666666666657" width="169" height="45.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="99.333333333333343" width="169" height="45.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Oj-FTA">
-                                                        <rect key="frame" x="74.333333333333314" y="2.6666666666666856" width="20.666666666666671" height="40.666666666666664"/>
+                                                        <rect key="frame" x="74.333333333333314" y="2.6666666666666572" width="20.666666666666671" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -806,13 +806,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufw-bP-8ID" userLabel="Player 3 Loot Container">
-                                                <rect key="frame" x="0.0" y="149.33333333333334" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="153" width="169" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="sGb-Pi-nhw">
                                                         <rect key="frame" x="21.333333333333314" y="9" width="26.333333333333329" height="27"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-4N-3Uw">
-                                                        <rect key="frame" x="74.333333333333314" y="2.3333333333333144" width="20.666666666666671" height="40.666666666666664"/>
+                                                        <rect key="frame" x="74.333333333333314" y="2.3333333333333428" width="20.666666666666671" height="40.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="35"/>
                                                         <color key="textColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -825,7 +825,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RG7-eg-BJ1" userLabel="Stack 3 Spacer View">
-                                                <rect key="frame" x="0.0" y="202" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="169" height="45"/>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -837,16 +837,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="omt-SN-IjF" userLabel="Player 4 Stack View">
-                                        <rect key="frame" x="555" y="0.0" width="169" height="247"/>
+                                        <rect key="frame" x="555" y="0.0" width="169" height="250.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Player 4 Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvV-Qd-xnt">
-                                                <rect key="frame" x="0.0" y="0.0" width="169" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="38.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="30"/>
                                                 <color key="textColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9LA-2k-5oh" userLabel="Player 4 HP Container">
-                                                <rect key="frame" x="0.0" y="43" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666657" width="169" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="kbZ-YD-X3w">
                                                         <rect key="frame" x="25.333333333333371" y="9.0000000000000018" width="18" height="27.666666666666671"/>
@@ -858,7 +858,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmD-9d-hZr">
-                                                        <rect key="frame" x="115.66666666666661" y="8.6666666666666554" width="29.333333333333329" height="29.333333333333329"/>
+                                                        <rect key="frame" x="115.66666666666661" y="8.6666666666666838" width="29.333333333333329" height="29.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                                         <color key="textColor" red="0.67455112930000005" green="0.15692374110000001" blue="0.10914970929999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -875,7 +875,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-6g-dnX" userLabel="Player 4 XP Container">
-                                                <rect key="frame" x="0.0" y="96" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="99.666666666666657" width="169" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experienceSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-Wx-m7f" userLabel="Experience Symbol Image">
                                                         <rect key="frame" x="20.666666666666629" y="9" width="27" height="27"/>
@@ -895,7 +895,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIb-ZZ-EFb" userLabel="Player 4 Loot Container">
-                                                <rect key="frame" x="0.0" y="149" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="152.66666666666666" width="169" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-rJ-Htv">
                                                         <rect key="frame" x="74.333333333333371" y="2.3333333333333428" width="20.666666666666671" height="40.666666666666664"/>
@@ -904,7 +904,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lootSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-Mf-mm0">
-                                                        <rect key="frame" x="20.666666666666629" y="9" width="26.666666666666671" height="27"/>
+                                                        <rect key="frame" x="20.666666666666629" y="9.0000000000000284" width="26.666666666666671" height="27"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -914,7 +914,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTX-nO-t6G" userLabel="Stack 4 Spacer View">
-                                                <rect key="frame" x="0.0" y="202" width="169" height="45"/>
+                                                <rect key="frame" x="0.0" y="205.66666666666669" width="169" height="45"/>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -945,6 +945,46 @@
                                     <constraint firstItem="GvV-Qd-xnt" firstAttribute="width" secondItem="ATW-Px-gmZ" secondAttribute="width" id="zCu-nq-auv"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLp-c4-8Al" userLabel="Battlemarks Container">
+                                <rect key="frame" x="286" y="301" width="268" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battlemarks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-Wq-30Z">
+                                        <rect key="frame" x="4" y="9.6666666666666856" width="138.33333333333334" height="26"/>
+                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0B-Bn-m7b">
+                                        <rect key="frame" x="164" y="0.33333333333331439" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="V0B-Bn-m7b" secondAttribute="height" id="jPs-wP-AvS"/>
+                                        </constraints>
+                                        <state key="normal" image="emptyBox.png"/>
+                                        <connections>
+                                            <action selector="battlemarkLeftButtonTapped:" destination="SLd-gy-nxU" eventType="touchUpInside" id="7ku-bC-D4d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDv-2A-D06">
+                                        <rect key="frame" x="219" y="-0.33333333333331439" width="45" height="45"/>
+                                        <state key="normal" image="emptyBox.png"/>
+                                        <connections>
+                                            <action selector="battlemarkRightButtonTapped:" destination="SLd-gy-nxU" eventType="touchUpInside" id="3Xz-e2-rt3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="V0B-Bn-m7b" firstAttribute="height" secondItem="dLp-c4-8Al" secondAttribute="height" id="2Pv-1B-Zn2"/>
+                                    <constraint firstItem="SAt-Wq-30Z" firstAttribute="leading" secondItem="dLp-c4-8Al" secondAttribute="leading" constant="4" id="2Sh-xe-XSg"/>
+                                    <constraint firstItem="SDv-2A-D06" firstAttribute="width" secondItem="V0B-Bn-m7b" secondAttribute="width" id="5VV-dQ-zPp"/>
+                                    <constraint firstItem="SDv-2A-D06" firstAttribute="leading" secondItem="V0B-Bn-m7b" secondAttribute="trailing" constant="10" id="7Av-oJ-U4e"/>
+                                    <constraint firstItem="SDv-2A-D06" firstAttribute="centerY" secondItem="V0B-Bn-m7b" secondAttribute="centerY" id="BpK-yR-GMi"/>
+                                    <constraint firstItem="V0B-Bn-m7b" firstAttribute="centerY" secondItem="dLp-c4-8Al" secondAttribute="centerY" id="Nqt-dJ-0Oq"/>
+                                    <constraint firstItem="SAt-Wq-30Z" firstAttribute="centerY" secondItem="dLp-c4-8Al" secondAttribute="centerY" id="Yaw-rA-eTF"/>
+                                    <constraint firstAttribute="trailing" secondItem="SDv-2A-D06" secondAttribute="trailing" constant="4" id="Yvz-i4-rCC"/>
+                                    <constraint firstItem="SDv-2A-D06" firstAttribute="height" secondItem="V0B-Bn-m7b" secondAttribute="height" id="zuy-rt-gJy"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVH-6n-gV0" userLabel="Level Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
                                 <subviews>
@@ -987,21 +1027,27 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="top" secondItem="BVH-6n-gV0" secondAttribute="top" id="0Id-IT-Lmw"/>
+                            <constraint firstItem="dLp-c4-8Al" firstAttribute="bottom" secondItem="52w-7z-6nl" secondAttribute="bottom" id="6l7-It-5pR"/>
+                            <constraint firstItem="dLp-c4-8Al" firstAttribute="height" secondItem="aA6-Ve-gOZ" secondAttribute="height" id="EBO-lN-bCw"/>
                             <constraint firstItem="Vy3-9S-XEB" firstAttribute="centerX" secondItem="xh9-cW-c5f" secondAttribute="centerX" id="Ffi-Kr-ZDp"/>
                             <constraint firstItem="Vy3-9S-XEB" firstAttribute="centerY" secondItem="xh9-cW-c5f" secondAttribute="centerY" id="Fwa-23-HU1"/>
                             <constraint firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="leading" id="HEf-NZ-oF2"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="top" secondItem="iLI-z3-qSs" secondAttribute="bottom" id="HFY-Ym-mFN"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" id="Iwr-cY-AND"/>
+                            <constraint firstItem="dLp-c4-8Al" firstAttribute="width" secondItem="xh9-cW-c5f" secondAttribute="width" multiplier="0.33" id="RNo-HB-eOx"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="leading" secondItem="Dv6-5b-JJM" secondAttribute="leading" id="a4Z-0e-zYt"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="trailing" constant="20" id="eAd-Iy-3WZ"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="bottom" secondItem="5wZ-Ad-ewk" secondAttribute="bottom" constant="10" id="mtI-W5-utf"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="5wZ-Ad-ewk" secondAttribute="trailing" id="pQ5-EB-iSP"/>
+                            <constraint firstItem="dLp-c4-8Al" firstAttribute="leading" secondItem="aA6-Ve-gOZ" secondAttribute="trailing" constant="25" id="tC8-dL-8A1"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="iLI-z3-qSs" secondAttribute="trailing" id="twa-uD-7es"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="trailing" secondItem="Dv6-5b-JJM" secondAttribute="trailing" id="vPw-II-a6f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dv6-5b-JJM"/>
                     </view>
                     <connections>
+                        <outlet property="battlemarkLeftButton" destination="V0B-Bn-m7b" id="Efq-hS-1mY"/>
+                        <outlet property="battlemarkRightButton" destination="SDv-2A-D06" id="wYc-Vq-RgR"/>
                         <outlet property="endScenarioViewContainer" destination="Vy3-9S-XEB" id="FCJ-r0-zUa"/>
                         <outlet property="experienceTrackerContainerView" destination="ibh-JS-kTa" id="yzM-CQ-9JJ"/>
                         <outlet property="genericTrackerContainerView" destination="aA6-Ve-gOZ" id="If1-eG-Apj"/>
@@ -1034,7 +1080,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfA-5C-xXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="-676"/>
+            <point key="canvasLocation" x="663.54679802955673" y="-676"/>
         </scene>
         <!--Notes-->
         <scene sceneID="ZMb-GL-KvT">
@@ -1474,6 +1520,7 @@
         <image name="Inox-Brute1" width="750" height="640"/>
         <image name="bruteSymbol.png" width="920" height="920"/>
         <image name="changeCharacter.png" width="128" height="128"/>
+        <image name="emptyBox.png" width="469" height="469"/>
         <image name="exitSign.png" width="1307" height="480"/>
         <image name="experienceSymbol.png" width="146" height="144"/>
         <image name="healthSymbol.png" width="106" height="160"/>

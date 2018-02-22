@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 enum ClassType : String, Codable {
     case cragheart = "Savvas Cragheart"
@@ -92,83 +92,45 @@ class ClassTypeData {
         }
     }
     
-//    static func characterLockedImageForClass(charClass: ClassType) -> String {
-//        switch charClass {
-//        case .cragheart:
-//            return "cragheartSymbolCard"
-//        case .brute:
-//            return "bruteSymbolCard"
-//        case .mindthief:
-//            return "mindthiefSymbolCard"
-//        case .scoundrel:
-//            return "scoundrelSymbolCard"
-//        case .spellweaver:
-//            return "spellweaverSymbolCard"
-//        case .tinkerer:
-//            return "tinkererSymbolCard"
-//        case .quartermaster:
-//            return "quartermasterSymbolCard"
-//        case .sunkeeper:
-//            return "sunkeeperSymbolCard"
-//        case .soothsinger:
-//            return "soothsingerSymbolCard"
-//        case .sawbones:
-//            return "sawbonesSymbolCard"
-//        case .berserker:
-//            return "berserkerSymbolCard"
-//        case .nightshroud:
-//            return "nightshroudSymbolCard"
-//        case .doomstalker:
-//            return "doomstalkerSymbolCard"
-//        case .beasttyrant:
-//            return "beasttyrantSymbolCard"
-//        case .summoner:
-//            return "summonerSymbolCard"
-//        case .plagueherald:
-//            return "plagueheraldSymbolCard"
-//        case .elementalist:
-//            return "elementalistSymbolCard"
-//        }
-//    }
-    
-    static func characterCardBackImage(charClass: ClassType) -> String {
+    static func characterColor(charClass: ClassType) -> UIColor {
         switch charClass {
         case .cragheart:
-            return "cragheartCard"
+            return ColorConstants.cragheart
         case .brute:
-            return "bruteCard"
+            return ColorConstants.brute
         case .mindthief:
-            return "mindthiefCard"
+            return ColorConstants.mindthief
         case .scoundrel:
-            return "scoundrelCard"
+            return ColorConstants.scoundrel
         case .spellweaver:
-            return "spellweaverCard"
+            return ColorConstants.spellweaver
         case .tinkerer:
-            return "tinkererCard"
+            return ColorConstants.tinkerer
         case .quartermaster:
-            return "quartermasterCard"
+            return ColorConstants.quartermaster
         case .sunkeeper:
-            return "sunkeeperCard"
+            return ColorConstants.sunkeeper
         case .soothsinger:
-            return "soothsingerCard"
+            return ColorConstants.soothsinger
         case .sawbones:
-            return "sawbonesCard"
+            return ColorConstants.sawbones
         case .berserker:
-            return "berserkerCard"
+            return ColorConstants.berserker
         case .nightshroud:
-            return "nightshroudCard"
+            return ColorConstants.nightshroud
         case .doomstalker:
-            return "doomstalkerCard"
+            return ColorConstants.doomstalker
         case .beasttyrant:
-            return "beasttyrantCard"
+            return ColorConstants.beasttyrant
         case .summoner:
-            return "summonerCard"
+            return ColorConstants.summoner
         case .plagueherald:
-            return "plagueheraldCard"
+            return ColorConstants.plagueherald
         case .elementalist:
-            return "elementalistCard"
+            return ColorConstants.elementalist
         }
     }
+
     
     static func characterImage(charClass: ClassType) -> String {
         switch charClass {
@@ -286,4 +248,82 @@ class ClassTypeData {
             return "elementalistColorSymbol"
         }
     }
+    
+    //    static func characterLockedImageForClass(charClass: ClassType) -> String {
+    //        switch charClass {
+    //        case .cragheart:
+    //            return "cragheartSymbolCard"
+    //        case .brute:
+    //            return "bruteSymbolCard"
+    //        case .mindthief:
+    //            return "mindthiefSymbolCard"
+    //        case .scoundrel:
+    //            return "scoundrelSymbolCard"
+    //        case .spellweaver:
+    //            return "spellweaverSymbolCard"
+    //        case .tinkerer:
+    //            return "tinkererSymbolCard"
+    //        case .quartermaster:
+    //            return "quartermasterSymbolCard"
+    //        case .sunkeeper:
+    //            return "sunkeeperSymbolCard"
+    //        case .soothsinger:
+    //            return "soothsingerSymbolCard"
+    //        case .sawbones:
+    //            return "sawbonesSymbolCard"
+    //        case .berserker:
+    //            return "berserkerSymbolCard"
+    //        case .nightshroud:
+    //            return "nightshroudSymbolCard"
+    //        case .doomstalker:
+    //            return "doomstalkerSymbolCard"
+    //        case .beasttyrant:
+    //            return "beasttyrantSymbolCard"
+    //        case .summoner:
+    //            return "summonerSymbolCard"
+    //        case .plagueherald:
+    //            return "plagueheraldSymbolCard"
+    //        case .elementalist:
+    //            return "elementalistSymbolCard"
+    //        }
+    //    }
+    
+    //    static func characterCardBackImage(charClass: ClassType) -> String {
+    //        switch charClass {
+    //        case .cragheart:
+    //            return "cragheartCard"
+    //        case .brute:
+    //            return "bruteCard"
+    //        case .mindthief:
+    //            return "mindthiefCard"
+    //        case .scoundrel:
+    //            return "scoundrelCard"
+    //        case .spellweaver:
+    //            return "spellweaverCard"
+    //        case .tinkerer:
+    //            return "tinkererCard"
+    //        case .quartermaster:
+    //            return "quartermasterCard"
+    //        case .sunkeeper:
+    //            return "sunkeeperCard"
+    //        case .soothsinger:
+    //            return "soothsingerCard"
+    //        case .sawbones:
+    //            return "sawbonesCard"
+    //        case .berserker:
+    //            return "berserkerCard"
+    //        case .nightshroud:
+    //            return "nightshroudCard"
+    //        case .doomstalker:
+    //            return "doomstalkerCard"
+    //        case .beasttyrant:
+    //            return "beasttyrantCard"
+    //        case .summoner:
+    //            return "summonerCard"
+    //        case .plagueherald:
+    //            return "plagueheraldCard"
+    //        case .elementalist:
+    //            return "elementalistCard"
+    //        }
+    //    }
 }

@@ -26,7 +26,6 @@ class Character: Codable, ModelProtocol {
     private(set) var gold: Int?
     private(set) var battleMarksCount: Int?
     private(set) var activePerks = [String]()
-    //private(set) var items = [ItemType]()
     
     init(classType: ClassType, name: String, experience: Int = 0) {
         self.classType = classType

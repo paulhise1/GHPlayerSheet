@@ -12,6 +12,8 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let verticalCounterNibName = "VerticalCounterView"
         static let horizontalCounterNibName = "HorizontalCounterView"
         static let toHubVCSegueID = "toHubVC"
+        static let checkedBox = "checkedBox"
+        static let emptyBox = "emptyBox"
     }
     
     @IBOutlet weak var scenarioTitleLabel: UILabel!
@@ -36,7 +38,12 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     @IBOutlet weak var experienceTrackerContainerView: UIView!
     @IBOutlet weak var lootTrackerContainerView: UIView!
     @IBOutlet weak var genericTrackerContainerView: UIView!
+    
     @IBOutlet weak var endScenarioViewContainer: UIView!
+    
+    @IBOutlet weak var battlemarkLeftButton: UIButton!
+    @IBOutlet weak var battlemarkRightButton: UIButton!
+    
     
     private var viewModel: ScenarioViewModel?
     
@@ -78,7 +85,29 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         setupEndScenarioView()
     }
     
+    @IBAction func battlemarkLeftButtonTapped(_ sender: Any) {
+        if viewModel?.player.battlemarks == "0" {
+            battlemarkLeftButton.setImage(UIImage(named: Constant.checkedBox), for: .normal)
+            viewModel?.updateBattlemarkCount("1")
+            battlemarkRightButton.isEnabled = true
+        } else if viewModel?.player.battlemarks == "1" {
+            battlemarkLeftButton.setImage(UIImage(named: Constant.emptyBox), for: .normal)
+            viewModel?.updateBattlemarkCount("0")
+            battlemarkRightButton.isEnabled = false
+        }
+    }
     
+    @IBAction func battlemarkRightButtonTapped(_ sender: Any) {
+        if viewModel?.player.battlemarks == "1" {
+            battlemarkRightButton.setImage(UIImage(named: Constant.checkedBox), for: .normal)
+            viewModel?.updateBattlemarkCount("2")
+            battlemarkLeftButton.isEnabled = false
+        } else if viewModel?.player.battlemarks == "2" {
+            battlemarkRightButton.setImage(UIImage(named: Constant.emptyBox), for: .normal)
+            viewModel?.updateBattlemarkCount("1")
+            battlemarkLeftButton.isEnabled = true
+        }
+    }
     
     //MARK: - Setup Child Views
     func setupCounters() {
@@ -123,10 +152,11 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     func setupEndScenarioView() {
         view.bringSubview(toFront: endScenarioViewContainer)
-        guard let endScenarioView = Bundle.main.loadNibNamed(String(describing: EndScenarioView.self), owner: self, options: nil)?.first as? EndScenarioView, let loot = viewModel?.player.loot, let experience = viewModel?.player.experience, let difficulty = viewModel?.scenario.difficulty else { return }
+        guard let endScenarioView = Bundle.main.loadNibNamed(String(describing: EndScenarioView.self), owner: self, options: nil)?.first as? EndScenarioView, let loot = viewModel?.player.loot, let experience = viewModel?.player.experience, let difficulty = viewModel?.scenario.difficulty, let battlemarks = viewModel?.player.battlemarks else { return }
         endScenarioView.frame = endScenarioViewContainer.bounds
         endScenarioViewContainer.addSubview(endScenarioView)
-        endScenarioView.configure(lootCount: loot, experienceCount: experience, difficulty: difficulty)
+        endScenarioView.configure(lootCount: loot, experienceCount: experience, difficulty: difficulty, battlemarks: battlemarks)
+        endScenarioView.delegate = self
     }
     
     func updateStackViews() {
@@ -163,4 +193,12 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
             }
         }
     }
+}
+
+extension ScenarioViewController: EndScenarioViewDelegate {
+    func didEndScenario() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
 }

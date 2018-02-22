@@ -1,6 +1,7 @@
 import Foundation
 
 struct ScenarioPlayer: Hashable, Equatable {
+    
     var hashValue: Int {
         return name.hashValue
     }
@@ -10,12 +11,12 @@ struct ScenarioPlayer: Hashable, Equatable {
     var health: String
     var maxHealth: String
     var loot: String = "0"
+    var battlemarks: String = "0"
     
     init(from character: Character) {
         self.name = character.name
         self.health = String(character.health)
         self.maxHealth = String(character.health)
-        self.health = String(character.health)
     }
     
     init(name: String, experience: String, health: String, maxHealth: String, loot: String) {

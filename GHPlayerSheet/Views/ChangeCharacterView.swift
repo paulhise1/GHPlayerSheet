@@ -16,8 +16,8 @@ class ChangeCharacterView: UIView {
     private var inactiveCharacters: [Character]?
     
     private var cellSize: CGSize {
-        let side = self.frame.size.height/2
-        return CGSize(width: side, height: side)
+        let height = self.frame.size.height/2
+        return CGSize(width: height * 0.8, height: height)
     }
     
     private let padding: CGFloat = 10.0
@@ -80,8 +80,12 @@ extension ChangeCharacterView: UICollectionViewDelegateFlowLayout, UICollectionV
         }
         guard let characters = inactiveCharacters else { return UICollectionViewCell() }
         let classType = characters[indexPath.row].classType
+        let name = characters[indexPath.row].name
         let characterImageName = ClassTypeData.colorIcon(for: classType)
+        let characterColor = ClassTypeData.characterColor(charClass: classType)
         cell.characterImage = UIImage(named: characterImageName)
+        cell.characterName = name
+        cell.setNameLabelColor(color: characterColor)
         cell.layoutIfNeeded()
         return cell
     }

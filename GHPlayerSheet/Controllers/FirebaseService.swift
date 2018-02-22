@@ -20,6 +20,7 @@ class FirebaseService: ScenarioService {
         static let hostKey = "host"
         static let numberKey = "number"
         static let difficultyKey = "difficulty"
+        static let battlemarksKey = "battlemarks"
     }
     
     weak var delegate: ScenarioServiceDelegate?
@@ -50,7 +51,7 @@ class FirebaseService: ScenarioService {
     func pushPlayerToService(player: ScenarioPlayer) {
         configurePlayersListener()
         let playerName = player.name
-        let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth, Constant.lootKey: player.loot]
+        let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth, Constant.lootKey: player.loot, Constant.battlemarksKey: player.battlemarks]
         database.child(party).child(Constant.scenarioKey).child(Constant.playerKey).child(playerName).setValue(playerInfo)
     }
     
