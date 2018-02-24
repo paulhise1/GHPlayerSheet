@@ -40,10 +40,8 @@ class HubViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.viewModel = HubViewModel()
         self.viewModel?.delegate = self
-        
         setupDisplay()
     }
     

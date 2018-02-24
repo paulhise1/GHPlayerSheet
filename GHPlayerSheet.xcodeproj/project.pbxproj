@@ -19,6 +19,7 @@
 		1E1F61D2203D90C7002B7A09 /* canvasBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61D1203D90C6002B7A09 /* canvasBackground.png */; };
 		1E1F61D5203E439D002B7A09 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61D3203E439C002B7A09 /* checkedBox.png */; };
 		1E1F61D8203E4557002B7A09 /* emptyBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61D7203E4557002B7A09 /* emptyBox.png */; };
+		1E1F61DA2040EB32002B7A09 /* scenarioBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61D92040EB31002B7A09 /* scenarioBackgroundImage.jpg */; };
 		1E209E442019D4AD00A4986A /* levelCrown.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E209E432019D4AC00A4986A /* levelCrown.png */; };
 		1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */; };
 		1E209E482019FF8400A4986A /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E472019FF8400A4986A /* HubViewController.swift */; };
@@ -153,6 +154,7 @@
 		1E1F61D1203D90C6002B7A09 /* canvasBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvasBackground.png; sourceTree = "<group>"; };
 		1E1F61D3203E439C002B7A09 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
 		1E1F61D7203E4557002B7A09 /* emptyBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBox.png; sourceTree = "<group>"; };
+		1E1F61D92040EB31002B7A09 /* scenarioBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scenarioBackgroundImage.jpg; sourceTree = "<group>"; };
 		1E209E432019D4AC00A4986A /* levelCrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrown.png; sourceTree = "<group>"; };
 		1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewModel.swift; sourceTree = "<group>"; };
 		1E209E472019FF8400A4986A /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				1EA938DF2015A71F00B070B4 /* plusImage.png */,
 				1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */,
 				1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */,
+				1E1F61D92040EB31002B7A09 /* scenarioBackgroundImage.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				1E95EF34203438ED00BB0123 /* spellweaverColorSymbol.png in Resources */,
 				1E95EF2B203438ED00BB0123 /* elementalistColorSymbol.png in Resources */,
 				1E94005E202B145000F913D3 /* cragheart.png in Resources */,
+				1E1F61DA2040EB32002B7A09 /* scenarioBackgroundImage.jpg in Resources */,
 				1EEE7361202D92A000A78C97 /* beasttyrantSymbol.png in Resources */,
 				1ED412C6202459A6004A7791 /* PirataOne-Gloomhaven.ttf in Resources */,
 				1E95EF2A203438ED00BB0123 /* doomstalkerColorSymbol.png in Resources */,

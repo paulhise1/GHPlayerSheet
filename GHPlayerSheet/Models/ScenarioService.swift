@@ -5,7 +5,7 @@ protocol ScenarioService {
     func pushPlayerToService(player: ScenarioPlayer)
     func createScenario(party: String, number: String, difficulty: String)
     func startScenarioCreation(party: String, playerName: String)
-    func resetScenarioCreation(party: String)
+    func resetScenario(party: String)
 //    func scenarioInfo()
     //    func removePlayerFromService(player: ScenarioPlayer)
 }

@@ -70,7 +70,6 @@ class HubViewModel {
             self.player = playerDatasource?.modelAt(index: 0)
         }
     }
-    
 }
 
 extension HubViewModel: ScenarioServiceDelegate {

@@ -6,6 +6,10 @@ protocol ScenarioViewModelDelegate: class {
 
 class ScenarioViewModel {
     
+    struct Constant {
+        static let pathComponent = "ScenarioPlayer.plist"
+    }
+    
     weak var delegate: ScenarioViewModelDelegate?
     
     private(set) var players = [ScenarioPlayer]()
@@ -14,8 +18,8 @@ class ScenarioViewModel {
     private(set) var player: ScenarioPlayer
     private(set) var party: String
     private(set) var scenario: Scenario
-    var hosting: Bool
-    
+    let hosting: Bool
+    let scenarioPlayerDatasource: ModelDatasource<ScenarioPlayer>
     
     var playerCount: Int {
         return players.count
@@ -26,6 +30,8 @@ class ScenarioViewModel {
         self.scenario = scenario
         self.hosting = hosting
         self.player = ScenarioPlayer(from: character)
+        let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
+        self.scenarioPlayerDatasource = ModelDatasource(with: url)
         self.service = service
         self.service.delegate = self
         setupScenario()
@@ -44,21 +50,29 @@ class ScenarioViewModel {
     func updateCurrentHealth(value: String) {
         player.health = value
         service.pushPlayerToService(player: player)
+        scenarioPlayerDatasource.update(model: player)
     }
     
     func updateCurrentExperience(value: String) {
         player.experience = value
         service.pushPlayerToService(player: player)
+        scenarioPlayerDatasource.update(model: player)
     }
     
     func updateCurrentLoot(value: String) {
         player.loot = value
         service.pushPlayerToService(player: player)
+        scenarioPlayerDatasource.update(model: player)
     }
     
     func updateBattlemarkCount(_ count: String) {
         player.battlemarks = count
         service.pushPlayerToService(player: player)
+        scenarioPlayerDatasource.update(model: player)
+    }
+    
+    func clearScenario() {
+        service.resetScenario(party: party)
     }
 
 }

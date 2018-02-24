@@ -43,6 +43,12 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     @IBOutlet weak var battlemarkLeftButton: UIButton!
     @IBOutlet weak var battlemarkRightButton: UIButton!
+    @IBOutlet weak var checkboxContainer: UIView! {
+        didSet {
+            checkboxContainer.layer.cornerRadius = 6
+            checkboxContainer.layer.masksToBounds = true
+        }
+    }
     
     
     private var viewModel: ScenarioViewModel?
@@ -197,6 +203,7 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
 
 extension ScenarioViewController: EndScenarioViewDelegate {
     func didEndScenario() {
+        viewModel?.clearScenario()
         navigationController?.popToRootViewController(animated: true)
     }
     

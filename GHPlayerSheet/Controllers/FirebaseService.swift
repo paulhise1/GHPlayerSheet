@@ -36,11 +36,15 @@ class FirebaseService: ScenarioService {
         configureScenarioStatusListener()
     }
     
+    func scenarioStatus() {
+        
+    }
+    
     func startScenarioCreation(party: String, playerName: String) {
         database.child(party).child(Constant.scenarioKey).setValue([Constant.statusKey: ScenarioStatus.creating.rawValue, Constant.hostKey: playerName])
     }
     
-    func resetScenarioCreation(party: String) {
+    func resetScenario(party: String) {
         database.child(party).child(Constant.scenarioKey).setValue([Constant.statusKey: ScenarioStatus.reset.rawValue, Constant.hostKey: nil])
     }
 
