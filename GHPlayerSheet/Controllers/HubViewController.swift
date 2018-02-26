@@ -198,7 +198,7 @@ extension HubViewController: HubViewModelDelegate {
         scenarioButton.isEnabled = false
     }
     
-    func didResetCreateScenario() {
+    func didCancelScenarioCreation() {
         scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
         scenarioButton.isEnabled = true
         hostedByLabel.isHidden = true

@@ -127,4 +127,10 @@ struct Scenario {
         }
         return nil
     }
+    
+    static func scenarioFromNumber(_ number: String, difficulty: String) -> Scenario? {
+        guard var scenario = Scenario.scenarioFromNumber(number) else { return nil }
+        scenario.difficulty = difficulty
+        return scenario
+    }
 }

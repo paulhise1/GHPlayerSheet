@@ -5,7 +5,7 @@ import FirebaseDatabase
 protocol HubViewModelDelegate: class {
     func willCreateScenario(creator: String)
     func didCreateScenario(_ scenario: Scenario)
-    func didResetCreateScenario()
+    func didCancelScenarioCreation()
 }
 
 class HubViewModel {
@@ -19,6 +19,7 @@ class HubViewModel {
     private(set) var player: Player?
     private(set) var service: ScenarioService
     private(set) var scenario: Scenario?
+    private var difficulty: String?
 
     init() {
         //stubb
@@ -73,20 +74,17 @@ class HubViewModel {
 }
 
 extension HubViewModel: ScenarioServiceDelegate {
+    
     func willCreateScenario(hostName: String) {
         delegate?.willCreateScenario(creator: hostName)
     }
         
     func didCreateScenario(_ scenario: Scenario) {
-        delegate?.didCreateScenario(scenario)
         self.scenario = scenario
+        delegate?.didCreateScenario(scenario)
     }
     
-    func resetCreateScenario() {
-        delegate?.didResetCreateScenario()
-    }
-    func didUpdatePlayers(players: [ScenarioPlayer]) {
-    }
-    func didGetScenarioNumber(_ scenarioNumber: String) {
+    func didCancelScenarioCreation() {
+        delegate?.didCancelScenarioCreation()
     }
 }

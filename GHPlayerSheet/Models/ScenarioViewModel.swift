@@ -72,22 +72,15 @@ class ScenarioViewModel {
     }
     
     func clearScenario() {
-        service.resetScenario(party: party)
+        service.resetCreatingScenario(party: party)
     }
 
 }
 
 extension ScenarioViewModel: ScenarioServiceDelegate {
-    func didUpdatePlayers(players: [ScenarioPlayer]) {
+    func didRefreshPlayers(_ players: [ScenarioPlayer]) {
         self.players = players.filter{ $0 != self.player}
         delegate?.didUpdatePlayers()
-    }
-    
-    func willCreateScenario(hostName: String) {
-    }
-    func didCreateScenario(_ scenario: Scenario) {
-    }
-    func resetCreateScenario() {
     }
 }
 

@@ -5,15 +5,28 @@ protocol ScenarioService {
     func pushPlayerToService(player: ScenarioPlayer)
     func createScenario(party: String, number: String, difficulty: String)
     func startScenarioCreation(party: String, playerName: String)
-    func resetScenario(party: String)
-//    func scenarioInfo()
-    //    func removePlayerFromService(player: ScenarioPlayer)
+    func resetCreatingScenario(party: String)
 }
 
 protocol ScenarioServiceDelegate: class {
-    func didUpdatePlayers(players: [ScenarioPlayer])
-    //func didGetScenarioNumber(_ scenarioNumber: String)
+    // This is for live game scenarios
+    func didRefreshPlayers(_ players: [ScenarioPlayer])
+    
+    // This is for controllers dealing with creation
     func willCreateScenario(hostName: String)
     func didCreateScenario(_ scenario: Scenario)
-    func resetCreateScenario()
+    func didCancelScenarioCreation()
+}
+
+// Default implementations make these behave as if they were optional
+extension ScenarioServiceDelegate {
+    func didRefreshPlayers(_ players: [ScenarioPlayer]) {
+    }
+    
+    func willCreateScenario(hostName: String) {
+    }
+    func didCreateScenario(_ scenario: Scenario) {
+    }
+    func didCancelScenarioCreation() {
+    }
 }
