@@ -6,6 +6,7 @@ class FirebaseService: ScenarioService {
     enum ScenarioStatus: String {
         case creating = "creating"
         case active = "active"
+        case completed = "completed"
     }
     
     typealias ScenarioIDString = String
@@ -20,7 +21,6 @@ class FirebaseService: ScenarioService {
         static let numberKey = "number"
         static let difficultyKey = "difficulty"
         static let battlemarksKey = "battlemarks"
-        static let currentScenario = "currentScenario"
     }
     
     weak var delegate: ScenarioServiceDelegate?
@@ -29,27 +29,35 @@ class FirebaseService: ScenarioService {
     
     private let party: String
     
-    private var currentScenarioID: String?
+    private var activeScenarioID: String?
     
     init(party: String) {
         self.party = party
         database = Database.database().reference()
-        configureIDListener()
     }
     
-    func setScenarioID(scenarioID: String) {
-        self.currentScenarioID = scenarioID
+    func beginListeningForStatusChanges() {
+        configureActiveScenarioListener()
+    }
+    
+    func completeScenario() {
+        statusRef()?.setValue(ScenarioStatus.completed.rawValue)
+        activeScenarioID = nil
+    }
+    
+    private func setScenarioID(scenarioID: String) {
+        self.activeScenarioID = scenarioID
         configureScenarioStatusListener()
     }
     
     func startScenarioCreation(party: String, playerName: String) {
-        self.currentScenarioID = String(describing: Date())
+        self.activeScenarioID = String(describing: Date())
         let scenarioCreatingDict = [Constant.statusKey: ScenarioStatus.creating.rawValue, Constant.hostKey: playerName]
         activeScenarioRef()?.setValue(scenarioCreatingDict)
     }
     
-    func resetCreatingScenario(party: String) {
-        activeScenarioRef()?.setValue(nil)
+    func resetScenarioCreation(party: String) {
+        clearActiveScenario()
     }
 
     func createScenario(party: String, number: String, difficulty: String) {
@@ -64,56 +72,48 @@ class FirebaseService: ScenarioService {
         playerNameRefForPlayer(player)?.setValue(playerInfo)
     }
     
-    private func configureIDListener() {
-        currentScenarioRef()?.observe(.value, with: { (snapshot) in
-            guard let currentScenarioRoot = snapshot.value as? [String: [String: Any]], let currentScenarioProperties = currentScenarioRoot.values.first else { return }
-            if currentScenarioProperties[Constant.statusKey] as? String == ScenarioStatus.creating.rawValue {
-                self.currentScenarioID = currentScenarioRoot.keys.first
-                self.configureScenarioStatusListener()
-            }
-        })
+    private func configureActiveScenarioListener() {
+        ensureActiveScenarioExists()
+        guard activeScenarioRef() != nil else { return }
+        self.configureScenarioStatusListener()
     }
     
-    private func configurePlayersListener() {
-        guard let scenarioID = currentScenarioID else { return }
-        let playerRef = database.child(party).child(scenarioID).child(Constant.playerKey)
-        playerRef.observe(.value, with: { (snapshot) in
-            self.processPlayers(snapshot: snapshot)
-        })
-    }
-    
-    private func processPlayers(snapshot: DataSnapshot) {
-        guard let playerDictFromFirebase = snapshot.value as? [String: [String: String]] else { return }
-        var players = [ScenarioPlayer]()
-        for (player, stats) in playerDictFromFirebase {
-            guard let health = stats[Constant.healthKey], let exp = stats[Constant.experienceKey], let maxHealth = stats[Constant.maxHealthKey], let loot = stats[Constant.lootKey] else { return }
-            players.append(ScenarioPlayer(name: player, experience: exp, health: health, maxHealth: maxHealth, loot: loot))
+    private func ensureActiveScenarioExists() {
+        guard activeScenarioRef() != nil else {
+            partyRef().observe(.value, with: { (snapshot) in
+                guard let partyDict = snapshot.value as? [String: [String: Any]] else { return }
+                for (scenario, properties) in partyDict {
+                    if properties[Constant.statusKey] as? String != ScenarioStatus.completed.rawValue {
+                        self.activeScenarioID = scenario
+                        self.configureActiveScenarioListener()
+                    }
+                }
+            })
+            return
         }
-        
-        self.delegate?.didRefreshPlayers(players)
     }
     
     private func configureScenarioStatusListener() {
-        currentScenarioRef()?.observe(.value, with: { (snapshot) in
-            guard let currentScenarioDict = snapshot.value as? [ScenarioIDString: [String: Any]] else {
+        activeScenarioRef()?.observe(.value, with: { (snapshot) in
+            guard let activeScenarioProperties = snapshot.value as? [String: Any] else {
                 self.delegate?.didCancelScenarioCreation()
                 return
             }
-            guard let currentScenarioID = self.currentScenarioID else { return }
-            guard let properties = currentScenarioDict[currentScenarioID] else { return }
-            guard let statusString = properties[Constant.statusKey] as? String else { return }
+            guard let statusString =  activeScenarioProperties[Constant.statusKey] as? String else { return }
             guard let status = FirebaseService.ScenarioStatus(rawValue: statusString) else { return }
             
-            self.informDelegateUpdatedScenarioStatus(status, currentScenarioProperties: properties)
+            self.informDelegateUpdatedScenarioStatus(status, activeScenarioProperties: activeScenarioProperties)
         })
     }
     
-    private func informDelegateUpdatedScenarioStatus(_ status: ScenarioStatus, currentScenarioProperties: [String: Any]) {
+    private func informDelegateUpdatedScenarioStatus(_ status: ScenarioStatus, activeScenarioProperties: [String: Any]) {
         switch status {
         case .creating:
-            informDelegateWillCreateScenario(properties: currentScenarioProperties)
+            informDelegateWillCreateScenario(properties: activeScenarioProperties)
         case .active:
-            informDelegateDidCreateScenario(properties: currentScenarioProperties)
+            informDelegateDidCreateScenario(properties: activeScenarioProperties)
+        case .completed:
+            return
         }
     }
     
@@ -131,19 +131,38 @@ class FirebaseService: ScenarioService {
         self.delegate?.willCreateScenario(hostName: host)
     }
     
+    private func configurePlayersListener() {
+        guard let scenarioID = activeScenarioID else { return }
+        let playerRef = database.child(party).child(scenarioID).child(Constant.playerKey)
+        playerRef.observe(.value, with: { (snapshot) in
+            self.processPlayers(snapshot: snapshot)
+        })
+    }
+    
+    private func processPlayers(snapshot: DataSnapshot) {
+        guard let playerDictFromFirebase = snapshot.value as? [String: [String: String]] else { return }
+        var players = [ScenarioPlayer]()
+        for (player, stats) in playerDictFromFirebase {
+            guard let health = stats[Constant.healthKey], let exp = stats[Constant.experienceKey], let maxHealth = stats[Constant.maxHealthKey], let loot = stats[Constant.lootKey] else { return }
+            players.append(ScenarioPlayer(name: player, experience: exp, health: health, maxHealth: maxHealth, loot: loot))
+        }
+        
+        self.delegate?.didRefreshPlayers(players)
+    }
+    
     // Mark: Helpers
     
     private func playerNameRefForPlayer(_ player: ScenarioPlayer) -> DatabaseReference? {
         return playersRef()?.child(player.name)
     }
     
-    private func currentScenarioRef() -> DatabaseReference? {
-        return database.child(party).child(Constant.currentScenario)
+    private func partyRef() -> DatabaseReference {
+        return database.child(party)
     }
     
     private func activeScenarioRef() -> DatabaseReference? {
-        guard let currentScenarioID = self.currentScenarioID else { return nil }
-        return currentScenarioRef()?.child(currentScenarioID)
+        guard let activeScenarioID = self.activeScenarioID else { return nil }
+        return partyRef().child(activeScenarioID)
     }
     
     private func playersRef() -> DatabaseReference? {
@@ -164,6 +183,10 @@ class FirebaseService: ScenarioService {
     
     private func scenarioNumberRef() -> DatabaseReference? {
         return activeScenarioRef()?.child(Constant.numberKey)
+    }
+    
+    private func clearActiveScenario() {
+        activeScenarioRef()?.setValue(nil)
     }
 }
 

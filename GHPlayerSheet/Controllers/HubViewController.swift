@@ -45,10 +45,14 @@ class HubViewController: UIViewController {
         setupDisplay()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel?.setScenarioStatusListener()
+    }
+    
     private func setupDisplay() {
         self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = UIImage(named: Constant.viewBackgroundImage)
-        scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
+        scenarioButton.isHidden = true
         hostedByLabel.isHidden = true
         displayPlayerInfo()
         setupAddCharactersView()
@@ -58,8 +62,10 @@ class HubViewController: UIViewController {
     @IBAction func scenarioButtonTapped(_ sender: Any) {
         if scenarioButton.titleLabel?.text == Constant.startScenarioText {
             viewModel?.startScenarioCreation()
+            scenarioButton.setTitle("", for: .normal)
             performSegue(withIdentifier: Constant.segueToScenarioLobbyID, sender: self)
         } else {
+            scenarioButton.setTitle("", for: .normal)
             performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
         }
     }
@@ -186,19 +192,32 @@ class HubViewController: UIViewController {
 
 extension HubViewController: HubViewModelDelegate {
     func didCreateScenario(_ scenario: Scenario) {
+        scenarioButton.isHidden = false
+        scenarioButton.setTitle("", for: .normal)
         scenarioButton.setTitle("Join \(scenario.name)", for: .normal)
         scenarioButton.isEnabled = true
         hostedByLabel.isHidden = true
     }
     
     func willCreateScenario(creator: String) {
+        scenarioButton.isHidden = false
         hostedByLabel.isHidden = false
+        scenarioButton.setTitle("", for: .normal)
         scenarioButton.setTitle("Scenario being prepared ", for: .normal)
         hostedByLabel.text = "by: \(creator)"
         scenarioButton.isEnabled = false
     }
     
     func didCancelScenarioCreation() {
+        scenarioCreationEnabled()
+    }
+    
+    func noCurrentScenario() {
+        scenarioCreationEnabled()
+    }
+    
+    private func scenarioCreationEnabled() {
+        scenarioButton.isHidden = false
         scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
         scenarioButton.isEnabled = true
         hostedByLabel.isHidden = true

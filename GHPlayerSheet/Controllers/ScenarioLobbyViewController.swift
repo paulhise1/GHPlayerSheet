@@ -62,7 +62,7 @@ class ScenarioLobbyViewController: UIViewController, NumPadViewDelegate {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         guard let party = party else { return }
-        service?.resetCreatingScenario(party: party)
+        service?.resetScenarioCreation(party: party)
         self.navigationController?.popToRootViewController(animated: true)
     }
     

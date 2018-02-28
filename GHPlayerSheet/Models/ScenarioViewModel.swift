@@ -71,8 +71,8 @@ class ScenarioViewModel {
         scenarioPlayerDatasource.update(model: player)
     }
     
-    func clearScenario() {
-        service.resetCreatingScenario(party: party)
+    func endScenario() {
+        service.completeScenario()
     }
 
 }

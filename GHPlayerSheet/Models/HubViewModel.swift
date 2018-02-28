@@ -6,6 +6,7 @@ protocol HubViewModelDelegate: class {
     func willCreateScenario(creator: String)
     func didCreateScenario(_ scenario: Scenario)
     func didCancelScenarioCreation()
+    func noCurrentScenario()
 }
 
 class HubViewModel {
@@ -27,10 +28,13 @@ class HubViewModel {
         
         let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.playerDatasource = ModelDatasource(with: url)
-        
         self.service = FirebaseService(party: party)
-        self.service.delegate = self
         loadPlayer()
+    }
+    
+    func setScenarioStatusListener() {
+        service.delegate = self
+        service.beginListeningForStatusChanges()
     }
     
     func startScenarioCreation() {
@@ -74,7 +78,6 @@ class HubViewModel {
 }
 
 extension HubViewModel: ScenarioServiceDelegate {
-    
     func willCreateScenario(hostName: String) {
         delegate?.willCreateScenario(creator: hostName)
     }
@@ -86,5 +89,9 @@ extension HubViewModel: ScenarioServiceDelegate {
     
     func didCancelScenarioCreation() {
         delegate?.didCancelScenarioCreation()
+    }
+    
+    func activeScenarioNotLocated() {
+        delegate?.noCurrentScenario()
     }
 }

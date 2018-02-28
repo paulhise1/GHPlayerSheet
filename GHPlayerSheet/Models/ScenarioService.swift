@@ -5,7 +5,9 @@ protocol ScenarioService {
     func pushPlayerToService(player: ScenarioPlayer)
     func createScenario(party: String, number: String, difficulty: String)
     func startScenarioCreation(party: String, playerName: String)
-    func resetCreatingScenario(party: String)
+    func resetScenarioCreation(party: String)
+    func completeScenario()
+    func beginListeningForStatusChanges()
 }
 
 protocol ScenarioServiceDelegate: class {
@@ -16,6 +18,7 @@ protocol ScenarioServiceDelegate: class {
     func willCreateScenario(hostName: String)
     func didCreateScenario(_ scenario: Scenario)
     func didCancelScenarioCreation()
+    func activeScenarioNotLocated()
 }
 
 // Default implementations make these behave as if they were optional
@@ -28,5 +31,7 @@ extension ScenarioServiceDelegate {
     func didCreateScenario(_ scenario: Scenario) {
     }
     func didCancelScenarioCreation() {
+    }
+    func activeScenarioNotLocated() {
     }
 }

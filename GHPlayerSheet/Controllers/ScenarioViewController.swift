@@ -50,7 +50,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         }
     }
     
-    
     private var viewModel: ScenarioViewModel?
     
     override func viewDidLoad() {
@@ -203,7 +202,7 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
 
 extension ScenarioViewController: EndScenarioViewDelegate {
     func didEndScenario() {
-        viewModel?.clearScenario()
+        viewModel?.endScenario()
         navigationController?.popToRootViewController(animated: true)
     }
     
