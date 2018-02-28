@@ -7,7 +7,6 @@ protocol ScenarioService {
     func startScenarioCreation(party: String, playerName: String)
     func resetScenarioCreation(party: String)
     func completeScenario()
-    func beginListeningForStatusChanges()
 }
 
 protocol ScenarioServiceDelegate: class {
@@ -19,6 +18,7 @@ protocol ScenarioServiceDelegate: class {
     func didCreateScenario(_ scenario: Scenario)
     func didCancelScenarioCreation()
     func activeScenarioNotLocated()
+    func shouldListenForStatusChanges() -> Bool
 }
 
 // Default implementations make these behave as if they were optional
@@ -33,5 +33,8 @@ extension ScenarioServiceDelegate {
     func didCancelScenarioCreation() {
     }
     func activeScenarioNotLocated() {
+    }
+    func shouldListenForStatusChanges() -> Bool {
+        return false
     }
 }

@@ -565,9 +565,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenarioBackgroundImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-Oe-Dwa">
-                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vy3-9S-XEB" userLabel="End Scenario Container View">
                                 <rect key="frame" x="156" y="37" width="500" height="300"/>
                                 <constraints>
@@ -1052,14 +1049,10 @@
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="top" secondItem="Dv6-5b-JJM" secondAttribute="top" id="Iwr-cY-AND"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="bottom" secondItem="dLp-c4-8Al" secondAttribute="bottom" constant="8" id="Mui-Lv-FaE"/>
                             <constraint firstItem="dLp-c4-8Al" firstAttribute="centerX" secondItem="Dv6-5b-JJM" secondAttribute="centerX" id="NzV-CZ-954"/>
-                            <constraint firstAttribute="trailing" secondItem="HPG-Oe-Dwa" secondAttribute="trailing" id="YX0-Hf-lwa"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="leading" secondItem="Dv6-5b-JJM" secondAttribute="leading" id="a4Z-0e-zYt"/>
                             <constraint firstItem="iLI-z3-qSs" firstAttribute="leading" secondItem="BVH-6n-gV0" secondAttribute="trailing" constant="20" id="eAd-Iy-3WZ"/>
-                            <constraint firstItem="HPG-Oe-Dwa" firstAttribute="leading" secondItem="xh9-cW-c5f" secondAttribute="leading" id="gWe-Jg-Tjs"/>
-                            <constraint firstAttribute="bottom" secondItem="HPG-Oe-Dwa" secondAttribute="bottom" id="lVZ-e0-o4A"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="bottom" secondItem="5wZ-Ad-ewk" secondAttribute="bottom" constant="10" id="mtI-W5-utf"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="5wZ-Ad-ewk" secondAttribute="trailing" id="pQ5-EB-iSP"/>
-                            <constraint firstItem="HPG-Oe-Dwa" firstAttribute="top" secondItem="xh9-cW-c5f" secondAttribute="top" id="pca-t9-lj2"/>
                             <constraint firstItem="Dv6-5b-JJM" firstAttribute="trailing" secondItem="iLI-z3-qSs" secondAttribute="trailing" id="twa-uD-7es"/>
                             <constraint firstItem="52w-7z-6nl" firstAttribute="trailing" secondItem="Dv6-5b-JJM" secondAttribute="trailing" id="vPw-II-a6f"/>
                         </constraints>
@@ -1547,7 +1540,6 @@
         <image name="healthSymbol.png" width="106" height="160"/>
         <image name="levelCrown.png" width="499" height="337"/>
         <image name="lootSymbol.png" width="243" height="225"/>
-        <image name="scenarioBackgroundImage.jpg" width="1916" height="1014"/>
         <image name="scenarioDifficultySkull.png" width="278" height="209"/>
     </resources>
     <inferredMetricsTieBreakers>

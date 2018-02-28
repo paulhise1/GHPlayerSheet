@@ -34,7 +34,6 @@ class HubViewModel {
     
     func setScenarioStatusListener() {
         service.delegate = self
-        service.beginListeningForStatusChanges()
     }
     
     func startScenarioCreation() {
@@ -93,5 +92,9 @@ extension HubViewModel: ScenarioServiceDelegate {
     
     func activeScenarioNotLocated() {
         delegate?.noCurrentScenario()
+    }
+    
+    func shouldListenForStatusChanges() -> Bool {
+        return true
     }
 }

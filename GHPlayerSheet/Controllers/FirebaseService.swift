@@ -23,7 +23,14 @@ class FirebaseService: ScenarioService {
         static let battlemarksKey = "battlemarks"
     }
     
-    weak var delegate: ScenarioServiceDelegate?
+    weak var delegate: ScenarioServiceDelegate? {
+        didSet{
+            guard let delegate = self.delegate else { return }
+            if delegate.shouldListenForStatusChanges() {
+                beginListeningToScenarioStatus()
+            }
+        }
+    }
 
     private let database: DatabaseReference
     
@@ -36,24 +43,15 @@ class FirebaseService: ScenarioService {
         database = Database.database().reference()
     }
     
-    func beginListeningForStatusChanges() {
-        configureActiveScenarioListener()
+    func startScenarioCreation(party: String, playerName: String) {
+        self.activeScenarioID = String(describing: Date())
+        let scenarioCreatingDict = [Constant.statusKey: ScenarioStatus.creating.rawValue, Constant.hostKey: playerName]
+        activeScenarioRef()?.setValue(scenarioCreatingDict)
     }
     
     func completeScenario() {
         statusRef()?.setValue(ScenarioStatus.completed.rawValue)
         activeScenarioID = nil
-    }
-    
-    private func setScenarioID(scenarioID: String) {
-        self.activeScenarioID = scenarioID
-        configureScenarioStatusListener()
-    }
-    
-    func startScenarioCreation(party: String, playerName: String) {
-        self.activeScenarioID = String(describing: Date())
-        let scenarioCreatingDict = [Constant.statusKey: ScenarioStatus.creating.rawValue, Constant.hostKey: playerName]
-        activeScenarioRef()?.setValue(scenarioCreatingDict)
     }
     
     func resetScenarioCreation(party: String) {
@@ -63,7 +61,7 @@ class FirebaseService: ScenarioService {
     func createScenario(party: String, number: String, difficulty: String) {
         let scenarioValues = [Constant.statusKey: ScenarioStatus.active.rawValue, Constant.numberKey: number, Constant.difficultyKey: difficulty]
         activeScenarioRef()?.updateChildValues(scenarioValues)
-        configureScenarioStatusListener()
+        beginListeningToScenarioStatus()
     }
     
     func pushPlayerToService(player: ScenarioPlayer) {
@@ -72,28 +70,8 @@ class FirebaseService: ScenarioService {
         playerNameRefForPlayer(player)?.setValue(playerInfo)
     }
     
-    private func configureActiveScenarioListener() {
+    private func beginListeningToScenarioStatus() {
         ensureActiveScenarioExists()
-        guard activeScenarioRef() != nil else { return }
-        self.configureScenarioStatusListener()
-    }
-    
-    private func ensureActiveScenarioExists() {
-        guard activeScenarioRef() != nil else {
-            partyRef().observe(.value, with: { (snapshot) in
-                guard let partyDict = snapshot.value as? [String: [String: Any]] else { return }
-                for (scenario, properties) in partyDict {
-                    if properties[Constant.statusKey] as? String != ScenarioStatus.completed.rawValue {
-                        self.activeScenarioID = scenario
-                        self.configureActiveScenarioListener()
-                    }
-                }
-            })
-            return
-        }
-    }
-    
-    private func configureScenarioStatusListener() {
         activeScenarioRef()?.observe(.value, with: { (snapshot) in
             guard let activeScenarioProperties = snapshot.value as? [String: Any] else {
                 self.delegate?.didCancelScenarioCreation()
@@ -104,6 +82,18 @@ class FirebaseService: ScenarioService {
             
             self.informDelegateUpdatedScenarioStatus(status, activeScenarioProperties: activeScenarioProperties)
         })
+    }
+    
+    private func ensureActiveScenarioExists() {
+        if activeScenarioRef() == nil {
+            partyRef().observe(.value, with: { (snapshot) in
+                guard let partyDict = snapshot.value as? [String: [String: Any]] else { return }
+                guard self.partyHasActiveScenario(partyDict) else {
+                    self.delegate?.activeScenarioNotLocated()
+                    return
+                }
+            })
+        }
     }
     
     private func informDelegateUpdatedScenarioStatus(_ status: ScenarioStatus, activeScenarioProperties: [String: Any]) {
@@ -151,6 +141,17 @@ class FirebaseService: ScenarioService {
     }
     
     // Mark: Helpers
+    
+    private func partyHasActiveScenario(_ partyDict: [String : [String : Any]]) -> Bool {
+        for (scenario, properties) in partyDict {
+            if properties[Constant.statusKey] as? String != ScenarioStatus.completed.rawValue {
+                self.activeScenarioID = scenario
+                self.beginListeningToScenarioStatus()
+                return true
+            }
+        }
+        return false
+    }
     
     private func playerNameRefForPlayer(_ player: ScenarioPlayer) -> DatabaseReference? {
         return playersRef()?.child(player.name)
