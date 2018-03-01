@@ -47,6 +47,7 @@ class HubViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel?.setScenarioStatusListener()
+        viewModel?.writePlayerToDatasourceToSaveActiveCharacter()
     }
     
     private func setupDisplay() {
@@ -192,20 +193,24 @@ class HubViewController: UIViewController {
 
 extension HubViewController: HubViewModelDelegate {
     func didCreateScenario(_ scenario: Scenario) {
-        scenarioButton.isHidden = false
         scenarioButton.setTitle("", for: .normal)
         scenarioButton.setTitle("Join \(scenario.name)", for: .normal)
         scenarioButton.isEnabled = true
         hostedByLabel.isHidden = true
+        if viewModel?.player?.activeCharacter != nil {
+            scenarioButton.isHidden = false
+        }
     }
     
     func willCreateScenario(creator: String) {
-        scenarioButton.isHidden = false
         hostedByLabel.isHidden = false
         scenarioButton.setTitle("", for: .normal)
         scenarioButton.setTitle("Scenario being prepared ", for: .normal)
         hostedByLabel.text = "by: \(creator)"
         scenarioButton.isEnabled = false
+        if viewModel?.player?.activeCharacter != nil {
+            scenarioButton.isHidden = false
+        }
     }
     
     func didCancelScenarioCreation() {

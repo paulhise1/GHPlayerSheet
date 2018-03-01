@@ -54,7 +54,6 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCounters()
         updateStackViews()
         setInfoOnLabels()
@@ -201,10 +200,16 @@ extension ScenarioViewController: ScenarioViewModelDelegate {
 }
 
 extension ScenarioViewController: EndScenarioViewDelegate {
-    func didEndScenario() {
-        viewModel?.endScenario()
-        navigationController?.popToRootViewController(animated: true)
+    func scenarioOutcomeIfPresent() -> Bool? {
+        return viewModel?.scenarioOutcome()
     }
     
+    func didEndScenario(success: Bool) {
+        viewModel?.endScenario(success: success)
+    }
     
+    func cleanupEndedScenario(gold: Int, experience: Int, battlemarks: Int) {
+        viewModel?.cleanupEndedScenario(gold: gold, experience: experience, battlemarks: battlemarks)
+        navigationController?.popToRootViewController(animated: true)
+    }
 }

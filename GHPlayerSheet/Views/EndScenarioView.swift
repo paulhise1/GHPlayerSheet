@@ -1,7 +1,9 @@
 import UIKit
 
 protocol EndScenarioViewDelegate: class {
-    func didEndScenario()
+    func didEndScenario(success: Bool)
+    func cleanupEndedScenario(gold: Int, experience: Int, battlemarks: Int)
+    func scenarioOutcomeIfPresent() -> Bool?
 }
 
 class EndScenarioView: UIView {
@@ -35,11 +37,12 @@ class EndScenarioView: UIView {
     @IBOutlet weak var battlemarkRightButton: UIButton!
     weak var delegate: EndScenarioViewDelegate?
     
-    private var victory: Bool?
     private var lootCount: String?
     private var experienceCount: String?
     private var difficulty: String?
-    private var battlemarks: String?
+    private var battlemarks = "0"
+    private var goldFromLoot = 0
+    private var experienceWithBonus = 0
     
     func configure(lootCount: String, experienceCount: String, difficulty: String, battlemarks: String) {
         resultButtonContainer.isHidden = true
@@ -53,28 +56,30 @@ class EndScenarioView: UIView {
     
     @IBAction func endButtonTapped(_ sender: Any) {
         endScenarioButton.isHidden = true
-        resultButtonContainer.isHidden = false
+        guard let outcome = delegate?.scenarioOutcomeIfPresent() else {
+            resultButtonContainer.isHidden = false
+            return
+        }
+        showConclusion(success: outcome)
     }
     
     @IBAction func failureButtonTapped(_ sender: Any) {
-        victory = false
-        showConclusion()
+        showConclusion(success: false)
     }
     
     @IBAction func successButtonTapped(_ sender: Any) {
-        victory = true
-        showConclusion()
+        showConclusion(success: true)
     }
     
-    private func showConclusion() {
+    private func showConclusion(success: Bool) {
         resultButtonContainer.isHidden = true
         conclusionContainer.isHidden = false
-        guard let victory = victory else { return }
-        if victory {
+        if success {
             successConclusion()
         } else {
             failureConclusion()
         }
+        self.delegate?.didEndScenario(success: success)
     }
     
     @IBAction func battlemarkLeftButtonTapped(_ sender: Any) {
@@ -106,7 +111,8 @@ class EndScenarioView: UIView {
     }
     
     @IBAction func recordStatsButtonTapped(_ sender: Any) {
-        delegate?.didEndScenario()
+        guard let battlemarksInt = Int(battlemarks) else { return }
+        self.delegate?.cleanupEndedScenario(gold: goldFromLoot, experience: experienceWithBonus, battlemarks: battlemarksInt)
     }
     
     private func successConclusion() {
@@ -114,6 +120,7 @@ class EndScenarioView: UIView {
         statsFromScenario()
         guard let difficulty = difficulty, let difficultyInt = Int(difficulty) else { return }
         let bonusExperience = 4 + 2 * difficultyInt
+        experienceWithBonus += bonusExperience
         bonusExperienceNumberLabel.text = String(bonusExperience)
         if battlemarks == "1" {
             battlemarkLeftButton.setImage(UIImage(named: Constant.checkedBox), for: .normal)
@@ -135,8 +142,9 @@ class EndScenarioView: UIView {
     }
     
     private func statsFromScenario() {
-        guard let lootCount = lootCount, let intLootCount = Int(lootCount), let difficulty = difficulty, let difficultyInt = Int(difficulty) else { return }
-        let goldFromLoot = intLootCount * difficultyInt
+        guard let lootCount = lootCount, let intLootCount = Int(lootCount), let difficulty = difficulty, let difficultyInt = Int(difficulty), let experience = experienceCount, let experienceInt = Int(experience) else { return }
+        goldFromLoot = intLootCount * difficultyInt
+        experienceWithBonus += experienceInt
         lootNumberLabel.text = lootCount
         lootEarnedLabel.text = "converts to \(goldFromLoot) gold"
         experienceNumberLabel.text = experienceCount

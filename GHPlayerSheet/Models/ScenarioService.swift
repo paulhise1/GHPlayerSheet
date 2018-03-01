@@ -6,12 +6,13 @@ protocol ScenarioService {
     func createScenario(party: String, number: String, difficulty: String)
     func startScenarioCreation(party: String, playerName: String)
     func resetScenarioCreation(party: String)
-    func completeScenario()
+    func completeScenario(success: Bool)
 }
 
 protocol ScenarioServiceDelegate: class {
     // This is for live game scenarios
     func didRefreshPlayers(_ players: [ScenarioPlayer])
+    func didEndScenario(success: Bool)
     
     // This is for controllers dealing with creation
     func willCreateScenario(hostName: String)
@@ -23,18 +24,13 @@ protocol ScenarioServiceDelegate: class {
 
 // Default implementations make these behave as if they were optional
 extension ScenarioServiceDelegate {
-    func didRefreshPlayers(_ players: [ScenarioPlayer]) {
-    }
+    func didRefreshPlayers(_ players: [ScenarioPlayer]) {}
+    func didEndScenario(success: Bool) {}
+
     
-    func willCreateScenario(hostName: String) {
-    }
-    func didCreateScenario(_ scenario: Scenario) {
-    }
-    func didCancelScenarioCreation() {
-    }
-    func activeScenarioNotLocated() {
-    }
-    func shouldListenForStatusChanges() -> Bool {
-        return false
-    }
+    func willCreateScenario(hostName: String) {}
+    func didCreateScenario(_ scenario: Scenario) {}
+    func didCancelScenarioCreation() {}
+    func activeScenarioNotLocated() {}
+    func shouldListenForStatusChanges() -> Bool { return false }
 }

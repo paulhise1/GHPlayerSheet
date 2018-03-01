@@ -67,14 +67,14 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
     func didUpdateGold(amount: Int) {
         if let statModifierView = statModifierView, let viewModel = viewModel {
             viewModel.updateGold(amount: amount)
-            statModifierView.goldAmount = viewModel.characterModel.gold
+            statModifierView.goldAmount = viewModel.character.gold
         }
     }
     
     func didUpdateExperience(amount: Int) {
         if let statModifierView = statModifierView, let viewModel = viewModel {
             viewModel.updateExperience(amount: amount)
-            statModifierView.experienceAmount = viewModel.characterModel.experience
+            statModifierView.experienceAmount = viewModel.character.experience
         }
     }
 
@@ -85,8 +85,8 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     
     func setupDefaultNameLabelAppearance() {
         if let viewModel = viewModel {
-            if viewModel.characterModel.name != "" {
-                nameLabel.text = viewModel.characterModel.name
+            if viewModel.character.name != "" {
+                nameLabel.text = viewModel.character.name
                 nameLabel.textColor = ColorConstants.characterNameText
                 //need FontConstants file
                 nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -126,7 +126,7 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let textFieldText = textField.text, let viewModel = viewModel {
             viewModel.updateName(name: textFieldText)
-            nameLabel.text = viewModel.characterModel.name
+            nameLabel.text = viewModel.character.name
         }
         nameLabel.textColor = ColorConstants.characterNameText
         if textField.text == "" {
@@ -189,8 +189,8 @@ extension CharacterSheetViewController {
             statModifierView.frame = statModifierContainerView.bounds
             statModifierView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             if let viewModel = viewModel {
-                statModifierView.goldAmount = viewModel.characterModel.gold
-                statModifierView.experienceAmount = viewModel.characterModel.experience
+                statModifierView.goldAmount = viewModel.character.gold
+                statModifierView.experienceAmount = viewModel.character.experience
             }
             statModifierView.delegate = self
         }

@@ -20,6 +20,7 @@ class FirebaseService: ScenarioService {
         static let hostKey = "host"
         static let numberKey = "number"
         static let difficultyKey = "difficulty"
+        static let successKey = "success"
         static let battlemarksKey = "battlemarks"
     }
     
@@ -36,7 +37,7 @@ class FirebaseService: ScenarioService {
     
     private let party: String
     
-    private var activeScenarioID: String?
+    private var activeScenarioID: String? 
     
     init(party: String) {
         self.party = party
@@ -49,7 +50,8 @@ class FirebaseService: ScenarioService {
         activeScenarioRef()?.setValue(scenarioCreatingDict)
     }
     
-    func completeScenario() {
+    func completeScenario(success: Bool) {
+        successRef()?.setValue(success)
         statusRef()?.setValue(ScenarioStatus.completed.rawValue)
         activeScenarioID = nil
     }
@@ -65,6 +67,7 @@ class FirebaseService: ScenarioService {
     }
     
     func pushPlayerToService(player: ScenarioPlayer) {
+        removePartyRefListeners()
         configurePlayersListener()
         let playerInfo = [Constant.healthKey: player.health, Constant.experienceKey: player.experience, Constant.maxHealthKey: player.maxHealth, Constant.lootKey: player.loot, Constant.battlemarksKey: player.battlemarks]
         playerNameRefForPlayer(player)?.setValue(playerInfo)
@@ -77,7 +80,11 @@ class FirebaseService: ScenarioService {
                 self.delegate?.didCancelScenarioCreation()
                 return
             }
-            guard let statusString =  activeScenarioProperties[Constant.statusKey] as? String else { return }
+            if let successOutcome = activeScenarioProperties[Constant.successKey] as? Bool {
+                self.delegate?.didEndScenario(success: successOutcome)
+                return
+            }
+            guard let statusString = activeScenarioProperties[Constant.statusKey] as? String else { return }
             guard let status = FirebaseService.ScenarioStatus(rawValue: statusString) else { return }
             
             self.informDelegateUpdatedScenarioStatus(status, activeScenarioProperties: activeScenarioProperties)
@@ -182,6 +189,10 @@ class FirebaseService: ScenarioService {
         return activeScenarioRef()?.child(Constant.difficultyKey)
     }
     
+    private func successRef() -> DatabaseReference? {
+        return activeScenarioRef()?.child(Constant.successKey)
+    }
+    
     private func scenarioNumberRef() -> DatabaseReference? {
         return activeScenarioRef()?.child(Constant.numberKey)
     }
@@ -189,10 +200,8 @@ class FirebaseService: ScenarioService {
     private func clearActiveScenario() {
         activeScenarioRef()?.setValue(nil)
     }
-}
-
-extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
-    var prettyPrint: String {
-        return String(describing: self as AnyObject)
+    
+    private func removePartyRefListeners() {
+        partyRef().removeAllObservers()
     }
 }

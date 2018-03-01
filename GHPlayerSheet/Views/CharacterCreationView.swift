@@ -59,7 +59,9 @@ class CharacterCreationView: UIView {
             acceptEnteredName()
         } else if acceptButton.title(for: .normal)! == Constant.acceptButtonCreateTitle {
             guard let classType = classType, let name = name, let xp = experience, let intXp = Int(xp) else { return }
-            let character = Character(classType: classType, name: name, experience: intXp)
+            //gold stubb for now
+            let gold = (15 + 15 * ClassTypeData.level(for: intXp))
+            let character = Character(classType: classType, name: name, gold: gold, experience: intXp)
             delegate?.didCreateCharacter(character: character)
         }
     }

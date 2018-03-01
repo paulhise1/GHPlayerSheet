@@ -10,27 +10,27 @@ class CharacterSheetViewModel {
         static let pathComponent = "characters.plist"
     }
     
-    var characterModel: Character
+    var character: Character
     private var characterDatasource: ModelDatasource<Character>?
     
     init(characterDatasource: ModelDatasource<Character>) {
         self.characterDatasource = characterDatasource
         
-        characterModel = characterDatasource.modelAt(index: 0)
+        character = characterDatasource.modelAt(index: 0)
     }
     
     func updateName(name: String) {
-        characterModel.updateName(name: name)
-        characterDatasource?.update(model: characterModel)
+        character.updateName(name: name)
+        characterDatasource?.update(model: character)
     }
     
     func updateGold(amount: Int) {
-        characterModel.updateGold(amount: amount)
-        characterDatasource?.update(model: characterModel)
+        character.updateGold(amount: amount)
+        characterDatasource?.update(model: character)
     }
     
     func updateExperience(amount: Int) {
-        characterModel.updateExperience(amount: amount)
-        characterDatasource?.update(model: characterModel)
+        character.updateExperience(amount: amount)
+        characterDatasource?.update(model: character)
     }
 }

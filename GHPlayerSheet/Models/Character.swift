@@ -23,14 +23,15 @@ class Character: Codable, ModelProtocol {
     }
     
     private(set) var experience: Int
-    private(set) var gold: Int?
-    private(set) var battleMarksCount: Int?
+    private(set) var gold: Int
+    private(set) var battlemarks = 0
     private(set) var activePerks = [String]()
     
-    init(classType: ClassType, name: String, experience: Int = 0) {
+    init(classType: ClassType, name: String, gold: Int, experience: Int = 0) {
         self.classType = classType
         self.name = name
         self.experience = experience
+        self.gold = gold
         self.creationDate = Date()
     }
     
@@ -39,11 +40,14 @@ class Character: Codable, ModelProtocol {
     }
     
     func updateGold(amount: Int) {
-        guard var gold = gold else { return }
         gold = gold + amount
     }
     
     func updateExperience(amount: Int) {
         experience = experience + amount
+    }
+    
+    func updateBattlemarks(amount: Int) {
+        battlemarks += amount
     }
 }

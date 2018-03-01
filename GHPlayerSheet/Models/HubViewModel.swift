@@ -68,6 +68,11 @@ class HubViewModel {
         return owned
     }
     
+    func writePlayerToDatasourceToSaveActiveCharacter() {
+        guard let player = player else { return }
+        playerDatasource?.update(model: player)
+    }
+    
     private func loadPlayer() {
         guard let playerCheck = playerDatasource?.count() else { return }
         if playerCheck > 0 {
