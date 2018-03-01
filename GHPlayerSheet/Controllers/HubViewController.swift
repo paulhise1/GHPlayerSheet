@@ -9,6 +9,7 @@ class HubViewController: UIViewController {
         static let characterCellID = "CharacterCollectionViewCell"
         static let startScenarioText = "Start Scenario"
         static let viewBackgroundImage = "hvcbackground"
+        static let characterSheetStoryboardID = "characterSheet"
     }
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -24,7 +25,6 @@ class HubViewController: UIViewController {
             characterImageView.layer.masksToBounds = true
         }
     }
-    @IBOutlet weak var characterInfoLabel: UILabel!
     
     @IBOutlet weak var addCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showAddCharacterConstraint: NSLayoutConstraint!
@@ -35,6 +35,15 @@ class HubViewController: UIViewController {
     @IBOutlet weak var showChangeCharacterConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideChangeCharacterButtonConstraint: NSLayoutConstraint!
     private var changeCharacterView: ChangeCharacterView?
+    
+    private var characterSheetView: CharacterSheetViewController?
+    @IBOutlet weak var characterSheetButton: UIButton!
+    @IBOutlet weak var characterSheetTabContainer: UIView!
+    @IBOutlet weak var characterSheetTabLabel: UILabel!
+    @IBOutlet weak var characterSheetTabImage: UIImageView!
+    @IBOutlet weak var characterSheetTabLevelLabel: UILabel!
+    @IBOutlet weak var characterSheetContainer: UIView!
+    @IBOutlet weak var showCharacterSheetConstraint: NSLayoutConstraint!
     
     private var viewModel: HubViewModel?
     
@@ -55,9 +64,28 @@ class HubViewController: UIViewController {
         backgroundImage.image = UIImage(named: Constant.viewBackgroundImage)
         scenarioButton.isHidden = true
         hostedByLabel.isHidden = true
+        characterSheetTabContainer.isHidden = true
         displayPlayerInfo()
         setupAddCharactersView()
         displayChangeCharacterButton()
+    }
+    
+    @IBAction func characterSheetButtonTapped(_ sender: Any) {
+        setupCharacterSheetView()
+        characterSheetTabLabel.text = viewModel?.activeCharacterTypeString()
+        characterSheetTabLevelLabel.text = viewModel?.activeCharacterLevelString()
+        guard let characterType = viewModel?.activeCharacterType() else { return }
+        let characterColor = ClassTypeData.characterColor(charClass: characterType)
+        characterSheetTabLabel.textColor = characterColor
+        characterSheetTabLevelLabel.textColor = characterColor
+        showCharacterSheetConstraint.priority = UILayoutPriority(rawValue: 700)
+        characterSheetTabContainer.isHidden = false
+    }
+    
+    @IBAction func characterSheetTabButtonTapped(_ sender: Any) {
+        showCharacterSheetConstraint.priority = UILayoutPriority(rawValue: 200)
+        characterSheetView?.view.removeFromSuperview()
+        characterSheetTabContainer.isHidden = true
     }
     
     @IBAction func scenarioButtonTapped(_ sender: Any) {
@@ -97,17 +125,17 @@ class HubViewController: UIViewController {
         guard (viewModel?.player) != nil
             else {
             partyNameLabel.text = viewModel?.party
-            characterInfoLabel.isHidden = true
+            characterSheetButton.isHidden = true
             characterImageView.isHidden = true
             scenarioButton.isHidden = true
             return }
         partyNameLabel.text = viewModel?.party
-        characterInfoLabel.isHidden = false
         characterImageView.isHidden = false
         characterImageView.image = viewModel?.activeCharacterImage()
         scenarioButton.isHidden = false
+        characterSheetButton.isHidden = false
         guard let player = viewModel?.player else { return }
-        characterInfoLabel.text = "\(player.activeCharacter.name): \(String(player.activeCharacter.level))"
+        characterSheetButton.setTitle("\(player.activeCharacter.name): \(String(player.activeCharacter.level))", for: .normal)
     }
 
     private func showAddCharacter() {
@@ -188,6 +216,18 @@ class HubViewController: UIViewController {
         changeCharacterView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         changeCharacterView.delegate = self
         changeCharacterView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
+    }
+    
+    private func setupCharacterSheetView() {
+        characterSheetView = storyboard?.instantiateViewController(withIdentifier: Constant.characterSheetStoryboardID) as? CharacterSheetViewController
+        guard let characterSheetView = characterSheetView else { return }
+        guard let activeCharacter = viewModel?.player?.activeCharacter else { return }
+        characterSheetView.configure(character: activeCharacter)
+        addChildViewController(characterSheetView)
+        characterSheetView.view.frame = characterSheetContainer.bounds
+        characterSheetView.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        characterSheetContainer.addSubview(characterSheetView.view)
+        characterSheetView.didMove(toParentViewController: self)
     }
 }
 

@@ -10,12 +10,10 @@ class DisplayNoteViewController: UIViewController, UITextViewDelegate {
     
     weak var delegate: DisplayNoteViewControllerDelegate?
     var newBackButton: UIBarButtonItem?
-    // would like a better back symbol
-    var navBarButtonTitle = "<Notes"
-    
+
+    var navBarButtonTitle = "<"
     
     @IBOutlet weak var textView: UITextView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +39,4 @@ class DisplayNoteViewController: UIViewController, UITextViewDelegate {
         newBackButton = UIBarButtonItem(title: navBarButtonTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DisplayNoteViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-
-    }
-    
 }

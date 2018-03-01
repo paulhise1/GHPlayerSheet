@@ -1,36 +1,36 @@
 import Foundation
 
-//protocol CharacterSheetViewModelDelegate: class {
-//    func updateCharacter()
-//}
+protocol CharacterSheetViewModelDelegate: class {
+    func didUpdateCharacter(character: Character)
+}
 
 class CharacterSheetViewModel {
+    
+    weak var delegate: CharacterSheetViewModelDelegate?
     
     struct Constants {
         static let pathComponent = "characters.plist"
     }
     
     var character: Character
-    private var characterDatasource: ModelDatasource<Character>?
     
-    init(characterDatasource: ModelDatasource<Character>) {
-        self.characterDatasource = characterDatasource
-        
-        character = characterDatasource.modelAt(index: 0)
+    init(character: Character) {
+        self.character = character
+        delegate?.didUpdateCharacter(character: character)
     }
     
     func updateName(name: String) {
         character.updateName(name: name)
-        characterDatasource?.update(model: character)
+        delegate?.didUpdateCharacter(character: character)
     }
     
     func updateGold(amount: Int) {
         character.updateGold(amount: amount)
-        characterDatasource?.update(model: character)
+        delegate?.didUpdateCharacter(character: character)
     }
     
     func updateExperience(amount: Int) {
         character.updateExperience(amount: amount)
-        characterDatasource?.update(model: character)
+        delegate?.didUpdateCharacter(character: character)
     }
 }

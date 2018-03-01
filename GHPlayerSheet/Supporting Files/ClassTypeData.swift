@@ -171,6 +171,45 @@ class ClassTypeData {
         }
     }
     
+    static func CharacterFullImage(for classType: ClassType) -> UIImage? {
+        switch classType {
+        case .cragheart:
+            return UIImage(named: "cragheartFull")
+        case .brute:
+            return UIImage(named: "bruteFull")
+        case .mindthief:
+            return UIImage(named: "mindthiefFull")
+        case .scoundrel:
+            return UIImage(named: "scoundrelFull")
+        case .spellweaver:
+            return UIImage(named: "spellweaverFull")
+        case .tinkerer:
+            return UIImage(named: "tinkererFull")
+        case .quartermaster:
+            return UIImage(named: "quartermasterFull")
+        case .sunkeeper:
+            return UIImage(named: "sunkeeperFull")
+        case .soothsinger:
+            return UIImage(named: "soothsingerFull")
+        case .sawbones:
+            return UIImage(named: "sawbonesFull")
+        case .berserker:
+            return UIImage(named: "berserkerFull")
+        case .nightshroud:
+            return UIImage(named: "nightshroudFull")
+        case .doomstalker:
+            return UIImage(named: "doomstalkerFull")
+        case .beasttyrant:
+            return UIImage(named: "beasttyrantFull")
+        case .summoner:
+            return UIImage(named: "summonerFull")
+        case .plagueherald:
+            return UIImage(named: "plagueheraldFull")
+        case .elementalist:
+            return UIImage(named: "elementalistFull")
+        }
+    }
+    
     static func icon(for classType: ClassType) -> String {
         switch classType {
         case .cragheart:
@@ -210,42 +249,42 @@ class ClassTypeData {
         }
     }
     
-    static func colorIcon(for classType: ClassType) -> String {
+    static func colorIcon(for classType: ClassType) -> UIImage? {
         switch classType {
         case .cragheart:
-            return "cragheartColorSymbol"
+            return UIImage(named: "cragheartColorSymbol")
         case .brute:
-            return "bruteColorSymbol"
+            return UIImage(named: "bruteColorSymbol")
         case .mindthief:
-            return "mindthiefColorSymbol"
+            return UIImage(named: "mindthiefColorSymbol")
         case .scoundrel:
-            return "scoundrelColorSymbol"
+            return UIImage(named: "scoundrelColorSymbol")
         case .spellweaver:
-            return "spellweaverColorSymbol"
+            return UIImage(named: "spellweaverColorSymbol")
         case .tinkerer:
-            return "tinkererColorSymbol"
+            return UIImage(named: "tinkererColorSymbol")
         case .quartermaster:
-            return "quartermasterColorSymbol"
+            return UIImage(named: "quartermasterColorSymbol")
         case .sunkeeper:
-            return "sunkeeperColorSymbol"
+            return UIImage(named: "sunkeeperColorSymbol")
         case .soothsinger:
-            return "soothsingerColorSymbol"
+            return UIImage(named: "soothsingerColorSymbol")
         case .sawbones:
-            return "sawbonesColorSymbol"
+            return UIImage(named: "sawbonesColorSymbol")
         case .berserker:
-            return "berserkerColorSymbol"
+            return UIImage(named: "berserkerColorSymbol")
         case .nightshroud:
-            return "nightshroudColorSymbol"
+            return UIImage(named: "nightshroudColorSymbol")
         case .doomstalker:
-            return "doomstalkerColorSymbol"
+            return UIImage(named: "doomstalkerColorSymbol")
         case .beasttyrant:
-            return "beasttyrantColorSymbol"
+            return UIImage(named: "beasttyrantColorSymbol")
         case .summoner:
-            return "summonerColorSymbol"
+            return UIImage(named: "summonerColorSymbol")
         case .plagueherald:
-            return "plagueheraldColorSymbol"
+            return UIImage(named: "plagueheraldColorSymbol")
         case .elementalist:
-            return "elementalistColorSymbol"
+            return UIImage(named: "elementalistColorSymbol")
         }
     }
     

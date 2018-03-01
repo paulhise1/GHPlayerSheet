@@ -6,7 +6,6 @@ class CharacterSheetViewController: UIViewController {
     
     //MARK: - Constants
     struct Constants {
-        static let nameDefaultText = "Enter Name"
         static let notesViewID =  "NotesNavStack"
         static let perksViewID = "PerksNavStack"
     }
@@ -18,9 +17,9 @@ class CharacterSheetViewController: UIViewController {
     }
     
     @IBOutlet weak var characterImage: UIImageView!
-    @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var enterNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabelImage: UIImageView!
     
     private var perkSymbolListView: PerkSymbolListView?
     @IBOutlet weak var symbolListContainerView: UIView!
@@ -40,18 +39,24 @@ class CharacterSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupDefaultNameLabelAppearance()
         setupChildViews()
+        setupCharacter()
     }
 
-    func configure(characterDataSource: ModelDatasource<Character>) {
-        self.viewModel = CharacterSheetViewModel(characterDatasource: characterDataSource)
+    func configure(character: Character) {
+        self.viewModel = CharacterSheetViewModel(character: character)
     }
     
+    func setupCharacter() {
+        guard let viewModel = viewModel else { return }
+        let characterType = viewModel.character.classType
+        nameLabel.text = viewModel.character.name
+        nameLabel.textColor = ClassTypeData.characterColor(charClass: characterType)
+        nameLabelImage.image = ClassTypeData.colorIcon(for: characterType)
+        characterImage.image = ClassTypeData.CharacterFullImage(for: characterType)
+    }
 }
 
-//MARK: - StatModifier View Methods
 extension CharacterSheetViewController: StatModifierViewDelegate {
     
     func statModifierViewDidBeginModifying(sender: StatModifierView) {
@@ -82,21 +87,6 @@ extension CharacterSheetViewController: StatModifierViewDelegate {
 
 //MARK: - Character Name Button and TextField Methods
 extension CharacterSheetViewController: UITextFieldDelegate {
-    
-    func setupDefaultNameLabelAppearance() {
-        if let viewModel = viewModel {
-            if viewModel.character.name != "" {
-                nameLabel.text = viewModel.character.name
-                nameLabel.textColor = ColorConstants.characterNameText
-                //need FontConstants file
-                nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-            } else {
-                nameLabel.text = Constants.nameDefaultText
-                nameLabel.textColor = ColorConstants.defaultEnterNameText
-            }
-        }
-    }
-    
     @IBAction func enterNameButtonTapped(_ sender: Any) {
         addBlurEffect()
         createNameEditingTextField()
@@ -104,13 +94,14 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     
     func createNameEditingTextField() {
         textField = UITextField()
-        let width: CGFloat = 100.0
+        let width: CGFloat = 200.0
         let frame = CGRect(x: view.frame.size.width/2-width/2, y: 100, width: width, height: 40)
         if let textField = textField {
             textField.frame = frame
             textField.delegate = self
-            textField.backgroundColor = UIColor(white: 1, alpha: 0.4)
+            textField.backgroundColor = UIColor(white: 0, alpha: 0.4)
             textField.returnKeyType = .done
+            textField.font = FontConstants.characterSheetNameText
             textField.becomeFirstResponder()
             view.addSubview(textField)
         }
@@ -118,19 +109,13 @@ extension CharacterSheetViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = nameLabel.text
-        if nameLabel.text == Constants.nameDefaultText {
-            textField.text = ""
-        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField.text != "" else { return true }
         if let textFieldText = textField.text, let viewModel = viewModel {
             viewModel.updateName(name: textFieldText)
             nameLabel.text = viewModel.character.name
-        }
-        nameLabel.textColor = ColorConstants.characterNameText
-        if textField.text == "" {
-            setupDefaultNameLabelAppearance()
         }
         textField.removeFromSuperview()
         removeBlurEffect()
@@ -205,8 +190,6 @@ extension CharacterSheetViewController {
             perksContainerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         }
     }
-    
-    
     
     func setupNotesView() {
         if let notesNavViewController = storyboard?.instantiateViewController(withIdentifier: Constants.notesViewID) {

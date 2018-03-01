@@ -3,8 +3,6 @@ import UIKit
 struct ColorConstants {
     
     // CharacterSheetVC Colors
-    static let characterNameText = UIColor.flatMagenta()
-    static let defaultEnterNameText = UIColor.lightGray
     
     // CounterView Colors for counters
     static let lootBackgroundColor = UIColor.flatGrayColorDark()

@@ -81,9 +81,8 @@ extension ChangeCharacterView: UICollectionViewDelegateFlowLayout, UICollectionV
         guard let characters = inactiveCharacters else { return UICollectionViewCell() }
         let classType = characters[indexPath.row].classType
         let name = characters[indexPath.row].name
-        let characterImageName = ClassTypeData.colorIcon(for: classType)
         let characterColor = ClassTypeData.characterColor(charClass: classType)
-        cell.characterImage = UIImage(named: characterImageName)
+        cell.characterImage = ClassTypeData.colorIcon(for: classType)
         cell.characterName = name
         cell.setNameLabelColor(color: characterColor)
         cell.layoutIfNeeded()

@@ -46,6 +46,27 @@ class HubViewModel {
         return playerImage
     }
     
+    func activeCharacterType() -> ClassType? {
+        guard let activeCharacterType = player?.activeCharacter.classType else { return nil }
+        return activeCharacterType
+    }
+    
+    func activeCharacterLevelString() -> String? {
+        guard let activeCharacterLevel = player?.activeCharacter.level else { return nil }
+        return String(activeCharacterLevel)
+    }
+    
+    func activeCharacterTypeString() -> String? {
+        guard let activeCharacterTypeString = player?.activeCharacter.classType.rawValue else { return nil }
+        return activeCharacterTypeString
+    }
+    
+    func activeCharacterColorIcon() -> UIImage {
+        guard let classType = player?.activeCharacter.classType, let playerImage = ClassTypeData.colorIcon(for: (classType)) else { return UIImage() }
+        return playerImage
+    }
+
+    
     func addCharacterToPlayer(character: Character) {
         guard let player = player else {
             self.player = Player(activeCharacter: character, owndedCharacters: [character])
