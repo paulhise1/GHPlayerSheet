@@ -12,8 +12,8 @@ class ScenarioViewController: UIViewController, CounterViewDelegate {
         static let verticalCounterNibName = "VerticalCounterView"
         static let horizontalCounterNibName = "HorizontalCounterView"
         static let toHubVCSegueID = "toHubVC"
-        static let checkedBox = "checkedBox"
-        static let emptyBox = "emptyBox"
+        static let checkedBox = "checkedBoxGreen"
+        static let emptyBox = "emptyBoxGreen"
     }
     
     @IBOutlet weak var scenarioTitleLabel: UILabel!
