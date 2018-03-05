@@ -27,7 +27,7 @@ struct ColorConstants {
     // Character Colors
     static let beasttyrant = UIColor(red: 0.85, green: 0.26, blue: 0.08, alpha: 1.0)
     static let berserker = UIColor(red: 1.00, green: 0.54, blue: 0.40, alpha: 1.0)
-    static let brute = UIColor(red: 0.16, green: 0.71, blue: 0.96, alpha: 1.0);
+    static let brute = UIColor(red: 0.30, green: 0.82, blue: 0.88, alpha: 1.0)
     static let cragheart = UIColor(red: 0.75, green: 0.79, blue: 0.20, alpha: 1.0)
     static let doomstalker = UIColor(red: 0.30, green: 0.82, blue: 0.88, alpha: 1.0)
     static let elementalist = UIColor(red: 0.81, green: 0.85, blue: 0.86, alpha: 1.0)
@@ -38,7 +38,7 @@ struct ColorConstants {
     static let sawbones = UIColor(red: 1.00, green: 0.99, blue: 0.91, alpha: 1.0)
     static let scoundrel = UIColor(red: 0.55, green: 0.76, blue: 0.29, alpha: 1.0)
     static let soothsinger = UIColor(red: 1.00, green: 0.54, blue: 0.50, alpha: 1.0)
-    static let spellweaver = UIColor(red: 0.48, green: 0.12, blue: 0.64, alpha: 1.0)
+    static let spellweaver = UIColor(red: 0.73, green: 0.41, blue: 0.78, alpha: 1.0)
     static let summoner = UIColor(red: 0.89, green: 0.32, blue: 0.51, alpha: 1.0)
     static let sunkeeper = UIColor(red: 1.00, green: 0.93, blue: 0.35, alpha: 1.0)
     static let tinkerer = UIColor(red: 0.88, green: 0.75, blue: 0.60, alpha: 1.0)

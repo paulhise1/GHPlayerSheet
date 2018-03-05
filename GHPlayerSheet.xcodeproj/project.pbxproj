@@ -13,6 +13,8 @@
 		1E0FFCF0200C409B001525F7 /* StatModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FFCEF200C409B001525F7 /* StatModifierView.swift */; };
 		1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0FFCF1200C40D0001525F7 /* StatModifierView.xib */; };
 		1E1103B0203104DB004DD502 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1103AF203104DA004DD502 /* Player.swift */; };
+		1E1908AB204A46A10006EAD2 /* PartyInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1908AA204A46A10006EAD2 /* PartyInviteService.swift */; };
+		1E1908AD204A67620006EAD2 /* PartyInviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1908AC204A67620006EAD2 /* PartyInviteViewModel.swift */; };
 		1E1B82E5200F0917002D6E01 /* goldbag3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1B82E4200F0917002D6E01 /* goldbag3.png */; };
 		1E1F61CE203D58E1002B7A09 /* EndScenarioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E1F61CD203D58E1002B7A09 /* EndScenarioView.xib */; };
 		1E1F61D0203D629F002B7A09 /* EndScenarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */; };
@@ -30,6 +32,9 @@
 		1E30439A202740A8008D6B07 /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E304399202740A8008D6B07 /* CharacterCreationView.swift */; };
 		1E4900012035472400DB1F9B /* ScenarioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4900002035472400DB1F9B /* ScenarioPlayer.swift */; };
 		1E49FFFF203546EE00DB1F9B /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */; };
+		1E4BB9432049449C000C6F94 /* MPCPartyInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BB9422049449C000C6F94 /* MPCPartyInviteService.swift */; };
+		1E4BB94520495EF5000C6F94 /* PartyInviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BB94420495EF5000C6F94 /* PartyInviteView.swift */; };
+		1E4BB94720495F42000C6F94 /* PartyInviteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4BB94620495F42000C6F94 /* PartyInviteView.xib */; };
 		1E590FC42021808400D3EE52 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC32021808400D3EE52 /* Scenario.swift */; };
 		1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC720218C7E00D3EE52 /* HubViewModel.swift */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
@@ -59,7 +64,6 @@
 		1E95EF2E203438ED00BB0123 /* plagueheraldColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1D203438E900BB0123 /* plagueheraldColorSymbol.png */; };
 		1E95EF30203438ED00BB0123 /* nightshroudColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF1F203438EB00BB0123 /* nightshroudColorSymbol.png */; };
 		1E95EF31203438ED00BB0123 /* tinkererColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF20203438EB00BB0123 /* tinkererColorSymbol.png */; };
-		1E95EF32203438ED00BB0123 /* BruteColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF21203438EC00BB0123 /* BruteColorSymbol.png */; };
 		1E95EF33203438ED00BB0123 /* berserkerColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF22203438EC00BB0123 /* berserkerColorSymbol.png */; };
 		1E95EF34203438ED00BB0123 /* spellweaverColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF23203438EC00BB0123 /* spellweaverColorSymbol.png */; };
 		1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF24203438ED00BB0123 /* mindthiefColorSymbol.png */; };
@@ -106,6 +110,7 @@
 		1EB34724204808B100473E8F /* levelCrownBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EB34723204808B000473E8F /* levelCrownBlack.png */; };
 		1EB34726204833E500473E8F /* levelCrownWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EB34725204833E300473E8F /* levelCrownWhite.png */; };
 		1EB347282048344C00473E8F /* levelCrownWhiteCrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EB347272048344A00473E8F /* levelCrownWhiteCrop.png */; };
+		1EB3472A20483B8C00473E8F /* bruteColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EB3472920483B8B00473E8F /* bruteColorSymbol.png */; };
 		1EB4B28A2015F52700BF0AB0 /* VerticalCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */; };
 		1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B2992016E9C100BF0AB0 /* Helpers.swift */; };
 		1EB4B2A02017381200BF0AB0 /* MPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4B29F2017381200BF0AB0 /* MPCService.swift */; };
@@ -169,6 +174,8 @@
 		1E0FFCEF200C409B001525F7 /* StatModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatModifierView.swift; sourceTree = "<group>"; };
 		1E0FFCF2200C40D0001525F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatModifierView.xib; sourceTree = "<group>"; };
 		1E1103AF203104DA004DD502 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1E1908AA204A46A10006EAD2 /* PartyInviteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInviteService.swift; sourceTree = "<group>"; };
+		1E1908AC204A67620006EAD2 /* PartyInviteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInviteViewModel.swift; sourceTree = "<group>"; };
 		1E1B82E4200F0917002D6E01 /* goldbag3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldbag3.png; sourceTree = "<group>"; };
 		1E1F61CD203D58E1002B7A09 /* EndScenarioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndScenarioView.xib; sourceTree = "<group>"; };
 		1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScenarioView.swift; sourceTree = "<group>"; };
@@ -186,6 +193,9 @@
 		1E304399202740A8008D6B07 /* CharacterCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
 		1E4900002035472400DB1F9B /* ScenarioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioPlayer.swift; sourceTree = "<group>"; };
 		1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioService.swift; sourceTree = "<group>"; };
+		1E4BB9422049449C000C6F94 /* MPCPartyInviteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCPartyInviteService.swift; sourceTree = "<group>"; };
+		1E4BB94420495EF5000C6F94 /* PartyInviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInviteView.swift; sourceTree = "<group>"; };
+		1E4BB94620495F42000C6F94 /* PartyInviteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartyInviteView.xib; sourceTree = "<group>"; };
 		1E590FC32021808400D3EE52 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		1E590FC720218C7E00D3EE52 /* HubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewModel.swift; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +225,6 @@
 		1E95EF1D203438E900BB0123 /* plagueheraldColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plagueheraldColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF1F203438EB00BB0123 /* nightshroudColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightshroudColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF20203438EB00BB0123 /* tinkererColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinkererColorSymbol.png; sourceTree = "<group>"; };
-		1E95EF21203438EC00BB0123 /* BruteColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BruteColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF22203438EC00BB0123 /* berserkerColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = berserkerColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF23203438EC00BB0123 /* spellweaverColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spellweaverColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF24203438ED00BB0123 /* mindthiefColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mindthiefColorSymbol.png; sourceTree = "<group>"; };
@@ -262,6 +271,7 @@
 		1EB34723204808B000473E8F /* levelCrownBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrownBlack.png; sourceTree = "<group>"; };
 		1EB34725204833E300473E8F /* levelCrownWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrownWhite.png; sourceTree = "<group>"; };
 		1EB347272048344A00473E8F /* levelCrownWhiteCrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelCrownWhiteCrop.png; sourceTree = "<group>"; };
+		1EB3472920483B8B00473E8F /* bruteColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bruteColorSymbol.png; sourceTree = "<group>"; };
 		1EB4B2892015F52700BF0AB0 /* VerticalCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalCounterView.xib; sourceTree = "<group>"; };
 		1EB4B2992016E9C100BF0AB0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1EB4B29F2017381200BF0AB0 /* MPCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCService.swift; sourceTree = "<group>"; };
@@ -385,6 +395,8 @@
 				1EA436672033CB6400F2B35F /* ChangeCharacterView.xib */,
 				1E1F61CD203D58E1002B7A09 /* EndScenarioView.xib */,
 				1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */,
+				1E4BB94420495EF5000C6F94 /* PartyInviteView.swift */,
+				1E4BB94620495F42000C6F94 /* PartyInviteView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,26 +415,29 @@
 				1E590FC32021808400D3EE52 /* Scenario.swift */,
 				1E1103AF203104DA004DD502 /* Player.swift */,
 				1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */,
+				1EA7CB262020314B002D1EA1 /* FirebaseService.swift */,
 				1E4900002035472400DB1F9B /* ScenarioPlayer.swift */,
+				1EB4B29F2017381200BF0AB0 /* MPCService.swift */,
+				1E4BB9422049449C000C6F94 /* MPCPartyInviteService.swift */,
+				1E1908AA204A46A10006EAD2 /* PartyInviteService.swift */,
+				1E1908AC204A67620006EAD2 /* PartyInviteViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1E0FFCEE200B6752001525F7 /* Controllers */ = {
+		1E0FFCEE200B6752001525F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */,
 				1ECF00E820072B6500C2E11D /* CharacterSheetViewController.swift */,
 				1ED519C8201B2BD60072F09A /* PerksViewController.swift */,
-				1ED519CA201B2D390072F09A /* PerkToAddViewController.swift */,
 				1E83F7192010661C000AAECD /* NotesViewController.swift */,
+				1ED519CA201B2D390072F09A /* PerkToAddViewController.swift */,
 				1E0A39C12010A02E007924D9 /* DisplayNoteViewController.swift */,
 				1E209E472019FF8400A4986A /* HubViewController.swift */,
 				1EA938D72015898600B070B4 /* ScenarioViewController.swift */,
-				1EA7CB262020314B002D1EA1 /* FirebaseService.swift */,
-				1EB4B29F2017381200BF0AB0 /* MPCService.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
@@ -483,7 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				1ECF00D02007106400C2E11D /* AppDelegate.swift */,
-				1E0FFCEE200B6752001525F7 /* Controllers */,
+				1E0FFCEE200B6752001525F7 /* ViewControllers */,
 				1E0FFCED200B6746001525F7 /* Models */,
 				1E0FFCEC200B6734001525F7 /* Views */,
 				1E0FFCEB200B6719001525F7 /* Supporting Files */,
@@ -506,73 +521,73 @@
 		1EEE72DB202D894500A78C97 /* ClassImages */ = {
 			isa = PBXGroup;
 			children = (
-				1EB3470C204803C200473E8F /* beasttyrantFull.png */,
-				1EB346FF204803BF00473E8F /* berserkerFull.png */,
-				1EB34702204803BF00473E8F /* bruteFull.png */,
-				1EB34707204803C100473E8F /* cragheartFull.png */,
-				1EB34708204803C100473E8F /* doomguardFull.png */,
-				1EB346FD204803BE00473E8F /* elementalistFull.png */,
-				1EB3470A204803C200473E8F /* mindthiefFull.png */,
-				1EB34705204803C000473E8F /* nightshroudFull.png */,
-				1EB34701204803BF00473E8F /* plagueheraldFull.png */,
-				1EB34703204803C000473E8F /* quartermasterFull.png */,
-				1EB34709204803C100473E8F /* sawbonesFull.png */,
-				1EB3470B204803C200473E8F /* scoundrelFull.png */,
-				1EB3470D204803C300473E8F /* soothsingerFull.png */,
-				1EB34704204803C000473E8F /* spellweaverFull.png */,
-				1EB346FE204803BE00473E8F /* summonerFull.png */,
-				1EB34700204803BF00473E8F /* sunkeeperFull.png */,
-				1EB34706204803C000473E8F /* tinkererFull.png */,
 				1EEE72DE202D897000A78C97 /* beasttyrant.png */,
 				1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */,
+				1EB3470C204803C200473E8F /* beasttyrantFull.png */,
 				1EEE7350202D929F00A78C97 /* beasttyrantSymbol.png */,
 				1EEE72EF202D897400A78C97 /* berserker.png */,
 				1E95EF22203438EC00BB0123 /* berserkerColorSymbol.png */,
+				1EB346FF204803BF00473E8F /* berserkerFull.png */,
 				1EEE734D202D929E00A78C97 /* berserkerSymbol.png */,
+				1EB3472920483B8B00473E8F /* bruteColorSymbol.png */,
 				1E940053202B144D00F913D3 /* brute.png */,
-				1E95EF21203438EC00BB0123 /* BruteColorSymbol.png */,
+				1EB34702204803BF00473E8F /* bruteFull.png */,
 				1EEE7343202D929A00A78C97 /* bruteSymbol.png */,
 				1E940057202B144E00F913D3 /* cragheart.png */,
 				1E95EF1B203438E800BB0123 /* cragheartColorSymbol.png */,
+				1EB34707204803C100473E8F /* cragheartFull.png */,
 				1EEE734F202D929F00A78C97 /* cragheartSymbol.png */,
+				1EB34708204803C100473E8F /* doomguardFull.png */,
 				1EEE72FF202D897800A78C97 /* doomstalker.png */,
 				1E95EF19203438E600BB0123 /* doomstalkerColorSymbol.png */,
 				1EEE7342202D929900A78C97 /* doomstalkerSymbol.png */,
 				1EEE72E6202D897200A78C97 /* elementalist.png */,
 				1E95EF1A203438E700BB0123 /* elementalistColorSymbol.png */,
+				1EB346FD204803BE00473E8F /* elementalistFull.png */,
 				1EEE734A202D929D00A78C97 /* elementalistSymbol.png */,
 				1E940056202B144E00F913D3 /* mindthief.png */,
 				1E95EF24203438ED00BB0123 /* mindthiefColorSymbol.png */,
+				1EB3470A204803C200473E8F /* mindthiefFull.png */,
 				1EEE7351202D929F00A78C97 /* mindthiefSymbol.png */,
 				1EEE72E2202D897100A78C97 /* nightshroud.png */,
 				1E95EF1F203438EB00BB0123 /* nightshroudColorSymbol.png */,
+				1EB34705204803C000473E8F /* nightshroudFull.png */,
 				1EEE7352202D92A000A78C97 /* nightshroudSymbol.png */,
 				1EEE72DD202D897000A78C97 /* plagueherald.png */,
 				1E95EF1D203438E900BB0123 /* plagueheraldColorSymbol.png */,
+				1EB34701204803BF00473E8F /* plagueheraldFull.png */,
 				1EEE7344202D929A00A78C97 /* plagueheraldSymbol.png */,
 				1E940059202B144F00F913D3 /* quartermaster.png */,
 				1EBE0163203A601B005F4F9F /* quartermasterColorSymbol.png */,
+				1EB34703204803C000473E8F /* quartermasterFull.png */,
 				1EEE734C202D929D00A78C97 /* quartermasterSymbol.png */,
 				1EEE72F9202D897600A78C97 /* sawbones.png */,
 				1E95EF1C203438E900BB0123 /* sawbonesColorSymbol.png */,
+				1EB34709204803C100473E8F /* sawbonesFull.png */,
 				1EEE7345202D929B00A78C97 /* sawbonesSymbol.png */,
 				1EEE72DF202D897100A78C97 /* scoundrel.png */,
 				1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */,
+				1EB3470B204803C200473E8F /* scoundrelFull.png */,
 				1EEE734E202D929E00A78C97 /* scoundrelSymbol.png */,
 				1EA4365F2033CA9700F2B35F /* soothsinger.png */,
 				1E95EF17203438E400BB0123 /* soothsingerColorSymbol.png */,
+				1EB3470D204803C300473E8F /* soothsingerFull.png */,
 				1EA436602033CA9800F2B35F /* soothsingerSymbol.png */,
 				1EEE72EB202D897300A78C97 /* spellweaver.png */,
 				1E95EF23203438EC00BB0123 /* spellweaverColorSymbol.png */,
+				1EB34704204803C000473E8F /* spellweaverFull.png */,
 				1EEE7348202D929C00A78C97 /* spellweaverSymbol.png */,
 				1EEE72E8202D897300A78C97 /* summoner.png */,
 				1E95EF18203438E500BB0123 /* summonerColorSymbol.png */,
+				1EB346FE204803BE00473E8F /* summonerFull.png */,
 				1EEE7346202D929B00A78C97 /* summonerSymbol.png */,
 				1EA4365D2033CA9600F2B35F /* sunkeeper.png */,
 				1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */,
+				1EB34700204803BF00473E8F /* sunkeeperFull.png */,
 				1EA4365E2033CA9700F2B35F /* sunkeeperSymbol.png */,
 				1EEE72FD202D897700A78C97 /* tinkerer.png */,
 				1E95EF20203438EB00BB0123 /* tinkererColorSymbol.png */,
+				1EB34706204803C000473E8F /* tinkererFull.png */,
 				1EEE7347202D929B00A78C97 /* tinkererSymbol.png */,
 			);
 			path = ClassImages;
@@ -708,6 +723,7 @@
 				1E95EF35203438ED00BB0123 /* mindthiefColorSymbol.png in Resources */,
 				1E8D6EE5203D33BB004FD293 /* scenarioSetup3.png in Resources */,
 				1E8D6ED7203CF5F5004FD293 /* healthSymbolShadow.png in Resources */,
+				1EB3472A20483B8C00473E8F /* bruteColorSymbol.png in Resources */,
 				1EA938DC2015A32900B070B4 /* HorizontalCounterView.xib in Resources */,
 				1EB3471E204803C300473E8F /* soothsingerFull.png in Resources */,
 				1EA436632033CA9800F2B35F /* soothsinger.png in Resources */,
@@ -722,7 +738,6 @@
 				1E95EF33203438ED00BB0123 /* berserkerColorSymbol.png in Resources */,
 				1E95EF38203438ED00BB0123 /* scoundrelColorSymbol.png in Resources */,
 				1EA436622033CA9800F2B35F /* sunkeeperSymbol.png in Resources */,
-				1E95EF32203438ED00BB0123 /* BruteColorSymbol.png in Resources */,
 				1EEE7315202D897B00A78C97 /* nightshroud.png in Resources */,
 				1EB3471B204803C300473E8F /* mindthiefFull.png in Resources */,
 				1EB34715204803C300473E8F /* spellweaverFull.png in Resources */,
@@ -742,6 +757,7 @@
 				1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
 				1ED412C820245C28004A7791 /* HTOWERT.TTF in Resources */,
+				1E4BB94720495F42000C6F94 /* PartyInviteView.xib in Resources */,
 				1EEE7356202D92A000A78C97 /* sawbonesSymbol.png in Resources */,
 				1E0FFCF3200C40D0001525F7 /* StatModifierView.xib in Resources */,
 				1E8D6ECE203ADB9D004FD293 /* healthSymbol.png in Resources */,
@@ -851,6 +867,7 @@
 				1EA938DA2015A31600B070B4 /* CounterView.swift in Sources */,
 				1E8E3834202DCD43008C2FF4 /* NumPadView.swift in Sources */,
 				1EA7CB2520202F88002D1EA1 /* ScenarioViewModel.swift in Sources */,
+				1E4BB9432049449C000C6F94 /* MPCPartyInviteService.swift in Sources */,
 				1ED519CD201B419A0072F09A /* PerkViewModel.swift in Sources */,
 				1EB4B29A2016E9C100BF0AB0 /* Helpers.swift in Sources */,
 				1E1F61D0203D629F002B7A09 /* EndScenarioView.swift in Sources */,
@@ -863,13 +880,16 @@
 				1E1103B0203104DB004DD502 /* Player.swift in Sources */,
 				1EA436662033CB5300F2B35F /* ChangeCharacterView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* Character.swift in Sources */,
+				1E1908AB204A46A10006EAD2 /* PartyInviteService.swift in Sources */,
 				1EA95A3A20188FBA0065A136 /* ColorConstants.swift in Sources */,
 				1E209E50201A1AA900A4986A /* Perk.swift in Sources */,
 				1EA938D82015898600B070B4 /* ScenarioViewController.swift in Sources */,
 				1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */,
+				1E1908AD204A67620006EAD2 /* PartyInviteViewModel.swift in Sources */,
 				1ED519C9201B2BD60072F09A /* PerksViewController.swift in Sources */,
 				1E590FC42021808400D3EE52 /* Scenario.swift in Sources */,
 				1E2CF32A201162AA002335DF /* Note.swift in Sources */,
+				1E4BB94520495EF5000C6F94 /* PartyInviteView.swift in Sources */,
 				1E4900012035472400DB1F9B /* ScenarioPlayer.swift in Sources */,
 				1E038273201AC31800C6AB12 /* CheckmarksView.swift in Sources */,
 				1E30439A202740A8008D6B07 /* CharacterCreationView.swift in Sources */,

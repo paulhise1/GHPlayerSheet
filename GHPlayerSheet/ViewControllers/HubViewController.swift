@@ -1,4 +1,5 @@
 import UIKit
+import DynamicBlurView
 
 class HubViewController: UIViewController {
     
@@ -10,6 +11,8 @@ class HubViewController: UIViewController {
         static let startScenarioText = "Start Scenario"
         static let viewBackgroundImage = "hvcbackground"
         static let characterSheetStoryboardID = "characterSheet"
+        static let invitingView = "inviting"
+        static let joiningView = "joining"
     }
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -45,13 +48,19 @@ class HubViewController: UIViewController {
     @IBOutlet weak var characterSheetContainer: UIView!
     @IBOutlet weak var showCharacterSheetConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var partyInviteContainer: UIView!
+    private var partyInviteView: PartyInviteView?
+    
     private var viewModel: HubViewModel?
+    private var partyInviteService: MPCPartyInviteService?
+    private var blurView: DynamicBlurView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = HubViewModel()
         self.viewModel?.delegate = self
         setupDisplay()
+        partyInviteService = MPCPartyInviteService()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +77,14 @@ class HubViewController: UIViewController {
         displayPlayerInfo()
         setupAddCharactersView()
         displayChangeCharacterButton()
+    }
+    
+    @IBAction func inviteToPartyButtonTapped(_ sender: Any) {
+        setupPartyInviteView(view: Constant.invitingView)
+    }
+    
+    @IBAction func joinPartyButtonTapped(_ sender: Any) {
+        setupPartyInviteView(view: Constant.joiningView)
     }
     
     @IBAction func characterSheetButtonTapped(_ sender: Any) {
@@ -229,6 +246,23 @@ class HubViewController: UIViewController {
         characterSheetContainer.addSubview(characterSheetView.view)
         characterSheetView.didMove(toParentViewController: self)
     }
+    
+    private func setupPartyInviteView(view: String) {
+        addBlurEffect()
+        self.view.bringSubview(toFront: partyInviteContainer)
+        partyInviteView = Bundle.main.loadNibNamed(String(describing: PartyInviteView.self), owner: self, options: nil)?.first as? PartyInviteView
+        guard let partyInviteView = self.partyInviteView else { return }
+        partyInviteView.frame = partyInviteContainer.bounds
+        partyInviteView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        partyInviteContainer.addSubview(partyInviteView)
+        partyInviteView.delegate = self
+        if view == Constant.invitingView {
+            guard let partyName = viewModel?.party else { return }
+            partyInviteView.configureForPartyInviting(partyName: partyName)
+        } else if view == Constant.joiningView {
+            partyInviteView.configureForJoiningParty()
+        }
+    }
 }
 
 extension HubViewController: HubViewModelDelegate {
@@ -269,6 +303,19 @@ extension HubViewController: HubViewModelDelegate {
     }
 }
 
+extension HubViewController: PartyInviteViewDelegate {
+    func joinParty(partyName: String) {
+        //viewModel?.party = partyName
+        print("joined party: \(partyName)!")
+    }
+    
+    func dismissPartyInviteView() {
+        removeBlurEffect()
+        partyInviteView?.removePartyService()
+        partyInviteView?.removeFromSuperview()
+    }
+}
+
 extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDelegate {
     func didRecieveCharacterForCreation(character: Character) {
         viewModel?.addCharacterToPlayer(character: character)
@@ -289,5 +336,31 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
     
     func didTapChangeCharacterBackButton() {
         hideChangeCharacter()
+    }
+}
+
+extension HubViewController {
+    func addBlurEffect(){
+        // Would like to animate, animation was stuttered
+        blurView = nil
+        blurView = DynamicBlurView(frame: view.bounds)
+        blurView?.isUserInteractionEnabled = true
+        blurView?.blurRadius = 2
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.dismissActiveView(sender:)))
+        if let blurView = blurView {
+            view.addSubview(blurView)
+            blurView.addGestureRecognizer(gesture)
+        }
+    }
+    
+    @objc func dismissActiveView(sender : UITapGestureRecognizer) {
+        removeBlurEffect()
+        partyInviteView?.removePartyService()
+        partyInviteView?.removeFromSuperview()
+    }
+    
+    func removeBlurEffect(){
+        blurView?.blurRadius = 0
+        blurView?.removeFromSuperview()
     }
 }

@@ -99,7 +99,7 @@ extension CharacterSheetViewController: UITextFieldDelegate {
         if let textField = textField {
             textField.frame = frame
             textField.delegate = self
-            textField.backgroundColor = UIColor(white: 0, alpha: 0.4)
+            textField.backgroundColor = UIColor(white: 0, alpha: 0.2)
             textField.returnKeyType = .done
             textField.font = FontConstants.characterSheetNameText
             textField.becomeFirstResponder()
