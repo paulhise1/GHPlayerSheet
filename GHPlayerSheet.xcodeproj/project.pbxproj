@@ -37,6 +37,9 @@
 		1E4BB94720495F42000C6F94 /* PartyInviteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4BB94620495F42000C6F94 /* PartyInviteView.xib */; };
 		1E590FC42021808400D3EE52 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC32021808400D3EE52 /* Scenario.swift */; };
 		1E590FC820218C7E00D3EE52 /* HubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E590FC720218C7E00D3EE52 /* HubViewModel.swift */; };
+		1E76DF55204CE96700929317 /* pirataPlusSign.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E76DF54204CE96600929317 /* pirataPlusSign.png */; };
+		1E76DF59204D0A0F00929317 /* pirataPlusSignWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E76DF58204D0A0E00929317 /* pirataPlusSignWhite.png */; };
+		1E76DF5B204D0AAD00929317 /* changeCharacterWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E76DF5A204D0AAC00929317 /* changeCharacterWhite.png */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D3A42202DBC830040E15B /* hvcbackground.png */; };
 		1E8D6ECE203ADB9D004FD293 /* healthSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */; };
@@ -70,6 +73,11 @@
 		1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */; };
 		1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */; };
 		1E95EF38203438ED00BB0123 /* scoundrelColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */; };
+		1E9627EF204D3E15000469AA /* cardTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9627EE204D3E14000469AA /* cardTop.png */; };
+		1E9627F1204D64F7000469AA /* bannerRail.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9627F0204D64F5000469AA /* bannerRail.png */; };
+		1E9627F3204E2525000469AA /* PartySettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9627F2204E2525000469AA /* PartySettingsView.xib */; };
+		1E9627F5204E253F000469AA /* PartySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9627F4204E253F000469AA /* PartySettingsView.swift */; };
+		1E9627F7204E46D0000469AA /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9627F6204E46D0000469AA /* Party.swift */; };
 		1EA3CA00201DFF0800005445 /* PerkSymbolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */; };
 		1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */; };
 		1EA3CA04201EE47D00005445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */; };
@@ -198,6 +206,9 @@
 		1E4BB94620495F42000C6F94 /* PartyInviteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartyInviteView.xib; sourceTree = "<group>"; };
 		1E590FC32021808400D3EE52 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		1E590FC720218C7E00D3EE52 /* HubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewModel.swift; sourceTree = "<group>"; };
+		1E76DF54204CE96600929317 /* pirataPlusSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pirataPlusSign.png; sourceTree = "<group>"; };
+		1E76DF58204D0A0E00929317 /* pirataPlusSignWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pirataPlusSignWhite.png; sourceTree = "<group>"; };
+		1E76DF5A204D0AAC00929317 /* changeCharacterWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeCharacterWhite.png; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1E8D3A42202DBC830040E15B /* hvcbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hvcbackground.png; sourceTree = "<group>"; };
 		1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthSymbol.png; sourceTree = "<group>"; };
@@ -231,6 +242,11 @@
 		1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beasttyrantColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunkeeperColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoundrelColorSymbol.png; sourceTree = "<group>"; };
+		1E9627EE204D3E14000469AA /* cardTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardTop.png; sourceTree = "<group>"; };
+		1E9627F0204D64F5000469AA /* bannerRail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerRail.png; sourceTree = "<group>"; };
+		1E9627F2204E2525000469AA /* PartySettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartySettingsView.xib; sourceTree = "<group>"; };
+		1E9627F4204E253F000469AA /* PartySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySettingsView.swift; sourceTree = "<group>"; };
+		1E9627F6204E46D0000469AA /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		1EA3C9FF201DFF0800005445 /* PerkSymbolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerkSymbolListView.swift; sourceTree = "<group>"; };
 		1EA3CA01201E109F00005445 /* PerkSymbolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerkSymbolListView.xib; sourceTree = "<group>"; };
 		1EA3CA03201EE47D00005445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -397,6 +413,8 @@
 				1E1F61CF203D629F002B7A09 /* EndScenarioView.swift */,
 				1E4BB94420495EF5000C6F94 /* PartyInviteView.swift */,
 				1E4BB94620495F42000C6F94 /* PartyInviteView.xib */,
+				1E9627F2204E2525000469AA /* PartySettingsView.xib */,
+				1E9627F4204E253F000469AA /* PartySettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -421,6 +439,7 @@
 				1E4BB9422049449C000C6F94 /* MPCPartyInviteService.swift */,
 				1E1908AA204A46A10006EAD2 /* PartyInviteService.swift */,
 				1E1908AC204A67620006EAD2 /* PartyInviteViewModel.swift */,
+				1E9627F6204E46D0000469AA /* Party.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,35 +462,40 @@
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1EB34725204833E300473E8F /* levelCrownWhite.png */,
+				1E1F61D1203D90C6002B7A09 /* canvasBackground.png */,
+				1E9627EE204D3E14000469AA /* cardTop.png */,
 				1EBE01612036E5DE005F4F9F /* changeCharacter.png */,
+				1E76DF5A204D0AAC00929317 /* changeCharacterWhite.png */,
+				1E9627F0204D64F5000469AA /* bannerRail.png */,
 				1E1F61D3203E439C002B7A09 /* checkedBox.png */,
-				1EB34723204808B000473E8F /* levelCrownBlack.png */,
-				1EB347272048344A00473E8F /* levelCrownWhiteCrop.png */,
-				1E1F61D7203E4557002B7A09 /* emptyBox.png */,
+				1EB346F72047C98E00473E8F /* checkedBoxGreen.png */,
 				1EEE72DB202D894500A78C97 /* ClassImages */,
+				1E1F61D7203E4557002B7A09 /* emptyBox.png */,
+				1EB346F82047C99000473E8F /* emptyBoxGreen.png */,
 				1ED412C0202312F7004A7791 /* exitSign.png */,
-				1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */,
 				1E8D6ED4203CF40A004FD293 /* experienceSymbol.png */,
+				1E8D6EDC203CF92D004FD293 /* experienceSymbolShadow.png */,
 				1ED412CC20246338004A7791 /* ghcard4.jpg */,
 				1E1B82E4200F0917002D6E01 /* goldbag3.png */,
 				1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */,
 				1E8D6ED6203CF5F5004FD293 /* healthSymbolShadow.png */,
 				1E8D3A42202DBC830040E15B /* hvcbackground.png */,
+				1EB34723204808B000473E8F /* levelCrownBlack.png */,
+				1EB34725204833E300473E8F /* levelCrownWhite.png */,
+				1EB347272048344A00473E8F /* levelCrownWhiteCrop.png */,
 				1E8D6ED8203CF795004FD293 /* lootSymbol.png */,
-				1E1F61D1203D90C6002B7A09 /* canvasBackground.png */,
-				1E8D6EE6203D34D9004FD293 /* scenarioSetup.png */,
-				1EB346F72047C98E00473E8F /* checkedBoxGreen.png */,
-				1EB346F82047C99000473E8F /* emptyBoxGreen.png */,
 				1E8D6EDA203CF79B004FD293 /* lootSymbolShadow.png */,
+				1EA938DD2015A71900B070B4 /* minusImage.png */,
+				1E76DF54204CE96600929317 /* pirataPlusSign.png */,
+				1E76DF58204D0A0E00929317 /* pirataPlusSignWhite.png */,
+				1EA938DF2015A71F00B070B4 /* plusImage.png */,
+				1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */,
+				1E1F61D92040EB31002B7A09 /* scenarioBackgroundImage.jpg */,
+				1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */,
+				1E8D6EE6203D34D9004FD293 /* scenarioSetup.png */,
 				1E8D6EE0203D33B9004FD293 /* scenarioSetup2.png */,
 				1E8D6EE2203D33BA004FD293 /* scenarioSetup3.png */,
 				1E8D6EE1203D33B9004FD293 /* scenarioSetup4.png */,
-				1EA938DD2015A71900B070B4 /* minusImage.png */,
-				1EA938DF2015A71F00B070B4 /* plusImage.png */,
-				1ED412D1202466B6004A7791 /* Random Scenario Cards - Back.jpg */,
-				1EBE015D2036BA5F005F4F9F /* scenarioDifficultySkull.png */,
-				1E1F61D92040EB31002B7A09 /* scenarioBackgroundImage.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -675,6 +699,7 @@
 				1EEE735F202D92A000A78C97 /* scoundrelSymbol.png in Resources */,
 				1E95EF34203438ED00BB0123 /* spellweaverColorSymbol.png in Resources */,
 				1E95EF2B203438ED00BB0123 /* elementalistColorSymbol.png in Resources */,
+				1E76DF5B204D0AAD00929317 /* changeCharacterWhite.png in Resources */,
 				1E94005E202B145000F913D3 /* cragheart.png in Resources */,
 				1E1F61DA2040EB32002B7A09 /* scenarioBackgroundImage.jpg in Resources */,
 				1EB34718204803C300473E8F /* cragheartFull.png in Resources */,
@@ -697,6 +722,7 @@
 				1E95EF28203438ED00BB0123 /* soothsingerColorSymbol.png in Resources */,
 				1EEE7354202D92A000A78C97 /* bruteSymbol.png in Resources */,
 				1E94005D202B145000F913D3 /* mindthief.png in Resources */,
+				1E9627F3204E2525000469AA /* PartySettingsView.xib in Resources */,
 				1E8E3836202DCD7B008C2FF4 /* NumPadView.xib in Resources */,
 				1E8D6EDD203CF92E004FD293 /* experienceSymbolShadow.png in Resources */,
 				1E30439820273B6C008D6B07 /* CharacterCreationView.xib in Resources */,
@@ -717,6 +743,7 @@
 				1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */,
 				1EBE01622036E5DF005F4F9F /* changeCharacter.png in Resources */,
 				1E8D6EDB203CF79B004FD293 /* lootSymbolShadow.png in Resources */,
+				1E9627F1204D64F7000469AA /* bannerRail.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1EEE735E202D92A000A78C97 /* berserkerSymbol.png in Resources */,
@@ -737,6 +764,7 @@
 				1EEE7311202D897B00A78C97 /* beasttyrant.png in Resources */,
 				1E95EF33203438ED00BB0123 /* berserkerColorSymbol.png in Resources */,
 				1E95EF38203438ED00BB0123 /* scoundrelColorSymbol.png in Resources */,
+				1E76DF59204D0A0F00929317 /* pirataPlusSignWhite.png in Resources */,
 				1EA436622033CA9800F2B35F /* sunkeeperSymbol.png in Resources */,
 				1EEE7315202D897B00A78C97 /* nightshroud.png in Resources */,
 				1EB3471B204803C300473E8F /* mindthiefFull.png in Resources */,
@@ -747,6 +775,7 @@
 				1EB34712204803C300473E8F /* plagueheraldFull.png in Resources */,
 				1E8D6ED9203CF795004FD293 /* lootSymbol.png in Resources */,
 				1EB346FA2047C99100473E8F /* emptyBoxGreen.png in Resources */,
+				1E76DF55204CE96700929317 /* pirataPlusSign.png in Resources */,
 				1ED412D2202466BA004A7791 /* Random Scenario Cards - Back.jpg in Resources */,
 				1E94005A202B145000F913D3 /* brute.png in Resources */,
 				1EA3CA02201E109F00005445 /* PerkSymbolListView.xib in Resources */,
@@ -756,6 +785,7 @@
 				1EA436642033CA9800F2B35F /* soothsingerSymbol.png in Resources */,
 				1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
+				1E9627EF204D3E15000469AA /* cardTop.png in Resources */,
 				1ED412C820245C28004A7791 /* HTOWERT.TTF in Resources */,
 				1E4BB94720495F42000C6F94 /* PartyInviteView.xib in Resources */,
 				1EEE7356202D92A000A78C97 /* sawbonesSymbol.png in Resources */,
@@ -851,7 +881,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EBE01602036C32B005F4F9F /* FontConstants.swift in Sources */,
+				1E9627F7204E46D0000469AA /* Party.swift in Sources */,
 				1ECF00D12007106400C2E11D /* AppDelegate.swift in Sources */,
+				1E9627F5204E253F000469AA /* PartySettingsView.swift in Sources */,
 				1E49FFFF203546EE00DB1F9B /* ScenarioService.swift in Sources */,
 				1EF640DA2011AC3F00696393 /* ModelDatasource.swift in Sources */,
 				1EFE3A2D2031306900F94F39 /* AddCharactersView.swift in Sources */,

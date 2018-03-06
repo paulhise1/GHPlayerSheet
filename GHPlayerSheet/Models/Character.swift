@@ -22,17 +22,19 @@ class Character: Codable, ModelProtocol {
         return ClassTypeData.level(for: self.experience)
     }
     
+    var active: Bool
     private(set) var experience: Int
     private(set) var gold: Int
     private(set) var battlemarks = 0
     private(set) var activePerks = [String]()
     
-    init(classType: ClassType, name: String, gold: Int, experience: Int = 0) {
+    init(classType: ClassType, name: String, gold: Int, experience: Int = 0, active: Bool = true) {
         self.classType = classType
         self.name = name
         self.experience = experience
         self.gold = gold
         self.creationDate = Date()
+        self.active = active
     }
     
     func updateName(name: String) {

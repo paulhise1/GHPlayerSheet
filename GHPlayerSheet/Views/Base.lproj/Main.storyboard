@@ -35,226 +35,149 @@
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Job-Nb-JWh" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="-22.666666666666657" width="812" height="420.33333333333326"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdP-uC-FfU" userLabel="Party Invite Container">
-                                <rect key="frame" x="256.33333333333331" y="75.333333333333314" width="299.99999999999994" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="uqK-6a-4n2"/>
-                                    <constraint firstAttribute="height" constant="225" id="w0t-lR-eDt"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od0-YX-dk7" userLabel="Invite To Party Button">
-                                <rect key="frame" x="25" y="304" width="100" height="50"/>
-                                <color key="backgroundColor" red="0.17257410287857056" green="0.21834245324134827" blue="0.44677489995956421" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4cF-DA-4ii"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="fXY-6z-bon"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="20"/>
-                                <state key="normal" title="Invite">
-                                    <color key="titleColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="inviteToPartyButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="W8L-7B-RaH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6X-DN-SeV" userLabel="Join Party Button">
-                                <rect key="frame" x="145" y="304" width="100" height="50"/>
-                                <color key="backgroundColor" red="0.1725741029" green="0.21834245320000001" blue="0.44677489999999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Swi-lN-XLY"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="uK1-yt-PyM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="20"/>
-                                <state key="normal" title="Join">
-                                    <color key="titleColor" red="0.66902792450000004" green="0.73128575090000003" blue="0.9488992691" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinPartyButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="kwa-RG-jus"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Party Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oK7-qX-rmC">
-                                <rect key="frame" x="25" y="10" width="179" height="58"/>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="45"/>
-                                <color key="textColor" red="0.38526773452758789" green="0.13679999113082886" blue="0.1175478994846344" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwa-TI-3oO">
-                                <rect key="frame" x="613" y="10.666666666666664" width="174" height="56.999999999999993"/>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
-                                <state key="normal" title="Start Scenario">
-                                    <color key="titleColor" red="0.1725741029" green="0.21834245320000001" blue="0.44677489999999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="scenarioButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="3mT-pr-dcg"/>
-                                    <action selector="scenarioButtonTapped:" destination="SK4-KT-8S1" eventType="touchUpInside" id="bTo-xR-c0d"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XsC-pT-RV8">
-                                <rect key="frame" x="321.66666666666669" y="75" width="169" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="XsC-pT-RV8" secondAttribute="height" multiplier="3:4" id="dcT-m5-CAK"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ru-Af-BxK" userLabel="Add Character Collection View Container">
                                 <rect key="frame" x="812" y="0.0" width="0.0" height="375"/>
                                 <color key="backgroundColor" red="0.0" green="0.42745098039215684" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGX-d8-1h3" userLabel="Show Owned Characters Button">
-                                <rect key="frame" x="54" y="139.66666666666666" width="96" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="AGX-d8-1h3" secondAttribute="height" multiplier="1:1" id="1rd-Mk-l9A"/>
-                                    <constraint firstAttribute="height" constant="96" id="Skp-CG-8XI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="200"/>
-                                <state key="normal" image="changeCharacter.png">
-                                    <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeCharacterTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="ivY-KW-rM1"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YK6-uG-x8k" userLabel="Change Character Collection View Container">
                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="375"/>
                                 <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnG-fY-oCU">
-                                <rect key="frame" x="662" y="139.66666666666666" width="96" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="Gja-Bh-pSs"/>
-                                    <constraint firstAttribute="width" secondItem="dnG-fY-oCU" secondAttribute="height" multiplier="1:1" id="a9i-Wq-Iwy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="200"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addCharacterTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="FUh-D4-4ZJ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="host label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXr-bF-68X">
-                                <rect key="frame" x="500.66666666666669" y="57.666666666666657" width="118.33333333333331" height="45"/>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
-                                <color key="textColor" red="0.1725741029" green="0.21834245320000001" blue="0.44677489999999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK1-zg-FiI">
-                                <rect key="frame" x="268" y="300" width="276" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="X7u-cg-axf"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="u2r-Zx-STz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
-                                <state key="normal" title="Character Sheet Button">
-                                    <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="characterSheetButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="Y96-hc-zMM"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euo-AL-2ZE" userLabel="Character Sheet Container">
-                                <rect key="frame" x="0.0" y="375" width="812" height="0.0"/>
-                                <color key="backgroundColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaT-NZ-qbX" userLabel="Character Sheet Tab">
-                                <rect key="frame" x="512" y="325" width="300" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZa-tx-ViR" userLabel="Character Container">
+                                <rect key="frame" x="552" y="250" width="250" height="125"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="levelCrownWhiteCrop.png" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-xn-h4O" userLabel="Character Sheet Tab Image">
-                                        <rect key="frame" x="5" y="7.6666666666666856" width="60" height="35"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardTop.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rbu-Yn-8oa" userLabel="Character Container Background Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="125"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XsC-pT-RV8">
+                                        <rect key="frame" x="92.666666666666629" y="25" width="65" height="65"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="7p8-7n-s6t"/>
-                                            <constraint firstAttribute="width" constant="60" id="CdX-f5-vu3"/>
+                                            <constraint firstAttribute="height" constant="65" id="JOz-Rd-u6k"/>
+                                            <constraint firstAttribute="width" secondItem="XsC-pT-RV8" secondAttribute="height" id="cFC-to-tGY"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpG-XK-2kL" userLabel="Level Label">
-                                        <rect key="frame" x="30.666666666666625" y="14" width="10.333333333333332" height="32.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qh-gn-hoB">
-                                        <rect key="frame" x="70" y="20" width="210" height="25"/>
-                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIx-lh-DEu">
+                                        <rect key="frame" x="13" y="80" width="225" height="45"/>
+                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="35"/>
                                         <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypJ-L1-umf" userLabel="Character Sheet Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
-                                        <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="20"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AX-Gs-9bO" userLabel="Character Sheet Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="125"/>
                                         <connections>
-                                            <action selector="characterSheetTabButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="0PF-aP-NW1"/>
+                                            <action selector="characterSheetButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="kxO-Ej-2F1"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pirataPlusSignWhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="XZ9-f6-y6o" userLabel="Add Character Image View">
+                                        <rect key="frame" x="181.66666666666663" y="35.333333333333314" width="45.333333333333343" height="45.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XZ9-f6-y6o" secondAttribute="height" id="RJq-AW-IfA"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changeCharacterWhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="av8-15-BT1" userLabel="Change Character Image View">
+                                        <rect key="frame" x="24.000000000000004" y="35" width="45.333333333333343" height="45.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="av8-15-BT1" secondAttribute="height" id="wAS-c9-kV9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnG-fY-oCU" userLabel="Show Add Characters Button">
+                                        <rect key="frame" x="157.66666666666663" y="25.333333333333314" width="92.333333333333314" height="65"/>
+                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="125"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addCharacterTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="FUh-D4-4ZJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGX-d8-1h3" userLabel="Show Owned Characters Button">
+                                        <rect key="frame" x="0.0" y="25" width="92.666666666666671" height="65"/>
+                                        <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="200"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeCharacterTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="ivY-KW-rM1"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ypJ-L1-umf" firstAttribute="width" secondItem="aaT-NZ-qbX" secondAttribute="width" id="4yQ-52-Ft9"/>
-                                    <constraint firstItem="ypJ-L1-umf" firstAttribute="height" secondItem="aaT-NZ-qbX" secondAttribute="height" id="7QP-md-moH"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Qh-gn-hoB" secondAttribute="trailing" constant="20" id="8bE-fn-CmD"/>
-                                    <constraint firstItem="2Qh-gn-hoB" firstAttribute="leading" secondItem="QYl-xn-h4O" secondAttribute="trailing" constant="5" id="8cW-qB-Tnv"/>
-                                    <constraint firstItem="cpG-XK-2kL" firstAttribute="centerX" secondItem="QYl-xn-h4O" secondAttribute="centerX" id="A0k-Ej-8zz"/>
-                                    <constraint firstAttribute="height" constant="50" id="UiV-xT-Djv"/>
-                                    <constraint firstItem="ypJ-L1-umf" firstAttribute="centerY" secondItem="aaT-NZ-qbX" secondAttribute="centerY" id="X53-11-NQx"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Qh-gn-hoB" secondAttribute="bottom" constant="5" id="ecG-OS-XCK"/>
-                                    <constraint firstItem="QYl-xn-h4O" firstAttribute="centerY" secondItem="aaT-NZ-qbX" secondAttribute="centerY" id="mg8-P9-KrA"/>
-                                    <constraint firstItem="QYl-xn-h4O" firstAttribute="leading" secondItem="aaT-NZ-qbX" secondAttribute="leading" constant="5" id="nfj-Dg-Bhk"/>
-                                    <constraint firstItem="ypJ-L1-umf" firstAttribute="centerX" secondItem="aaT-NZ-qbX" secondAttribute="centerX" id="t18-ao-RhQ"/>
-                                    <constraint firstItem="cpG-XK-2kL" firstAttribute="centerY" secondItem="QYl-xn-h4O" secondAttribute="centerY" constant="5" id="ust-6Q-a3x"/>
-                                    <constraint firstAttribute="width" constant="300" id="zuS-L5-oFa"/>
+                                    <constraint firstItem="av8-15-BT1" firstAttribute="centerX" secondItem="AGX-d8-1h3" secondAttribute="centerX" id="76q-wg-kh4"/>
+                                    <constraint firstItem="Rbu-Yn-8oa" firstAttribute="centerY" secondItem="EZa-tx-ViR" secondAttribute="centerY" id="8ZK-mA-o7j"/>
+                                    <constraint firstItem="AGX-d8-1h3" firstAttribute="height" secondItem="XsC-pT-RV8" secondAttribute="height" id="9SU-Ut-cfM"/>
+                                    <constraint firstItem="AGX-d8-1h3" firstAttribute="centerY" secondItem="XsC-pT-RV8" secondAttribute="centerY" id="ARu-nk-6gs"/>
+                                    <constraint firstItem="9AX-Gs-9bO" firstAttribute="height" secondItem="EZa-tx-ViR" secondAttribute="height" id="DZC-ds-3ts"/>
+                                    <constraint firstItem="9AX-Gs-9bO" firstAttribute="centerX" secondItem="EZa-tx-ViR" secondAttribute="centerX" id="KdO-7r-4mt"/>
+                                    <constraint firstItem="Rbu-Yn-8oa" firstAttribute="height" secondItem="EZa-tx-ViR" secondAttribute="height" id="NLb-x0-gO2"/>
+                                    <constraint firstItem="XZ9-f6-y6o" firstAttribute="centerX" secondItem="dnG-fY-oCU" secondAttribute="centerX" id="PFk-FI-Tg8"/>
+                                    <constraint firstItem="AGX-d8-1h3" firstAttribute="leading" secondItem="EZa-tx-ViR" secondAttribute="leading" id="TQW-8q-HHB"/>
+                                    <constraint firstItem="Rbu-Yn-8oa" firstAttribute="centerX" secondItem="EZa-tx-ViR" secondAttribute="centerX" id="Tfj-kT-yr4"/>
+                                    <constraint firstItem="av8-15-BT1" firstAttribute="height" secondItem="AGX-d8-1h3" secondAttribute="height" multiplier="0.7" id="V8c-6P-nCr"/>
+                                    <constraint firstItem="dnG-fY-oCU" firstAttribute="height" secondItem="XsC-pT-RV8" secondAttribute="height" id="Ysq-b2-h11"/>
+                                    <constraint firstItem="XsC-pT-RV8" firstAttribute="centerX" secondItem="EZa-tx-ViR" secondAttribute="centerX" id="ZXG-nF-R8W"/>
+                                    <constraint firstItem="Rbu-Yn-8oa" firstAttribute="width" secondItem="EZa-tx-ViR" secondAttribute="width" id="a8x-K8-yiN"/>
+                                    <constraint firstItem="dnG-fY-oCU" firstAttribute="leading" secondItem="XsC-pT-RV8" secondAttribute="trailing" id="a8z-5L-5pG"/>
+                                    <constraint firstItem="XZ9-f6-y6o" firstAttribute="height" secondItem="av8-15-BT1" secondAttribute="height" id="b39-fH-Wwa"/>
+                                    <constraint firstItem="OIx-lh-DEu" firstAttribute="width" secondItem="EZa-tx-ViR" secondAttribute="width" multiplier="0.9" id="b5f-Ec-aOJ"/>
+                                    <constraint firstAttribute="height" constant="125" id="bLq-rL-Muh"/>
+                                    <constraint firstItem="OIx-lh-DEu" firstAttribute="centerX" secondItem="EZa-tx-ViR" secondAttribute="centerX" id="bvk-gB-rYp"/>
+                                    <constraint firstItem="av8-15-BT1" firstAttribute="centerY" secondItem="AGX-d8-1h3" secondAttribute="centerY" id="chM-fV-3zV"/>
+                                    <constraint firstAttribute="width" constant="250" id="d1a-u1-Xlc"/>
+                                    <constraint firstAttribute="bottom" secondItem="OIx-lh-DEu" secondAttribute="bottom" id="iPH-1s-LqO"/>
+                                    <constraint firstItem="dnG-fY-oCU" firstAttribute="centerY" secondItem="XsC-pT-RV8" secondAttribute="centerY" id="mrG-KE-Ysh"/>
+                                    <constraint firstAttribute="trailing" secondItem="dnG-fY-oCU" secondAttribute="trailing" id="po3-6g-BGw"/>
+                                    <constraint firstItem="XsC-pT-RV8" firstAttribute="top" secondItem="EZa-tx-ViR" secondAttribute="top" constant="25" id="ql9-1o-Ci4"/>
+                                    <constraint firstItem="XsC-pT-RV8" firstAttribute="leading" secondItem="AGX-d8-1h3" secondAttribute="trailing" id="r1L-xj-pHt"/>
+                                    <constraint firstItem="9AX-Gs-9bO" firstAttribute="centerY" secondItem="EZa-tx-ViR" secondAttribute="centerY" id="sir-aw-jv7"/>
+                                    <constraint firstItem="XZ9-f6-y6o" firstAttribute="centerY" secondItem="dnG-fY-oCU" secondAttribute="centerY" id="tEa-1O-oED"/>
+                                    <constraint firstItem="9AX-Gs-9bO" firstAttribute="width" secondItem="EZa-tx-ViR" secondAttribute="width" id="v37-1E-Jh5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFP-yq-puB">
+                                <rect key="frame" x="64" y="20" width="284" height="70"/>
+                                <color key="backgroundColor" red="0.38526773452758789" green="0.13679999113082886" blue="0.1175478994846344" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PirataOne-Regular" family="Pirata One" pointSize="45"/>
+                                <state key="normal" title="Party Name Button">
+                                    <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="partyNameButtonTapped:" destination="Eu9-Fu-iu7" eventType="touchUpInside" id="Qh7-VQ-6Dx"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpU-DR-Wzv" userLabel="Party Settings Container">
+                                <rect key="frame" x="106" y="90" width="200" height="0.0"/>
+                                <color key="backgroundColor" red="0.38526773452758789" green="0.13679999113082886" blue="0.1175478994846344" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="LAv-gw-9j0"/>
+                                    <constraint firstAttribute="height" priority="999" id="QNd-B4-YLg"/>
+                                    <constraint firstAttribute="height" priority="475" constant="200" id="nhG-OW-ae8"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="p6X-DN-SeV" firstAttribute="leading" secondItem="Od0-YX-dk7" secondAttribute="trailing" constant="20" id="1q9-BY-ZOl"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p6X-DN-SeV" secondAttribute="trailing" constant="20" symbolic="YES" id="4j6-fO-IhI"/>
-                            <constraint firstItem="6SU-sA-Zgb" firstAttribute="trailing" secondItem="dnG-fY-oCU" secondAttribute="trailing" priority="500" constant="10" id="4lp-Uo-FwT"/>
                             <constraint firstItem="YK6-uG-x8k" firstAttribute="trailing" secondItem="6SU-sA-Zgb" secondAttribute="leading" priority="250" constant="500" id="7AO-P5-gGO"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="7fA-Vj-Ict"/>
-                            <constraint firstAttribute="leading" secondItem="euo-AL-2ZE" secondAttribute="leading" id="7oT-vj-hMf"/>
-                            <constraint firstAttribute="trailing" secondItem="Xwa-TI-3oO" secondAttribute="trailing" constant="25" id="8v3-MO-rOV"/>
-                            <constraint firstItem="Xwa-TI-3oO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UCt-9I-Pfa" secondAttribute="leading" constant="20" symbolic="YES" id="AWb-lY-tb1"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Od0-YX-dk7" secondAttribute="trailing" constant="20" symbolic="YES" id="Bfa-AA-eDl"/>
-                            <constraint firstItem="AGX-d8-1h3" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="DHJ-Br-LJK"/>
                             <constraint firstItem="6SU-sA-Zgb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YK6-uG-x8k" secondAttribute="trailing" constant="50" id="DJ1-Zl-S9V"/>
                             <constraint firstItem="8ru-Af-BxK" firstAttribute="leading" secondItem="UCt-9I-Pfa" secondAttribute="leading" priority="250" constant="50" id="E19-z5-HDp"/>
-                            <constraint firstItem="AGX-d8-1h3" firstAttribute="leading" secondItem="6SU-sA-Zgb" secondAttribute="leading" priority="750" constant="10" id="Efl-9X-pxf"/>
-                            <constraint firstItem="Od0-YX-dk7" firstAttribute="bottom" secondItem="6SU-sA-Zgb" secondAttribute="bottom" id="G98-zV-lqO"/>
-                            <constraint firstItem="6SU-sA-Zgb" firstAttribute="leading" secondItem="Od0-YX-dk7" secondAttribute="leading" constant="19" id="GnN-F1-VB0"/>
                             <constraint firstAttribute="trailing" secondItem="8ru-Af-BxK" secondAttribute="trailing" id="Lhv-8N-4zr"/>
-                            <constraint firstItem="euo-AL-2ZE" firstAttribute="top" secondItem="aaT-NZ-qbX" secondAttribute="bottom" id="MkA-ck-E9m"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="centerX" secondItem="UCt-9I-Pfa" secondAttribute="centerX" id="MrP-9k-oYF"/>
-                            <constraint firstItem="p6X-DN-SeV" firstAttribute="centerY" secondItem="Od0-YX-dk7" secondAttribute="centerY" id="Nog-YT-H1u"/>
-                            <constraint firstItem="Xwa-TI-3oO" firstAttribute="centerY" secondItem="oK7-qX-rmC" secondAttribute="centerY" id="OSf-El-4Ov"/>
                             <constraint firstItem="YK6-uG-x8k" firstAttribute="leading" secondItem="UCt-9I-Pfa" secondAttribute="leading" id="Odg-pT-vMD"/>
                             <constraint firstItem="8ru-Af-BxK" firstAttribute="leading" secondItem="UCt-9I-Pfa" secondAttribute="trailing" priority="759" id="OjH-Lh-smD"/>
                             <constraint firstItem="YK6-uG-x8k" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" id="PMH-Af-cM2"/>
-                            <constraint firstItem="XsC-pT-RV8" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" multiplier="0.6" id="RkH-Yt-GGS"/>
-                            <constraint firstItem="Xwa-TI-3oO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oK7-qX-rmC" secondAttribute="trailing" constant="8" symbolic="YES" id="Ua0-g1-aAZ"/>
-                            <constraint firstItem="tdP-uC-FfU" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="Z0u-ml-ilO"/>
-                            <constraint firstItem="aaT-NZ-qbX" firstAttribute="trailing" secondItem="UCt-9I-Pfa" secondAttribute="trailing" id="Zj2-Ps-c4f"/>
-                            <constraint firstItem="hK1-zg-FiI" firstAttribute="top" secondItem="XsC-pT-RV8" secondAttribute="bottom" id="aFx-rT-S5I"/>
+                            <constraint firstItem="JpU-DR-Wzv" firstAttribute="top" secondItem="MFP-yq-puB" secondAttribute="bottom" id="VzD-L0-SZx"/>
+                            <constraint firstItem="MFP-yq-puB" firstAttribute="top" secondItem="6SU-sA-Zgb" secondAttribute="top" constant="20" id="ZPh-3M-Gqr"/>
+                            <constraint firstAttribute="trailing" secondItem="EZa-tx-ViR" secondAttribute="trailing" constant="10" id="ZjX-LB-uR7"/>
+                            <constraint firstItem="MFP-yq-puB" firstAttribute="leading" secondItem="UCt-9I-Pfa" secondAttribute="leading" constant="64" id="ciz-Ml-bcV"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="width" secondItem="UCt-9I-Pfa" secondAttribute="width" id="dR9-PT-I8D"/>
-                            <constraint firstItem="euo-AL-2ZE" firstAttribute="top" secondItem="UCt-9I-Pfa" secondAttribute="bottom" priority="499" id="ffC-vK-QDN"/>
-                            <constraint firstAttribute="trailing" secondItem="AGX-d8-1h3" secondAttribute="leading" priority="250" id="inU-xv-wlE"/>
-                            <constraint firstItem="XsC-pT-RV8" firstAttribute="centerX" secondItem="UCt-9I-Pfa" secondAttribute="centerX" id="ksh-zL-r1u"/>
                             <constraint firstItem="Job-Nb-JWh" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" constant="45" id="lJC-yj-eDe"/>
                             <constraint firstItem="YK6-uG-x8k" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="mYA-5Z-q9o"/>
-                            <constraint firstItem="euo-AL-2ZE" firstAttribute="top" secondItem="oK7-qX-rmC" secondAttribute="bottom" priority="250" id="nAV-AS-4Rb"/>
-                            <constraint firstItem="bXr-bF-68X" firstAttribute="leading" secondItem="XsC-pT-RV8" secondAttribute="trailing" constant="10" id="nBU-MV-wVz"/>
-                            <constraint firstItem="oK7-qX-rmC" firstAttribute="top" secondItem="6SU-sA-Zgb" secondAttribute="top" constant="10" id="p6Y-hg-i94"/>
-                            <constraint firstAttribute="leading" secondItem="dnG-fY-oCU" secondAttribute="trailing" priority="250" id="qHo-dt-BIk"/>
+                            <constraint firstAttribute="bottom" secondItem="EZa-tx-ViR" secondAttribute="bottom" id="qw3-iY-kPh"/>
                             <constraint firstItem="YK6-uG-x8k" firstAttribute="trailing" secondItem="UCt-9I-Pfa" secondAttribute="leading" priority="750" id="r2q-uj-W5I"/>
-                            <constraint firstItem="6SU-sA-Zgb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bXr-bF-68X" secondAttribute="trailing" constant="20" id="t0u-Wh-6wb"/>
-                            <constraint firstItem="XsC-pT-RV8" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="t2q-4e-17X"/>
+                            <constraint firstItem="JpU-DR-Wzv" firstAttribute="centerX" secondItem="MFP-yq-puB" secondAttribute="centerX" id="rZJ-l7-drA"/>
                             <constraint firstItem="8ru-Af-BxK" firstAttribute="height" secondItem="UCt-9I-Pfa" secondAttribute="height" id="u0c-pM-JHp"/>
-                            <constraint firstItem="oK7-qX-rmC" firstAttribute="leading" secondItem="UCt-9I-Pfa" secondAttribute="leading" constant="25" id="vmI-8r-0Yt"/>
-                            <constraint firstItem="dnG-fY-oCU" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="wFq-v3-qdD"/>
                             <constraint firstItem="8ru-Af-BxK" firstAttribute="centerY" secondItem="UCt-9I-Pfa" secondAttribute="centerY" id="x5d-kF-Qtp"/>
-                            <constraint firstItem="euo-AL-2ZE" firstAttribute="bottom" secondItem="UCt-9I-Pfa" secondAttribute="bottom" id="xLp-W1-NqB"/>
-                            <constraint firstItem="tdP-uC-FfU" firstAttribute="centerX" secondItem="UCt-9I-Pfa" secondAttribute="centerX" id="xQW-nV-dC0"/>
-                            <constraint firstItem="euo-AL-2ZE" firstAttribute="trailing" secondItem="UCt-9I-Pfa" secondAttribute="trailing" id="y2F-Y1-drj"/>
-                            <constraint firstItem="hK1-zg-FiI" firstAttribute="centerX" secondItem="XsC-pT-RV8" secondAttribute="centerX" id="zMv-bX-lzK"/>
-                            <constraint firstItem="bXr-bF-68X" firstAttribute="top" secondItem="Xwa-TI-3oO" secondAttribute="bottom" constant="-10" id="zf3-Us-fkK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6SU-sA-Zgb"/>
                     </view>
@@ -263,32 +186,23 @@
                     <connections>
                         <outlet property="addCharacterCollectionViewContainer" destination="8ru-Af-BxK" id="owA-eu-ItS"/>
                         <outlet property="backgroundImage" destination="Job-Nb-JWh" id="kF8-bR-gJj"/>
-                        <outlet property="changeCharacterButton" destination="AGX-d8-1h3" id="VVl-pI-Kep"/>
+                        <outlet property="changeCharacterButton" destination="AGX-d8-1h3" id="A9B-gR-a3U"/>
                         <outlet property="changeCharacterCollectionViewContainer" destination="YK6-uG-x8k" id="Njl-to-Nxt"/>
-                        <outlet property="characterImageView" destination="XsC-pT-RV8" id="WCj-M5-heT"/>
-                        <outlet property="characterSheetButton" destination="hK1-zg-FiI" id="mLI-LC-Wht"/>
-                        <outlet property="characterSheetContainer" destination="euo-AL-2ZE" id="ibE-AN-XpE"/>
-                        <outlet property="characterSheetTabContainer" destination="aaT-NZ-qbX" id="HBT-nW-LnO"/>
-                        <outlet property="characterSheetTabImage" destination="QYl-xn-h4O" id="SZY-f2-Zwu"/>
-                        <outlet property="characterSheetTabLabel" destination="2Qh-gn-hoB" id="zLI-Ce-TKa"/>
-                        <outlet property="characterSheetTabLevelLabel" destination="cpG-XK-2kL" id="Gj1-ft-dKJ"/>
-                        <outlet property="hideAddCharacterButtonConstraint" destination="qHo-dt-BIk" id="WQx-JA-2Kz"/>
-                        <outlet property="hideChangeCharacterButtonConstraint" destination="inU-xv-wlE" id="C9l-bq-z0S"/>
-                        <outlet property="hostedByLabel" destination="bXr-bF-68X" id="qBJ-Rm-QJu"/>
-                        <outlet property="partyInviteContainer" destination="tdP-uC-FfU" id="BdU-ui-LY6"/>
-                        <outlet property="partyNameLabel" destination="oK7-qX-rmC" id="ZsY-PW-rOC"/>
-                        <outlet property="scenarioButton" destination="Xwa-TI-3oO" id="Qz2-Ra-Zfb"/>
+                        <outlet property="characterContainer" destination="EZa-tx-ViR" id="gYw-oN-WTs"/>
+                        <outlet property="characterImageView" destination="XsC-pT-RV8" id="kOf-uc-QJU"/>
+                        <outlet property="characterInfoLabel" destination="OIx-lh-DEu" id="Bbh-8x-aiz"/>
+                        <outlet property="hidePartyStatHeightConstraint" destination="QNd-B4-YLg" id="75q-bY-YgZ"/>
+                        <outlet property="partyNameButton" destination="MFP-yq-puB" id="Nns-DY-nmW"/>
+                        <outlet property="partySettingsContainer" destination="JpU-DR-Wzv" id="J96-OC-8u0"/>
                         <outlet property="showAddCharacterConstraint" destination="E19-z5-HDp" id="wAR-58-Ry6"/>
                         <outlet property="showChangeCharacterConstraint" destination="7AO-P5-gGO" id="TU0-4g-K22"/>
-                        <outlet property="showCharacterSheetConstraint" destination="nAV-AS-4Rb" id="UBl-QS-l3e"/>
                         <segue destination="hTe-zj-HmH" kind="show" identifier="toScenarioLobby" id="epE-r8-CQZ"/>
                         <segue destination="SLd-gy-nxU" kind="show" identifier="toScenarioVC" id="eTZ-7x-4PG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EwR-sn-6F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="SK4-KT-8S1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-651.72413793103453" y="-412"/>
+            <point key="canvasLocation" x="-1184.4827586206898" y="173.59999999999999"/>
         </scene>
         <!--Scenario Lobby View Controller-->
         <scene sceneID="XCk-qw-Vmk">
@@ -492,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TtH-vc-MzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="-411"/>
+            <point key="canvasLocation" x="132" y="39"/>
         </scene>
         <!--Character Sheet View Controller-->
         <scene sceneID="fmv-nT-R8k">
@@ -675,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA7-KQ-hes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="330"/>
+            <point key="canvasLocation" x="-1184" y="1015"/>
         </scene>
         <!--Scenario View Controller-->
         <scene sceneID="b69-fe-RVv">
@@ -686,7 +600,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vy3-9S-XEB" userLabel="End Scenario Container View">
-                                <rect key="frame" x="156" y="37.666666666666657" width="500" height="300"/>
+                                <rect key="frame" x="155.66666666666663" y="37.666666666666657" width="500" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="TyI-hU-5C3"/>
                                     <constraint firstAttribute="width" constant="500" id="tW8-R8-OZ2"/>
@@ -1194,7 +1108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfA-5C-xXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663.41829085457277" y="-676"/>
+            <point key="canvasLocation" x="990" y="39"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="ZMb-GL-KvT">
@@ -1280,7 +1194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6t-co-Lhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-826" y="-1214"/>
+            <point key="canvasLocation" x="-1954" y="-1142"/>
         </scene>
         <!--Display Note View Controller-->
         <scene sceneID="UfJ-bM-9ua">
@@ -1314,7 +1228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfZ-QA-Nik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-579" y="-1214"/>
+            <point key="canvasLocation" x="-1668" y="-1142"/>
         </scene>
         <!--Perks-->
         <scene sceneID="YUZ-1n-75S">
@@ -1435,7 +1349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvs-PU-GEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1382" y="-400"/>
+            <point key="canvasLocation" x="-1954" y="-526"/>
         </scene>
         <!--Add Perk-->
         <scene sceneID="6SO-OZ-EFx">
@@ -1566,7 +1480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCh-pf-Q2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1115" y="-400"/>
+            <point key="canvasLocation" x="-1668" y="-526"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uUr-eq-rdV">
@@ -1588,7 +1502,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uA6-sh-3RI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1066" y="-1214"/>
+            <point key="canvasLocation" x="-2243" y="-1142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2TE-Ch-vvA">
@@ -1609,7 +1523,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6g-wU-4sP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1642" y="-400"/>
+            <point key="canvasLocation" x="-2243" y="-526"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GAp-DC-6YW">
@@ -1627,17 +1541,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmK-Q7-hew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1248" y="5"/>
+            <point key="canvasLocation" x="-1858" y="174"/>
         </scene>
     </scenes>
     <resources>
-        <image name="changeCharacter.png" width="128" height="128"/>
+        <image name="cardTop.png" width="359" height="229"/>
+        <image name="changeCharacterWhite.png" width="128" height="128"/>
         <image name="emptyBoxGreen.png" width="469" height="469"/>
         <image name="exitSign.png" width="1307" height="480"/>
         <image name="experienceSymbol.png" width="146" height="144"/>
         <image name="healthSymbol.png" width="106" height="160"/>
-        <image name="levelCrownWhiteCrop.png" width="500" height="301"/>
         <image name="lootSymbol.png" width="243" height="225"/>
+        <image name="pirataPlusSignWhite.png" width="232" height="232"/>
         <image name="scenarioDifficultySkull.png" width="278" height="209"/>
     </resources>
     <inferredMetricsTieBreakers>

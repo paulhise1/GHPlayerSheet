@@ -25,23 +25,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFG-q3-pFX" userLabel="Message Container">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="225"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RIM-9c-WZJ">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="225"/>
-                            <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Share Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVx-If-3hW" userLabel="PartyShareMessage">
                             <rect key="frame" x="0.0" y="10" width="300" height="135"/>
                             <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="25"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCa-14-CSY" userLabel="Button Container">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCa-14-CSY" userLabel="Invitation Answer Button Container">
                             <rect key="frame" x="0.0" y="155" width="300" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX8-Yo-JSp">
                                     <rect key="frame" x="170" y="0.0" width="120" height="50"/>
                                     <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
                                     <state key="normal" title="Accept">
                                         <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
@@ -52,7 +48,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zId-cd-ZYc">
                                     <rect key="frame" x="10" y="0.0" width="120" height="50"/>
                                     <color key="backgroundColor" red="0.98624199628829956" green="0.7796865701675415" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="30"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
                                     <state key="normal" title="Decline">
                                         <color key="titleColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
@@ -73,18 +69,55 @@
                                 <constraint firstItem="nX8-Yo-JSp" firstAttribute="width" secondItem="zId-cd-ZYc" secondAttribute="width" id="zmc-Rk-mBp"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFp-WQ-C7F" userLabel="Party Share Button Container">
+                            <rect key="frame" x="0.0" y="155" width="300" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4X-2o-QNu">
+                                    <rect key="frame" x="10" y="0.0" width="120" height="50"/>
+                                    <color key="backgroundColor" red="0.15410047769546509" green="0.41306763887405396" blue="0.69063264131546021" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                                    <state key="normal" title="Share">
+                                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sharePartyButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="RXu-46-vZ6"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeO-LE-feZ">
+                                    <rect key="frame" x="170" y="0.0" width="120" height="50"/>
+                                    <color key="backgroundColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                                    <state key="normal" title="Join">
+                                        <color key="titleColor" red="0.27836513519287109" green="0.18530510365962982" blue="0.59323644638061523" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="joinPartyButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="q1u-GD-L0W"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="QeO-LE-feZ" firstAttribute="centerY" secondItem="NFp-WQ-C7F" secondAttribute="centerY" id="29C-Sg-B10"/>
+                                <constraint firstItem="QeO-LE-feZ" firstAttribute="width" secondItem="j4X-2o-QNu" secondAttribute="width" id="8mR-6k-WeW"/>
+                                <constraint firstItem="j4X-2o-QNu" firstAttribute="centerY" secondItem="NFp-WQ-C7F" secondAttribute="centerY" id="M2r-kL-ghR"/>
+                                <constraint firstItem="QeO-LE-feZ" firstAttribute="height" secondItem="j4X-2o-QNu" secondAttribute="height" id="qOy-TJ-1Vu"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="cVx-If-3hW" firstAttribute="width" secondItem="uFG-q3-pFX" secondAttribute="width" id="2Bm-0h-fFF"/>
+                        <constraint firstItem="QeO-LE-feZ" firstAttribute="centerX" secondItem="nX8-Yo-JSp" secondAttribute="centerX" id="4bv-IB-sbP"/>
                         <constraint firstItem="GCa-14-CSY" firstAttribute="centerX" secondItem="uFG-q3-pFX" secondAttribute="centerX" id="7Fq-S8-8gq"/>
+                        <constraint firstItem="NFp-WQ-C7F" firstAttribute="centerX" secondItem="GCa-14-CSY" secondAttribute="centerX" id="FtK-Ui-aRv"/>
                         <constraint firstItem="GCa-14-CSY" firstAttribute="top" secondItem="cVx-If-3hW" secondAttribute="bottom" constant="10" id="ILa-Vv-oyU"/>
+                        <constraint firstItem="NFp-WQ-C7F" firstAttribute="height" secondItem="GCa-14-CSY" secondAttribute="height" id="NTx-Ws-YW6"/>
+                        <constraint firstItem="j4X-2o-QNu" firstAttribute="height" secondItem="zId-cd-ZYc" secondAttribute="height" id="NxF-zf-gA9"/>
+                        <constraint firstItem="NFp-WQ-C7F" firstAttribute="width" secondItem="GCa-14-CSY" secondAttribute="width" id="R5D-z6-aMO"/>
                         <constraint firstItem="cVx-If-3hW" firstAttribute="centerX" secondItem="uFG-q3-pFX" secondAttribute="centerX" id="Rnc-6B-dUH"/>
-                        <constraint firstItem="RIM-9c-WZJ" firstAttribute="height" secondItem="uFG-q3-pFX" secondAttribute="height" id="Uke-pf-UOy"/>
-                        <constraint firstItem="RIM-9c-WZJ" firstAttribute="centerY" secondItem="uFG-q3-pFX" secondAttribute="centerY" id="bJC-4a-xbx"/>
+                        <constraint firstItem="NFp-WQ-C7F" firstAttribute="centerY" secondItem="GCa-14-CSY" secondAttribute="centerY" id="WgV-YF-rYj"/>
                         <constraint firstAttribute="bottom" secondItem="GCa-14-CSY" secondAttribute="bottom" constant="20" id="bj7-rt-FoC"/>
                         <constraint firstItem="cVx-If-3hW" firstAttribute="top" secondItem="uFG-q3-pFX" secondAttribute="top" constant="10" id="c27-2V-kmL"/>
-                        <constraint firstItem="RIM-9c-WZJ" firstAttribute="centerX" secondItem="uFG-q3-pFX" secondAttribute="centerX" id="dtO-3b-c9s"/>
-                        <constraint firstItem="RIM-9c-WZJ" firstAttribute="width" secondItem="uFG-q3-pFX" secondAttribute="width" id="jaF-hC-UdW"/>
+                        <constraint firstItem="j4X-2o-QNu" firstAttribute="width" secondItem="zId-cd-ZYc" secondAttribute="width" id="kYV-UB-3cB"/>
+                        <constraint firstItem="j4X-2o-QNu" firstAttribute="centerX" secondItem="zId-cd-ZYc" secondAttribute="centerX" id="mp1-0f-4Ik"/>
                     </constraints>
                 </view>
             </subviews>
@@ -98,9 +131,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="buttonContainer" destination="GCa-14-CSY" id="C58-tY-BrJ"/>
+                <outlet property="InvitationAnswerButtonContainer" destination="GCa-14-CSY" id="N89-xg-qK1"/>
                 <outlet property="messageViewContainer" destination="uFG-q3-pFX" id="ls4-3W-RaA"/>
                 <outlet property="partyInviteMessage" destination="cVx-If-3hW" id="twk-Pq-MO0"/>
+                <outlet property="partyShareButtonContainer" destination="NFp-WQ-C7F" id="YFy-My-rtj"/>
+                <outlet property="shareButton" destination="j4X-2o-QNu" id="5sk-4g-5Nn"/>
             </connections>
             <point key="canvasLocation" x="-139" y="29.5"/>
         </view>

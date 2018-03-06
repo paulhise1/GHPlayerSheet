@@ -5,55 +5,46 @@ class HubViewController: UIViewController {
     
     struct Constant {
         static let segueToCharacterSheetID = "toCharacterSheetVC"
-        static let segueToScenarioLobbyID = "toScenarioLobby"
-        static let segueToScenarioID = "toScenarioVC"
         static let characterCellID = "CharacterCollectionViewCell"
-        static let startScenarioText = "Start Scenario"
         static let viewBackgroundImage = "hvcbackground"
-        static let characterSheetStoryboardID = "characterSheet"
         static let invitingView = "inviting"
         static let joiningView = "joining"
+        static let noPartyTitle = "Create or Join Party"
+        static let partyNamePlaceholder = "Enter Party Name"
     }
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    @IBOutlet weak var partyNameLabel: UILabel!
+    @IBOutlet weak var partyNameButton: UIButton!
+    @IBOutlet weak var hidePartyStatHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var scenarioButton: UIButton!
-    @IBOutlet weak var hostedByLabel: UILabel!
+    @IBOutlet weak var characterImageView: UIImageView! 
     
-    @IBOutlet weak var characterImageView: UIImageView! {
+    @IBOutlet weak var characterContainer: UIView! {
         didSet {
-            characterImageView.layer.cornerRadius = 8
-            characterImageView.layer.masksToBounds = true
+            characterContainer.layer.cornerRadius = 4
+            characterContainer.layer.masksToBounds = true
         }
     }
-    
     @IBOutlet weak var addCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showAddCharacterConstraint: NSLayoutConstraint!
-    @IBOutlet weak var hideAddCharacterButtonConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var changeCharacterButton: UIButton!
+    
     @IBOutlet weak var changeCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showChangeCharacterConstraint: NSLayoutConstraint!
-    @IBOutlet weak var hideChangeCharacterButtonConstraint: NSLayoutConstraint!
     private var changeCharacterView: ChangeCharacterView?
     
     private var characterSheetView: CharacterSheetViewController?
-    @IBOutlet weak var characterSheetButton: UIButton!
-    @IBOutlet weak var characterSheetTabContainer: UIView!
-    @IBOutlet weak var characterSheetTabLabel: UILabel!
-    @IBOutlet weak var characterSheetTabImage: UIImageView!
-    @IBOutlet weak var characterSheetTabLevelLabel: UILabel!
-    @IBOutlet weak var characterSheetContainer: UIView!
-    @IBOutlet weak var showCharacterSheetConstraint: NSLayoutConstraint!
+    @IBOutlet weak var characterInfoLabel: UILabel!
     
-    @IBOutlet weak var partyInviteContainer: UIView!
-    private var partyInviteView: PartyInviteView?
+    @IBOutlet weak var partySettingsContainer: UIView!
+    private var partySettingsView: PartySettingsView?
     
     private var viewModel: HubViewModel?
     private var partyInviteService: MPCPartyInviteService?
     private var blurView: DynamicBlurView?
+    private var textField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,58 +53,40 @@ class HubViewController: UIViewController {
         setupDisplay()
         partyInviteService = MPCPartyInviteService()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel?.setScenarioStatusListener()
-        viewModel?.writePlayerToDatasourceToSaveActiveCharacter()
-    }
-    
+
     private func setupDisplay() {
         self.navigationController?.isNavigationBarHidden = true
         backgroundImage.image = UIImage(named: Constant.viewBackgroundImage)
-        scenarioButton.isHidden = true
-        hostedByLabel.isHidden = true
-        characterSheetTabContainer.isHidden = true
         displayPlayerInfo()
         setupAddCharactersView()
         displayChangeCharacterButton()
     }
     
-    @IBAction func inviteToPartyButtonTapped(_ sender: Any) {
-        setupPartyInviteView(view: Constant.invitingView)
-    }
-    
-    @IBAction func joinPartyButtonTapped(_ sender: Any) {
-        setupPartyInviteView(view: Constant.joiningView)
-    }
-    
-    @IBAction func characterSheetButtonTapped(_ sender: Any) {
-        setupCharacterSheetView()
-        characterSheetTabLabel.text = viewModel?.activeCharacterTypeString()
-        characterSheetTabLevelLabel.text = viewModel?.activeCharacterLevelString()
-        guard let characterType = viewModel?.activeCharacterType() else { return }
-        let characterColor = ClassTypeData.characterColor(charClass: characterType)
-        characterSheetTabLabel.textColor = characterColor
-        characterSheetTabLevelLabel.textColor = characterColor
-        showCharacterSheetConstraint.priority = UILayoutPriority(rawValue: 700)
-        characterSheetTabContainer.isHidden = false
-    }
-    
-    @IBAction func characterSheetTabButtonTapped(_ sender: Any) {
-        showCharacterSheetConstraint.priority = UILayoutPriority(rawValue: 200)
-        characterSheetView?.view.removeFromSuperview()
-        characterSheetTabContainer.isHidden = true
-    }
-    
-    @IBAction func scenarioButtonTapped(_ sender: Any) {
-        if scenarioButton.titleLabel?.text == Constant.startScenarioText {
-            viewModel?.startScenarioCreation()
-            scenarioButton.setTitle("", for: .normal)
-            performSegue(withIdentifier: Constant.segueToScenarioLobbyID, sender: self)
+    @IBAction func partyNameButtonTapped(_ sender: Any) {
+        if hidePartyStatHeightConstraint.priority.rawValue == 200 {
+            hidePartySettings()
         } else {
-            scenarioButton.setTitle("", for: .normal)
-            performSegue(withIdentifier: Constant.segueToScenarioID, sender: self)
+            showPartySettings()
         }
+    }
+
+    private func showPartySettings() {
+        setupPartySettingsView()
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.hidePartyStatHeightConstraint.priority = UILayoutPriority(rawValue: 200)
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    private func hidePartySettings() {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.hidePartyStatHeightConstraint.priority = UILayoutPriority(rawValue: 999)
+            self.view.layoutIfNeeded()
+        })
+        partySettingsView?.endPartyServiceConnections()
+        partySettingsView?.removeFromSuperview()
     }
     
     @IBAction func addCharacterTapped(_ sender: Any) {
@@ -124,43 +97,36 @@ class HubViewController: UIViewController {
         showChangeCharacter()
     }
     
-    // MARK: Helpers
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let character = viewModel?.player?.activeCharacter, let party = viewModel?.party, let service = viewModel?.service else { return }
-        if segue.identifier == Constant.segueToScenarioLobbyID {
-            let destinationVC = segue.destination as! ScenarioLobbyViewController
-            destinationVC.configure(character: character, party: party, service: service)
-        }
-        if segue.identifier == Constant.segueToScenarioID {
-            let destinationVC = segue.destination as! ScenarioViewController
-            guard let scenario = viewModel?.scenario else { return }
-            destinationVC.configure(party: party, character: character, scenario: scenario, hosting: false, service: service)
-        }
+    @IBAction func characterSheetButtonTapped(_ sender: Any) {
+        
     }
     
+    // MARK: Helpers
     private func displayPlayerInfo() {
-        guard (viewModel?.player) != nil
-            else {
-            partyNameLabel.text = viewModel?.party
-            characterSheetButton.isHidden = true
-            characterImageView.isHidden = true
-            scenarioButton.isHidden = true
-            return }
-        partyNameLabel.text = viewModel?.party
-        characterImageView.isHidden = false
-        characterImageView.image = viewModel?.activeCharacterImage()
-        scenarioButton.isHidden = false
-        characterSheetButton.isHidden = false
+        setPartyNameButtonLabel()
         guard let player = viewModel?.player else { return }
-        characterSheetButton.setTitle("\(player.activeCharacter.name): \(String(player.activeCharacter.level))", for: .normal)
+        guard let name = player.activeCharacter()?.name, let level = player.activeCharacter()?.level, let classType = player.activeCharacter()?.classType else { return }
+        characterImageView.isHidden = false
+        characterImageView.image = viewModel?.activeCharacterColorIcon()
+        characterInfoLabel.text = "\(name): \(String(level))"
+        characterInfoLabel.textColor = ClassTypeData.characterColor(charClass: classType)
+
     }
 
+    private func setPartyNameButtonLabel() {
+        guard let viewModel = self.viewModel else { return }
+        guard viewModel.activeParty.name != "Default" else {
+            partyNameButton.setTitle("  \(Constant.noPartyTitle)  ", for: .normal)
+            return }
+        partyNameButton.setTitle("  \(viewModel.activeParty.name)  ", for: .normal)
+    }
+    
     private func showAddCharacter() {
+        addBlurEffect()
         view.bringSubview(toFront: addCharacterCollectionViewContainer)
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.showAddCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.hideAddCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
             self.view.layoutIfNeeded()
         })
     }
@@ -168,20 +134,20 @@ class HubViewController: UIViewController {
     private func hideAddCharacter() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-            self.showAddCharacterConstraint.priority = UILayoutPriority.defaultLow
-            self.hideAddCharacterButtonConstraint.priority = UILayoutPriority.defaultLow
+            self.showAddCharacterConstraint.priority = UILayoutPriority(rawValue: 300)
             self.view.layoutIfNeeded()
         })
+        removeBlurEffect()
     }
     
     private func showChangeCharacter() {
+        addBlurEffect()
         view.bringSubview(toFront: changeCharacterCollectionViewContainer)
         setupChangeCharacterView()
         showChangeCharacterConstraint.constant = lengthOfChangeCharacterView()
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.showChangeCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority(rawValue: 999)
             self.view.layoutIfNeeded()
         })
     }
@@ -190,9 +156,9 @@ class HubViewController: UIViewController {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.showChangeCharacterConstraint.priority = UILayoutPriority.defaultLow
-            self.hideChangeCharacterButtonConstraint.priority = UILayoutPriority.defaultLow
             self.view.layoutIfNeeded()
         })
+        removeBlurEffect()
         changeCharacterView?.removeFromSuperview()
     }
     
@@ -211,9 +177,10 @@ class HubViewController: UIViewController {
     private func lengthOfChangeCharacterView() -> CGFloat {
         let maxWidth = view.frame.size.width * 0.9
         let ccViewWidth = changeCharacterView?.itemsWidth ?? 0.0
-        let padding: CGFloat = 10.0
+        let padding: CGFloat = 45.0
         return min(maxWidth, ccViewWidth) + padding
     }
+
     
     //MARK: - setup view methods
     private func setupAddCharactersView() {
@@ -227,7 +194,7 @@ class HubViewController: UIViewController {
     
     private func setupChangeCharacterView() {
         changeCharacterView = Bundle.main.loadNibNamed(String(describing: ChangeCharacterView.self), owner: self, options: nil)?.first as? ChangeCharacterView
-        guard let changeCharacterView = changeCharacterView, let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter else { return }
+        guard let changeCharacterView = changeCharacterView, let ownedCharacters = viewModel?.ownedCharacters(), let active = viewModel?.player?.activeCharacter() else { return }
         changeCharacterCollectionViewContainer.addSubview(changeCharacterView)
         changeCharacterView.frame = changeCharacterCollectionViewContainer.bounds
         changeCharacterView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -235,85 +202,34 @@ class HubViewController: UIViewController {
         changeCharacterView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
     }
     
-    private func setupCharacterSheetView() {
-        characterSheetView = storyboard?.instantiateViewController(withIdentifier: Constant.characterSheetStoryboardID) as? CharacterSheetViewController
-        guard let characterSheetView = characterSheetView else { return }
-        guard let activeCharacter = viewModel?.player?.activeCharacter else { return }
-        characterSheetView.configure(character: activeCharacter)
-        addChildViewController(characterSheetView)
-        characterSheetView.view.frame = characterSheetContainer.bounds
-        characterSheetView.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        characterSheetContainer.addSubview(characterSheetView.view)
-        characterSheetView.didMove(toParentViewController: self)
-    }
-    
-    private func setupPartyInviteView(view: String) {
-        addBlurEffect()
-        self.view.bringSubview(toFront: partyInviteContainer)
-        partyInviteView = Bundle.main.loadNibNamed(String(describing: PartyInviteView.self), owner: self, options: nil)?.first as? PartyInviteView
-        guard let partyInviteView = self.partyInviteView else { return }
-        partyInviteView.frame = partyInviteContainer.bounds
-        partyInviteView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        partyInviteContainer.addSubview(partyInviteView)
-        partyInviteView.delegate = self
-        if view == Constant.invitingView {
-            guard let partyName = viewModel?.party else { return }
-            partyInviteView.configureForPartyInviting(partyName: partyName)
-        } else if view == Constant.joiningView {
-            partyInviteView.configureForJoiningParty()
-        }
+    func setupPartySettingsView() {
+        partySettingsView = Bundle.main.loadNibNamed(String(describing: PartySettingsView.self), owner: self, options: nil)?.first as? PartySettingsView
+        guard let partySettingsView = partySettingsView else { return }
+        partySettingsView.frame = partySettingsContainer.bounds
+        partySettingsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        partySettingsContainer.addSubview(partySettingsView)
+        partySettingsView.configure(partyName: viewModel?.activeParty.name)
+        partySettingsView.delegate = self
     }
 }
 
 extension HubViewController: HubViewModelDelegate {
-    func didCreateScenario(_ scenario: Scenario) {
-        scenarioButton.setTitle("", for: .normal)
-        scenarioButton.setTitle("Join \(scenario.name)", for: .normal)
-        scenarioButton.isEnabled = true
-        hostedByLabel.isHidden = true
-        if viewModel?.player?.activeCharacter != nil {
-            scenarioButton.isHidden = false
-        }
-    }
-    
-    func willCreateScenario(creator: String) {
-        hostedByLabel.isHidden = false
-        scenarioButton.setTitle("", for: .normal)
-        scenarioButton.setTitle("Scenario being prepared ", for: .normal)
-        hostedByLabel.text = "by: \(creator)"
-        scenarioButton.isEnabled = false
-        if viewModel?.player?.activeCharacter != nil {
-            scenarioButton.isHidden = false
-        }
-    }
-    
-    func didCancelScenarioCreation() {
-        scenarioCreationEnabled()
-    }
-    
-    func noCurrentScenario() {
-        scenarioCreationEnabled()
-    }
-    
-    private func scenarioCreationEnabled() {
-        scenarioButton.isHidden = false
-        scenarioButton.setTitle(Constant.startScenarioText, for: .normal)
-        scenarioButton.isEnabled = true
-        hostedByLabel.isHidden = true
+    func didSetActiveParty(activeParty: Party) {
+        guard let viewModel = viewModel else { return }
+        partyNameButton.setTitle("  \(viewModel.activeParty.name)  ", for: .normal)
     }
 }
 
-extension HubViewController: PartyInviteViewDelegate {
-    func joinParty(partyName: String) {
-        //viewModel?.party = partyName
-        print("joined party: \(partyName)!")
+extension HubViewController: PartySettingsViewDelegate {
+    func didTapCreateParty() {
+        addBlurEffect()
+        partyCreationTextfield()
     }
     
-    func dismissPartyInviteView() {
-        removeBlurEffect()
-        partyInviteView?.removePartyService()
-        partyInviteView?.removeFromSuperview()
+    func didJoinParty(partyName: String) {
+        viewModel?.createParty(partyName: partyName)
     }
+    
 }
 
 extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDelegate {
@@ -339,6 +255,42 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
     }
 }
 
+extension HubViewController: UITextFieldDelegate {
+    func partyCreationTextfield() {
+        self.textField = UITextField()
+        let width: CGFloat = 200.0
+        let frame = CGRect(x: view.frame.size.width/2-width/2, y: 100, width: width, height: 40)
+        guard let textField = self.textField else { return }
+        textField.frame = frame
+        textField.delegate = self
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.2)
+        textField.returnKeyType = .done
+        textField.font = FontConstants.characterSheetNameText
+        textField.placeholder = Constant.partyNamePlaceholder
+        textField.becomeFirstResponder()
+        view.addSubview(textField)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        removeBlurEffect()
+        guard let textFieldText = textField.text else { return true }
+        createPartyWithName(textFieldText)
+        textField.removeFromSuperview()
+        removeBlurEffect()
+        textField.endEditing(true)
+        return true
+    }
+    
+    func createPartyWithName(_ name: String) {
+        guard name != "" else { return }
+        viewModel?.createParty(partyName: name)
+    }
+}
+
 extension HubViewController {
     func addBlurEffect(){
         // Would like to animate, animation was stuttered
@@ -354,9 +306,10 @@ extension HubViewController {
     }
     
     @objc func dismissActiveView(sender : UITapGestureRecognizer) {
+        hideChangeCharacter()
+        hideAddCharacter()
+        textField?.removeFromSuperview()
         removeBlurEffect()
-        partyInviteView?.removePartyService()
-        partyInviteView?.removeFromSuperview()
     }
     
     func removeBlurEffect(){

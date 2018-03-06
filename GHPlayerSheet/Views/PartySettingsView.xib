@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HTOWERT.TTF">
+            <string>HighTowerText-Reg</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PartySettingsView" customModule="GHPlayerSheet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="368"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hr-Mt-URK" userLabel="Party Invite Container">
+                    <rect key="frame" x="-1" y="-1" width="345.5" height="368.5"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mFS-ob-KjM" userLabel="Settings Buttons Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="368"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QZn-1i-p2L">
+                            <rect key="frame" x="0.0" y="0.0" width="172.5" height="368"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vy-E5-l9R">
+                                    <rect key="frame" x="0.0" y="0.0" width="172.5" height="184"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                                    <state key="normal" title="Create">
+                                        <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="createPartyButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="67E-KE-pEa"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbb-Wj-raw">
+                                    <rect key="frame" x="0.0" y="184" width="172.5" height="184"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                                    <state key="normal" title="Remove">
+                                        <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-BN-s6J">
+                            <rect key="frame" x="172.5" y="0.0" width="172.5" height="368"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RQ-Xp-dsK">
+                                    <rect key="frame" x="0.0" y="0.0" width="172.5" height="184"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                                    <state key="normal" title="Change">
+                                        <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-Pf-RGN">
+                                    <rect key="frame" x="0.0" y="184" width="172.5" height="184"/>
+                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                                    <state key="normal" title="Share">
+                                        <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="shareButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="QOD-t6-7fI"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="9Hr-Mt-URK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3cG-D7-Ce5"/>
+                <constraint firstItem="9Hr-Mt-URK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C7p-VF-brs"/>
+                <constraint firstItem="mFS-ob-KjM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DXZ-lh-Zhw"/>
+                <constraint firstItem="mFS-ob-KjM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HC8-1b-GB6"/>
+                <constraint firstItem="9Hr-Mt-URK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="OPP-zI-Pu3"/>
+                <constraint firstItem="9Hr-Mt-URK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="TjJ-6a-VRa"/>
+                <constraint firstItem="mFS-ob-KjM" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="sSz-1t-T4r"/>
+                <constraint firstItem="mFS-ob-KjM" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="vTk-7x-uWG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="partyInviteContainer" destination="9Hr-Mt-URK" id="XfG-6P-tH3"/>
+                <outlet property="settingsButtonsStack" destination="mFS-ob-KjM" id="v8n-I2-5bd"/>
+            </connections>
+            <point key="canvasLocation" x="20.5" y="-96"/>
+        </view>
+    </objects>
+</document>

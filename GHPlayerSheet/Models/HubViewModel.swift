@@ -1,12 +1,8 @@
-import Foundation
 import UIKit
 import FirebaseDatabase
 
 protocol HubViewModelDelegate: class {
-    func willCreateScenario(creator: String)
-    func didCreateScenario(_ scenario: Scenario)
-    func didCancelScenarioCreation()
-    func noCurrentScenario()
+    func didSetActiveParty(activeParty: Party)
 }
 
 class HubViewModel {
@@ -15,77 +11,67 @@ class HubViewModel {
         static let pathComponent = "Player.plist"
     }
     weak var delegate: HubViewModelDelegate?
-    let party: String
+    private(set) var activeParty = Party(name: "Default", active: true)
     private let playerDatasource: ModelDatasource<Player>?
     private(set) var player: Player?
-    private(set) var service: ScenarioService
-    private(set) var scenario: Scenario?
-    private var difficulty: String?
 
     init() {
-        //stubb
-        party = "The Bridge Burners"
-        
         let url = URL.libraryFilePathWith(finalPathComponent: Constant.pathComponent)
         self.playerDatasource = ModelDatasource(with: url)
-        self.service = FirebaseService(party: party)
         loadPlayer()
     }
     
-    func setScenarioStatusListener() {
-        service.delegate = self
+    func createParty(partyName: String) {
+        guard let player = player else { return }
+        let party = Party(name: partyName, active: true)
+        player.addPartyToParties(party: party)
+        playerDatasource?.update(model: player)
+        delegate?.didSetActiveParty(activeParty: party)
     }
     
-    func startScenarioCreation() {
-        guard let player = player?.activeCharacter.name else { return }
-        service.startScenarioCreation(party: party, playerName: player)
-    }
-    
-    func activeCharacterImage() -> UIImage {
-        guard let classType = player?.activeCharacter.classType, let playerImage = UIImage(named: ClassTypeData.characterImage(charClass: (classType))) else { return UIImage() }
+    func activeCharacterSymbol() -> UIImage {
+        guard let classType = player?.activeCharacter()?.classType, let playerImage = ClassTypeData.colorIcon(for: (classType)) else { return UIImage() }
         return playerImage
     }
     
     func activeCharacterType() -> ClassType? {
-        guard let activeCharacterType = player?.activeCharacter.classType else { return nil }
+        guard let activeCharacterType = player?.activeCharacter()?.classType else { return nil }
         return activeCharacterType
     }
     
     func activeCharacterLevelString() -> String? {
-        guard let activeCharacterLevel = player?.activeCharacter.level else { return nil }
+        guard let activeCharacterLevel = player?.activeCharacter()?.level else { return nil }
         return String(activeCharacterLevel)
     }
     
     func activeCharacterTypeString() -> String? {
-        guard let activeCharacterTypeString = player?.activeCharacter.classType.rawValue else { return nil }
+        guard let activeCharacterTypeString = player?.activeCharacter()?.classType.rawValue else { return nil }
         return activeCharacterTypeString
     }
     
     func activeCharacterColorIcon() -> UIImage {
-        guard let classType = player?.activeCharacter.classType, let playerImage = ClassTypeData.colorIcon(for: (classType)) else { return UIImage() }
+        guard let classType = player?.activeCharacter()?.classType, let playerImage = ClassTypeData.colorIcon(for: (classType)) else { return UIImage() }
         return playerImage
     }
 
     
     func addCharacterToPlayer(character: Character) {
         guard let player = player else {
-            self.player = Player(activeCharacter: character, owndedCharacters: [character])
-            playerDatasource?.update(model: self.player!)
             return
         }
-        player.ownedCharacters?.append(character)
-        player.activeCharacter = character
+        player.addCharacterToCharacters(character: character)
+        player.changeCharacterToActive(character: character)
         playerDatasource?.update(model: player)
     }
     
     func setActiveCharacter(character: Character){
         guard let player = player else { return }
-        player.activeCharacter = character
+        player.changeCharacterToActive(character: character)
         playerDatasource?.update(model: player)
     }
     
     func ownedCharacters() -> [Character] {
-        guard let player = player, let owned = player.ownedCharacters else { return [Character]() }
+        guard let player = player, let owned = player.characters() else { return [Character]() }
         return owned
     }
     
@@ -98,29 +84,10 @@ class HubViewModel {
         guard let playerCheck = playerDatasource?.count() else { return }
         if playerCheck > 0 {
             self.player = playerDatasource?.modelAt(index: 0)
+            guard let activeParty = self.player?.activeParty() else { return }
+            self.activeParty = activeParty
+        } else if playerCheck == 0 {
+            self.player = Player()
         }
-    }
-}
-
-extension HubViewModel: ScenarioServiceDelegate {
-    func willCreateScenario(hostName: String) {
-        delegate?.willCreateScenario(creator: hostName)
-    }
-        
-    func didCreateScenario(_ scenario: Scenario) {
-        self.scenario = scenario
-        delegate?.didCreateScenario(scenario)
-    }
-    
-    func didCancelScenarioCreation() {
-        delegate?.didCancelScenarioCreation()
-    }
-    
-    func activeScenarioNotLocated() {
-        delegate?.noCurrentScenario()
-    }
-    
-    func shouldListenForStatusChanges() -> Bool {
-        return true
     }
 }

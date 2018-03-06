@@ -43,7 +43,6 @@ class CharacterCreationView: UIView {
         classSymbolImageView.image = UIImage(named: ClassTypeData.icon(for: classType))
         nameTextField.isHidden = true
         characterInfoLabel.isHidden = true
-        acceptButton.isEnabled = false
         levelLabel.isHidden = true
         characterCreationLabel1.text = Constant.experienceLabel1
         characterCreationLabel2.text = Constant.experienceLabel2
@@ -130,10 +129,7 @@ extension CharacterCreationView: NumPadViewDelegate, UITextFieldDelegate {
     }
     
     func notShowingValidEntry() {
-        acceptButton.isEnabled = false
     }
-    
     func showingValidEntry() {
-        acceptButton.isEnabled = true
     }
 }
