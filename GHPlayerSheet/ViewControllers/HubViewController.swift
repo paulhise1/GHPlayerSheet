@@ -11,6 +11,7 @@ class HubViewController: UIViewController {
         static let joiningView = "joining"
         static let noPartyTitle = "Create or Join Party"
         static let partyNamePlaceholder = "Enter Party Name"
+        static let createCharacter = "Create A Character"
     }
     
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -29,7 +30,7 @@ class HubViewController: UIViewController {
     @IBOutlet weak var addCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showAddCharacterConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var changeCharacterButton: UIButton!
+    @IBOutlet weak var changeCharacterButtonContainer: UIView!
     
     @IBOutlet weak var changeCharacterCollectionViewContainer: UIView!
     @IBOutlet weak var showChangeCharacterConstraint: NSLayoutConstraint!
@@ -105,7 +106,9 @@ class HubViewController: UIViewController {
     private func displayPlayerInfo() {
         setPartyNameButtonLabel()
         guard let player = viewModel?.player else { return }
-        guard let name = player.activeCharacter()?.name else { return }
+        guard let name = player.activeCharacter()?.name else {
+            characterInfoLabel.text = Constant.createCharacter
+            return }
         guard let level = player.activeCharacter()?.level else { return }
         guard let classType = player.activeCharacter()?.classType else { return }
         characterImageView.isHidden = false
@@ -168,13 +171,13 @@ class HubViewController: UIViewController {
     
     func displayChangeCharacterButton() {
         guard let ownedCharacters = viewModel?.ownedCharacters() else {
-            self.changeCharacterButton.isHidden = true
+            self.changeCharacterButtonContainer.isHidden = true
             return
         }
         if ownedCharacters.count >= 2 {
-            self.changeCharacterButton.isHidden = false
+            self.changeCharacterButtonContainer.isHidden = false
         } else {
-            self.changeCharacterButton.isHidden = true
+            self.changeCharacterButtonContainer.isHidden = true
         }
     }
     
