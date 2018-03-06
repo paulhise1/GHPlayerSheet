@@ -16,7 +16,6 @@ class MPCPartyInviteService: NSObject {
     
     private let myPeerId: MCPeerID
     private let session: MCSession
-    private var partyName: String?
     private var serviceAdvertiser: MCNearbyServiceAdvertiser?
     private var serviceBrowser: MCNearbyServiceBrowser?
     
@@ -32,9 +31,8 @@ class MPCPartyInviteService: NSObject {
         self.serviceBrowser?.stopBrowsingForPeers()
     }
     
-    private func advertiseToBrowsers() {
+    private func advertiseToBrowsers(partyName: String) {
         print("peer advertising To Browsers")
-        guard let partyName = self.partyName else { return }
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: [Constant.advertiseDiscoveryInfo: partyName], serviceType: partyShareServiceType)
         self.serviceAdvertiser?.delegate = self
         self.serviceAdvertiser?.startAdvertisingPeer()
@@ -50,8 +48,7 @@ class MPCPartyInviteService: NSObject {
 
 extension MPCPartyInviteService: PartyInviteService {
     func advertisePartyName(partyName: String) {
-        self.partyName = partyName
-        advertiseToBrowsers()
+        advertiseToBrowsers(partyName: partyName)
     }
     
     func browseForPartyInvite() {
@@ -69,12 +66,10 @@ extension MPCPartyInviteService: PartyInviteService {
 
 extension MPCPartyInviteService: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-//        print("peer \(peerID) didChangeState: \(state.rawValue)")
+        print("peer \(peerID) didChangeState: \(state.rawValue)")
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        guard let receivedData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String:(String, String)] else { return }
-        //print("received data from peer: \(receivedData)")
     }
 }
 

@@ -11,7 +11,6 @@ class HubViewModel {
         static let pathComponent = "Player.plist"
     }
     weak var delegate: HubViewModelDelegate?
-    private(set) var activeParty = Party(name: "Default", active: true)
     private let playerDatasource: ModelDatasource<Player>?
     private(set) var player: Player?
 
@@ -23,10 +22,15 @@ class HubViewModel {
     
     func createParty(partyName: String) {
         guard let player = player else { return }
-        let party = Party(name: partyName, active: true)
-        player.addPartyToParties(party: party)
+        player.createPartyWithName(partyName)
         playerDatasource?.update(model: player)
+        guard let party = player.activeParty() else { return }
         delegate?.didSetActiveParty(activeParty: party)
+    }
+    
+    func activeParty() -> Party? {
+        guard let party = player?.activeParty() else { return nil }
+        return party
     }
     
     func activeCharacterSymbol() -> UIImage {
@@ -56,12 +60,9 @@ class HubViewModel {
 
     
     func addCharacterToPlayer(character: Character) {
-        guard let player = player else {
-            return
-        }
+        guard let player = player else { return }
         player.addCharacterToCharacters(character: character)
-        player.changeCharacterToActive(character: character)
-        playerDatasource?.update(model: player)
+        setActiveCharacter(character: character)
     }
     
     func setActiveCharacter(character: Character){
@@ -84,8 +85,6 @@ class HubViewModel {
         guard let playerCheck = playerDatasource?.count() else { return }
         if playerCheck > 0 {
             self.player = playerDatasource?.modelAt(index: 0)
-            guard let activeParty = self.player?.activeParty() else { return }
-            self.activeParty = activeParty
         } else if playerCheck == 0 {
             self.player = Player()
         }

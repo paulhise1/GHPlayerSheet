@@ -19,6 +19,10 @@ class PartySettingsView: UIView {
         self.partyName = partyName
     }
     
+    func updatePartyName(partyName: String) {
+        self.partyName = partyName
+    }
+    
     @IBAction func shareButtonTapped(_ sender: Any) {
         setupPartyInviteView()
     }

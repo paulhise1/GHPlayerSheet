@@ -105,7 +105,9 @@ class HubViewController: UIViewController {
     private func displayPlayerInfo() {
         setPartyNameButtonLabel()
         guard let player = viewModel?.player else { return }
-        guard let name = player.activeCharacter()?.name, let level = player.activeCharacter()?.level, let classType = player.activeCharacter()?.classType else { return }
+        guard let name = player.activeCharacter()?.name else { return }
+        guard let level = player.activeCharacter()?.level else { return }
+        guard let classType = player.activeCharacter()?.classType else { return }
         characterImageView.isHidden = false
         characterImageView.image = viewModel?.activeCharacterColorIcon()
         characterInfoLabel.text = "\(name): \(String(level))"
@@ -114,18 +116,20 @@ class HubViewController: UIViewController {
     }
 
     private func setPartyNameButtonLabel() {
-        guard let viewModel = self.viewModel else { return }
-        guard viewModel.activeParty.name != "Default" else {
+        guard let party = viewModel?.activeParty() else {
             partyNameButton.setTitle("  \(Constant.noPartyTitle)  ", for: .normal)
             return }
-        partyNameButton.setTitle("  \(viewModel.activeParty.name)  ", for: .normal)
+        guard party.name != "Default" else {
+            partyNameButton.setTitle("  \(Constant.noPartyTitle)  ", for: .normal)
+            return }
+        partyNameButton.setTitle("  \(party.name)  ", for: .normal)
     }
     
     private func showAddCharacter() {
-        addBlurEffect()
-        view.bringSubview(toFront: addCharacterCollectionViewContainer)
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.addBlurEffect()
+            self.view.bringSubview(toFront: self.addCharacterCollectionViewContainer)
             self.showAddCharacterConstraint.priority = UILayoutPriority(rawValue: 999)
             self.view.layoutIfNeeded()
         })
@@ -208,15 +212,15 @@ class HubViewController: UIViewController {
         partySettingsView.frame = partySettingsContainer.bounds
         partySettingsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         partySettingsContainer.addSubview(partySettingsView)
-        partySettingsView.configure(partyName: viewModel?.activeParty.name)
+        partySettingsView.configure(partyName: viewModel?.activeParty()?.name)
         partySettingsView.delegate = self
     }
 }
 
 extension HubViewController: HubViewModelDelegate {
     func didSetActiveParty(activeParty: Party) {
-        guard let viewModel = viewModel else { return }
-        partyNameButton.setTitle("  \(viewModel.activeParty.name)  ", for: .normal)
+        guard let viewModel = viewModel, let name = viewModel.activeParty()?.name else { return }
+        partyNameButton.setTitle("  \(name)  ", for: .normal)
     }
 }
 
@@ -271,10 +275,6 @@ extension HubViewController: UITextFieldDelegate {
         view.addSubview(textField)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         removeBlurEffect()
         guard let textFieldText = textField.text else { return true }
@@ -288,6 +288,7 @@ extension HubViewController: UITextFieldDelegate {
     func createPartyWithName(_ name: String) {
         guard name != "" else { return }
         viewModel?.createParty(partyName: name)
+        partySettingsView?.updatePartyName(partyName: name)
     }
 }
 

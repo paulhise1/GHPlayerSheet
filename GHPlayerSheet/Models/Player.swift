@@ -3,7 +3,7 @@ import Foundation
 class Player: Codable, ModelProtocol {
     
     private var parties = [Party]()
-    private var ownedCharacters: [Character]?
+    private var ownedCharacters = [Character]()
     var identifier: Date
     
     init(identifier: Date = Date()) {
@@ -12,11 +12,11 @@ class Player: Codable, ModelProtocol {
     
     // MARK: Character Methods
     func addCharacterToCharacters(character: Character) {
-        ownedCharacters?.append(character)
+        ownedCharacters.append(character)
     }
     
     func removeCharacterFromCharacters(character: Character) {
-        ownedCharacters = ownedCharacters?.filter{ $0 != character}
+        ownedCharacters = ownedCharacters.filter{ $0 != character}
     }
     
     func characters() -> [Character]? {
@@ -24,8 +24,8 @@ class Player: Codable, ModelProtocol {
     }
     
     func activeCharacter() -> Character? {
-        guard let characters = self.ownedCharacters else { return nil }
-        for character in characters {
+        guard ownedCharacters.count > 0 else { return nil }
+        for character in ownedCharacters {
             if character.active {
                 return character
             }
@@ -35,8 +35,7 @@ class Player: Codable, ModelProtocol {
     
     func changeCharacterToActive(character: Character) {
         removeCharacterFromCharacters(character: character)
-        guard let characters = self.ownedCharacters else { return }
-        for character in characters {
+        for character in ownedCharacters {
             if character.active {
                 character.active = false
             }
@@ -46,15 +45,6 @@ class Player: Codable, ModelProtocol {
     }
     
     // MARK: Party Methods
-    func addPartyToParties(party: Party) {
-        parties.append(party)
-        parties = parties.filter{ $0.name != "Default" }
-    }
-
-    func removePartyFromParties(party: Party) {
-        parties = parties.filter{ $0.name != party.name }
-    }
-
     func activeParty() -> Party? {
         for party in parties {
             if party.active {
@@ -62,7 +52,16 @@ class Player: Codable, ModelProtocol {
             }
         }
         return nil
-        
+    }
+    
+    func createPartyWithName(_ partyName: String) {
+        let party = Party(name: partyName, active: true)
+        addPartyToParties(party: party)
+        changePartyToActive(party)
+    }
+    
+    func deleteParty(party: Party) {
+        removePartyFromParties(party: party)
     }
     
     func changePartyToActive(_ partyToActivate: Party) {
@@ -74,5 +73,14 @@ class Player: Codable, ModelProtocol {
         }
         partyToActivate.active = true
         addPartyToParties(party: partyToActivate)
+    }
+    
+    private func addPartyToParties(party: Party) {
+        parties.append(party)
+        parties = parties.filter{ $0.name != "Default" }
+    }
+    
+    private func removePartyFromParties(party: Party) {
+        parties = parties.filter{ $0.name != party.name }
     }
 }
