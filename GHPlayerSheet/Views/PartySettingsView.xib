@@ -24,11 +24,26 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hr-Mt-URK" userLabel="Party Invite Container">
                     <rect key="frame" x="-1" y="-1" width="345.5" height="368.5"/>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mFS-ob-KjM" userLabel="Settings Buttons Stack View">
-                    <rect key="frame" x="0.0" y="0.0" width="345" height="368"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pz-EZ-lKf" userLabel="Parties List Container">
+                    <rect key="frame" x="-0.5" y="0.0" width="345" height="368"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QZn-1i-p2L">
-                            <rect key="frame" x="0.0" y="0.0" width="172.5" height="368"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xJl-wq-f7p">
+                            <rect key="frame" x="0.0" y="10" width="345" height="358"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="xJl-wq-f7p" firstAttribute="centerX" secondItem="5pz-EZ-lKf" secondAttribute="centerX" id="0OY-CQ-5r1"/>
+                        <constraint firstItem="xJl-wq-f7p" firstAttribute="width" secondItem="5pz-EZ-lKf" secondAttribute="width" id="2bj-fz-tMd"/>
+                        <constraint firstItem="xJl-wq-f7p" firstAttribute="top" secondItem="5pz-EZ-lKf" secondAttribute="top" constant="10" id="bRl-nc-Hvl"/>
+                        <constraint firstAttribute="bottom" secondItem="xJl-wq-f7p" secondAttribute="bottom" id="sL0-kC-LPs"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-6Y-5Yt">
+                    <rect key="frame" x="-0.5" y="0.0" width="345" height="368"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mFS-ob-KjM" userLabel="Settings Buttons Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="184"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vy-E5-l9R">
                                     <rect key="frame" x="0.0" y="0.0" width="172.5" height="184"/>
@@ -40,57 +55,55 @@
                                         <action selector="createPartyButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="67E-KE-pEa"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbb-Wj-raw">
-                                    <rect key="frame" x="0.0" y="184" width="172.5" height="184"/>
-                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                    <state key="normal" title="Remove">
-                                        <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-BN-s6J">
-                            <rect key="frame" x="172.5" y="0.0" width="172.5" height="368"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RQ-Xp-dsK">
-                                    <rect key="frame" x="0.0" y="0.0" width="172.5" height="184"/>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RQ-Xp-dsK">
+                                    <rect key="frame" x="172.5" y="0.0" width="172.5" height="184"/>
                                     <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
                                     <state key="normal" title="Change">
                                         <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-Pf-RGN">
-                                    <rect key="frame" x="0.0" y="184" width="172.5" height="184"/>
-                                    <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
-                                    <state key="normal" title="Share">
-                                        <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
                                     <connections>
-                                        <action selector="shareButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="QOD-t6-7fI"/>
+                                        <action selector="changePartyButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="vLV-W5-8MX"/>
                                     </connections>
                                 </button>
                             </subviews>
                         </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-Pf-RGN" userLabel="Share or Join Party">
+                            <rect key="frame" x="0.0" y="184" width="345" height="184"/>
+                            <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="22"/>
+                            <state key="normal" title="Share or Join Party">
+                                <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="shareButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="QOD-t6-7fI"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </stackView>
             </subviews>
             <constraints>
+                <constraint firstItem="5pz-EZ-lKf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="19H-oG-qd4"/>
                 <constraint firstItem="9Hr-Mt-URK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3cG-D7-Ce5"/>
+                <constraint firstItem="5pz-EZ-lKf" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Bqh-Sh-cy6"/>
                 <constraint firstItem="9Hr-Mt-URK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C7p-VF-brs"/>
-                <constraint firstItem="mFS-ob-KjM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DXZ-lh-Zhw"/>
-                <constraint firstItem="mFS-ob-KjM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HC8-1b-GB6"/>
+                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M2y-HI-HAt"/>
                 <constraint firstItem="9Hr-Mt-URK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="OPP-zI-Pu3"/>
                 <constraint firstItem="9Hr-Mt-URK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="TjJ-6a-VRa"/>
-                <constraint firstItem="mFS-ob-KjM" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="sSz-1t-T4r"/>
-                <constraint firstItem="mFS-ob-KjM" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="vTk-7x-uWG"/>
+                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Wdp-Uq-eJw"/>
+                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="bQX-Ex-Ioa"/>
+                <constraint firstItem="5pz-EZ-lKf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eK3-oD-a1N"/>
+                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oci-nl-Q1N"/>
+                <constraint firstItem="5pz-EZ-lKf" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="ypd-rK-aK3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="changePartyButton" destination="3RQ-Xp-dsK" id="zgD-PV-HPD"/>
+                <outlet property="partiesListContainer" destination="5pz-EZ-lKf" id="dmF-wM-MTc"/>
                 <outlet property="partyInviteContainer" destination="9Hr-Mt-URK" id="XfG-6P-tH3"/>
-                <outlet property="settingsButtonsStack" destination="mFS-ob-KjM" id="v8n-I2-5bd"/>
+                <outlet property="settingsButtonsStack" destination="fEv-6Y-5Yt" id="dQU-4n-Roc"/>
+                <outlet property="tableView" destination="xJl-wq-f7p" id="k1t-QC-pEP"/>
             </connections>
-            <point key="canvasLocation" x="20.5" y="-96"/>
+            <point key="canvasLocation" x="-57" y="-126"/>
         </view>
     </objects>
 </document>

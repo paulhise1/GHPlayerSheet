@@ -28,6 +28,10 @@ class HubViewModel {
         delegate?.didSetActiveParty(activeParty: party)
     }
     
+    func deleteParty(party: Party) {
+        player?.deleteParty(party: party)
+    }
+    
     func activeParty() -> Party? {
         guard let party = player?.activeParty() else { return nil }
         return party
@@ -57,7 +61,6 @@ class HubViewModel {
         guard let classType = player?.activeCharacter()?.classType, let playerImage = ClassTypeData.colorIcon(for: (classType)) else { return UIImage() }
         return playerImage
     }
-
     
     func addCharacterToPlayer(character: Character) {
         guard let player = player else { return }
@@ -65,10 +68,16 @@ class HubViewModel {
         setActiveCharacter(character: character)
     }
     
-    func setActiveCharacter(character: Character){
+    func setActiveParty(_ party: Party) {
+        guard let player = player else { return }
+        player.changePartyToActive(party)
+        saveChangesToPlayer()
+    }
+    
+    func setActiveCharacter(character: Character) {
         guard let player = player else { return }
         player.changeCharacterToActive(character: character)
-        playerDatasource?.update(model: player)
+        saveChangesToPlayer()
     }
     
     func ownedCharacters() -> [Character] {
@@ -76,7 +85,7 @@ class HubViewModel {
         return owned
     }
     
-    func writePlayerToDatasourceToSaveActiveCharacter() {
+    func saveChangesToPlayer() {
         guard let player = player else { return }
         playerDatasource?.update(model: player)
     }

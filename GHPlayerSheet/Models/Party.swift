@@ -1,6 +1,7 @@
 import Foundation
 
 class Party: Codable {
+    
     var name: String
     var active: Bool
     

@@ -188,6 +188,16 @@ class HubViewController: UIViewController {
         return min(maxWidth, ccViewWidth) + padding
     }
 
+    func createPartyWithName(_ name: String) {
+        guard name != "" else { return }
+        viewModel?.createParty(partyName: name)
+        settingsViewUpdateParties()
+    }
+    
+    func settingsViewUpdateParties() {
+        guard let parties = viewModel?.player?.partyArray() else { return }
+        partySettingsView?.updateParties(parties: parties)
+    }
     
     //MARK: - setup view methods
     private func setupAddCharactersView() {
@@ -215,8 +225,11 @@ class HubViewController: UIViewController {
         partySettingsView.frame = partySettingsContainer.bounds
         partySettingsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         partySettingsContainer.addSubview(partySettingsView)
-        partySettingsView.configure(partyName: viewModel?.activeParty()?.name)
         partySettingsView.delegate = self
+        guard let parties = viewModel?.player?.partyArray() else {
+            partySettingsView.configure(parties: nil)
+            return }
+        partySettingsView.configure(parties: parties)
     }
 }
 
@@ -224,17 +237,29 @@ extension HubViewController: HubViewModelDelegate {
     func didSetActiveParty(activeParty: Party) {
         guard let viewModel = viewModel, let name = viewModel.activeParty()?.name else { return }
         partyNameButton.setTitle("  \(name)  ", for: .normal)
+        settingsViewUpdateParties()
     }
 }
 
 extension HubViewController: PartySettingsViewDelegate {
-    func didTapCreateParty() {
+    func
+        didSelectParty(_ party: Party) {
+        viewModel?.setActiveParty(party)
+        setPartyNameButtonLabel()
+    }
+    
+    func didDeleteParty(party: Party) {
+        viewModel?.deleteParty(party: party)
+        settingsViewUpdateParties()
+    }
+    
+    func didChooseCreateParty() {
         addBlurEffect()
         partyCreationTextfield()
     }
     
     func didJoinParty(partyName: String) {
-        viewModel?.createParty(partyName: partyName)
+        createPartyWithName(partyName)
     }
     
 }
@@ -270,10 +295,11 @@ extension HubViewController: UITextFieldDelegate {
         guard let textField = self.textField else { return }
         textField.frame = frame
         textField.delegate = self
-        textField.backgroundColor = UIColor(white: 0, alpha: 0.2)
+        textField.backgroundColor = UIColor(white: 0, alpha: 0.5)
         textField.returnKeyType = .done
         textField.font = FontConstants.characterSheetNameText
         textField.placeholder = Constant.partyNamePlaceholder
+        textField.textColor = UIColor.flatWhite()
         textField.becomeFirstResponder()
         view.addSubview(textField)
     }
@@ -286,12 +312,6 @@ extension HubViewController: UITextFieldDelegate {
         removeBlurEffect()
         textField.endEditing(true)
         return true
-    }
-    
-    func createPartyWithName(_ name: String) {
-        guard name != "" else { return }
-        viewModel?.createParty(partyName: name)
-        partySettingsView?.updatePartyName(partyName: name)
     }
 }
 

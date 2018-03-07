@@ -30,6 +30,8 @@
 		1E30438020271E7C008D6B07 /* ScenarioLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */; };
 		1E30439820273B6C008D6B07 /* CharacterCreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E30439720273B6C008D6B07 /* CharacterCreationView.xib */; };
 		1E30439A202740A8008D6B07 /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E304399202740A8008D6B07 /* CharacterCreationView.swift */; };
+		1E366544204F7C6800A0947B /* SingleLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E366543204F7C6800A0947B /* SingleLabelTableViewCell.xib */; };
+		1E366546204F7C8700A0947B /* SingleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E366545204F7C8700A0947B /* SingleLabelTableViewCell.swift */; };
 		1E4900012035472400DB1F9B /* ScenarioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4900002035472400DB1F9B /* ScenarioPlayer.swift */; };
 		1E49FFFF203546EE00DB1F9B /* ScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */; };
 		1E4BB9432049449C000C6F94 /* MPCPartyInviteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BB9422049449C000C6F94 /* MPCPartyInviteService.swift */; };
@@ -199,6 +201,8 @@
 		1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioLobbyViewController.swift; sourceTree = "<group>"; };
 		1E30439720273B6C008D6B07 /* CharacterCreationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCreationView.xib; sourceTree = "<group>"; };
 		1E304399202740A8008D6B07 /* CharacterCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
+		1E366543204F7C6800A0947B /* SingleLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleLabelTableViewCell.xib; sourceTree = "<group>"; };
+		1E366545204F7C8700A0947B /* SingleLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		1E4900002035472400DB1F9B /* ScenarioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioPlayer.swift; sourceTree = "<group>"; };
 		1E49FFFE203546EE00DB1F9B /* ScenarioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioService.swift; sourceTree = "<group>"; };
 		1E4BB9422049449C000C6F94 /* MPCPartyInviteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCPartyInviteService.swift; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 				1E4BB94620495F42000C6F94 /* PartyInviteView.xib */,
 				1E9627F2204E2525000469AA /* PartySettingsView.xib */,
 				1E9627F4204E253F000469AA /* PartySettingsView.swift */,
+				1E366543204F7C6800A0947B /* SingleLabelTableViewCell.xib */,
+				1E366545204F7C8700A0947B /* SingleLabelTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -732,6 +738,7 @@
 				1E1F61D8203E4557002B7A09 /* emptyBox.png in Resources */,
 				1E038275201AC33C00C6AB12 /* CheckmarksView.xib in Resources */,
 				1ECF00D82007106400C2E11D /* Assets.xcassets in Resources */,
+				1E366544204F7C6800A0947B /* SingleLabelTableViewCell.xib in Resources */,
 				1EEE7330202D897B00A78C97 /* tinkerer.png in Resources */,
 				1EB346F92047C99100473E8F /* checkedBoxGreen.png in Resources */,
 				1EEE7359202D92A000A78C97 /* spellweaverSymbol.png in Resources */,
@@ -912,6 +919,7 @@
 				1E1103B0203104DB004DD502 /* Player.swift in Sources */,
 				1EA436662033CB5300F2B35F /* ChangeCharacterView.swift in Sources */,
 				1ECF00E52007130B00C2E11D /* Character.swift in Sources */,
+				1E366546204F7C8700A0947B /* SingleLabelTableViewCell.swift in Sources */,
 				1E1908AB204A46A10006EAD2 /* PartyInviteService.swift in Sources */,
 				1EA95A3A20188FBA0065A136 /* ColorConstants.swift in Sources */,
 				1E209E50201A1AA900A4986A /* Perk.swift in Sources */,

@@ -54,6 +54,10 @@ class Player: Codable, ModelProtocol {
         return nil
     }
     
+    func partyArray() -> [Party]? {
+        return parties
+    }
+    
     func createPartyWithName(_ partyName: String) {
         let party = Party(name: partyName, active: true)
         addPartyToParties(party: party)
