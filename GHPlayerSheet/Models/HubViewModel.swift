@@ -30,6 +30,7 @@ class HubViewModel {
     
     func deleteParty(party: Party) {
         player?.deleteParty(party: party)
+        saveChangesToPlayer()
     }
     
     func activeParty() -> Party? {

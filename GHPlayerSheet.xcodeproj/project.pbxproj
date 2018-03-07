@@ -42,6 +42,7 @@
 		1E76DF55204CE96700929317 /* pirataPlusSign.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E76DF54204CE96600929317 /* pirataPlusSign.png */; };
 		1E76DF59204D0A0F00929317 /* pirataPlusSignWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E76DF58204D0A0E00929317 /* pirataPlusSignWhite.png */; };
 		1E76DF5B204D0AAD00929317 /* changeCharacterWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E76DF5A204D0AAC00929317 /* changeCharacterWhite.png */; };
+		1E7F0D49204FE35C000C45DD /* bannerBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7F0D48204FE35A000C45DD /* bannerBottom.png */; };
 		1E83F71A2010661C000AAECD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E83F7192010661C000AAECD /* NotesViewController.swift */; };
 		1E8D3A43202DBC830040E15B /* hvcbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D3A42202DBC830040E15B /* hvcbackground.png */; };
 		1E8D6ECE203ADB9D004FD293 /* healthSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */; };
@@ -76,7 +77,6 @@
 		1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */; };
 		1E95EF38203438ED00BB0123 /* scoundrelColorSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */; };
 		1E9627EF204D3E15000469AA /* cardTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9627EE204D3E14000469AA /* cardTop.png */; };
-		1E9627F1204D64F7000469AA /* bannerRail.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9627F0204D64F5000469AA /* bannerRail.png */; };
 		1E9627F3204E2525000469AA /* PartySettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9627F2204E2525000469AA /* PartySettingsView.xib */; };
 		1E9627F5204E253F000469AA /* PartySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9627F4204E253F000469AA /* PartySettingsView.swift */; };
 		1E9627F7204E46D0000469AA /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9627F6204E46D0000469AA /* Party.swift */; };
@@ -213,6 +213,7 @@
 		1E76DF54204CE96600929317 /* pirataPlusSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pirataPlusSign.png; sourceTree = "<group>"; };
 		1E76DF58204D0A0E00929317 /* pirataPlusSignWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pirataPlusSignWhite.png; sourceTree = "<group>"; };
 		1E76DF5A204D0AAC00929317 /* changeCharacterWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeCharacterWhite.png; sourceTree = "<group>"; };
+		1E7F0D48204FE35A000C45DD /* bannerBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerBottom.png; sourceTree = "<group>"; };
 		1E83F7192010661C000AAECD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		1E8D3A42202DBC830040E15B /* hvcbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hvcbackground.png; sourceTree = "<group>"; };
 		1E8D6ECC203ADB9C004FD293 /* healthSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthSymbol.png; sourceTree = "<group>"; };
@@ -247,7 +248,6 @@
 		1E95EF26203438ED00BB0123 /* sunkeeperColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunkeeperColorSymbol.png; sourceTree = "<group>"; };
 		1E95EF27203438ED00BB0123 /* scoundrelColorSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoundrelColorSymbol.png; sourceTree = "<group>"; };
 		1E9627EE204D3E14000469AA /* cardTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardTop.png; sourceTree = "<group>"; };
-		1E9627F0204D64F5000469AA /* bannerRail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerRail.png; sourceTree = "<group>"; };
 		1E9627F2204E2525000469AA /* PartySettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartySettingsView.xib; sourceTree = "<group>"; };
 		1E9627F4204E253F000469AA /* PartySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySettingsView.swift; sourceTree = "<group>"; };
 		1E9627F6204E46D0000469AA /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
@@ -468,11 +468,11 @@
 		1E1B82E1200F07CA002D6E01 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1E7F0D48204FE35A000C45DD /* bannerBottom.png */,
 				1E1F61D1203D90C6002B7A09 /* canvasBackground.png */,
 				1E9627EE204D3E14000469AA /* cardTop.png */,
 				1EBE01612036E5DE005F4F9F /* changeCharacter.png */,
 				1E76DF5A204D0AAC00929317 /* changeCharacterWhite.png */,
-				1E9627F0204D64F5000469AA /* bannerRail.png */,
 				1E1F61D3203E439C002B7A09 /* checkedBox.png */,
 				1EB346F72047C98E00473E8F /* checkedBoxGreen.png */,
 				1EEE72DB202D894500A78C97 /* ClassImages */,
@@ -750,7 +750,6 @@
 				1E95EF36203438ED00BB0123 /* beasttyrantColorSymbol.png in Resources */,
 				1EBE01622036E5DF005F4F9F /* changeCharacter.png in Resources */,
 				1E8D6EDB203CF79B004FD293 /* lootSymbolShadow.png in Resources */,
-				1E9627F1204D64F7000469AA /* bannerRail.png in Resources */,
 				1EA938E02015A71F00B070B4 /* plusImage.png in Resources */,
 				1ED412D02024633A004A7791 /* ghcard4.jpg in Resources */,
 				1EEE735E202D92A000A78C97 /* berserkerSymbol.png in Resources */,
@@ -790,6 +789,7 @@
 				1ECF00D62007106400C2E11D /* Main.storyboard in Resources */,
 				1EEE735B202D92A000A78C97 /* elementalistSymbol.png in Resources */,
 				1EA436642033CA9800F2B35F /* soothsingerSymbol.png in Resources */,
+				1E7F0D49204FE35C000C45DD /* bannerBottom.png in Resources */,
 				1E95EF37203438ED00BB0123 /* sunkeeperColorSymbol.png in Resources */,
 				1EA938DE2015A71A00B070B4 /* minusImage.png in Resources */,
 				1E9627EF204D3E15000469AA /* cardTop.png in Resources */,

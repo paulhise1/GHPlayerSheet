@@ -22,20 +22,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hr-Mt-URK" userLabel="Party Invite Container">
-                    <rect key="frame" x="-1" y="-1" width="345.5" height="368.5"/>
+                    <rect key="frame" x="-1" y="0.0" width="345.5" height="368"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pz-EZ-lKf" userLabel="Parties List Container">
                     <rect key="frame" x="-0.5" y="0.0" width="345" height="368"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xJl-wq-f7p">
-                            <rect key="frame" x="0.0" y="10" width="345" height="358"/>
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="368"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
                     <constraints>
                         <constraint firstItem="xJl-wq-f7p" firstAttribute="centerX" secondItem="5pz-EZ-lKf" secondAttribute="centerX" id="0OY-CQ-5r1"/>
                         <constraint firstItem="xJl-wq-f7p" firstAttribute="width" secondItem="5pz-EZ-lKf" secondAttribute="width" id="2bj-fz-tMd"/>
-                        <constraint firstItem="xJl-wq-f7p" firstAttribute="top" secondItem="5pz-EZ-lKf" secondAttribute="top" constant="10" id="bRl-nc-Hvl"/>
+                        <constraint firstItem="xJl-wq-f7p" firstAttribute="top" secondItem="5pz-EZ-lKf" secondAttribute="top" id="bRl-nc-Hvl"/>
                         <constraint firstAttribute="bottom" secondItem="xJl-wq-f7p" secondAttribute="bottom" id="sL0-kC-LPs"/>
                     </constraints>
                 </view>
@@ -82,16 +82,16 @@
             </subviews>
             <constraints>
                 <constraint firstItem="5pz-EZ-lKf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="19H-oG-qd4"/>
-                <constraint firstItem="9Hr-Mt-URK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3cG-D7-Ce5"/>
-                <constraint firstItem="5pz-EZ-lKf" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Bqh-Sh-cy6"/>
+                <constraint firstAttribute="bottom" secondItem="9Hr-Mt-URK" secondAttribute="bottom" id="8KZ-a3-9MT"/>
                 <constraint firstItem="9Hr-Mt-URK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C7p-VF-brs"/>
+                <constraint firstItem="5pz-EZ-lKf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E6f-D2-1uu"/>
+                <constraint firstAttribute="bottom" secondItem="fEv-6Y-5Yt" secondAttribute="bottom" id="JgY-84-451"/>
+                <constraint firstItem="9Hr-Mt-URK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Jlf-OI-VE0"/>
                 <constraint firstItem="fEv-6Y-5Yt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M2y-HI-HAt"/>
-                <constraint firstItem="9Hr-Mt-URK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="OPP-zI-Pu3"/>
                 <constraint firstItem="9Hr-Mt-URK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="TjJ-6a-VRa"/>
                 <constraint firstItem="fEv-6Y-5Yt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Wdp-Uq-eJw"/>
-                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="bQX-Ex-Ioa"/>
-                <constraint firstItem="5pz-EZ-lKf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eK3-oD-a1N"/>
-                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oci-nl-Q1N"/>
+                <constraint firstItem="fEv-6Y-5Yt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZdP-tP-vCv"/>
+                <constraint firstAttribute="bottom" secondItem="5pz-EZ-lKf" secondAttribute="bottom" id="mzS-nz-xWd"/>
                 <constraint firstItem="5pz-EZ-lKf" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="ypd-rK-aK3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

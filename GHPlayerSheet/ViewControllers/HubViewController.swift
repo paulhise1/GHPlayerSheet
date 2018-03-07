@@ -16,7 +16,12 @@ class HubViewController: UIViewController {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    @IBOutlet weak var partyNameButton: UIButton!
+    @IBOutlet weak var partyNameButton: UIButton! {
+        didSet {
+            partyNameButton.layer.cornerRadius = 4
+            partyNameButton.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var hidePartyStatHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var characterImageView: UIImageView! 
