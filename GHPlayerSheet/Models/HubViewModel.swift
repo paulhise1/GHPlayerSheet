@@ -73,6 +73,7 @@ class HubViewModel {
         guard let player = player else { return }
         player.changePartyToActive(party)
         saveChangesToPlayer()
+        delegate?.didSetActiveParty(activeParty: party)
     }
     
     func setActiveCharacter(character: Character) {

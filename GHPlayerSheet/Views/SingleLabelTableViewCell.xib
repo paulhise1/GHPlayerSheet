@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7Q-ym-UuU">
-                        <rect key="frame" x="0.0" y="-0.5" width="375" height="44"/>
+                        <rect key="frame" x="19" y="-0.5" width="337.5" height="44"/>
                         <fontDescription key="fontDescription" name="HighTowerText-Reg" family="High Tower Text" pointSize="20"/>
                         <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +34,7 @@
                 <constraints>
                     <constraint firstItem="r7Q-ym-UuU" firstAttribute="height" secondItem="RNY-od-9tO" secondAttribute="height" id="AM7-lA-eQu"/>
                     <constraint firstItem="r7Q-ym-UuU" firstAttribute="centerX" secondItem="RNY-od-9tO" secondAttribute="centerX" id="PxM-cr-Jd2"/>
-                    <constraint firstItem="r7Q-ym-UuU" firstAttribute="width" secondItem="RNY-od-9tO" secondAttribute="width" id="klH-rR-r4v"/>
+                    <constraint firstItem="r7Q-ym-UuU" firstAttribute="width" secondItem="RNY-od-9tO" secondAttribute="width" multiplier="0.9" id="klH-rR-r4v"/>
                     <constraint firstItem="r7Q-ym-UuU" firstAttribute="centerY" secondItem="RNY-od-9tO" secondAttribute="centerY" id="z5v-IB-o2f"/>
                 </constraints>
             </tableViewCellContentView>

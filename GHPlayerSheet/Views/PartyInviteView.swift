@@ -51,11 +51,13 @@ class PartyInviteView: UIView {
     private func broadcastInvite() {
         guard let partyName = partyName else { return }
         viewModel?.broadcastPartyInvite(partyName: partyName)
-        partyInviteMessage.text = Constant.broadcastPartyInviteMessage
+        partyInviteMessage.text = "\(Constant.broadcastPartyInviteMessage)\n\n Party: \(partyName)"
+        partyInviteMessage.textColor = UIColor.flatWatermelon()
         InvitationAnswerButtonContainer.isHidden = true
     }
     
     private func searchForParties() {
+        partyInviteMessage.textColor = UIColor.flatMint()
         partyInviteMessage.text = Constant.joinMessage
         viewModel?.beginAcceptingInvites()
     }

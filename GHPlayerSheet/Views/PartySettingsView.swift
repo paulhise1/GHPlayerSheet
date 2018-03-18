@@ -10,7 +10,7 @@ protocol PartySettingsViewDelegate: class {
 class PartySettingsView: UIView {
 
     struct Constant {
-        static let tableViewCellHeight: CGFloat = 25
+        static let tableViewCellHeight: CGFloat = 45
         static let singleLabelTextViewCell = "singleLabelTextViewCell"
         static let tableViewNibName = String(describing: SingleLabelTableViewCell.self)
     }
@@ -84,6 +84,10 @@ class PartySettingsView: UIView {
         return nil
     }
     
+    private func partiesWithoutActiveParty() -> [Party] {
+        return parties.filter{ $0.active == false }
+    }
+    
     private func setupPartyInviteView() {
         settingsButtonsStack.isHidden = true
         bringSubview(toFront: partyInviteContainer)
@@ -114,11 +118,12 @@ extension PartySettingsView: PartyInviteViewDelegate {
 
 extension PartySettingsView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return parties.count
+        return partiesWithoutActiveParty().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.singleLabelTextViewCell, for: indexPath) as! SingleLabelTableViewCell
+        let parties = partiesWithoutActiveParty()
         cell.configureLabel(text: parties[indexPath.row].name)
         cell.contentView.backgroundColor = .clear
         cell.backgroundColor = .clear
