@@ -20,7 +20,7 @@ struct Scenario {
         let scenario1 = Scenario(number: "1", name: "Black Barrow", requirements: "None", goal: "Kill all enemies")
         let scenario2 = Scenario(number: "2", name: "Barrow Lair", requirements: "First Steps (Party) COMPLETE", goal: "Kill the Bandit Commander and all revealed enemies")
         let scenario3 = Scenario(number: "3", name: "Inox Encampment", requirements: "The Merchant Flees (Global) INCOMPLETE", goal: "Kill a number of enemies equal to five times the number of characters")
-        let scenario4 = Scenario(number: "4", name: "Crypt of the Damned", requirements: "None", goal: "Kill all enemies")
+        let scenario4 = Scenario(number: "4", name: " `      of the Damned", requirements: "None", goal: "Kill all enemies")
         let scenario5 = Scenario(number: "5", name: "Ruinous Crypt", requirements: "None", goal: "Kill all enemies")
         let scenario6 = Scenario(number: "6", name: "Decaying Crypt", requirements: "None", goal: "Reveal the M tile and kill all revealed enemies")
         let scenario7 = Scenario(number: "7", name: "Vibrant Grotto", requirements: "The Power of Enhancement (Global) and The Merchant Flees (Global) COMPLETE", goal: "Loot all treasure tiles")

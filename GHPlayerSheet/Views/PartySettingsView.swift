@@ -13,6 +13,8 @@ class PartySettingsView: UIView {
         static let tableViewCellHeight: CGFloat = 45
         static let singleLabelTextViewCell = "singleLabelTextViewCell"
         static let tableViewNibName = String(describing: SingleLabelTableViewCell.self)
+        static let changePartyButtonTitle = "Change"
+        static let deletePartyButtonTitle = "Delete"
     }
     
     @IBOutlet weak var partiesListContainer: UIView!
@@ -29,12 +31,15 @@ class PartySettingsView: UIView {
     func configure(parties: [Party]?) {
         partiesListContainer.isHidden = true
         guard let parties = parties else { return }
-        changePartyButton.isEnabled = true
         self.parties = parties
+        setChangePartyButton()
     }
     
     func updateParties(parties: [Party]) {
         self.parties = parties
+        setChangePartyButton()
+        guard parties.count == 1 else { return }
+        removePartiesTableView()
     }
     
     func endPartyServiceConnections() {
@@ -42,7 +47,13 @@ class PartySettingsView: UIView {
     }
     
     @IBAction func changePartyButtonTapped(_ sender: Any) {
-        showpartiesTableView()
+        let title = changePartyButtonTitle()
+        if title == Constant.changePartyButtonTitle {
+            showpartiesTableView()
+        } else if title == Constant.deletePartyButtonTitle {
+            guard let party = parties.first else { return }
+            delegate?.didDeleteParty(party: party)
+        }
     }
     
     @IBAction func shareButtonTapped(_ sender: Any) {
@@ -51,6 +62,25 @@ class PartySettingsView: UIView {
     
     @IBAction func createPartyButtonTapped(_ sender: Any) {
         delegate?.didChooseCreateParty()
+    }
+    
+    private func changePartyButtonTitle() -> String {
+        guard let title = changePartyButton.title(for: .normal) else { return "" }
+        return title
+    }
+    
+    private func setChangePartyButton() {
+        if parties.count == 0 {
+            changePartyButton.isHidden = true
+        } else if parties.count == 1 {
+            changePartyButton.isHidden = false
+            changePartyButton.isEnabled = true
+            changePartyButton.setTitle(Constant.deletePartyButtonTitle, for: .normal)
+        } else if parties.count > 1 {
+            changePartyButton.isHidden = false
+            changePartyButton.isEnabled = true
+            changePartyButton.setTitle(Constant.changePartyButtonTitle, for: .normal)
+        }
     }
     
     private func showpartiesTableView() {
@@ -142,10 +172,9 @@ extension PartySettingsView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-            let party = parties[indexPath.row]
-            delegate?.didDeleteParty(party: party)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
+        guard (editingStyle == .delete) else { return }
+        let party = parties[indexPath.row]
+        delegate?.didDeleteParty(party: party)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

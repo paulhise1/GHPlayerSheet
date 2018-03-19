@@ -193,13 +193,13 @@ class HubViewController: UIViewController {
         return min(maxWidth, ccViewWidth) + padding
     }
 
-    func createPartyWithName(_ name: String) {
+    private func createPartyWithName(_ name: String) {
         guard name != "" else { return }
         viewModel?.createParty(partyName: name)
         settingsViewUpdateParties()
     }
     
-    func settingsViewUpdateParties() {
+    private func settingsViewUpdateParties() {
         guard let parties = viewModel?.player?.partyArray() else { return }
         partySettingsView?.updateParties(parties: parties)
     }
@@ -224,7 +224,7 @@ class HubViewController: UIViewController {
         changeCharacterView.configure(ownedCharacters: ownedCharacters, activeCharacter: active)
     }
     
-    func setupPartySettingsView() {
+    private func setupPartySettingsView() {
         partySettingsView = Bundle.main.loadNibNamed(String(describing: PartySettingsView.self), owner: self, options: nil)?.first as? PartySettingsView
         guard let partySettingsView = partySettingsView else { return }
         partySettingsView.frame = partySettingsContainer.bounds
@@ -239,6 +239,10 @@ class HubViewController: UIViewController {
 }
 
 extension HubViewController: HubViewModelDelegate {
+    func didDeleteActiveParty() {
+        setPartyNameButtonLabel()
+    }
+    
     func didSetActiveParty(activeParty: Party) {
         guard let viewModel = viewModel, let name = viewModel.activeParty()?.name else { return }
         partyNameButton.setTitle("  \(name)  ", for: .normal)
@@ -256,6 +260,7 @@ extension HubViewController: PartySettingsViewDelegate {
     func didDeleteParty(party: Party) {
         viewModel?.deleteParty(party: party)
         settingsViewUpdateParties()
+        setPartyNameButtonLabel()
     }
     
     func didChooseCreateParty() {

@@ -3,6 +3,7 @@ import FirebaseDatabase
 
 protocol HubViewModelDelegate: class {
     func didSetActiveParty(activeParty: Party)
+    func didDeleteActiveParty()
 }
 
 class HubViewModel {
@@ -31,6 +32,8 @@ class HubViewModel {
     func deleteParty(party: Party) {
         player?.deleteParty(party: party)
         saveChangesToPlayer()
+        guard player?.activeParty() == nil else { return }
+        delegate?.didDeleteActiveParty()
     }
     
     func activeParty() -> Party? {
