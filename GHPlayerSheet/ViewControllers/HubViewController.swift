@@ -45,6 +45,7 @@ class HubViewController: UIViewController {
     @IBOutlet weak var characterInfoLabel: UILabel!
     
     @IBOutlet weak var partySettingsContainer: UIView!
+    @IBOutlet weak var bannerBottomImageView: UIImageView!
     private var partySettingsView: PartySettingsView?
     
     private var viewModel: HubViewModel?
@@ -78,6 +79,7 @@ class HubViewController: UIViewController {
 
     private func showPartySettings() {
         setupPartySettingsView()
+        addBlurBehindPartySettings()
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.hidePartyStatHeightConstraint.priority = UILayoutPriority(rawValue: 200)
@@ -85,7 +87,15 @@ class HubViewController: UIViewController {
         })
     }
     
+    private func addBlurBehindPartySettings() {
+        addBlurEffect()
+        view.bringSubview(toFront: partyNameButton)
+        view.bringSubview(toFront: partySettingsContainer)
+        view.bringSubview(toFront: bannerBottomImageView)
+    }
+    
     private func hidePartySettings() {
+        removeBlurEffect()
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
             self.hidePartyStatHeightConstraint.priority = UILayoutPriority(rawValue: 999)
@@ -264,8 +274,9 @@ extension HubViewController: PartySettingsViewDelegate {
     }
     
     func didChooseCreateParty() {
+        removeBlurEffect()
         addBlurEffect()
-        partyCreationTextfield()
+        displayPartyCreationTextfield()
     }
     
     func didJoinParty(partyName: String) {
@@ -298,7 +309,7 @@ extension HubViewController: AddCharactersViewDelegate, ChangeCharacterViewDeleg
 }
 
 extension HubViewController: UITextFieldDelegate {
-    func partyCreationTextfield() {
+    func displayPartyCreationTextfield() {
         self.textField = UITextField()
         let width: CGFloat = 200.0
         let frame = CGRect(x: view.frame.size.width/2-width/2, y: 100, width: width, height: 40)
@@ -318,10 +329,16 @@ extension HubViewController: UITextFieldDelegate {
         removeBlurEffect()
         guard let textFieldText = textField.text else { return true }
         createPartyWithName(textFieldText)
-        textField.removeFromSuperview()
+        removePartyNameTextfield()
         removeBlurEffect()
         textField.endEditing(true)
         return true
+    }
+    
+    private func removePartyNameTextfield() {
+        guard let textField = self.textField else { return }
+        textField.removeFromSuperview()
+        self.textField = nil
     }
 }
 
@@ -340,9 +357,14 @@ extension HubViewController {
     }
     
     @objc func dismissActiveView(sender : UITapGestureRecognizer) {
+        guard self.textField == nil else {
+            removePartyNameTextfield()
+            removeBlurEffect()
+            addBlurBehindPartySettings()
+            return }
         hideChangeCharacter()
         hideAddCharacter()
-        textField?.removeFromSuperview()
+        hidePartySettings()
         removeBlurEffect()
     }
     

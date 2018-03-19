@@ -209,6 +209,7 @@
                     <connections>
                         <outlet property="addCharacterCollectionViewContainer" destination="8ru-Af-BxK" id="owA-eu-ItS"/>
                         <outlet property="backgroundImage" destination="Job-Nb-JWh" id="kF8-bR-gJj"/>
+                        <outlet property="bannerBottomImageView" destination="Pv2-qG-eWD" id="5bC-OF-G7a"/>
                         <outlet property="changeCharacterButtonContainer" destination="sW8-Fd-ld7" id="sU1-kv-XgZ"/>
                         <outlet property="changeCharacterCollectionViewContainer" destination="YK6-uG-x8k" id="Njl-to-Nxt"/>
                         <outlet property="characterContainer" destination="EZa-tx-ViR" id="gYw-oN-WTs"/>
