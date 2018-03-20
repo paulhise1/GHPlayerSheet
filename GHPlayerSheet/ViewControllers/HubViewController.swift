@@ -330,8 +330,8 @@ extension HubViewController: UITextFieldDelegate {
         guard let textFieldText = textField.text else { return true }
         createPartyWithName(textFieldText)
         removePartyNameTextfield()
-        removeBlurEffect()
         textField.endEditing(true)
+        addBlurBehindPartySettings()
         return true
     }
     

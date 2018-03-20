@@ -9,7 +9,7 @@ class PartyInviteView: UIView {
     
     struct Constant {
         static let broadcastPartyInviteMessage = "Broadcasting Party Invite"
-        static let joinMessage = "Searching For Party Invite"
+        static let joinMessage = "Searching For Party Invite From Nearby"
         static let partyInviteTableViewCell = "partyInviteTableViewCell"
         static let defaultMessageText = "Share your party or Join a friends."
     }
@@ -28,9 +28,14 @@ class PartyInviteView: UIView {
     func configure(partyName: String?) {
         self.viewModel = PartyInviteViewModel()
         self.viewModel?.delegate = self
-        self.partyName = partyName
-        partyInviteMessage.text = Constant.defaultMessageText
         InvitationAnswerButtonContainer.isHidden = true
+        if partyName != nil {
+            self.partyName = partyName
+            partyInviteMessage.text = Constant.defaultMessageText
+        } else if partyName == nil {
+            searchForParties()
+            partyShareButtonContainer.isHidden = true
+        }
     }
     
     @IBAction func sharePartyButtonTapped(_ sender: Any) {

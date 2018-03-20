@@ -101,6 +101,7 @@
                 <outlet property="partiesListContainer" destination="5pz-EZ-lKf" id="dmF-wM-MTc"/>
                 <outlet property="partyInviteContainer" destination="9Hr-Mt-URK" id="XfG-6P-tH3"/>
                 <outlet property="settingsButtonsStack" destination="fEv-6Y-5Yt" id="dQU-4n-Roc"/>
+                <outlet property="sharePartyButton" destination="mmi-Pf-RGN" id="d0S-Cs-wV8"/>
                 <outlet property="tableView" destination="xJl-wq-f7p" id="k1t-QC-pEP"/>
             </connections>
             <point key="canvasLocation" x="-57" y="-126"/>

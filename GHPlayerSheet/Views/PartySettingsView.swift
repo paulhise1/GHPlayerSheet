@@ -15,6 +15,8 @@ class PartySettingsView: UIView {
         static let tableViewNibName = String(describing: SingleLabelTableViewCell.self)
         static let changePartyButtonTitle = "Change"
         static let deletePartyButtonTitle = "Delete"
+        static let joinButtonTitle = "Join Party"
+        static let shareOrJoinButtonTitle = "Share or Join Party"
     }
     
     @IBOutlet weak var partiesListContainer: UIView!
@@ -22,6 +24,7 @@ class PartySettingsView: UIView {
     @IBOutlet weak var settingsButtonsStack: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changePartyButton: UIButton!
+    @IBOutlet weak var sharePartyButton: UIButton!
     
     weak var delegate: PartySettingsViewDelegate?
     
@@ -32,12 +35,12 @@ class PartySettingsView: UIView {
         partiesListContainer.isHidden = true
         guard let parties = parties else { return }
         self.parties = parties
-        setChangePartyButton()
+        setPartySettingsButtons()
     }
     
     func updateParties(parties: [Party]) {
         self.parties = parties
-        setChangePartyButton()
+        setPartySettingsButtons()
         guard parties.count == 1 else { return }
         removePartiesTableView()
     }
@@ -69,17 +72,20 @@ class PartySettingsView: UIView {
         return title
     }
     
-    private func setChangePartyButton() {
+    private func setPartySettingsButtons() {
         if parties.count == 0 {
             changePartyButton.isHidden = true
+            sharePartyButton.setTitle(Constant.joinButtonTitle, for: .normal)
         } else if parties.count == 1 {
             changePartyButton.isHidden = false
             changePartyButton.isEnabled = true
             changePartyButton.setTitle(Constant.deletePartyButtonTitle, for: .normal)
+            sharePartyButton.setTitle(Constant.shareOrJoinButtonTitle, for: .normal)
         } else if parties.count > 1 {
             changePartyButton.isHidden = false
             changePartyButton.isEnabled = true
             changePartyButton.setTitle(Constant.changePartyButtonTitle, for: .normal)
+            sharePartyButton.setTitle(Constant.shareOrJoinButtonTitle, for: .normal)
         }
     }
     
@@ -121,6 +127,10 @@ class PartySettingsView: UIView {
     private func setupPartyInviteView() {
         settingsButtonsStack.isHidden = true
         bringSubview(toFront: partyInviteContainer)
+        loadPartyInviteViewFromNib()
+    }
+    
+    private func loadPartyInviteViewFromNib() {
         partyInviteView = Bundle.main.loadNibNamed(String(describing: PartyInviteView.self), owner: self, options: nil)?.first as? PartyInviteView
         guard let partyInviteView = self.partyInviteView else { return }
         partyInviteView.frame = partyInviteContainer.bounds
