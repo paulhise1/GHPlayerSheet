@@ -25,6 +25,7 @@
 		1E209E462019F49F00A4986A /* CharacterSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */; };
 		1E209E482019FF8400A4986A /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E472019FF8400A4986A /* HubViewController.swift */; };
 		1E209E50201A1AA900A4986A /* Perk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E209E4F201A1AA900A4986A /* Perk.swift */; };
+		1E2111652065C4BF00552146 /* quartermasterColorSymbol copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2111642065C4BF00552146 /* quartermasterColorSymbol copy.png */; };
 		1E2CF3282010B946002335DF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF3272010B946002335DF /* NoteTableViewCell.swift */; };
 		1E2CF32A201162AA002335DF /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2CF329201162AA002335DF /* Note.swift */; };
 		1E30438020271E7C008D6B07 /* ScenarioLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */; };
@@ -186,6 +187,7 @@
 		1E209E452019F49F00A4986A /* CharacterSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetViewModel.swift; sourceTree = "<group>"; };
 		1E209E472019FF8400A4986A /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
 		1E209E4F201A1AA900A4986A /* Perk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perk.swift; sourceTree = "<group>"; };
+		1E2111642065C4BF00552146 /* quartermasterColorSymbol copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quartermasterColorSymbol copy.png"; sourceTree = "<group>"; };
 		1E2CF3272010B946002335DF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		1E2CF329201162AA002335DF /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1E30437F20271E7C008D6B07 /* ScenarioLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioLobbyViewController.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 		1EEE72DB202D894500A78C97 /* ClassImages */ = {
 			isa = PBXGroup;
 			children = (
+				1E2111642065C4BF00552146 /* quartermasterColorSymbol copy.png */,
 				1EEE72DE202D897000A78C97 /* beasttyrant.png */,
 				1E95EF25203438ED00BB0123 /* beasttyrantColorSymbol.png */,
 				1EB3470C204803C200473E8F /* beasttyrantFull.png */,
@@ -687,6 +690,7 @@
 				1EEE7362202D92A000A78C97 /* mindthiefSymbol.png in Resources */,
 				1EB3471D204803C300473E8F /* beasttyrantFull.png in Resources */,
 				1E95EF2C203438ED00BB0123 /* cragheartColorSymbol.png in Resources */,
+				1E2111652065C4BF00552146 /* quartermasterColorSymbol copy.png in Resources */,
 				1EA436612033CA9800F2B35F /* sunkeeper.png in Resources */,
 				1EB34726204833E500473E8F /* levelCrownWhite.png in Resources */,
 				1E8D6EE4203D33BB004FD293 /* scenarioSetup4.png in Resources */,
