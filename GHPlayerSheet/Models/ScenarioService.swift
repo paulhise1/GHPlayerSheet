@@ -12,7 +12,7 @@ protocol ScenarioService {
 protocol ScenarioServiceDelegate: class {
     // This is for live game scenarios
     func didRefreshPlayers(_ players: [ScenarioPlayer])
-    func didEndScenario(success: Bool)
+    func didEndScenario(success: Bool) 
     
     // This is for controllers dealing with creation
     func willCreateScenario(hostName: String)
